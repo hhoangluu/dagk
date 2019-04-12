@@ -27,3 +27,40 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  /* setup artical*/
+  article{
+    display: block;
+  }
+  div {
+    display: block;
+  }
+  .mostView {
+  width: 346px;
+  padding: 2px 2px 2px 0;
+  }
+  /*style post*/
+  .post {
+    padding: 0 10px 2px 0;
+    min-height: 80px;
+}
+/* style title post*/
+.title {
+  display: block;
+  color: #333;
+  padding: 0 0 5px;
+  margin: 0;
+}
+.title a {
+  color: #333;
+  font-weight: 600;
+}
+/* style image post*/
+.avatar {
+  float: left;
+  margin-right: 10px;
+  display: block;
+  position: relative;
+  width: 120px;
+  height: 90px;
+}
