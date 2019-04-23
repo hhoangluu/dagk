@@ -27,8 +27,6 @@ width: 85%;
 /*======================*/
 
 
-
-
 /*===========MENU=========== */
 a.active {
 background-color: #4CAF50;
@@ -36,17 +34,20 @@ color: white;
 }
 
 .Menu {
-width: 85%;
+width: 100%;
 display: flex;
 align-content: center;
 align-items: center;
+justify-content: center;
 flex-direction: column;
 background-color: #333;
 }
 
 
 .navbar {
-width: 100%;
+width: 85%;
+display: flex;
+align-content: center;
 overflow: hidden;
 background-color: #333;
 font-family: Arial;
