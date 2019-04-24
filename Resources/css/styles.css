@@ -10,17 +10,65 @@ font-size: 20px;
 width: 100%;
 color: #5a5a5a;
 background-color: #cdddf0;
-text-rendering: optimizeLegibility;
 
- 
 }
+
 body {
-display: flex;
-flex-direction: column;
-align-items: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid red;
+
 }
-body > .container {
-width: 85%;
+
+
+div.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: bold;
+  background-color: rgb(253, 253, 253);
+  border: 1px solid red;
+}
+
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+
+
+
+div.container > div.column-left {
+  width: 75%;
+}
+
+div.column-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: bold;
+  background-color: rgb(253, 253, 253);
+  border: 1px solid red;
 }
 
 
@@ -35,22 +83,31 @@ color: white;
 
 .Menu {
 width: 100%;
+display: none;
 display: flex;
 align-content: center;
 align-items: center;
 justify-content: center;
 flex-direction: column;
 background-color: #333;
+border: 1px solid red;
+
 }
 
 
+div.Menu > div.navbar {
+  width: 90%;
+}
+
 .navbar {
-width: 85%;
+width: 100%;
 display: flex;
 align-content: center;
 overflow: hidden;
 background-color: #333;
 font-family: Arial;
+border: 1px solid red;
+
 }
 
 /* Links inside the navbar */
@@ -157,12 +214,7 @@ font-size: 18px;
 /*======================*/
 
 
-.container {
-width: 100%;
-display: flex;
-background-color: rgb(253, 253, 253);
-flex-direction: column;
-}
+
 
 .content2 {
 width: 100%;
@@ -180,13 +232,23 @@ width: 100%;
 
 .labelItem > .label1 {
 font-size: 22px;
+height: 50px;
 font-weight: bold;
 }
 
-.labelItem > a.label2 {
-font-size: 22px;
-font-weight: bold;
+
+
+/*=========Content1=========*/
+
+
+.content1 .slide {
+  width: 40%;
 }
+
+
+
+
+/*======================*/
 
 
 /*=========NEWS=========*/
