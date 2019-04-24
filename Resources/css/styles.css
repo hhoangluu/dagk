@@ -263,3 +263,33 @@ border-radius: 6px;
 	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
 /*======================*/
+
+
+/*============POST========*/
+/*STYLELIST NAVMENU */
+.navMenu-post{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 100%;
+}
+.container > .content{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid blue;
+}
+.content1-post{
+  width: 70%;
+  border: 1px solid red;
+}
+.content2{
+  width: 30%;
+  border: 1px solid green;
+}
+.breadcrumb{
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*=====================*/
