@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -140,12 +135,12 @@
 
     </div>
 
-    <div class="container">
-        <div class="content">
+    <div class="container-post">
+        <div class="content-post">
             <div class="content1-post">
                 content1-post
                 <div class="navMenu-post" id="">
-                    <nav aria-label="breadcrumb" >
+                    <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="fa fa-home">Trang chủ</a></li>
                             <li class="breadcrumb-item"><a href="#">Văn hóa - Xã hội</a></li>
@@ -248,38 +243,165 @@
                     </div>
                 </div>
                 <div class="comments-form ts-grid-box">
-                        <h3 class="comment-reply-title">Đăng bình luận</h3>
-              
-                        <form role="form" class="ts-form" method="post" action="/van-hoa-xa-hoi/Doi-song/bai-bao/doi-la-ba-chu-t/comment">
-                          <div class="row">
+                    <h3 class="comment-reply-title">Đăng bình luận</h3>
+
+                    <form role="form" class="ts-form" method="post"
+                        action="/van-hoa-xa-hoi/Doi-song/bai-bao/doi-la-ba-chu-t/comment">
+                        <div class="row">
                             <div class="col-md-12">
-                              <div class="form-group">
-                                <textarea class="form-control msg-box" name="content" placeholder="Bình luận" rows="10" required=""></textarea>
-                              </div>
+                                <div class="form-group">
+                                    <textarea class="form-control msg-box" name="content" placeholder="Bình luận"
+                                        rows="10" required=""></textarea>
+                                </div>
                             </div>
-                          </div>
-                          <div class="clearfix">
+                        </div>
+                        <div class="clearfix">
                             <button class="comments-btn btn btn-primary" type="submit">Đăng bình luận</button>
-                          </div>
-                        </form>
-                      </div>
+                        </div>
+                    </form>
+                </div>
 
             </div>
-            
-            <div class="content2">Content2
 
+            <div class="content2-post">Content2
+                <div class="widgets ts-grid-box  widgets-populer-post">
+                    <h3 class="widget-title">Xem nhiều</h3>
+                    <div class="ts-overlay-style">
+                        <a class="item" href="/Doi-song/bai-bao/doi-la-ba-chu-t">
+                        </a>
+                        <div class="ts-post-thumb"><a class="item" href="/Doi-song/bai-bao/doi-la-ba-chu-t">
+                            </a><a href="/Doi-song/bai-bao/doi-la-ba-chu-t">
+                                <img class="img-fluid"
+                                    src="http://dev.cdn.sgt.tamminh.tech/sgt/1553674474147-4b809_e3.jpg"
+                                    alt="“Đời là ba chữ T”">
+                            </a>
+                        </div>
+                        <div class="overlay-post-content">
+                            <div class="post-content">
+                                <h3 class="post-title">
+                                    <a href="/Doi-song/bai-bao/doi-la-ba-chu-t">“Đời là ba chữ T”</a>
+                                </h3>
+                                <ul class="post-meta-info">
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        03/05/2019 09:47:30
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-
-            
-
+                    </div>
+                </div>
+                <h3 class="widget-title">Follow us</h3>
+                <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                        <div class="col-xs-2 col-sm-2">
+                          <a  style="color: #3B5998;"  href="#" class="btn btn-lg btn-block kpx_btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                            <i class="fa fa-facebook fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #00ACED;" href="#" class="btn btn-lg btn-block kpx_btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                            <i class="fa fa-twitter fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>  
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #C32F10;" href="#" class="btn btn-lg btn-block kpx_btn-google-plus" data-toggle="tooltip" data-placement="top" title="Google Plus">
+                            <i class="fa fa-google-plus fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>  
+                  </div><br>
+                <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #666666;" href="#" class="btn btn-lg btn-block kpx_btn-github" data-toggle="tooltip" data-placement="top" title="GitHub">
+                            <i class="fa fa-github fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #FF8800;" href="#" class="btn btn-lg btn-block kpx_btn-soundcloud" data-toggle="tooltip" data-placement="top" title="SoundCloud">
+                            <i class="fa fa-soundcloud fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>  
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #878787;" href="#" class="btn btn-lg btn-block kpx_btn-steam" data-toggle="tooltip" data-placement="top" title="Steam">
+                            <i class="fa fa-steam fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div> 
+                  </div><br>
+                  <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #CC2127;" href="#" class="btn btn-lg btn-block kpx_btn-pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest">
+                            <i class="fa fa-pinterest fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #1AB7EA;" href="#" class="btn btn-lg btn-block kpx_btn-vimeo" data-toggle="tooltip" data-placement="top" title="Vimeo">
+                            <i class="fa fa-vimeo-square fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div>  
+                        <div class="col-xs-2 col-sm-2">
+                          <a style="color: #C3000D;" href="#" class="btn btn-lg btn-block kpx_btn-lastfm" data-toggle="tooltip" data-placement="top" title="Lastfm">
+                            <i class="fa fa-lastfm fa-2x"></i>
+                            <span class="hidden-xs"></span>
+                          </a>
+                        </div> 
+                  </div><br>
+                  
             </div>
         </div>
     </div>
+    <footer class="ts-footer">
+
+        <div class="p-3 mb-2 bg-primary text-white">
+            <div class="col">
+                <img src="/resources/images/logoduoi.png">
+                <div class="text-light">Giấy phép Báo điện tử số: 2302/GP-BTTTT, cấp ngày 29/11/2012</div>
+            </div>
+
+            <div class="col text-light">
+                Tổng biên tập: Trần Minh Hùng.
+                <br>
+                Thư ký tòa soạn: Hồng Văn; Phó thư ký tòa soạn: Yến Dung.
+                <br>
+                Tòa soạn: Số 35 Nam Kỳ Khởi Nghĩa, Quận 1, Thành phố Hồ Chí Minh.
+                <br>
+                Điện thoại: (8428) 3829 5936; Fax: (8428) 3829 4294; Email: online@kinhtesaigon.vn
+                <br>
+                Thời báo Kinh tế Sài Gòn giữ bản quyền nội dung của trang web www.thesaigontimes.vn. Không được sử
+                dụng
+                lại nội
+                dung trên Thời báo Kinh tế Sài Gòn Online dưới mọi hình thức, trừ khi được Thời báo Kinh tế Sài Gòn
+                đồng
+                ý bằng
+                văn bản.
+                <br>
+                Trang ngoài sẽ được mở ra ở cửa sổ mới. Thời báo Kinh tế Sài Gòn Online không chịu trách nhiệm nội
+                dung
+                trang
+                ngoài.
+                <br>
+                Bản quyền thuộc về SaigonTimesGroup.
+            </div>
+        </div>
+
+    </footer>
 
 
-    </div>
+
 
 
 </body>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 </html>
