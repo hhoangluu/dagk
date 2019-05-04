@@ -19,67 +19,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px solid red;
-
+  background: #e0eaeb;
 }
-
-
-div.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-weight: bold;
-  background-color: rgb(253, 253, 253);
-  border: 1px solid red;
-}
-
-
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-
-
-
-div.container > div.column-left {
-  width: 75%;
-}
-
-div.column-left {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-weight: bold;
-  background-color: rgb(253, 253, 253);
-  border: 1px solid red;
-}
-
-
 /*======================*/
 
 
 /*===========MENU=========== */
-a.active {
-background-color: #4CAF50;
-color: white;
-}
 
 .Menu {
 width: 100%;
@@ -90,63 +35,61 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 background-color: #333;
-border: 1px solid red;
 
 }
 
 
-div.Menu > div.navbar {
-  width: 90%;
+div.Menu > div.navbarw3z {
+  width: 85%;
 }
 
-.navbar {
+.navbarw3 {
 width: 100%;
 display: flex;
 align-content: center;
+justify-content:center;
+font-size: 16px;
 overflow: hidden;
-background-color: #333;
-font-family: Arial;
-border: 1px solid red;
-
+padding: 0 0 10px 0;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
 }
 
-/* Links inside the navbar */
-.navbar a {
-float: left;
-font-size: 15px;
-color: white;
-text-align: center;
-padding: 14px 20px;
-text-decoration: none;
+div.home{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(75, 78, 240);
+  padding: 12px 10px 0 0 ;
+  font-weight: bold;
 }
 
-/* The dropdown MENU */
+  
+/* The dropdownw3 MENU */
 
-
-.dropdown {
+.dropdownw3 , div.home {
 float: left;
 overflow: hidden;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-font-size: 15px; 
+/* dropdownw3 button */
+.dropdownw3 .dropbtn {
+font-size: 16px; 
 border: none;
 outline: none;
 color: white;
-padding: 14px 12px;
+padding: 14px 10px;
 background-color: inherit;
-font-family: inherit; /* Important for vertical align on mobile phones */
+font-family: Arial, Helvetica, sans-serif;
 margin: 0; /* Important for vertical align on mobile phones */
 }
 
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+/* Add a red background color to navbarw3 links on hover */
+.navbarw3 .home:hover, .dropdownw3:hover .dropbtn {
 background-color: red;
 }
 
-/* Dropdown content (hidden by default) */
-.dropdown-content {
+/* dropdownw3 content (hidden by default) */
+.dropdownw3-contentw3 {
 display: none;
 position: absolute;
 background-color: #f9f9f9;
@@ -155,8 +98,8 @@ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
+/* Links inside the dropdownw3 */
+.dropdownw3-contentw3 a {
 float: none;
 color: black;
 padding: 12px 16px;
@@ -165,30 +108,57 @@ display: block;
 text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
+.test a:hover{color: red;}
+
+/* Add a grey background color to dropdownw3 links on hover */
+.dropdownw3-contentw3 a:hover {
 background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+/* Show the dropdownw3 menu on hover */
+.dropdownw3:hover .dropdownw3-contentw3 {
 display: block;
 }
 
 /* Style the search box inside the navigation bar */
-.navbar > .searchBar {
-
-width: 70%;
+.navbarw3 > .search-account {
+width: 100%;
 } 
+
+.search-account > .searchBar {
+  width: 70%;
+} 
+.search-account > .account {
+  width: auto;
+} 
+
+.search-account {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  } 
 
 .searchBar {
-width: 70%;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-content: center;
-align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
 } 
+
+.account {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+} 
+
 
 .searchBar> input[type=text] {
  width: 100%;
@@ -214,38 +184,101 @@ font-size: 18px;
 /*======================*/
 
 
+/*========CONTAINER======*/
 
-
-.content2 {
-width: 100%;
-display: flex;
-flex-direction: row;
+div.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-weight: bold;
+  margin-top: 2%;
+  padding: 0px;
 }
 
-.content2 > .mostView .content2 > .lastest .content2 > .topTopic {
-width: 30%;
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 85%;
+  }
+}
+
+
+div.container > div.column-left {
+  width: 75%;
+}
+
+div.column-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: bold;
+}
+
+
+
+div.container > div.column-right {
+  width: 25%;
+}
+
+div.column-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 1%;
+}
+
+/*==============*/
+
+
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-weight: bold;
+}
+
+.content > .mostView , .content > .lastest , .content > .topTopic {
+width: 33.333%;
 } 
 
-.mostView .lastest .topTopic{
+.mostView , .lastest , .topTopic{
 width: 100%;
 }
 
 .labelItem > .label1 {
-font-size: 22px;
-height: 50px;
+font-size: 16px;
+background-color: rgb(198, 205, 241);
 font-weight: bold;
+width: 95%;
 }
 
 
 
-/*=========Content1=========*/
+/*=========content=========*/
 
-
-.content1 .slide {
-  width: 40%;
+.highlights .slide {
+  width: 600px;
 }
-
-
 
 
 /*======================*/
@@ -259,7 +292,11 @@ font-weight: bold;
 padding: 0 10px 2px 0;
 min-height: 80px;
 font-size: 15px;
-margin: 10px 0;
+background-color: rgb(253, 253, 253);
+margin-right: 2%;
+margin-bottom: 4%;
+margin-top: 4%;
+padding: 5%;
 width: 95%;
 }
 
@@ -291,20 +328,10 @@ height: 90px;
 /*======================*/
 
 
-/*============CONTENT3========*/
-/*sections*/
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
-}
-
 /*column setup*/
 .col {
 float:left;
 margin: 1% 0 1% 1.6%;
-border: 1px solid rgba(17, 7, 7, 0.8);
-border-radius: 6px;
 }
 .col:first-child { margin-left: 0; }
 
@@ -327,26 +354,94 @@ border-radius: 6px;
 /*======================*/
 
 
+.column-right .widgets-socialButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.ts-footer {
+ padding: 25px 0 0 0;
+ display: flex;
+ width: 100%;
+ font-size: 15px;
+}
+.ts-footer  .col{
+  width: 49%;
+}
+
+
+
+
+/*============Right========*/
+
+h3.widget-title, .overlay-post-content a {
+  font-size: 25px;
+}
+
+div.column-right .widgets-populer-post {
+  background-color: rgb(253, 253, 253);
+  padding: 5%;
+  margin-bottom: 10%;
+}
+
+
+
+
+
+.col-xs-2 {
+  margin-left: 30px;
+
+}
+
+.col-xs-2 > a {
+  color: white;
+  font-size: 10px;
+  width: auto;
+  background: none;
+  padding: 20px 30px 20px 10px;
+}
+
+
+
+/*=========================*/
+
 /*============POST========*/
 /*STYLELIST NAVMENU */
+
+.container > .highlights-post {
+  width: 100%;
+  background: #333;
+}
+
+.highlights-post {
+  width: 100%;
+}
+
+.coverimg-post img {
+  height: auto;
+  width: auto;
+}
+
+
+.content-post{
+  width: 100%;
+  background-color: rgb(253, 253, 253);
+  font-size: 16px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5%;
+}
+
 .navMenu-post{
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   width: 100%;
 }
-.container > .content{
-  display: flex;
-  flex-direction: row;
-  border: 1px solid blue;
-}
-.content1-post{
-  width: 70%;
-  border: 1px solid red;
-}
-.content2{
-  width: 30%;
-  border: 1px solid green;
+
+.home-post {
+  font-size: 20px;
 }
 .breadcrumb{
   width: 100%;
