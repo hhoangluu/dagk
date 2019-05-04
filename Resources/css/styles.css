@@ -448,5 +448,14 @@ div.column-right .widgets-populer-post {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.ts-footer {
+  
+  padding: 25px 0;
+ display: flex;
+ width: 100%;
+}
+.ts-footer  .col{
+  width: 49%;
+}
 
 /*=====================*/
