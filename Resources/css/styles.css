@@ -396,6 +396,9 @@ div.container {
 
 div.container > .highlight-news {
   width: 70%;
+  padding: 5px;
+  background: white;
+  
 }
 
 .highlight-news {
@@ -547,7 +550,7 @@ font-weight: 600;
     font-size: 10px;
 }
 .more a{
-  color: rgb(77, 75, 75);
+  color: #EA151E;
   font-size: 12px;
 }
 
@@ -605,6 +608,14 @@ margin: 1% 0 1% 1.6%;
   width: 80%;
 }
 
+.widget-title{
+ color: #EA151E;
+}
+
+.nav-link{
+  color: #000;
+  font-weight: 100;
+}
 .ts-footer {
  padding: 0;
  display: flex;
@@ -630,7 +641,63 @@ div.column-right .widgets-populer-post {
   padding: 5%;
   margin-bottom: 10%;
 }
+.lined {
+  border-bottom: 2px solid #EA151E;
+  display: block;
+  width: 100%;
+  margin-top: -3px;
+}
+.ts-orange-bg {
+  display: flex;
+  background: #ff6e0d;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  float: right;
+  justify-content: center;
+ justify-items: center;  
+ color: white;
+}
+.ts-green-bg {
+  display: flex;
+  background: green;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  float: right;
+  justify-content: center;
+  
+  color: white;
+ justify-items: center;  
+}
+.ts-yellow-bg
+{
+  display: flex;
+  background: rgb(206, 206, 1);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  float: right;
+  justify-content: center;
+  
+  color: white;
+ justify-items: center;  
+}
+.nav-item{
+  margin: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+li a {
+  font-weight: 200;
+  color: black;
+ 
+}
 
+li a:hover {
+  text-decoration: none;
+  color: black;
+}
 
 
 .col-xs-2 {
@@ -661,7 +728,9 @@ div.column-right .widgets-populer-post {
 .highlights-post {
   width: 100%;
 }
-
+  a:hover{
+  color: #EA151E;
+}
 
 .content-post{
   width: 100%;
@@ -686,5 +755,6 @@ div.column-right .widgets-populer-post {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 
 /*=====================*/

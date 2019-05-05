@@ -64,22 +64,10 @@
                                 <circle cx="20" cy="21" r="1"></circle>
                                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                             </svg>
-                            Products
+                            History
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-users">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            Customers
-                        </a>
-                    </li>
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -181,7 +169,8 @@
         <div class="column-right">
             <div class="column-1">
                 <h3 style="margin: 20px;">New Post</h3>
-                <div id="summernote"></div>
+                <div id="summernote1"></div>
+                <div  id="summernote2" ></div>
                 <div class="summernote"></div>
             </div>
             <div class="column-2">
@@ -200,7 +189,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
                                 <label class="form-check-label" for="defaultCheck2">
-                                    Thể thao
+                                    Thời trang
                                 </label>
                             </div>
                         </div>
@@ -208,7 +197,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
                                 <label class="form-check-label" for="defaultCheck3">
-                                    Thể thao
+                                    Kinh doanh
                                 </label>
                             </div>
                         </div>
@@ -243,8 +232,16 @@
 
         // viet tieu de
 
-        $('#summernote').summernote({
-            placeholder: 'Title',
+        $('#summernote1').summernote({
+            placeholder: 'Tiêu đề',
+            tabsize: 1,
+            height: 80,
+            toolbar: [
+
+            ]
+        });
+        $('#summernote2').summernote({
+            placeholder: 'Mô tả',
             tabsize: 1,
             height: 80,
             toolbar: [
