@@ -607,6 +607,7 @@ font-weight: 600;
 .more a{
   color: #EA151E;
   font-size: 12px;
+  margin-left: 2px;
 }
 
 /* style image post*/
