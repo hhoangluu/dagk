@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Resources/css/styles.css">
+    <link rel="stylesheet" href="Resources/css/stylehighlight.css">
 
     <title>Báo Điện Tử TH16-News</title>
 
@@ -27,46 +28,8 @@
 <body>
     <header>
         <img style="width: 100%;" src="Resources/images/1.jpg" alt="photo">
-        <div class="search-and-account">
-            <div class="searchBar">
-                <input class="search" type="search" placeholder="Search">
-                <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-            </div>
-            <div class="account">
-                <span class="psw">
-                    <a href="#">
-                        <i onclick="document.getElementById('id01').style.display='block'"><img
-                                src="Resources/images/account1.png" alt="photo"></i>
-
-                    </a>
-                </span>
-            </div>
-            <div id="id01" class="modal-account">
-
-                <form class="modal-content animate" action="/action_page.php">
-                    <div class="closecontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                            title="Close Modal">&times;</span>
-                    </div>
-
-                    <div class="container-account">
-                        <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                        <input type="text" placeholder="Tài khoản" name="uname" required>
-                        <input type="password" placeholder="Mật khẩu" name="psw" required>
-                        <button type="submit">Đăng nhập</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
-                        </label>
-                    </div>
-
-                    <div class="container-account" style="background-color:#f1f1f1">
-                        <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
-                            </a></span>
-                        <span class="psw">Chưa có tài khoản? <a href="#" style="color: #3B5998">Đăng kí</a></span>
-                    </div>
-                </form>
-            </div>
-        </div>
+     
+    
     </header>
     <div class="Menu">
         <div class="navbarw3">
@@ -172,95 +135,177 @@
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Thể thao
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+
+            <div class="search-and-account">
+                <div class="searchBar">
+                    <input class="search" type="search" placeholder="Search">
                 </div>
-            </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Phái đẹp
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                <div class="account">
+                    <span class="psw">
+                        <a href="#">
+                            <i onclick="document.getElementById('id01').style.display='block'"><img
+                                    src="Resources/images/account1.png" alt="photo"></i>
+                        </a>
+                    </span>
+                    <div id="id01" class="modal-account">
+
+                        <form class="modal-content animate" action="/action_page.php">
+                            <div class="closecontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                    title="Close Modal">&times;</span>
+                            </div>
+
+                            <div class="container-account">
+                                <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                                <input type="text" placeholder="Tài khoản" name="uname" required>
+                                <input type="password" placeholder="Mật khẩu" name="psw" required>
+                                <button type="submit">Đăng nhập</button>
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
+                                </label>
+                            </div>
+
+                            <div class="container-account" style="background-color:#f1f1f1">
+                                <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
+                                    </a></span>
+                                <span class="psw">Chưa có tài khoản? <a href="#" style="color: #3B5998">Đăng
+                                        kí</a></span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Ẩm thực
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+
             </div>
         </div>
 
     </div>
 
     <div class="container">
-        <div class="highlights" style="z-index: 0">
-            <div class="lableItem" id="">
-                <a class="lable1" id="" href="">Bài viết nổi bật</a>
-                <a class="lable2" id="" href="">Xem thêm</a>
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./Resources/images/hotgirl-tram-anh-06.jpg" class="d-block w-100" alt="1">
-                        <h3 class="carousel-caption post-title">
-                            <a href="#">Hot girl Trâm Anh lộ clip "nóng"</a>
-                        </h3>
-                        <a href="#">
-                            <i class="fa fa-clock-o"></i>
-                            03/05/2019 09:47:30
-                        </a>
+        <div class="highlight-news">
+            <script src="Resources/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+            <script src="./Resources/js/jshighlight.js"></script>
+            <div id="jssor_1" style="width: 800%;" <!-- Loading Screen -->
+                <div data-u="slides"
+                    style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden;">
+                    <div>
+                        <div class="carousel-item active">
+                            <img data-u="image" src="./Resources/images/hotgirl-tram-anh-06.jpg" alt="1">
+                            <h3 class="post-title">
+                                <a href="#">Hot girl Trâm Anh lộ clip "nóng"</a>
+                            </h3>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                03/05/2019 09:47:30
+                            </a>
+                        </div>
+                        <div data-u="thumb">
+                            <img data-u="thumb" class="i" src="Resources/images/hotgirl-tram-anh-06.jpg" />
+                            <span class="ti">Showbiz</span><br />
+                            <span class="d">Hot girl Trâm Anh lộ clip "nóng"</span>
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./Resources/images/kaido.jpg" class="d-block w-100" alt="2">
-                        <h3 class="post-title">
-                            <a href="#">">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
-                                giới"-Kaido</a>
-                        </h3>
-                        <a href="">
-                            <i class="fa fa-clock-o"></i>
-                            03/05/2019 09:47:30
-                        </a>
+                    <div>
+                        <div class="carousel-item active">
+                            <img data-u="image" src="./Resources/images/kaido.jpg" alt="1">
+                            <h3 class="post-title">
+                                <a href="#">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
+                                    giới"-Kaido</a>
+                            </h3>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                03/05/2019 09:47:30
+                            </a>
+                        </div>
+                        <div data-u="thumb">
+                            <img data-u="thumb" class="i" src="Resources/images/kaido.jpg" />
+                            <span class="ti">Hoạt hình</span><br />
+                            <span class="d">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
+                                giới"-Kaido</span>
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./Resources/images/Doi la 3 chu T.jpg" class="d-block w-100" alt="3">
-                        <h3 class="post-title">
-                            <a href="#">“Đời là ba chữ T”</a>
-                        </h3>
-                        <a href="">
-                            <i class="fa fa-clock-o"></i>
-                            03/05/2019 09:47:30
-                        </a>
+                    <div>
+                        <div class="carousel-item active">
+                            <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg" alt="1">
+                            <h3 class="post-title">
+                                <a href="#">"Đời là ba chữ T"</a>
+                            </h3>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                03/05/2019 09:47:30
+                            </a>
+                        </div>
+                        <div data-u="thumb">
+                            <img data-u="thumb" class="i" src="Resources/images/Doi la 3 chu T.jpg" />
+                            <span class="ti">Học trò</span><br />
+                            <span class="d">"Đời là ba chữ T"</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="carousel-item active">
+                            <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg" alt="1">
+                            <h3 class="post-title">
+                                <a href="#">"Đời là ba chữ T"</a>
+                            </h3>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                03/05/2019 09:47:30
+                            </a>
+                        </div>
+                        <div data-u="thumb">
+                            <img data-u="thumb" class="i" src="Resources/images/Doi la 3 chu T.jpg" />
+                            <span class="ti">Học trò</span><br />
+                            <span class="d">"Đời là ba chữ T"</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="carousel-item active">
+                            <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg" alt="1">
+                            <h3 class="post-title">
+                                <a href="#">"Đời là ba chữ T"</a>
+                            </h3>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                03/05/2019 09:47:30
+                            </a>
+                        </div>
+                        <div data-u="thumb">
+                            <img data-u="thumb" class="i" src="Resources/images/Doi la 3 chu T.jpg" />
+                            <span class="ti">Học trò</span><br />
+                            <span class="d">"Đời là ba chữ T"</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- Thumbnail Navigator -->
+                <div data-u="thumbnavigator" class="jssort121"
+                    style="position:absolute;left:0px;top:0px;width:290px;height:400px;overflow:hidden;cursor:default;"
+                    data-autocenter="2" data-scale-left="0.75">
+                    <div data-u="slides">
+                        <div data-u="prototype" class="p" style="width:300px;height:68px;">
+                            <div data-u="thumbnailtemplate" class="t"></div>
+                        </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <!-- Bullet Navigator -->
+                <div data-u="navigator" class="jssorb111" style="position:absolute;bottom:12px;left: 470%;"
+                    data-scale="0.5">
+                    <div data-u="prototype" class="i" style="width:24px;height:24px;font-size:12px;line-height:24px;">
+                        <svg viewbox="0 0 16000 16000"
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;">
+                            <circle class="b" cx="8000" cy="8000" r="3000"></circle>
+                        </svg>
+                        <div data-u="numbertemplate" class="n"></div>
+                    </div>
+                </div>
             </div>
+            <script type="text/javascript">jssor_1_slider_init();</script>
+            <!-- #endregion Jssor Slider End -->
         </div>
+        <div class="highlight-videos">
+
+        </div>
+
+
     </div>
 
     <div class="container">
@@ -669,7 +714,6 @@
                 Bản quyền thuộc về SaigonTimesGroup.
             </div>
         </div>
-
     </footer>
 </body>
 

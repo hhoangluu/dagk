@@ -1,0 +1,28 @@
+/*jssor slider loading skin spin css*/
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
+/*jssor slider bullet skin 111 css*/
+.jssorb111 .i {position:absolute;color:#fff;font-family:"Helvetica neue",Helvetica,Arial,sans-serif;text-align:center;cursor:pointer;z-index:0;}
+.jssorb111 .i .n {display:none;}
+.jssorb111 .i .b {fill:#fff;stroke:#000;stroke-width:500;stroke-miterlimit:10;stroke-opacity:1;}
+.jssorb111 .i:hover .b {fill:#fea900;stroke:#fea900;stroke-width:6000;stroke-opacity:1;}
+.jssorb111 .iav .b {fill:#000;stroke-width:6000;stroke-opacity:1;}
+.jssorb111 .i.idn {opacity:1;}
+.jssorb111 .iav .n, .jssorb111 .i:hover .n {display:block;}
+
+/*jssor slider thumbnail skin 121 css*/
+.jssort121 .p {position:absolute;top:0;left:0;border-bottom:1px solid rgba(7, 0, 0, 0.2);box-sizing:border-box;color:#fff;background:rgba(0,0,0,.1);opacity:1;}
+.jssort121 .p .i {margin-right:10px;position:relative;top:0;left:0;width:102px;height:68px;border:none;float:left;}
+.jssort121 .pav, .jssort121 .p:hover {color:#000;background:rgba(219, 145, 145, 0.7);}
+.jssort121 .p:hover {opacity:1;}
+.jssort121 .pav, .jssort121 .p:hover.pdn {opacity:1;}
+.jssort121 .ti {position:relative;font-size:14px;font-weight:bold;}
+.jssort121 .d {position:relative;font-size:12px;}
+/*.jssort121 .d:before {content:'\a';white-space:pre;}*/
