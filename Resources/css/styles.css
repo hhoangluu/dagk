@@ -2,6 +2,7 @@
 padding: 0px;
 margin: 0px;
 box-sizing: border-box;
+font-family: Arial,Helvetica,sans-serif;
 }
 
 html {
@@ -355,7 +356,9 @@ img.avatar {
   }
 }
 
-
+.width-120{
+  width: 120px;
+}
 /*======================*/
 
 
@@ -387,7 +390,7 @@ div.container {
 
 @media (min-width: 992px) {
   .container {
-    max-width: 85%;
+    max-width: 90%;
   }
 }
 
@@ -407,7 +410,7 @@ div.column-left {
 
 
 div.container > div.column-right {
-  width: 25%;
+  width: 23%;
 }
 
 div.column-right {
@@ -485,10 +488,13 @@ width: 95%;
 
 
 /*style post*/
+article{
+  height: 200px;
+}
 .post {
 padding: 0 10px 2px 0;
 min-height: 80px;
-font-size: 15px;
+font-size: 10px;
 background-color: rgb(253, 253, 253);
 margin-right: 2%;
 margin-bottom: 4%;
@@ -498,7 +504,8 @@ width: 95%;
 }
 
 .post > header {
-font-size: 17px;
+font-size: 14px;
+color: #000;
 }
 
 /* style title post*/
@@ -508,20 +515,40 @@ padding: 0 0 5px;
 margin: 0;
 }
 
-.title {
+.title a{
 color: #333;
 font-weight: 600;
+}
+
+.datePost{
+  color: #999;
+    padding-bottom: 5px;
+    font-weight: 500;
+    font-size: 10px;
+}
+.more a{
+  color: rgb(77, 75, 75);
+  font-size: 12px;
 }
 
 /* style image post*/
 .avatar {
 float: left;
-margin-right: 10px;
+margin-right: 1px;
 position: relative;
 width: 120px;
-height: 90px;
+height: 100px;
+}
+.avatar > img{
+  height: 100px;
 }
 
+/*describe*/
+.describe{
+  font-weight: 100;
+  font-size: 11.5px;
+  color: black;
+}
 /*======================*/
 
 
