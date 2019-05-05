@@ -473,6 +473,10 @@ width: 95%;
   left: 2%;
   bottom: 2%;
 }
+.carousel-caption{
+  display: flex;
+  flex-direction: flex-start;
+}
 
 /*======================*/
 
