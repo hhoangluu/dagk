@@ -514,11 +514,12 @@ div.column-right {
 }
 
 .content > .mostView , .content > .lastest , .content > .topTopic {
-width: 33.333%;
+width: 30%;
 } 
 
 .mostView , .lastest , .topTopic{
 width: 100%;
+border: solid 1px #000;
 }
 
 .labelItem > .label1 {
@@ -526,7 +527,6 @@ font-size: 16px;
 background-color:white;
 font-weight: bold;
 width: 95%;
-
 }
 
 
