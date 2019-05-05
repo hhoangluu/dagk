@@ -126,7 +126,7 @@ display: block;
 /* Style the search box inside the navigation bar */
 
 .navbarw3 > .search-and-account {
-  width: 15%;
+  width: 14%;
 }
 
 .search-and-account {
@@ -400,18 +400,76 @@ div.container > .highlight-news {
 
 .highlight-news {
   width: 100%;
+  background: #AAA8A8;
   position:relative;
 }
 
-div.container > .highlight-videos {
-  width: 30%;
+div.container > .highlight-ratio {
+  width: 28.5%;
 }
 
-.highlight-videos {
+.highlight-ratio {
   width: 100%;
   position:relative;
-  border: solid 1px #11181f;
+  margin-left: 20px;
+  background: white;
+  padding: 20px 0 0 10px;
+} 
+.ratio {
+  border:solid 1px grey;
 }
+.ratio > .price {
+  width: 100%;
+}
+.ratio > .lottery {
+  width: 100%;
+}
+.price, .lottery {
+  width: 100%;
+  font-size: 14px;
+  font-weight: normal;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+a.type, a.buy , a.sell {
+  color: black;
+}
+a.sell,a.buy  {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+a.type { 
+  width: 60px;
+  padding-left: 10px;
+  background: rgb(196, 185, 185);
+}
+
+
+ a.prize {
+  padding-left: 10px;
+  width: 120px;
+  color: red;
+  background: rgb(196, 185, 185);
+ }
+
+ a.date {
+  padding-left: 20px;
+  width: 100px;
+  color: rgb(211, 160, 160);
+ }
+
+.number {
+  width: 200px;
+  color: black;
+}
+
+
+
 
 
 
@@ -430,7 +488,7 @@ div.column-left {
 
 
 div.container > div.column-right {
-  width: 23%;
+  width: 25%;
 }
 
 div.column-right {
@@ -465,9 +523,10 @@ width: 100%;
 
 .labelItem > .label1 {
 font-size: 16px;
-background-color: rgb(198, 205, 241);
+background-color:white;
 font-weight: bold;
 width: 95%;
+
 }
 
 
@@ -517,8 +576,7 @@ min-height: 80px;
 font-size: 10px;
 background-color: rgb(253, 253, 253);
 margin-right: 2%;
-margin-bottom: 4%;
-margin-top: 4%;
+
 padding: 5%;
 width: 95%;
 }
