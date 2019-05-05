@@ -28,16 +28,16 @@
 <body>
     <header>
         <img style="width: 100%;" src="Resources/images/1.jpg" alt="photo">
-        <div class="search-and-account">
+        <!-- <div class="search-and-account">
             <div class="searchBar">
-                <input type="text" placeholder="Tìm kiếm..">
+                <input class="search" type="search" placeholder="Search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
             <div class="account">
-                <span class="psw">
+                <span class="psw" >
                     <a href="#">
-                        <img src="Resources/images/account1.png" alt="photo">
-                        <i onclick="document.getElementById('id01').style.display='block'">Tài khoản</i>
+                        <i onclick="document.getElementById('id01').style.display='block'"><img src="Resources/images/account1.png" alt="photo" ></i>
+                        
                     </a>
                 </span>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </header>
     <div class="Menu">
         <div class="navbarw3">
@@ -163,44 +163,53 @@
                 </div>
             </div>
             <div class="dropdownw3">
-                <button class="dropbtn">Thế giới
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <button class="dropbtn">Showbitz
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdownw3-contentw3">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Thể thao
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+            <div class="search-and-account">
+                <div class="searchBar">
+                    <input class="search" type="search" placeholder="Search">
                 </div>
-            </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Phái đẹp
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                <div class="account">
+                    <span class="psw">
+                        <a href="#">
+                            <i onclick="document.getElementById('id01').style.display='block'"><img
+                                    src="Resources/images/account1.png" alt="photo"></i>
+                        </a>
+                    </span>
+                    <div id="id01" class="modal-account">
+
+                            <form class="modal-content animate" action="/action_page.php">
+                                <div class="closecontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                        title="Close Modal">&times;</span>
+                                </div>
+        
+                                <div class="container-account">
+                                    <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                                    <input type="text" placeholder="Tài khoản" name="uname" required>
+                                    <input type="password" placeholder="Mật khẩu" name="psw" required>
+                                    <button type="submit">Đăng nhập</button>
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
+                                    </label>
+                                </div>
+        
+                                <div class="container-account" style="background-color:#f1f1f1">
+                                    <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
+                                        </a></span>
+                                    <span class="psw">Chưa có tài khoản? <a href="#" style="color: #3B5998">Đăng kí</a></span>
+                                </div>
+                            </form>
+                        </div>
                 </div>
-            </div>
-            <div class="dropdownw3">
-                <button class="dropbtn">Ẩm thực
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdownw3-contentw3">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+
             </div>
         </div>
 
@@ -217,8 +226,7 @@
 
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image" src="./Resources/images/hotgirl-tram-anh-06.jpg"
-                            alt="1">
+                        <img data-u="image" src="./Resources/images/hotgirl-tram-anh-06.jpg" alt="1">
                         <h3 class="post-title">
                             <a href="#">Hot girl Trâm Anh lộ clip "nóng"</a>
                         </h3>
@@ -235,11 +243,10 @@
                 </div>
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image" src="./Resources/images/kaido.jpg"
-                            alt="1">
+                        <img data-u="image" src="./Resources/images/kaido.jpg" alt="1">
                         <h3 class="post-title">
                             <a href="#">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
-                                    giới"-Kaido</a>
+                                giới"-Kaido</a>
                         </h3>
                         <a href="#">
                             <i class="fa fa-clock-o"></i>
@@ -250,13 +257,12 @@
                         <img data-u="thumb" class="i" src="Resources/images/kaido.jpg" />
                         <span class="ti">Hoạt hình</span><br />
                         <span class="d">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
-                                giới"-Kaido</span>
+                            giới"-Kaido</span>
                     </div>
                 </div>
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg"
-                            alt="1">
+                        <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg" alt="1">
                         <h3 class="post-title">
                             <a href="#">"Đời là ba chữ T"</a>
                         </h3>
