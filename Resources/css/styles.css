@@ -396,8 +396,7 @@ div.container {
 
 div.container > .highlight-news {
   width: 70%;
-  padding: 5px;
-  background: white;
+  background: #c5c5c5;
   
 }
 
@@ -477,7 +476,7 @@ a.type {
 
 
 div.container > div.column-left {
-  width: 80%;
+  width: 75%;
 }
 
 div.column-left {
@@ -493,7 +492,7 @@ div.column-left {
 
 
 div.container > div.column-right {
-  width: 20%;
+  width: 25%;
 }
 
 div.column-right {
@@ -525,14 +524,13 @@ width: 32%;
 .mostView , .lastest , .topTopic{
 width: 100%;
 background-color:white;
-border: solid 1px #000;
 padding: 2%;
 }
 
 .labelItem > .label1 {
 font-size: 16px;
-background-color:white;
 font-weight: bold;
+color: #EA151E;
 width: 95%;
 }
 
@@ -575,7 +573,7 @@ width: 95%;
 
 /*style post*/
 article{
-  height: 200px;
+  height: 170px;
 }
 .post {
 margin-top: 2%;
@@ -619,7 +617,7 @@ position: relative;
 width: 120px;
 height: 100px;
 }
-.avatar > img{
+.avatar > img {
   height: 100px;
 }
 
@@ -665,7 +663,7 @@ margin: 1% 0 1% 1.6%;
   width: 80%;
 }
 
-.widget-title{
+.widget-title {
  color: #EA151E;
 }
 
@@ -688,7 +686,7 @@ margin: 1% 0 1% 1.6%;
 
 /*============Right========*/
 
-h3.widget-title, .overlay-post-content a {
+h3.widget-title , .overlay-post-content a {
   font-size: 15px;
   font-weight: bold;
 }
@@ -779,12 +777,23 @@ li a:hover {
 
 .container > .highlights-post {
   width: 100%;
-  background: #333;
 }
 
 .highlights-post {
   width: 100%;
 }
+
+.highlights-post > .coverimg-post {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.highlights-post > .coverimg-post > img.image-cover {
+  width: 80%;
+  height: 500px;
+}
+
   a:hover{
   color: #EA151E;
 }
