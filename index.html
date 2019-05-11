@@ -149,7 +149,7 @@
                     </span>
                     <div id="id01" class="modal-account">
 
-                        <form class="modal-content animate" action="/action_page.php">
+                        <form class="modal-content" action="/action_page.php">
                             <div class="closecontainer">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                     title="Close Modal">&times;</span>
@@ -165,12 +165,65 @@
                                 </label>
                             </div>
 
+                            <div class="container-account">
+                                <div class="login-other">
+                                    <label></label>Đăng nhập với</label>
+                                    <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                                        <div class="login-other-logo">
+                                            <a style="background: #3B5998;" href="#" class="btn"
+                                                data-toggle="tooltip" data-placement="top" title="Facebook">
+                                                <i class="fa fa-facebook "></i>
+                                            </a>
+                                        </div>
+                                        <div class="login-other-logo">
+                                            <a style="background: #00ACED;" href="#" class="btn"
+                                                data-toggle="tooltip" data-placement="top" title="Twitter">
+                                                <i class="fa fa-twitter "></i>
+                                            </a>
+                                        </div>
+                                        <div class="login-other-logo">
+                                            <a style="background: #C32F10;" href="#" class="btn"
+                                                data-toggle="tooltip" data-placement="top" title="Google Plus">
+                                                <i class="fa fa-google-plus "></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
                             <div class="container-account" style="background-color:#f1f1f1">
                                 <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
                                     </a></span>
-                                <span class="psw">Chưa có tài khoản? <a href="#" style="color: #3B5998">Đăng
+                                <span class="psw">Chưa có tài khoản? <a  onclick="document.getElementById('id02').style.display='block'" href="#" style="color: #3B5998">Đăng
                                         kí</a></span>
                             </div>
+                        </form>
+                    </div>
+
+
+                    <div id="id02" class="modal-account">
+
+                        <form class="modal-content" action="/action_page.php">
+                            <div class="closecontainer">
+                                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                                    title="Close Modal">&times;</span>
+                            </div>
+
+                            <div class="container-account">
+                                <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                                <input type="text" placeholder="Tài khoản" name="uname" required>
+                                <input type="password" placeholder="Mật khẩu" name="psw" required>
+                                <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
+                                <input type="text" placeholder="Tên hiển thị" name="uname" required>
+                                <input type="text" placeholder="Email" name="uname" required>
+
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember">Đồng ý với<a href="#"> điều khoản</a>
+                                </label>
+                                <button type="submit">Đăng ký</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -1070,19 +1123,19 @@
                 <div class="lined"></div> <br>
                 <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #3B5998;" href="#" class="btn btn-lg btn-block kpx_btn-facebook"
+                        <a style="background: #3B5998;" href="#" class="btn  btn-block "
                             data-toggle="tooltip" data-placement="top" title="Facebook">
                             <i class="fa fa-facebook fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #00ACED;" href="#" class="btn btn-lg btn-block kpx_btn-twitter"
+                        <a style="background: #00ACED;" href="#" class="btn  btn-block "
                             data-toggle="tooltip" data-placement="top" title="Twitter">
                             <i class="fa fa-twitter fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #C32F10;" href="#" class="btn btn-lg btn-block kpx_btn-google-plus"
+                        <a style="background: #C32F10;" href="#" class="btn  btn-block "
                             data-toggle="tooltip" data-placement="top" title="Google Plus">
                             <i class="fa fa-google-plus fa-2x"></i>
                         </a>
@@ -1090,19 +1143,19 @@
                 </div><br>
                 <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #666666;" href="#" class="btn btn-lg btn-block kpx_btn-github"
+                        <a style="background: #666666;" href="#" class="btn btn-block "
                             data-toggle="tooltip" data-placement="top" title="GitHub">
                             <i class="fa fa-github fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #FF8800;" href="#" class="btn btn-lg btn-block kpx_btn-soundcloud"
+                        <a style="background: #FF8800;" href="#" class="btn btn-block "
                             data-toggle="tooltip" data-placement="top" title="SoundCloud">
                             <i class="fa fa-soundcloud fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #878787;" href="#" class="btn btn-lg btn-block kpx_btn-steam"
+                        <a style="background: #878787;" href="#" class="btn btn-block "
                             data-toggle="tooltip" data-placement="top" title="Steam">
                             <i class="fa fa-steam fa-2x"></i>
                         </a>
@@ -1110,19 +1163,19 @@
                 </div><br>
                 <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #CC2127;" href="#" class="btn btn-lg btn-block kpx_btn-pinterest"
+                        <a style="background: #CC2127;" href="#" class="btn btn-block "
                             data-toggle="tooltip" data-placement="top" title="Pinterest">
                             <i class="fa fa-pinterest fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #1AB7EA;" href="#" class="btn btn-lg btn-block kpx_btn-vimeo"
+                        <a style="background: #1AB7EA;" href="#" class="btn btn-block "
                             data-toggle="tooltip" data-placement="top" title="Vimeo">
                             <i class="fa fa-vimeo-square fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-xs-2 col-sm-2">
-                        <a style="background: #C3000D;" href="#" class="btn btn-lg btn-block kpx_btn-lastfm"
+                        <a style="background: #C3000D;" href="#" class="btn btn-block"
                             data-toggle="tooltip" data-placement="top" title="Lastfm">
                             <i class="fa fa-lastfm fa-2x"></i>
                         </a>

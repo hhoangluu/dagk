@@ -293,6 +293,7 @@ img.avatar {
   border: 1px solid #ccc;
   box-sizing: border-box;
   font-size: 16px;
+  margin: 3px 0; 
 }
 
 .container-account > button {
@@ -309,6 +310,33 @@ img.avatar {
 .container-account > span.psw {
   width: 60%;
   font-size: 15px;
+}
+
+.login-other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -60px;
+}
+
+
+
+.login-other .btn {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: solid 1px rgb(6, 7, 7);
+  margin: 0px 5px;
+}
+
+.login-other-logo .fa-facebook {
+  font-size: 20px;
+}
+.login-other-logo .fa-twitter {
+  font-size: 20px;
+}
+.login-other-logo .fa-google-plus {
+  font-size: 20px;
 }
 
 /* The Close Button */
@@ -768,6 +796,7 @@ li a:hover {
   background: none;
   padding: 20px 30px 20px 10px;
 }
+
 
 
 
