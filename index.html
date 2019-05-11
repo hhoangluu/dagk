@@ -97,11 +97,9 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="./Category.html">Đời sống</a>
-                    <a href="./Category.html">Du lịch Việt Nam</a>
-                    <a href="./Category.html">Du lịch thế giới</a>
-                   
-
+                    <a href="./Category.html" onclick="openCity('DoiSong')">Đời sống</a>
+                    <a href="./Category.html" onclick="openCity('DuLichVN')">Du lịch Việt Nam</a>
+                    <a href="./Category.html" onclick="openCity('DuLichTG')">Du lịch thế giới</a>
                 </div>
             </div>
             <div class="dropdownw3">
@@ -193,9 +191,9 @@
                             
 
                             <div class="container-account" style="background-color:#f1f1f1">
-                                <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
+                                <span class="psw">Quên <a onclick="document.getElementById('id03').style.display='block'; document.getElementById('id01').style.display='none';" href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
                                     </a></span>
-                                <span class="psw">Chưa có tài khoản? <a  onclick="document.getElementById('id02').style.display='block'" href="#" style="color: #3B5998">Đăng
+                                <span class="psw">Chưa có tài khoản? <a  onclick="document.getElementById('id02').style.display='block'; document.getElementById('id01').style.display='none';" href="#" style="color: #3B5998">Đăng
                                         kí</a></span>
                             </div>
                         </form>
@@ -206,7 +204,8 @@
 
                         <form class="modal-content" action="/action_page.php">
                             <div class="closecontainer">
-                                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                                <span onclick="document.getElementById('id02').style.display='none';
+                                " class="close"
                                     title="Close Modal">&times;</span>
                             </div>
 
@@ -222,6 +221,24 @@
                                     <input type="checkbox" checked="checked" name="remember">Đồng ý với<a href="#"> điều khoản</a>
                                 </label>
                                 <button type="submit">Đăng ký</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div id="id03" class="modal-account">
+
+                        <form class="modal-content" action="/action_page.php">
+                            <div class="closecontainer">
+                                <span onclick="document.getElementById('id03').style.display='none';
+                                " class="close"
+                                    title="Close Modal">&times;</span>
+                            </div>
+
+                            <div class="container-account">
+                                <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                                <input type="text" placeholder="Email" name="uname" required>
+                                <button type="submit">Gửi</button>
                             </div>
 
                         </form>
