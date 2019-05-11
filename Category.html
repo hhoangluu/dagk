@@ -44,16 +44,16 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('BongDa', 'WorldCup')">World Cup</a>
-                    <a href="#" onclick="openCity('BongDa', 'Euro')">Euro</a>
-                    <a href="#" onclick="openCity('BongDa', 'NgoaiHangAnh')">Ngoại hạng anh</a>
-                    <a href="#" onclick="openCity('BongDa', 'CupC1')">Cúp C1</a>
-                    <a href="#" onclick="openCity('BongDa', 'BongDaViet')">Bóng đá Việt Nam</a>
-                    <a href="#" onclick="openCity('BongDa', 'BongDaY')">Bóng đá Ý</a>
-                    <a href="#" onclick="openCity('BongDa', 'BongDaTBN')">Bóng đá Tây Ban Nha</a>
-                    <a href="#" onclick="openCity('BongDa', 'BongDaBrazil')">Bóng đá Brazil</a>
-                    <a href="#" onclick="openCity('BongDa', 'BongDaDuc')">Bóng đá Đức</a>
-                </div>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'WorldCup')">World Cup</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'Euro')">Euro</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'NgoaiHangAnh')">Ngoại hạng anh</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'CupC1')">Cúp C1</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaViet')">Bóng đá Việt Nam</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaY')">Bóng đá Ý</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaTBN')">Bóng đá Tây Ban Nha</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaBrazil')">Bóng đá Brazil</a>
+                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaDuc')">Bóng đá Đức</a>
+                </div> 
             </div>
             <div class="dropdownw3">
                 <button class="dropbtn">Kinh doanh
@@ -99,9 +99,9 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('VanHoaXaHoi', 'DoiSong')">Đời sống</a>
-                    <a href="#" onclick="openCity('VanHoaXaHoi', 'DuLichVN')">Du lịch Việt Nam</a>
-                    <a href="#" onclick="openCity('VanHoaXaHoi', 'DuLichTG')">Du lịch thế giới</a>    
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DoiSong')">Đời sống</a>
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichVN')">Du lịch Việt Nam</a>
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichTG')">Du lịch thế giới</a>    
                 </div>
             </div>
             <div class="dropdownw3">
@@ -185,31 +185,29 @@
             <div class="navMenu-post" id="">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li >
+                        <li class="breadcrumb-item">
                             <a href="./index.html" class="fa fa-home home-post">
                                 <a href="./index.html">Trang chủ
                                 </a>
                             </a>
                         </li>
-                    
-                        <li class="breadcrumb-item" style="display: none"><a href="#" >Bóng đá</a></li>
-                        <li id="WorldCup" class="breadcrumb-item BongDa" style="display: none"><a href="#">World Cup</a></li>
-                        <li id="Euro" class="breadcrumb-item BongDa" style="display: none"><a href="#">Euro</a></li>
-                        <li id="NgoaiHangAnh" class="breadcrumb-item BongDa" style="display: none"><a href="#">Ngoại hạng anh</a></li>
-                        <li id="CupC1" class="breadcrumb-item BongDa" style="display: none"><a href="#">Cúp C1</a></li>
-                        <li id="BongDaViet" class="breadcrumb-item BongDa" style="display: none"><a href="#">Bóng đá Việt Nam</a></li>
-                        <li id="BongDaY" class="breadcrumb-item BongDa" style="display: none"><a href="#">Bóng đá Ý</a></li>
-                        <li id="BongDaTBN" class="breadcrumb-item BongDa" style="display: none"><a href="#">Bóng đá Tây Ban Nha</a></li>
-                        <li id="BongDaBrazil" class="breadcrumb-item BongDa" style="display: none"><a href="#">Bóng đá Brazil</a></li>
-                        <li id="BongDaDuc" class="breadcrumb-item BongDa" style="display: none"><a href="#">Bóng đá Đức</a></li>
-                    
-                    
-                    
-                    
-                        <li class="breadcrumb-item" style="display: none"><a href="#" >Văn hóa - Xã hội</a></li>
-                        <li id="DoiSong" class="breadcrumb-item VanHoaXaHoi" style="display: none"><a href="#">Đời sống</a></li>
-                        <li id="DuLichVN" class="breadcrumb-item VanHoaXaHoi" style="display: none"><a href="#">Du lịch Việt Nam</a></li>
-                        <li id="DuLichTG" class="breadcrumb-item VanHoaXaHoi" style="display: none"><a href="#">Du lịch thế giới</a></li>
+                        <li id="idBongDa" class="breadcrumb-item type" style="display: none"><a href="#" >Bóng đá</a></li>
+                        <li id="idVanHoaXaHoi" class="breadcrumb-item type" style="display: none"><a href="#" >Văn hóa - Xã hội</a></li>
+
+
+                        <li id="WorldCup" class="breadcrumb-item category" style="display: none"><a href="#">World Cup</a></li>
+                        <li id="Euro" class="breadcrumb-item category" style="display: none"><a href="#">Euro</a></li>
+                        <li id="NgoaiHangAnh" class="breadcrumb-item category" style="display: none"><a href="#">Ngoại hạng anh</a></li>
+                        <li id="CupC1" class="breadcrumb-item category" style="display: none"><a href="#">Cúp C1</a></li>
+                        <li id="BongDaViet" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Việt Nam</a></li>
+                        <li id="BongDaY" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Ý</a></li>
+                        <li id="BongDaTBN" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Tây Ban Nha</a></li>
+                        <li id="BongDaBrazil" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Brazil</a></li>
+                        <li id="BongDaDuc" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Đức</a></li>
+                
+                        <li id="DoiSong" class="breadcrumb-item category" style="display: none"><a href="#">Đời sống</a></li>
+                        <li id="DuLichVN" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch Việt Nam</a></li>
+                        <li id="DuLichTG" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch thế giới</a></li>
                     </ol>
                 </nav>
             </div>
