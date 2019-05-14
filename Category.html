@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
@@ -26,7 +24,7 @@
     <link rel="stylesheet" href="Resources/css/styles.css">
 
     <title>Báo Điện Tử TH16-News</title>
-    
+
 
 </head>
 
@@ -36,34 +34,39 @@
     </header>
     <div class="Menu">
         <div class="navbarw3">
-    
-            <div class="home" href="./index.html"><a href="./index.html" class="fa fa-home home-post">Trang chủ</a></div>
-    
+
+            <div class="home" href="./index.html"><a href="./index.html" class="fa fa-home home-post">Trang chủ</a>
+            </div>
+
             <div class="dropdownw3">
                 <button class="dropbtn">Bóng đá
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'WorldCup')">World Cup</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'Euro')">Euro</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'NgoaiHangAnh')">Ngoại hạng anh</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'CupC1')">Cúp C1</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaViet')">Bóng đá Việt Nam</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaY')">Bóng đá Ý</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaTBN')">Bóng đá Tây Ban Nha</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaBrazil')">Bóng đá Brazil</a>
-                    <a href="#" onclick="openCity('type', 'idBongDa'); openCity('category', 'BongDaDuc')">Bóng đá Đức</a>
-                </div> 
+                    <a href="./Category.html?page=worldcup">World Cup</a>
+                    <a href="./Category.html?page=euro">Euro</a>
+                    <a href="./Category.html?page=ngoaihanganh">Ngoại hạng anh</a>
+                    <a href="./Category.html?page=cupc1">Cúp C1</a>
+                    <a href="./Category.html?page=bongdaVN">Bóng đá Việt Nam</a>
+                    <a href="./Category.html?page=bongdaY">Bóng đá Ý</a>
+                    <a href="./Category.html?page=bongdaTBN">Bóng đá Tây Ban Nha</a>
+                    <a href="./Category.html?page=bongdaBRAZIL">Bóng đá Brazil</a>
+                    <a href="./Category.html?page=bongdaDUC">Bóng đá Đức</a>
+                </div>
             </div>
             <div class="dropdownw3">
                 <button class="dropbtn">Kinh doanh
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'DoanhNhan')">Doanh nhân</a>
-                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'TaiChinh')">Tài chính</a>
-                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'BatDongSan')">Bất động sản</a>
-                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'NganHang')">Ngân hàng</a>
+                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'DoanhNhan')">Doanh
+                        nhân</a>
+                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'TaiChinh')">Tài
+                        chính</a>
+                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'BatDongSan')">Bất động
+                        sản</a>
+                    <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'NganHang')">Ngân
+                        hàng</a>
                     <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'GiaVang')">Giá vàng</a>
                     <a href="#" onclick="openCity('type', 'idKinhDoanh'); openCity('category', 'TiGia')">Tỉ giá</a>
                 </div>
@@ -73,10 +76,14 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idThiTruong'); openCity('category', 'ThiTruong24h')">Thị trường 24h</a>
-                    <a href="#" onclick="openCity('type', 'idThiTruong'); openCity('category', 'GiaCaHangHoa')">Giá cả hàng hóa</a>
-                    <a href="#" onclick="openCity('type', 'idThiTruong'); openCity('category', 'SanXuatHangTieuDung')">Sản xuất tiêu dùng</a>
-    
+                    <a href="#" onclick="openCity('type', 'idThiTruong'); openCity('category', 'ThiTruong24h')">Thị
+                        trường 24h</a>
+                    <a href="#" onclick="openCity('type', 'idThiTruong'); openCity('category', 'GiaCaHangHoa')">Giá cả
+                        hàng hóa</a>
+                    <a href="#"
+                        onclick="openCity('type', 'idThiTruong'); openCity('category', 'SanXuatHangTieuDung')">Sản xuất
+                        tiêu dùng</a>
+
                 </div>
             </div>
             <div class="dropdownw3">
@@ -84,14 +91,20 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BenhDanOng')">Bệnh đàn ông</a>
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BenhPhuNu')">Bệnh phụ nữ</a>
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BenhDanOng')">Bệnh đàn
+                        ông</a>
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BenhPhuNu')">Bệnh phụ
+                        nữ</a>
                     <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'UngThu')">Ung thư </a>
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BaiThuocDanGian')">Bài thuốc dân gian</a>
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'SucKhoeTinhDan')">Sức khỏe tình dục</a>
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'SucKhoeDinhDuong')">Sức khỏe dinh dưỡng</a>
-                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'TinTucSucKhoe')">Tin tức sức khỏe</a>
-    
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'BaiThuocDanGian')">Bài
+                        thuốc dân gian</a>
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'SucKhoeTinhDan')">Sức khỏe
+                        tình dục</a>
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'SucKhoeDinhDuong')">Sức
+                        khỏe dinh dưỡng</a>
+                    <a href="#" onclick="openCity('type', 'idSucKhoe'); openCity('category', 'TinTucSucKhoe')">Tin tức
+                        sức khỏe</a>
+
                 </div>
             </div>
             <div class="dropdownw3">
@@ -99,9 +112,12 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DoiSong')">Đời sống</a>
-                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichVN')">Du lịch Việt Nam</a>
-                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichTG')">Du lịch thế giới</a>    
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DoiSong')">Đời
+                        sống</a>
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichVN')">Du lịch
+                        Việt Nam</a>
+                    <a href="#" onclick="openCity('type', 'idVanHoaXaHoi'); openCity('category', 'DuLichTG')">Du lịch
+                        thế giới</a>
                 </div>
             </div>
             <div class="dropdownw3">
@@ -110,8 +126,10 @@
                 </button>
                 <div class="dropdownw3-contentw3">
                     <a href="#" onclick="openCity('type', 'idShowbitz'); openCity('category', 'SaoViet')">Sao Việt</a>
-                    <a href="#" onclick="openCity('type', 'idShowbitz'); openCity('category', 'SaoChauA')">Sao Châu Á</a>
-                    <a href="#" onclick="openCity('type', 'idShowbitz'); openCity('category', 'SaoChauPhi')">Sao Châu Phi</a>
+                    <a href="#" onclick="openCity('type', 'idShowbitz'); openCity('category', 'SaoChauA')">Sao Châu
+                        Á</a>
+                    <a href="#" onclick="openCity('type', 'idShowbitz'); openCity('category', 'SaoChauPhi')">Sao Châu
+                        Phi</a>
                 </div>
             </div>
             <div class="dropdownw3">
@@ -129,13 +147,17 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdownw3-contentw3">
-                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'DacSan3Mien')">Đặc sản 3 miền</a>
-                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'MonNgonHangNgay')">Món ngon hằng ngày</a>
-                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'ThucDonHangNgay')">Thực đơn hằng ngày</a>
-                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'TinTucAmThuc')">Tin tức ẩm thực</a>
+                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'DacSan3Mien')">Đặc sản 3
+                        miền</a>
+                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'MonNgonHangNgay')">Món ngon
+                        hằng ngày</a>
+                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'ThucDonHangNgay')">Thực đơn
+                        hằng ngày</a>
+                    <a href="#" onclick="openCity('type', 'idAmThuc'); openCity('category', 'TinTucAmThuc')">Tin tức ẩm
+                        thực</a>
                 </div>
             </div>
-    
+
             <div class="search-and-account">
                 <div class="searchBar">
                     <input class="search" type="search" placeholder="Search">
@@ -148,13 +170,13 @@
                         </a>
                     </span>
                     <div id="id01" class="modal-account">
-    
+
                         <form class="modal-content animate" action="/action_page.php">
                             <div class="closecontainer">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                     title="Close Modal">&times;</span>
                             </div>
-    
+
                             <div class="container-account">
                                 <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
                                 <input type="text" placeholder="Tài khoản" name="uname" required>
@@ -164,7 +186,7 @@
                                     <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
                                 </label>
                             </div>
-    
+
                             <div class="container-account" style="background-color:#f1f1f1">
                                 <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
                                     </a></span>
@@ -174,10 +196,10 @@
                         </form>
                     </div>
                 </div>
-    
+
             </div>
         </div>
-    
+
     </div>
 
     <div class="container">
@@ -191,61 +213,110 @@
                                 </a>
                             </a>
                         </li>
-                        <li id="idBongDa" class="breadcrumb-item type" style="display: none"><a href="#" >Bóng đá</a></li>
-                        <li id="idKinhDoanh" class="breadcrumb-item type" style="display: none"><a href="#" >Kinh Doanh</a></li>
-                        <li id="idThiTruong" class="breadcrumb-item type" style="display: none"><a href="#" >Thị trường</a></li>
-                        <li id="idSucKhoe" class="breadcrumb-item type" style="display: none"><a href="#" >Sức khỏe</a></li>
-                        <li id="idVanHoaXaHoi" class="breadcrumb-item type" style="display: none"><a href="#" >Văn hóa - Xã hội</a></li>
-                        <li id="idShowbitz" class="breadcrumb-item type" style="display: none"><a href="#" >Showbitz</a></li>
-                        <li id="idTheGioi" class="breadcrumb-item type" style="display: none"><a href="#" >Thế giới</a></li>
-                        <li id="idAmThuc" class="breadcrumb-item type" style="display: none"><a href="#" >Ẩm thực</a></li>
+                        <li id="idBongDa" class="breadcrumb-item type" style="display: none"><a href="#">Bóng đá</a>
+                        </li>
+                        <li id="idKinhDoanh" class="breadcrumb-item type" style="display: none"><a href="#">Kinh
+                                Doanh</a></li>
+                        <li id="idThiTruong" class="breadcrumb-item type" style="display: none"><a href="#">Thị
+                                trường</a></li>
+                        <li id="idSucKhoe" class="breadcrumb-item type" style="display: none"><a href="#">Sức khỏe</a>
+                        </li>
+                        <li id="idVanHoaXaHoi" class="breadcrumb-item type" style="display: none"><a href="#">Văn hóa -
+                                Xã hội</a></li>
+                        <li id="idShowbitz" class="breadcrumb-item type" style="display: none"><a href="#">Showbitz</a>
+                        </li>
+                        <li id="idTheGioi" class="breadcrumb-item type" style="display: none"><a href="#">Thế giới</a>
+                        </li>
+                        <li id="idAmThuc" class="breadcrumb-item type" style="display: none"><a href="#">Ẩm thực</a>
+                        </li>
 
 
-                        <li id="WorldCup" class="breadcrumb-item category" style="display: none"><a href="#">World Cup</a></li>
+                        <li id="WorldCup" class="breadcrumb-item category" style="display: none"><a href="#">World
+                                Cup</a></li>
                         <li id="Euro" class="breadcrumb-item category" style="display: none"><a href="#">Euro</a></li>
-                        <li id="NgoaiHangAnh" class="breadcrumb-item category" style="display: none"><a href="#">Ngoại hạng anh</a></li>
-                        <li id="CupC1" class="breadcrumb-item category" style="display: none"><a href="#">Cúp C1</a></li>
-                        <li id="BongDaViet" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Việt Nam</a></li>
-                        <li id="BongDaY" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Ý</a></li>
-                        <li id="BongDaTBN" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Tây Ban Nha</a></li>
-                        <li id="BongDaBrazil" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Brazil</a></li>
-                        <li id="BongDaDuc" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá Đức</a></li>
-                
-                        <li id="DoanhNhan" class="breadcrumb-item category" style="display: none"><a href="#">Doanh nhân</a></li>
-                        <li id="TaiChinh" class="breadcrumb-item category" style="display: none"><a href="#">Tài chính</a></li>
-                        <li id="BatDongSan" class="breadcrumb-item category" style="display: none"><a href="#">Bất động sản</a></li>
-                        <li id="NganHang" class="breadcrumb-item category" style="display: none"><a href="#">Ngân hàng</a></li>
-                        <li id="GiaVang" class="breadcrumb-item category" style="display: none"><a href="#">Giá vàng</a></li>
-                        <li id="TiGia" class="breadcrumb-item category" style="display: none"><a href="#">Tỉ giá</a></li>
+                        <li id="NgoaiHangAnh" class="breadcrumb-item category" style="display: none"><a href="#">Ngoại
+                                hạng anh</a></li>
+                        <li id="CupC1" class="breadcrumb-item category" style="display: none"><a href="#">Cúp C1</a>
+                        </li>
+                        <li id="BongDaViet" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá
+                                Việt Nam</a></li>
+                        <li id="BongDaY" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá
+                                Ý</a></li>
+                        <li id="BongDaTBN" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá
+                                Tây Ban Nha</a></li>
+                        <li id="BongDaBrazil" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá
+                                Brazil</a></li>
+                        <li id="BongDaDuc" class="breadcrumb-item category" style="display: none"><a href="#">Bóng đá
+                                Đức</a></li>
 
-                        <li id="ThiTruong24h" class="breadcrumb-item category" style="display: none"><a href="#">Thị trường 24h</a></li>
-                        <li id="GiaCaHangHoa" class="breadcrumb-item category" style="display: none"><a href="#">Giá cả hàng hóa</a></li>
-                        <li id="SanXuatHangTieuDung" class="breadcrumb-item category" style="display: none"><a href="#">Sản xuất tiêu dùng</a></li>
+                        <li id="DoanhNhan" class="breadcrumb-item category" style="display: none"><a href="#">Doanh
+                                nhân</a></li>
+                        <li id="TaiChinh" class="breadcrumb-item category" style="display: none"><a href="#">Tài
+                                chính</a></li>
+                        <li id="BatDongSan" class="breadcrumb-item category" style="display: none"><a href="#">Bất động
+                                sản</a></li>
+                        <li id="NganHang" class="breadcrumb-item category" style="display: none"><a href="#">Ngân
+                                hàng</a></li>
+                        <li id="GiaVang" class="breadcrumb-item category" style="display: none"><a href="#">Giá vàng</a>
+                        </li>
+                        <li id="TiGia" class="breadcrumb-item category" style="display: none"><a href="#">Tỉ giá</a>
+                        </li>
 
-                        <li id="BenhDanOng" class="breadcrumb-item category" style="display: none"><a href="#">Bệnh đàn ông</a></li>
-                        <li id="BenhPhuNu" class="breadcrumb-item category" style="display: none"><a href="#">Bệnh phụ nữ</a></li>
-                        <li id="UngThu" class="breadcrumb-item category" style="display: none"><a href="#">Ung thư</a></li>
-                        <li id="BaiThuocDanGian" class="breadcrumb-item category" style="display: none"><a href="#">Bài thuốc dân gian</a></li>
-                        <li id="SucKhoeTinhDan" class="breadcrumb-item category" style="display: none"><a href="#">Sức khỏe tình dục</a></li>
-                        <li id="SucKhoeDinhDuong" class="breadcrumb-item category" style="display: none"><a href="#">Sức khỏe dinh dưỡng</a></li>
-                        <li id="TinTucSucKhoe" class="breadcrumb-item category" style="display: none"><a href="#">Tin tức sức khỏe</a></li>
+                        <li id="ThiTruong24h" class="breadcrumb-item category" style="display: none"><a href="#">Thị
+                                trường 24h</a></li>
+                        <li id="GiaCaHangHoa" class="breadcrumb-item category" style="display: none"><a href="#">Giá cả
+                                hàng hóa</a></li>
+                        <li id="SanXuatHangTieuDung" class="breadcrumb-item category" style="display: none"><a
+                                href="#">Sản xuất tiêu dùng</a></li>
 
-                        <li id="DoiSong" class="breadcrumb-item category" style="display: none"><a href="#">Đời sống</a></li>
-                        <li id="DuLichVN" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch Việt Nam</a></li>
-                        <li id="DuLichTG" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch thế giới</a></li>
+                        <li id="BenhDanOng" class="breadcrumb-item category" style="display: none"><a href="#">Bệnh đàn
+                                ông</a></li>
+                        <li id="BenhPhuNu" class="breadcrumb-item category" style="display: none"><a href="#">Bệnh phụ
+                                nữ</a></li>
+                        <li id="UngThu" class="breadcrumb-item category" style="display: none"><a href="#">Ung thư</a>
+                        </li>
+                        <li id="BaiThuocDanGian" class="breadcrumb-item category" style="display: none"><a href="#">Bài
+                                thuốc dân gian</a></li>
+                        <li id="SucKhoeTinhDan" class="breadcrumb-item category" style="display: none"><a href="#">Sức
+                                khỏe tình dục</a></li>
+                        <li id="SucKhoeDinhDuong" class="breadcrumb-item category" style="display: none"><a href="#">Sức
+                                khỏe dinh dưỡng</a></li>
+                        <li id="TinTucSucKhoe" class="breadcrumb-item category" style="display: none"><a href="#">Tin
+                                tức sức khỏe</a></li>
 
-                        <li id="SaoViet" class="breadcrumb-item category" style="display: none"><a href="#">Sao Việt</a></li>
-                        <li id="SaoChauA" class="breadcrumb-item category" style="display: none"><a href="#">Sao Châu Á</a></li>
-                        <li id="SaoChauPhi" class="breadcrumb-item category" style="display: none"><a href="#">Sao Châu Phi</a></li>
+                        <li id="DoiSong" class="breadcrumb-item category" style="display: none"><a href="#">Đời sống</a>
+                        </li>
+                        <li id="DuLichVN" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch
+                                Việt Nam</a></li>
+                        <li id="DuLichTG" class="breadcrumb-item category" style="display: none"><a href="#">Du lịch thế
+                                giới</a></li>
 
-                        <li id="DiemNong" class="breadcrumb-item category" style="display: none"><a href="#">Điểm nóng</a></li>
-                        <li id="QuanSu" class="breadcrumb-item category" style="display: none"><a href="#">Quân sự</a></li>
+                        <li id="SaoViet" class="breadcrumb-item category" style="display: none"><a href="#">Sao Việt</a>
+                        </li>
+                        <li id="SaoChauA" class="breadcrumb-item category" style="display: none"><a href="#">Sao Châu
+                                Á</a></li>
+                        <li id="SaoChauPhi" class="breadcrumb-item category" style="display: none"><a href="#">Sao Châu
+                                Phi</a></li>
+
+                        <li id="DiemNong" class="breadcrumb-item category" style="display: none"><a href="#">Điểm
+                                nóng</a></li>
+                        <li id="QuanSu" class="breadcrumb-item category" style="display: none"><a href="#">Quân sự</a>
+                        </li>
                         <li id="HoSo" class="breadcrumb-item category" style="display: none"><a href="#">Hồ sơ</a></li>
-                        
-                        <li id="DacSan3Mien" class="breadcrumb-item category" style="display: none"><a href="#">Đặc sản 3 miền</a></li>
-                        <li id="MonNgonHangNgay" class="breadcrumb-item category" style="display: none"><a href="#">Món ngon hằng ngày</a></li>
-                        <li id="ThucDonHangNgay" class="breadcrumb-item category" style="display: none"><a href="#">Thực đơn hằng ngày</a></li>
-                        <li id="TinTucAmThuc" class="breadcrumb-item category" style="display: none"><a href="#">Tin tức ẩm thực</a></li>
+
+                        <li id="DacSan3Mien" class="breadcrumb-item category" style="display: none"><a href="#">Đặc sản
+                                3 miền</a></li>
+                        <li id="MonNgonHangNgay" class="breadcrumb-item category" style="display: none"><a href="#">Món
+                                ngon hằng ngày</a></li>
+                        <li id="ThucDonHangNgay" class="breadcrumb-item category" style="display: none"><a href="#">Thực
+                                đơn hằng ngày</a></li>
+                        <li id="TinTucAmThuc" class="breadcrumb-item category" style="display: none"><a href="#">Tin tức
+                                ẩm thực</a></li>
+
+
+
+
+
                     </ol>
                 </nav>
             </div>
@@ -253,575 +324,597 @@
     </div>
 
     <div class="container">
-            <div class="column-left">
-                    <div class="content">
-                        <div class="mostView">
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a href="/post.html" title="Bất ngờ nguồn gốc xe Lexus 6666">Bất ngờ nguồn gốc xe
-                                        Lexus 6666
-                                    </a>
-                                </header>
-                                <span class="avatar" id="">
-        
-                                    <a><img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
-                                            alt="Bất ngờ nguồn gốc xe Lexus 6666 tông 10 người thương vong ở đám tang"
-                                            class="width-120 initial loaded" data-was-processed="true"></a>
-                                </span>
-                                <span class="describe" id="">
-                                    <a> Lexus 570 mang biển 49X - 6666 tông thẳng vào đội
-                                        di quan đám tang ở TP.Quy Nhơn...</a>
-                                </span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">12/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="/post.html">Tin
-                                        nóng</a>
-                                </div>
-                            </article>
-        
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
-                                        href="/post.html">Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất
-                                        bại</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Thế giới - Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557046542-391-155703174564684-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557046542-391-155703174564684-thumbnail.jpg"
-                                            alt="Thế giới - Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
-                                            class="width-120 loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Ông Juan Guaidó, người tự xưng là "tổng thống lâm thời Venezuela", hôm
-                                    4/5 thừa nhận sai...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thế giới" href="#">Thế giới</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Phong cách gợi cảm từ nhà ra phố của 'Thánh nữ Mì Gõ' Phi Huyền Trang"
-                                        href="/post.html">Phong cách gợi cảm từ nhà ra phố của "Thánh nữ Mì Gõ" Phi Huyền
-                                        Trang</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Phong cách gợi cảm từ nhà ra phố của 'Thánh nữ Mì Gõ' Phi Huyền Trang"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557036735-812-huyen-trang-1-1557033866-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557036735-812-huyen-trang-1-1557033866-width640height480.jpg"
-                                            alt="Phong cách gợi cảm từ nhà ra phố của &quot;Thánh nữ Mì Gõ&quot; Phi Huyền Trang"
-                                            class="width-120 loaded" data-was-processed="true"> </a>
-        
-                                </span>
-                                <span class="describe">"Thánh nữ Mì Gõ" Phi Huyền Trang được đánh giá là ngày càng sexy, gợi
-                                    cảm....</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thời trang" href="#">Thời trang</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca"
-                                        href="/post.html">“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại
-                                        ngợi ca</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556989092-54-avt-1556767094-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556989092-54-avt-1556767094-width640height480.jpg"
-                                            alt="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca" class="width-120 loaded"
-                                            data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe">Trên mảnh đất cũ của cha, người con trai mong muốn tái hiện lại...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Kinh doanh" href="#">Kinh doanh</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="HAGL - Dược Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội"
-                                        href="/post.html">HAGL - Dược Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="HAGL - Dược Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
-                                            alt="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo" class="width-120 loaded"
-                                            data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe">Tiền vệ Minh Vương đã có một trận đấu xuất sắc với một bàn và một kiến
-                                    tạo.</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thời trang" href="#">Thời trang</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn" href="/post.html">Đoạt
-                                        mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052169-59-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052169-59-thumbnail.jpg"
-                                            alt="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn" class="width-120 loaded"
-                                            data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe">Trong lúc ăn cơm tối chị C. trách móc: “Nói về sớm cũng không về được...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Pháp luật" href="#">Pháp luật</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh" href="/post.html">Chưa
-                                        tới hết những nơi này chưa thể nói đã tới Bắc Kinh</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048286-744-155704576975051-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048286-744-155704576975051-thumbnail.jpg"
-                                            alt="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh" class="width-120 initial loaded"
-                                            data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe">Bắc Kinh là một điểm đến hàng đầu của du khách khi ghé thăm Trung
-                                    ...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Pháp luật" href="#">Du lịch</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?"
-                                        href="/post.html">Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/_dsf37431-1557030799-460-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/_dsf37431-1557030799-460-width640height480.jpg"
-                                            alt="Công nghệ thông tin - Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?"
-                                            class="width-120 loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Facebook vừa ra mắt Dating tại thị trường Việt Nam...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Mạng xã hội" href="/post.html">Mạng xã hội</a>
-                                </div>
-                            </article>
+        <div class="column-left">
+            <div class="content">
+                <div class="mostView">
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html" title="Bất ngờ nguồn gốc xe Lexus 6666">Bất ngờ nguồn gốc xe
+                                Lexus 6666
+                            </a>
+                        </header>
+                        <span class="avatar" id="">
+
+                            <a><img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
+                                    alt="Bất ngờ nguồn gốc xe Lexus 6666 tông 10 người thương vong ở đám tang"
+                                    class="width-120 initial loaded" data-was-processed="true"></a>
+                        </span>
+                        <span class="describe" id="">
+                            <a> Lexus 570 mang biển 49X - 6666 tông thẳng vào đội
+                                di quan đám tang ở TP.Quy Nhơn...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">12/4/2019</a>
                         </div>
-                        <div class="lastest">
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
-                                        href="/post.html">Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội
-                                        bóng...</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/7994f3e00aa1e3ffbab0-640-1557030650-898-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/7994f3e00aa1e3ffbab0-640-1557030650-898-width640height480.jpg"
-                                            alt="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
-                                            class="width-120 " data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">(19h, 5/5) Quế Ngọc Hải trở lại ở vòng đấu này và sẽ gặp ngay đội bóng cũ
-                                    SLNA.</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="/post.html">Vleague</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
-                                        href="/post.html">Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại
-                                        hạng?</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/divock-origi-virgil-van-dijk-football365-640-1557016095-610-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/divock-origi-virgil-van-dijk-football365-640-1557016095-610-width640height480.jpg"
-                                            alt="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Liverpool trở thành đội bóng có số điểm cao thứ 3 trong lịch sử Premier
-                                    League.</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="bóng đá" href="/post.html">Bóng đá</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
-                                        href="/post.html">Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về
-                                        phương tiện</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557035452-960-155703499197686-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557035452-960-155703499197686-thumbnail.jpg"
-                                            alt="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Trên hệ thống dữ liệu quản lý phương tiện cơ giới đường bộ của ...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="/post.html">Tin nóng</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
-                                        href="/post.html">Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ
-                                        đồng</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556988836-293-155698873364490-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556988836-293-155698873364490-thumbnail.jpg"
-                                            alt="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
-                                            class="width-120 loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Không chỉ mang tính nghệ thuật cao, cây sam hương bonsai còn tỏa ra mùi
-                                    thơm khi sờ tay vào nó.</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="/post.html">Cây cảnh</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ được triệu hồi để kiểm..."
-                                        href="/post.html">Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ
-                                        được...</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556946721-715-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556946721-715-width640height480.jpg"
-                                            alt="Ô tô - Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ được triệu hồi để kiểm tra"
-                                            class="width-120 loaded" data-was-processed="true">
-        
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Theo Cục Đăng kiểm Việt Nam có tổng cộng 182 xe Audi tại Việt Nam bị
-                                    triệu hồi...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="/post.html">Xe cộ</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
-                                        href="/post.html">Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam
-                                        Á?</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557056444-402-155704013084475-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557056444-402-155704013084475-thumbnail.jpg"
-                                            alt="Thế giới - Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Những người săn tìm kho báu có thể đã phát hiện lối vào của một kho
-                                    báu...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thế giới" href="#">Thế giới</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">Đề nghị
-                                        Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048763-393-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048763-393-thumbnail.jpg"
-                                            alt="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh"
-                                            class="width-120 loaded" data-was-processed="true"> </a>
-        
-                                </span>
-                                <span class="describe">Ủy Ban Kiểm tra Trung ương đề nghị Ban Bí thư xem xét, thi hành kỷ
-                                    luật...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thời sự" href="#">Thời sự</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">Đường
-                                        đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo" href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
-                                            alt="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo" class="width-120 loaded"
-                                            data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe">Từ hình ảnh của một nàng hot girl, Sam thay đổi ngoạn mục sang...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thời trang" href="#">Thời trang</a>
-                                </div>
-                            </article>
-        
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="/post.html">Tin
+                                nóng</a>
                         </div>
-                        <div class="topTopic">
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a href="https://google.html"
-                                        title="Bugatti La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo">Bugatti
-                                        La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a>
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556943722-973-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556943722-973-width640height480.jpg"
-                                            alt="Ô tô - Bugatti La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe" id="">
-                                    <a>Cristiano Ronaldo đã tiếp tục làm phong phú hơn bộ sưu tập siêu xe của mình...</a>
-                                </span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Sự kiện: Tin nóng" href="#">Ronaldo</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
-                                        href="/post.html">Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức"
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-14/120x90/1555229421-613-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-14/120x90/1555229421-613-thumbnail.jpg"
-                                            alt="Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Không ít người sẽ ngạc nhiên về cái tên từng khiến Federer thua trắng và
-                                    khóc thút thít.</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="bóng đá" href="/post.html">Thể thao</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a title="Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011 bất ngờ được hàng loạt người cover tràn lan trên mạng thời..."
-                                        href="/post.html">Số phận lận đận của “Đời là thế thôi” trước khi được dân mạng cover
-                                        tràn lan</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a title="Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011 bất ngờ được hàng loạt người cover tràn lan trên mạng thời..."
-                                        href="/post.html">
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557012239-763-155701212773739-thumbnail.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557012239-763-155701212773739-thumbnail.jpg"
-                                            alt="Số phận lận đận của “Đời là thế thôi” trước khi được dân mạng cover tràn lan"
-                                            class="width-120 initial loaded" data-was-processed="true">
-                                    </a>
-        
-                                </span>
-                                <span class="describe">Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011...</span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="bóng đá" href="/post.html">Ngôi sao ca nhạc</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a href="/post.html" title="Bảng giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài">Bảng
-                                        giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a>
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556972230-648-yamaha-1556891498-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556972230-648-yamaha-1556891498-width640height480.jpg"
-                                            alt="Bảng giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài"
-                                            class="width-120 loaded" data-was-processed="true">
-                                    </a>
-                                </span>
-                                <span class="describe" id="">
-                                    <a>Cùng với sự xuất hiện của Exciter Monster...</a>
-                                </span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Xe máy" href="#">Xe máy</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                <header class="title" id="">
-                                    <a href="/post.html"
-                                        title="Ớn lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng">Ớn
-                                        lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng</a>
-                                </header>
-                                <span class="avatar" id="">
-                                    <a>
-                                        <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557044486-798-image_dai_dien_gifno1-1557044485-width640height480.jpg"
-                                            data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557044486-798-image_dai_dien_gifno1-1557044485-width640height480.jpg"
-                                            alt="Ớn lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng"
-                                            class="width-120 loaded" data-was-processed="true"> </a>
-                                </span>
-                                <span class="describe" id="">
-                                    <a>Nhiều người lớn, trẻ nhỏ bị bỏng, khi căn nhà ở tỉnh Bình Phước bị đối tượng xấu...</a>
-                                </span>
-                                <div class="datePost" id="">
-                                    <a title="12/4/2018">13/4/2019</a>
-                                </div>
-                                <div class="more" id="">
-                                    <a title="Thời sự" href="#">Thời sự</a>
-                                </div>
-                            </article>
-                            <article class="post" id="">
-                                    <header class="title" id="">
-                                        <a href="/post.html"
-                                            title="Top smartphone 9 triệu “chất như nước cất”">Top smartphone 9 triệu “chất như nước cất”</a>
-                                    </header>
-                                    <span class="avatar" id="">
-                                        <a>
-                                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557035714-796-cover-1556854393-width640height480.jpg" data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557035714-796-cover-1556854393-width640height480.jpg" alt="Thời trang Hi-tech - Top smartphone 9 triệu “chất như nước cất”" class="width-120 initial loaded" data-was-processed="true">
-                                             </a>
-                                    </span>
-                                    <span class="describe" id="">
-                                        <a>Phân khúc smartphone tầm trung giờ đây cũng đã được tích hợp rất nhiều tính năng cao cấp...</a>
-                                    </span>
-                                    <div class="datePost" id="">
-                                        <a title="12/4/2018">13/4/2019</a>
-                                    </div>
-                                    <div class="more" id="">
-                                        <a title="Thời sự" href="#">Thời sự</a>
-                                    </div>
-                                </article>
-                                <article class="post" id="">
-                                        <header class="title" id="">
-                                            <a href="/post.html"
-                                                title="Từng bước cài đặt trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt">Từng bước cài đặt trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt</a>
-                                        </header>
-                                        <span class="avatar" id="">
-                                            <a>
-                                                    <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557058495-935-59285575_2414600945434845_8174533013057568768_n-1557058485-width640height480.jpg" data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557058495-935-59285575_2414600945434845_8174533013057568768_n-1557058485-width640height480.jpg" alt="Công nghệ thông tin - Từng bước cài đặt trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt" class="width-120 initial loaded" data-was-processed="true">
-                                                                                         </a>
-                                        </span>
-                                        <span class="describe" id="">
-                                            <a>Chỉ cần một chiếc smartphone Android, bạn có thể cài đặt tính năng này dễ dàng.</a>
-                                        </span>
-                                        <div class="datePost" id="">
-                                            <a title="12/4/2018">13/4/2019</a>
-                                        </div>
-                                        <div class="more" id="">
-                                            <a title="Công nghệ" href="#">Công nghệ</a>
-                                        </div>
-                                    </article>
-                                    <article class="post" id="">
-                                            <header class="title" id="">
-                                                <a href="/post.html" title="Lộ diện máy bay ném bom chiến lược mới nhất của Trung Quốc">Lộ diện máy bay ném bom
-                                                    chiến lược mới nhất của Trung Quốc</a>
-                                            </header>
-                                            <span class="avatar" id="">
-                                                <a>
-                                                    <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557041632-403-155699686384465-thumbnail.jpg"
-                                                        data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557041632-403-155699686384465-thumbnail.jpg"
-                                                        alt="Media - Lộ diện máy bay ném bom chiến lược mới nhất của Trung Quốc" class="width-120 initial loaded"
-                                                        data-was-processed="true">
-                                                </a>
-                                            </span>
-                                            <span class="describe" id="">
-                                                <a>Một trang mạng Trung Quốc đã để lộ hình ảnh chiếc H-6J, mẫu cải tiến ...</a>
-                                            </span>
-                                            <div class="datePost" id="">
-                                                <a title="12/4/2018">13/4/2019</a>
-                                            </div>
-                                            <div class="more" id="">
-                                                <a title="Thế giới" href="#">Thế giới</a>
-                                            </div>
-                                        </article>
+                    </article>
+
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
+                                href="/post.html">Tổng
+                                thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất
+                                bại</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Thế giới - Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557046542-391-155703174564684-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557046542-391-155703174564684-thumbnail.jpg"
+                                    alt="Thế giới - Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Ông Juan Guaidó, người tự xưng là "tổng thống lâm thời Venezuela", hôm
+                            4/5 thừa nhận sai...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
                         </div>
-                    </div>
+                        <div class="more" id="">
+                            <a title="Thế giới" href="#">Thế giới</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Phong cách gợi cảm từ nhà ra phố của 'Thánh nữ Mì Gõ' Phi Huyền Trang"
+                                href="/post.html">Phong
+                                cách gợi cảm từ nhà ra phố của "Thánh nữ Mì Gõ" Phi Huyền
+                                Trang</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Phong cách gợi cảm từ nhà ra phố của 'Thánh nữ Mì Gõ' Phi Huyền Trang"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557036735-812-huyen-trang-1-1557033866-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557036735-812-huyen-trang-1-1557033866-width640height480.jpg"
+                                    alt="Phong cách gợi cảm từ nhà ra phố của &quot;Thánh nữ Mì Gõ&quot; Phi Huyền Trang"
+                                    class="width-120 loaded" data-was-processed="true"> </a>
+
+                        </span>
+                        <span class="describe">"Thánh nữ Mì Gõ" Phi Huyền Trang được đánh giá là ngày càng sexy, gợi
+                            cảm....</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời trang" href="#">Thời trang</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca"
+                                href="/post.html">“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại
+                                ngợi ca</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556989092-54-avt-1556767094-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556989092-54-avt-1556767094-width640height480.jpg"
+                                    alt="“Túp lều tranh” lợp lá ẩn mình giữa thành phố Biên Hòa được báo ngoại ngợi ca"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe">Trên mảnh đất cũ của cha, người con trai mong muốn tái hiện lại...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Kinh doanh" href="#">Kinh doanh</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="HAGL - Dược Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội"
+                                href="/post.html">HAGL - Dược
+                                Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="HAGL - Dược Nam Hà Nam Định: Minh Vương rực sáng, Pleiku mở hội"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
+                                    alt="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe">Tiền vệ Minh Vương đã có một trận đấu xuất sắc với một bàn và một kiến
+                            tạo.</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời trang" href="#">Thời trang</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn" href="/post.html">Đoạt
+                                mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn" href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052169-59-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052169-59-thumbnail.jpg"
+                                    alt="Đoạt mạng vợ trẻ trong bữa cơm tối sau khi bị vợ cằn nhằn"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe">Trong lúc ăn cơm tối chị C. trách móc: “Nói về sớm cũng không về
+                            được...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Pháp luật" href="#">Pháp luật</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh" href="/post.html">Chưa
+                                tới hết những nơi này chưa thể nói đã tới Bắc Kinh</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh" href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048286-744-155704576975051-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048286-744-155704576975051-thumbnail.jpg"
+                                    alt="Chưa tới hết những nơi này chưa thể nói đã tới Bắc Kinh"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe">Bắc Kinh là một điểm đến hàng đầu của du khách khi ghé thăm Trung
+                            ...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Pháp luật" href="#">Du lịch</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?"
+                                href="/post.html">Facebook Dating tại
+                                Việt Nam có tiềm ẩn rủi ro mại dâm?</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?" href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/_dsf37431-1557030799-460-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/_dsf37431-1557030799-460-width640height480.jpg"
+                                    alt="Công nghệ thông tin - Facebook Dating tại Việt Nam có tiềm ẩn rủi ro mại dâm?"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Facebook vừa ra mắt Dating tại thị trường Việt Nam...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Mạng xã hội" href="/post.html">Mạng xã hội</a>
+                        </div>
+                    </article>
                 </div>
+                <div class="lastest">
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
+                                href="/post.html">Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội
+                                bóng...</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/7994f3e00aa1e3ffbab0-640-1557030650-898-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/7994f3e00aa1e3ffbab0-640-1557030650-898-width640height480.jpg"
+                                    alt="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
+                                    class="width-120 " data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">(19h, 5/5) Quế Ngọc Hải trở lại ở vòng đấu này và sẽ gặp ngay đội bóng cũ
+                            SLNA.</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="/post.html">Vleague</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
+                                href="/post.html">Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại
+                                hạng?</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/divock-origi-virgil-van-dijk-football365-640-1557016095-610-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/divock-origi-virgil-van-dijk-football365-640-1557016095-610-width640height480.jpg"
+                                    alt="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Liverpool trở thành đội bóng có số điểm cao thứ 3 trong lịch sử Premier
+                            League.</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="bóng đá" href="/post.html">Bóng đá</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
+                                href="/post.html">Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về
+                                phương tiện</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557035452-960-155703499197686-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557035452-960-155703499197686-thumbnail.jpg"
+                                    alt="Vụ xe biển xanh bỏ chạy sau tai nạn: Cục đăng kiểm không có dữ liệu về phương tiện"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Trên hệ thống dữ liệu quản lý phương tiện cơ giới đường bộ của ...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="/post.html">Tin nóng</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
+                                href="/post.html">Tuyệt
+                                phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ
+                                đồng</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556988836-293-155698873364490-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556988836-293-155698873364490-thumbnail.jpg"
+                                    alt="Tuyệt phẩm cây cảnh cứ đụng vào là tỏa hương, giá bán tới 2 tỷ đồng"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Không chỉ mang tính nghệ thuật cao, cây sam hương bonsai còn tỏa ra mùi
+                            thơm khi sờ tay vào nó.</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="/post.html">Cây cảnh</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ được triệu hồi để kiểm..."
+                                href="/post.html">Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ
+                                được...</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Trực tiếp bóng đá Viettel - SLNA: Quế Ngọc Hải trở lại, đối đầu đội bóng cũ"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556946721-715-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556946721-715-width640height480.jpg"
+                                    alt="Ô tô - Gần 200 chiếc Audi A7, A8, Q7 lỗi hệ thống nhiên liệu động cơ được triệu hồi để kiểm tra"
+                                    class="width-120 loaded" data-was-processed="true">
+
+                            </a>
+
+                        </span>
+                        <span class="describe">Theo Cục Đăng kiểm Việt Nam có tổng cộng 182 xe Audi tại Việt Nam bị
+                            triệu hồi...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="/post.html">Xe cộ</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
+                                href="/post.html">Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam
+                                Á?</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557056444-402-155704013084475-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557056444-402-155704013084475-thumbnail.jpg"
+                                    alt="Thế giới - Phát hiện lối vào kho vàng bị đặt bẫy chết người ở quốc gia Đông Nam Á?"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Những người săn tìm kho báu có thể đã phát hiện lối vào của một kho
+                            báu...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thế giới" href="#">Thế giới</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">Đề nghị
+                                Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048763-393-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557048763-393-thumbnail.jpg"
+                                    alt="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh"
+                                    class="width-120 loaded" data-was-processed="true"> </a>
+
+                        </span>
+                        <span class="describe">Ủy Ban Kiểm tra Trung ương đề nghị Ban Bí thư xem xét, thi hành kỷ
+                            luật...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời sự" href="#">Thời sự</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Đề nghị Ban Bí thư thi hành kỷ luật ông Nguyễn Bá Cảnh" href="/post.html">Đường
+                                đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557052127-994-155705212540534-thumbnail.jpg"
+                                    alt="Đường đua mỹ nhân gợi cảm gọi tên Sam vì cách mặc quá bạo"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe">Từ hình ảnh của một nàng hot girl, Sam thay đổi ngoạn mục
+                            sang...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời trang" href="#">Thời trang</a>
+                        </div>
+                    </article>
+
+                </div>
+                <div class="topTopic">
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="https://google.html"
+                                title="Bugatti La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo">Bugatti
+                                La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556943722-973-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/ava-1556943722-973-width640height480.jpg"
+                                    alt="Ô tô - Bugatti La Voiture Noire giá gần 19 triệu đô, sẽ về tay Cristiano Ronaldo"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Cristiano Ronaldo đã tiếp tục làm phong phú hơn bộ sưu tập siêu xe của mình...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Sự kiện: Tin nóng" href="#">Ronaldo</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Liverpool cao thủ vượt khó phút cuối: Chân mệnh đế vương Ngoại hạng?"
+                                href="/post.html">Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức"
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-14/120x90/1555229421-613-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-14/120x90/1555229421-613-thumbnail.jpg"
+                                    alt="Federer thua chấn động 0-6, 0-6: Cay đắng quên ăn khóc rưng rức"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Không ít người sẽ ngạc nhiên về cái tên từng khiến Federer thua trắng và
+                            khóc thút thít.</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="bóng đá" href="/post.html">Thể thao</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a title="Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011 bất ngờ được hàng loạt người cover tràn lan trên mạng thời..."
+                                href="/post.html">Số phận lận đận của “Đời là thế thôi” trước khi được dân mạng cover
+                                tràn lan</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a title="Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011 bất ngờ được hàng loạt người cover tràn lan trên mạng thời..."
+                                href="/post.html">
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557012239-763-155701212773739-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557012239-763-155701212773739-thumbnail.jpg"
+                                    alt="Số phận lận đận của “Đời là thế thôi” trước khi được dân mạng cover tràn lan"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+
+                        </span>
+                        <span class="describe">Ca khúc “Đời là thế thôi” do Quách Beem thể hiện vào năm 2011...</span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="bóng đá" href="/post.html">Ngôi sao ca nhạc</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html" title="Bảng giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài">Bảng
+                                giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556972230-648-yamaha-1556891498-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-04/120x90/1556972230-648-yamaha-1556891498-width640height480.jpg"
+                                    alt="Bảng giá xe Yamaha tháng 5/2019: Tập trung vào át chủ bài"
+                                    class="width-120 loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Cùng với sự xuất hiện của Exciter Monster...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Xe máy" href="#">Xe máy</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html"
+                                title="Ớn lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng">Ớn
+                                lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557044486-798-image_dai_dien_gifno1-1557044485-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/120x90/1557044486-798-image_dai_dien_gifno1-1557044485-width640height480.jpg"
+                                    alt="Ớn lạnh với clip “bom xăng” bay vào nhà như mưa, nhiều người bị bỏng nặng"
+                                    class="width-120 loaded" data-was-processed="true"> </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Nhiều người lớn, trẻ nhỏ bị bỏng, khi căn nhà ở tỉnh Bình Phước bị đối tượng xấu...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời sự" href="#">Thời sự</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html" title="Top smartphone 9 triệu “chất như nước cất”">Top smartphone 9
+                                triệu “chất như
+                                nước cất”</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557035714-796-cover-1556854393-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557035714-796-cover-1556854393-width640height480.jpg"
+                                    alt="Thời trang Hi-tech - Top smartphone 9 triệu “chất như nước cất”"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Phân khúc smartphone tầm trung giờ đây cũng đã được tích hợp rất nhiều tính năng cao
+                                cấp...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thời sự" href="#">Thời sự</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html"
+                                title="Từng bước cài đặt trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt">Từng
+                                bước cài đặt
+                                trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557058495-935-59285575_2414600945434845_8174533013057568768_n-1557058485-width640height480.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557058495-935-59285575_2414600945434845_8174533013057568768_n-1557058485-width640height480.jpg"
+                                    alt="Công nghệ thông tin - Từng bước cài đặt trợ lý ảo Google Assistant trò chuyện bằng tiếng Việt"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Chỉ cần một chiếc smartphone Android, bạn có thể cài đặt tính năng này dễ dàng.</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Công nghệ" href="#">Công nghệ</a>
+                        </div>
+                    </article>
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/post.html" title="Lộ diện máy bay ném bom chiến lược mới nhất của Trung Quốc">Lộ
+                                diện máy bay
+                                ném bom
+                                chiến lược mới nhất của Trung Quốc</a>
+                        </header>
+                        <span class="avatar" id="">
+                            <a>
+                                <img src="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557041632-403-155699686384465-thumbnail.jpg"
+                                    data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-05-05/medium/1557041632-403-155699686384465-thumbnail.jpg"
+                                    alt="Media - Lộ diện máy bay ném bom chiến lược mới nhất của Trung Quốc"
+                                    class="width-120 initial loaded" data-was-processed="true">
+                            </a>
+                        </span>
+                        <span class="describe" id="">
+                            <a>Một trang mạng Trung Quốc đã để lộ hình ảnh chiếc H-6J, mẫu cải tiến ...</a>
+                        </span>
+                        <div class="datePost" id="">
+                            <a title="12/4/2018">13/4/2019</a>
+                        </div>
+                        <div class="more" id="">
+                            <a title="Thế giới" href="#">Thế giới</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
         <div class="column-right">
             <div class="widgets ts-grid-box  widgets-populer-post">
 
@@ -1005,9 +1098,54 @@
 </body>
 <script src="./Resources/js/scripts.js"></script>
 <script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+        var getParams = function (url) {
+        var params = {};
+        var parser = document.createElement('a');
+        parser.href = url;
+        var query = parser.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+            params[pair[0]] = decodeURIComponent(pair[1]);
+        }
+        return params;
+    };
+    console.log(getParams(window.location.href));
+    let params = getParams(window.location.href);
+    cities = {
+        ngoaihanganh: {
+            f1: "idBongDa",
+            f2: "NgoaiHangAnh"
+        },
+        euro: {
+            f1: "idBongDa",
+            f2: "Euro"
+        }
+    }
+
+
+    // let renderItem = (item) => {
+    //     $("#my-content").append(
+    //         `<div style='border: solid 1px red'>${item}</div>`
+    //     );
+    // }
+
+    // let render = (inp) => {
+    //     //$("#my-content").html(JSON.stringify(result));
+    //     inp.results.forEach(element => {
+    //         renderItem(element.name);
+    //     });
+    // }
+
+    //openCity('type', cities[params.page].f2);
+    openCity('type', cities[params.page].f1);
+    openCity('category', cities[params.page].f2);
+    // $.ajax({
+    //     url: "https://pokeapi.co/api/v2/pokemon", success: function (result) {
+    //         render(result);
+    //     }
+    // });
 </script>
+
 
 </html>
