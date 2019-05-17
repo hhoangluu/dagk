@@ -1,10 +1,11 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var dbcotroller = require('./controllers/dbcontroller');
-//var homepagecontroller = require('./controllers/homepagecontroller');
+var homepagecontroller = require('./controllers/homepagecontroller');
 
 var app = express();
- 
+
+var home = homepagecontroller(app);
 
 app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',

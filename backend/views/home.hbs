@@ -7,36 +7,17 @@
     <div class="navbarw3">
 
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
-
+        {{#each this.categories}}
         <div class="dropdownw3">
-            <button class="dropbtn" href="/bong-da">Bóng đá
+            <button class="dropbtn" href="/bong-da"> {{ category}}
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
-                <a class="category" id="world-cup" value="world-cup" > World Cup</a>
-                <a href="/bong-da/euro">Euro</a>
-                <a href="./Category.html?page=ngoaihanganh">Ngoại hạng anh</a>
-                <a href="./Category.html?page=cupc1">Cúp C1</a>
-                <a href="./Category.html?page=bongdaVN">Bóng đá Việt Nam</a>
-                <a href="./Category.html?page=bongdaY">Bóng đá Ý</a>
-                <a href="./Category.html?page=bongdaTBN">Bóng đá Tây Ban Nha</a>
-                <a href="./Category.html?page=bongdaBRAZIL">Bóng đá Brazil</a>
-                <a href="./Category.html?page=bongdaDUC">Bóng đá Đức</a>
+                <a class="category"></a>
             </div>
         </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Kinh doanh
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html">Doanh nhân</a>
-                <a href="./Category.html">Tài chính</a>
-                <a href="./Category.html">Bất động sản</a>
-                <a href="./Category.html">Ngân hàng</a>
-                <a href="./Category.html">Giá vàng</a>
-                <a href="./Category.html">Tỉ giá</a>
-            </div>
-        </div>
+        {{/each}}
+        
         <div class="dropdownw3">
             <button class="dropbtn">Thị trường
                 <i class="fa fa-caret-down"></i>

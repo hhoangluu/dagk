@@ -11,15 +11,15 @@ mongoose.connect("mongodb+srv://admin:123@th16news-v3igk.mongodb.net/th16news?re
     });
 
 //create a chema this is like blueprint
-var thnewsChema = new mongoose.Schema({
-    item: String,
-});
+// var thnewsChema = new mongoose.Schema({
+//     item: String,
+// });
 
-var th16news = mongoose.model('Bongda', thnewsChema);
+// var th16news = mongoose.model('Bongda', thnewsChema);
 
-var itemFirst = th16news({ item: "bai so 1" }).save(function (err) {
-    if (err) throw err;
+// var itemFirst = th16news({ item: "bai so 1" }).save(function (err) {
+//     if (err) throw err;
 
-})
+// })
 
 module.exports = mongoose;
