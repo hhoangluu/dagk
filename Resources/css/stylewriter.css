@@ -49,15 +49,36 @@ div.container {
     font-size: 15px;
     padding-left: 2%;
     
-  }
+}
 
-.column-1{
+.column-center {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 2%;
+}
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  font-weight: normal;
+}
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+.column-1 {
   display: flex;
   flex-direction: column;
   width: 70%;
   padding-right: 2%;
 }
-.column-2{
+.column-2 {
   display:flex;
   flex-direction: column;
   margin-top: 20px;
@@ -137,7 +158,7 @@ div.container {
   
   
   /*========= Properties=======*/
-  .form-properties{
+  .form-properties {
     font-weight: 500;
     font-size: 17px;
     padding: 1%;
@@ -145,12 +166,12 @@ div.container {
     border: solid rgb(212, 212, 212) 1px;
     margin-bottom: 20px;
   }
-  .form-check,.form-horizontal{
+  .form-check,.form-horizontal {
     font-weight: 200;
     font-size: 15px;
 
   }
-  [type="submit"]{
+  [type="submit"] {
 
       position: relative;
       display: block;
@@ -171,6 +192,48 @@ button[type="submit"]:hover {
   background-color: rgb(63, 62, 62);
   border-color: rgb(151, 151, 151);
   transition: all .1s ease-in-out;
-  
 
+}
+
+.container-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin: 0 200px;
+}
+
+
+.container-account > label {
+  width: 100%;
+  font-size: 16px;
+}
+
+
+/* Full-width input fields */
+.container-account > input[type=text], .container-account > input[type=password] {
+  width: 100%;
+  padding: 10px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 3px 0; 
+}
+
+.container-account > button {
+  background: rgb(25, 73, 206);
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container-account > span.psw {
+  width: 60%;
+  font-size: 15px;
 }
