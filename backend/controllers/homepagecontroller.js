@@ -1,18 +1,24 @@
-module.exports = function(app) {
-    var db = require('./dbcontroller')
+var model = require('../models/categories.model')
 
-    var thnewsChema = new db.Schema({
-        category: String,
-    });
 
-    var categories = db.model('categories', thnewsChema);
-    // show index
-    app.get('/', function(req, res){
+model.connect();
+
+module.exports = {
+    index: (req, res, next) => {
        
-        categories.find({}, function(err, data) {
-            console.log(data);
-            if (err) throw err;
-            res.render('home',{categories: data})
-        })
-    })
+        var categories = undefined;
+        model.loadAll(function(data){
+            categories = data;
+            console.log(categories);
+            res.render('home', { categories: categories });
+        });
+        // show index
+        //console.log(categories);
+        
+        // categories.find({}, function (err, data) {
+        //     console.log(data);
+        //     if (err) throw err;
+        //     res.render('home', { categories: data })
+        // });
+    }
 }

@@ -1,11 +1,10 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
-var dbcotroller = require('./controllers/dbcontroller');
-var homepagecontroller = require('./controllers/homepagecontroller');
+//var dbcotroller = require('./controllers/dbcontroller');
+//var homepagecontroller = require('./controllers/homepagecontroller');
 
 var app = express();
 
-var home = homepagecontroller(app);
 
 app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
@@ -15,12 +14,8 @@ app.set('view engine', 'hbs');
 app.set("views","./views")
 app.use(express.static("views"));
 
-app.get('/', function (req, res) {
-    res.render('home');
-});
- 
 
-app.use('/bong-da', require('./routes/guest/home-category.route'));
+app.use('/', require('./routes/home-category.route'));
 
 
 
