@@ -546,11 +546,11 @@ div.column-right {
   font-weight: bold;
 }
 
-.content > .mostView , .content > .lastest , .content > .topTopic {
+.content > .listPost {
 width: 32%;
 } 
 
-.mostView , .lastest , .topTopic{
+.listPost {
 width: 100%;
 background-color:white;
 padding: 2%;
@@ -599,66 +599,103 @@ width: 95%;
 
 /*=========NEWS=========*/
 
+/* style title post*/
+.title {
+  color: #333;
+  padding: 0 0 5px;
+  margin: 0;
+  }
+  
+  .title a{
+  color: #333;
+  font-weight: 600;
+  }
 
 /*style post*/
+
+
 article{
   height: 170px;
 }
 .post {
 margin-top: 2%;
-min-height: 80px;
+height: 140px;
 font-size: 10px;
+display: flex;
+flex-direction: column;
 }
 
 .post > header {
-font-size: 14px;
-color: #000;
+width: 100%;
+height: 30%;
 }
 
-/* style title post*/
-.title {
-color: #333;
-padding: 0 0 5px;
-margin: 0;
+header {
+  font-size: 14px;
+  height: 100%;
+  color: #000;
+}
+  
+.post > .post-body {
+  width: 100%;
+  height: 70%;
 }
 
-.title a{
-color: #333;
-font-weight: 600;
-}
-
-.datePost{
-  color: #999;
-    padding-bottom: 5px;
-    font-weight: 500;
-    font-size: 10px;
-}
-.more a{
-  color: #EA151E;
-  font-size: 12px;
-  margin-left: 2px;
+.post-body {
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  
 }
 
 /* style image post*/
-.avatar {
-float: left;
-margin-right: 1px;
-position: relative;
-width: 120px;
-height: 100px;
+
+.post-body > .avatar {
+ height: 100%;
 }
+
+
+.avatar {
+width: 125px;
+height: 100%;
+}
+
 .avatar > img {
+  height: 100%;
+}
+
+.post-content {
   height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+
 }
 
 /*describe*/
-.describe{
+.post-content > .describe{
   font-weight: 100;
   font-size: 11.5px;
+  height: 70%;
   color: black;
 }
-/*======================*/
 
+.post-content > .datePost{
+  color: #999;
+  font-weight: 500;
+  font-size: 10px;
+  height: 12%;
+}
+
+.post-content > .more a{
+  color: #EA151E;
+  font-size: 12px;
+  margin-left: 2px;
+  height: 15%;
+}
+
+/*======================*/
 
 /*column setup*/
 .col {
