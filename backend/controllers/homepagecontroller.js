@@ -13,7 +13,7 @@ module.exports = {
         var categories = undefined;
         modelArtical.loadAll(function(dataArtical){
             articals = dataArtical;
-            console.log(articals);
+           // console.log(articals);
             
             modelCategory.loadAll(function(dataCategory){
                 categories = dataCategory;
@@ -34,7 +34,7 @@ module.exports = {
         
         //console.log(req.params.category);
         var category = req.params.category;
-        model.loadAll(function(data){
+        modelCategory.loadAll(function(data){
             categories = data;
            // console.log(categories);           
             res.render('category', {categories: categories, category: category});
