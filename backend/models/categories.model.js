@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 const homepagecontroller = require('../controllers/homepagecontroller')
 var categoriesChema = new mongoose.Schema({
     category: String,
-    
+    child: [
+        String
+    ]
 });
 var categoriesModel = mongoose.model('categories', categoriesChema);
 
@@ -26,7 +28,6 @@ module.exports = {
             if (err) throw err;
             //console.log(data);
             res(data);
-
             // console.log(categories);
         });
         

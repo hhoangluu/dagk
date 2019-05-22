@@ -1,7 +1,6 @@
 <header>
     <img style="width: 100%;" src="Resources/images/1.jpg" alt="photo">
 
-
 </header>
 <div class="Menu">
     <div class="navbarw3">
@@ -9,12 +8,15 @@
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories}}
         <div class="dropdownw3">
-            <button class="dropbtn" href="/{{category}}"> {{ category}}
+            <button class="dropbtn" href="/"><a href="/{{category}}">{{ category}}</a> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
-                <a class="category"></a>
+            {{#each child   }}
+                <a href="/{{this}}" class="category">{{this}}</a>
+            {{/each}}
             </div>
+
         </div>
         {{/each}}
         

@@ -9,7 +9,7 @@ module.exports = {
         var categories = undefined;
         model.loadAll(function(data){
             categories = data;
-            console.log(categories);
+           // console.log(categories);
             res.render('home', { categories: categories });
         });
         // show index

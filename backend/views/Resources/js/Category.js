@@ -5,5 +5,10 @@ $(document).ready(function(){
         var categories = {category: category.text()};
         console.log(categories);
         console.log(category);
+    });
+    $("button.dropbtn").on('click',function() {
+        var category = $('button.dropbtn');
+        var categories = {category: category.text()};
     })
+
 })
