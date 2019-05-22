@@ -2,15 +2,15 @@
     <div class="navbarw3">
 
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
-        {{#each this.categories}}
+        {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn" href="/"><a href="/{{category}}">{{ category}}</a>
+            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
-                {{#each child   }}
-                <a href="/{{this}}" class="category">{{this}}</a>
-                {{/each}}
+            {{#each child  as |childitem| }}
+                <a href="/{{xoadau item.category}}/{{xoadau this}}" class="category">{{this}}</a>
+            {{/each}}
             </div>
 
         </div>
@@ -25,7 +25,7 @@
                 <span class="psw">
                     <a href="#">
                         <i onclick="document.getElementById('id01').style.display='block'"><img
-                                src="Resources/images/account1.png" alt="photo"></i>
+                                src="/images/account1.png" alt="photo"></i>
                     </a>
                 </span>
                 <div id="id01" class="modal-account">
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Tài khoản" name="uname" required>
                             <input type="password" placeholder="Mật khẩu" name="psw" required>
                             <button type="submit">Đăng nhập</button>
@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Tài khoản" name="uname" required>
                             <input type="password" placeholder="Mật khẩu" name="psw" required>
                             <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Email" name="uname" required>
                             <button type="submit">Gửi</button>
                         </div>
@@ -138,8 +138,8 @@
 
 <div class="container">
     <div class="highlight-news">
-        <script src="Resources/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
-        <script src="./Resources/js/jshighlight.js"></script>
+        <script src="/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+        <script src=".//js/jshighlight.js"></script>
         <div id="jssor_1" style="width: 800%;">
             <div data-u="slides"
                 style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden; ">
