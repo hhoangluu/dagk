@@ -20,5 +20,15 @@ module.exports = {
         //     if (err) throw err;
         //     res.render('home', { categories: data })
         // });
+    },
+    categories: (req, res, next) => {
+        
+        //console.log(req.params.category);
+        var category = req.params.category;
+        model.loadAll(function(data){
+            categories = data;
+           // console.log(categories);           
+            res.render('category', {categories: categories, category: category});
+        });
     }
 }

@@ -1,93 +1,25 @@
 <header>
-    <img style="width: 100%;" src="Resources/images/1.jpg" alt="photo">
+    <img style="width: 100%;" src="/images/1.jpg" alt="photo">
 
 </header>
 <div class="Menu">
     <div class="navbarw3">
 
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
-        {{#each this.categories}}
+        {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn" href="/"><a href="/{{category}}">{{ category}}</a> 
+            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
-            {{#each child   }}
-                <a href="/{{this}}" class="category">{{this}}</a>
+            {{#each child  as |childitem| }}
+                <a href="/{{xoadau item.category}}/{{xoadau this}}" class="category">{{this}}</a>
             {{/each}}
             </div>
 
         </div>
         {{/each}}
         
-        <div class="dropdownw3">
-            <button class="dropbtn">Thị trường
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Bóng đá">Thị trường 24h</a>
-                <a href="./Category.html">Giá cả hàng hóa</a>
-                <a href="./Category.html">Sản xuất tiêu dùng</a>
-
-            </div>
-        </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Sức khỏe
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html">Bệnh đàn ông</a>
-                <a href="./Category.html">Bệnh phụ nữ</a>
-                <a href="./Category.html">Ung thư </a>
-                <a href="./Category.html">Bài thuốc dân gian</a>
-                <a href="./Category.html">Sức khỏe tình dục</a>
-                <a href="./Category.html">Sức khỏe dinh dưỡng</a>
-                <a href="./Category.html">Ung thư</a>
-                <a href="./Category.html">Tin tức sức khỏe</a>
-
-            </div>
-        </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Văn hóa - Xã hội
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html" onclick="openCity('DoiSong')">Đời sống</a>
-                <a href="./Category.html" onclick="openCity('DuLichVN')">Du lịch Việt Nam</a>
-                <a href="./Category.html" onclick="openCity('DuLichTG')">Du lịch thế giới</a>
-            </div>
-        </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Showbitz
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html">Sao Việt</a>
-                <a href="./Category.html">Sao Châu Á</a>
-                <a href="./Category.html">Sao Châu Phi</a>
-            </div>
-        </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Thế giới
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html">Điểm nóng</a>
-                <a href="./Category.html">Quân sự</a>
-                <a href="./Category.html">Hồ sơ</a>
-            </div>
-        </div>
-        <div class="dropdownw3">
-            <button class="dropbtn">Ẩm thực
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdownw3-contentw3">
-                <a href="./Category.html">Đặc sản 3 miền</a>
-                <a href="./Category.html">Món ngon hằng ngày</a>
-                <a href="./Category.html">Thực đơn hằng ngày</a>
-                <a href="./Category.html">Tin tức ẩm thực</a>
-            </div>
-        </div>
 
         <div class="search-and-account">
             <div class="searchBar">
@@ -97,7 +29,7 @@
                 <span class="psw">
                     <a href="#">
                         <i onclick="document.getElementById('id01').style.display='block'"><img
-                                src="Resources/images/account1.png" alt="photo"></i>
+                                src="/images/account1.png" alt="photo"></i>
                     </a>
                 </span>
                 <div id="id01" class="modal-account">
@@ -109,7 +41,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Tài khoản" name="uname" required>
                             <input type="password" placeholder="Mật khẩu" name="psw" required>
                             <button type="submit">Đăng nhập</button>
@@ -168,7 +100,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Tài khoản" name="uname" required>
                             <input type="password" placeholder="Mật khẩu" name="psw" required>
                             <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
@@ -194,7 +126,7 @@
                         </div>
 
                         <div class="container-account">
-                            <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
                             <input type="text" placeholder="Email" name="uname" required>
                             <button type="submit">Gửi</button>
                         </div>
@@ -210,8 +142,8 @@
 
 <div class="container">
     <div class="highlight-news">
-        <script src="Resources/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
-        <script src="./Resources/js/jshighlight.js"></script>
+        <script src="/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+        <script src=".//js/jshighlight.js"></script>
         <div id="jssor_1" style="width: 800%;">
             <div data-u="slides"
                 style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden; ">
@@ -239,7 +171,7 @@
                 </div>
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image" src="./Resources/images/kaido.jpg" alt="1">
+                        <img data-u="image" src=".//images/kaido.jpg" alt="1">
                         <h3 class="post-title">
                             <a href="#">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
                                 giới"-Kaido</a>
@@ -250,7 +182,7 @@
                         </a>
                     </div>
                     <div data-u="thumb">
-                        <img data-u="thumb" class="i" src="Resources/images/kaido.jpg" />
+                        <img data-u="thumb" class="i" src="/images/kaido.jpg" />
                         <span class="ti">Thế giới</span><br />
                         <span class="d">Sức mạnh thật sự của "Sinh vật mạnh nhất thế
                             giới"-Kaido</span>
@@ -258,7 +190,7 @@
                 </div>
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image" src="./Resources/images/Doi la 3 chu T.jpg" alt="1">
+                        <img data-u="image" src=".//images/Doi la 3 chu T.jpg" alt="1">
                         <h3 class="post-title">
                             <a href="#">"Đời là ba chữ T"</a>
                         </h3>
@@ -268,7 +200,7 @@
                         </a>
                     </div>
                     <div data-u="thumb">
-                        <img data-u="thumb" class="i" src="Resources/images/Doi la 3 chu T.jpg" />
+                        <img data-u="thumb" class="i" src="/images/Doi la 3 chu T.jpg" />
                         <span class="ti">Học trò</span><br />
                         <span class="d">"Đời là ba chữ T"</span>
                     </div>
