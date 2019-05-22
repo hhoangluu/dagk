@@ -34,6 +34,7 @@ module.exports = {
         
         //console.log(req.params.category);
         var category = req.params.category;
+        var categories = undefined;
         modelCategory.loadAll(function(data){
             categories = data;
            // console.log(categories);           
