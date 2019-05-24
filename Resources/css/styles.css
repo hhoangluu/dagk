@@ -867,19 +867,19 @@ h3.widget-title , .overlay-post-content a {
   
   @media (min-width: 576px) {
     .container {
-      max-width: 960px;
+      max-width: 1000px;
     }
   }
   
   @media (min-width: 768px) {
     .container {
-      max-width: 960px;
+      max-width: 1000px;
     }
   }
   
   @media (min-width: 992px) {
     .container {
-      max-width: 90%;
+      max-width: 1000px;
     }
   }
   
