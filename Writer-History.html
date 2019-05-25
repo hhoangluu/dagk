@@ -55,6 +55,7 @@
                     </a>
                 </h6>
                 <ul class="nav flex-column">
+
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -63,7 +64,7 @@
                                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                                 <polyline points="13 2 13 9 20 9"></polyline>
                             </svg>
-                            Chưa duyệt
+                            Thêm bài viết
                         </a>
                     </li>
                     <li class="nav-item">
@@ -75,48 +76,7 @@
                                 <circle cx="20" cy="21" r="1"></circle>
                                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                             </svg>
-                            Đã từ chối
-                        </a>
-                    </li>
-                </ul>
-
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Nhân viên</span>
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-plus-circle">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="8" x2="12" y2="16"></line>
-                            <line x1="8" y1="12" x2="16" y2="12"></line>
-                        </svg>
-                    </a>
-                </h6>
-
-                <ul class="nav flex-column">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-bar-chart-2">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                            Danh sách nhân viên
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-layers">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                <polyline points="2 17 12 22 22 17"></polyline>
-                                <polyline points="2 12 12 17 22 12"></polyline>
-                            </svg>
-                            Thêm nhân viên
+                            Lịch sử
                         </a>
                     </li>
                 </ul>
@@ -167,19 +127,49 @@
         </div>
         <div class="column-right">
             <div class="column-center">
-                <h3 style="margin: 20px;">Thêm nhân viên</h3>
+                <h3 style="margin: 20px;">Danh sách bài viết</h3>
+                <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100"
+                    type="text" placeholder="Search" aria-label="Search">
                 <br>
-                <div class="container-account">
-                    <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                    <input type="text" placeholder="Tài khoản" name="uname" required>
-                    <input type="password" placeholder="Mật khẩu" name="psw" required>
-                    <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
-                    <input type="text" placeholder="Tên hiển thị" name="uname" required>
-                    <input type="text" placeholder="Chức vụ" name="uname" required>
-                    <input type="text" placeholder="Email" name="uname" required>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width: 5%">STT</th>
+                        <th style="width: 35%">Bài viết</th>
+                        <th style="width: 15%">Chuyên mục</th>
+                        <th style="width: 15%">Trạng thái</th>
+                        <th style="width: 20%">Ghi chú</th>
+                        <th style="width: 10%">Thao tác</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td> </td>
+                        <td>
+                            <button type="button" onclick="alert('Chưa sửa được!')">Sửa</button>
+                            <button type="button" onclick="alert('Đã xóa!')">Xóa</button>
+                        </td>
 
-                    <button type="submit">Thêm tài khoản</button>
-                </div>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
             </div>
 
         </div>

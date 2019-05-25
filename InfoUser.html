@@ -27,7 +27,6 @@
 
     </div>
     <div class="container">
-
         <div class="column-left " style="background: #F8F9FA;">
 
             <div class="sidebar sidebar-sticky">
@@ -80,46 +79,7 @@
                     </li>
                 </ul>
 
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Nhân viên</span>
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-plus-circle">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="8" x2="12" y2="16"></line>
-                            <line x1="8" y1="12" x2="16" y2="12"></line>
-                        </svg>
-                    </a>
-                </h6>
-
-                <ul class="nav flex-column">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-bar-chart-2">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                            Danh sách nhân viên
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-layers">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                <polyline points="2 17 12 22 22 17"></polyline>
-                                <polyline points="2 12 12 17 22 12"></polyline>
-                            </svg>
-                            Thêm nhân viên
-                        </a>
-                    </li>
-                </ul>
+                
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                     <span>Tài khoản</span>
@@ -167,19 +127,48 @@
         </div>
         <div class="column-right">
             <div class="column-center">
-                <h3 style="margin: 20px;">Thêm nhân viên</h3>
-                <br>
-                <div class="container-account">
-                    <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                    <input type="text" placeholder="Tài khoản" name="uname" required>
-                    <input type="password" placeholder="Mật khẩu" name="psw" required>
-                    <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
-                    <input type="text" placeholder="Tên hiển thị" name="uname" required>
-                    <input type="text" placeholder="Chức vụ" name="uname" required>
-                    <input type="text" placeholder="Email" name="uname" required>
-
-                    <button type="submit">Thêm tài khoản</button>
+                <h3 style="margin: 20px;">Thông tin cá nhân</h3>
+                <div class="info-user">
+                    <div class="info-left">
+                        <div class="boxinfo-line">
+                            <label for="">Họ tên</label>
+                            <input readonly type="text" value="Sờ Lờ Đại Ka"> 
+                            <button>Cập nhật</button>
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Bút danh</label>
+                            <input readonly type="text" value="Sờ Lờ Đại Ka"> 
+                            <button>Cập nhật</button>
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Email</label>
+                            <input readonly type="text" value="Sờ Lờ Đại Ka"> 
+                            <button>Cập nhật</button>
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Chức vụ</label>
+                            <input readonly type="text" value="Sờ Lờ Đại Ka"> 
+                            <button>Cập nhật</button>
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Ngày sinh</label>
+                            <input type="date" name="bday">
+                            <button>Cập nhật</button>
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Mật khẩu</label>
+                            <input readonly type="password" value="1111111111"> 
+                            <button>Cập nhật</button>
+                        </div>
+                    </div>
+                    <div class="info-right">
+                        <label for="">Ảnh đại diện</label>
+                        <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                        <button>Cập nhật</button>
+                    </div>
                 </div>
+                
+                
             </div>
 
         </div>

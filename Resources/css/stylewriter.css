@@ -35,10 +35,8 @@ div.container {
     font-weight: bold;
     border: solid 1px black;
   }
+
   
- 
-  
- 
   
   div.column-right {
     width:84%;
@@ -58,6 +56,56 @@ div.container {
   padding-right: 2%;
 }
 
+.info-user {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+} 
+
+.info-user > .info-left {
+  width: 45%;
+}
+
+.info-user > .info-right {
+  width: 45%;
+}
+
+.info-left {
+  width: 100%;
+}
+
+.info-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-right > .avatar {
+  width: 55%;
+  margin-bottom: 10px;
+}
+
+.info-right > button {
+  width: 20%;
+}
+
+.boxinfo-line {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.boxinfo-line > label {
+  width: 20%;
+}
+.boxinfo-line > input {
+  width: 50%;
+}
+.boxinfo-line > button {
+  width: 20%;
+}
 
 table, th, td {
   border: 1px solid black;
