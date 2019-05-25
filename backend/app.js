@@ -1,10 +1,10 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
+
 //var dbcotroller = require('./controllers/dbcontroller');
 //var homepagecontroller = require('./controllers/homepagecontroller');
 
 var app = express();
-
 
 app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
@@ -32,10 +32,20 @@ app.engine('hbs', exphbs({
             
             
             return str;
+        },
+        formatDate: date => {
+            
+            date = date.toLocaleDateString();
+            console.log(date);
+            return date;
+            
         }
+        
+
     }
 
 }));
+
 app.set('view engine', 'hbs');
 app.set("views", "./views")
 app.use(express.static("public"));
