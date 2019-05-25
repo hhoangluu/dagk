@@ -65,11 +65,17 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="./index.html" class="fa fa-home home-post">
-                            <a href="./index.html">Trang chủ
+                        <a href="/" class="fa fa-home home-post">
+                            <a href="/">Trang chủ
                             </a>
                         </a>
                     </li>
+                    <script>
+                        var x = location.href;
+                        console.log(x);
+                        var array = x.split('/');
+                        console.log(array);
+                    </script>
                     <li id="idBongDa" class="breadcrumb-item type" style="display: none"><a href="#">Bóng đá</a>
                     </li>
 
