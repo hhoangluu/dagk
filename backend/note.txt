@@ -6,7 +6,7 @@ load category
 load chuyên mục xem nhiều nhất		--Lưu đã xong
 load bài viết xem nhiều nhất, mới nhất	--Lưu đã xong
 
-đăng nhập, đăng kí
+đăng nhập, đăng kí 			--T2 làm
 đăng bài, tìm kiếm
 
 tạo collection users
