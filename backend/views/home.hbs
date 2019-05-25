@@ -4,13 +4,13 @@
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a> 
+            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
-            {{#each child  as |childitem| }}
+                {{#each child  as |childitem| }}
                 <a href="/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
-            {{/each}}
+                {{/each}}
             </div>
 
         </div>
@@ -148,8 +148,7 @@
                 {{#if this.highlight}}
                 <div>
                     <div class="carousel-item active">
-                        <img data-u="image"
-                            src="{{imgSource}}" alt="1">
+                        <img data-u="image" src="{{imgSource}}" alt="1">
                         <h3 class="post-title">
                             <a href="#">{{describe}}</a>
                         </h3>
@@ -159,8 +158,7 @@
                         </a>
                     </div>
                     <div data-u="thumb">
-                        <img data-u="thumb" class="i"
-                            src="{{imgSource}}" />
+                        <img data-u="thumb" class="i" src="{{imgSource}}" />
                         <span class="ti">{{category}}</span><br />
                         <span class="d">{{title}}</span>
                     </div>
@@ -283,13 +281,12 @@
                 {{#if this.selective}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="./post.html" title="Bất ngờ nguồn gốc xe Lexus 6666">{{title}} </a>
+                        <a href="./post.html" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar" id="">
-                            <a title="Thế giới - Tổng thống tự xưng Venezuela tiết lộ sai lầm khiến đảo chính thất bại"
-                                href="./post.html">
+                            <a title="{{title}}" href="./post.html">
                                 <img src="{{imgSource}}"
                                     data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
                                     alt="Bất ngờ nguồn gốc xe Lexus 6666 tông 10 người thương vong ở đám tang"
@@ -317,16 +314,74 @@
                 <div class="labelItem">
                     <div class="label1">Bài viết mới nhất</div>
                     <div class="lined"></div>
+                    {{#each this.ariclesLastes}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="./post.html" title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}" href="./post.html">
+                                    <img src="{{imgSource}}"
+                                        data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
+                                        alt="{{title}}" class="width-120 initial loaded" data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{datePost}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="Sự kiện: Tin nóng" href="./post.html">{{category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
                 </div>
-                
+
 
             </div>
             <div class="listPost">
                 <div class="labelItem">
                     <div class="label1">Bài viết được xem nhiều nhất</div>
                     <div class="lined"></div>
+                    {{#each this.articlesMostView}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="./post.html" title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}" href="./post.html">
+                                    <img src="{{imgSource}}"
+                                        data-original="https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/120x90/1555040918-966-thumbnail.jpg"
+                                        alt="{{title}}" class="width-120 initial loaded" data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{datePost}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="Sự kiện: Tin nóng" href="./post.html">{{category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -341,9 +396,9 @@
                     <li class="nav-item">
                         <a href="{{xoadau category}}/{{child.code}}">
                             {{child.name}}
-                            
+
                             <span class="ts-green-bg">{{child.view}}</span>
-                             
+
                         </a>
                     </li>
                     {{/each}}

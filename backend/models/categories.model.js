@@ -46,11 +46,12 @@ module.exports = {
         }, {
             $limit: 10
         }], function (err, data) {
-            console.log(data);
+            //console.log(data);
             res(data);
         })
 
     }
+
 };
 // , {
 //     "$group": {

@@ -9,19 +9,28 @@ modelCategory.connect();
 module.exports = {
     index: (req, res, next) => {
        
-        var articals = undefined;
-        var categories = undefined;
-        var topCategories = undefined;
+       
         modelArtical.loadAll(function(dataArtical){
             articals = dataArtical;
            // console.log(articals);
-            
             modelCategory.loadAll(function(dataCategory){
                 categories = dataCategory;
                 //console.log(categories);
                 modelCategory.mostView(function(dataTopCategories) {
                     topCategories = dataTopCategories;
-                    res.render('home', { categories: categories, articals: articals, topCategories: topCategories });
+                    modelArtical.latest(function(dataArticlesLastes) {
+                        ariclesLastes = dataArticlesLastes;
+                        modelArtical.mostView(function(dataArticlesMostView) {
+                            articlesMostView = dataArticlesMostView;
+                            res.render('home', {
+                                categories: categories,
+                                articals: articals,
+                                topCategories: topCategories,
+                                ariclesLastes: ariclesLastes,
+                                articlesMostView: articlesMostView  // callback hell
+                            });
+                        })
+                    })
                 })
                
             });

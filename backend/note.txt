@@ -4,7 +4,7 @@ dòng kẻ giữa các bài đăng
 load category
 
 load chuyên mục xem nhiều nhất	 -- Lưu đã xong
-load bài viết xem nhiều nhất, mới nhất
+load bài viết xem nhiều nhất, mới nhất -- Lưu đã xong
 
 đăng nhập, đăng kí
 đăng bài, tìm kiếm
