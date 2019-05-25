@@ -36,7 +36,7 @@ app.engine('hbs', exphbs({
         formatDate: date => {
             
             date = date.toLocaleDateString();
-            console.log(date);
+            //console.log(date);
             return date;
             
         }

@@ -27,7 +27,7 @@ module.exports = {
                                 articals: articals,
                                 topCategories: topCategories,
                                 ariclesLastes: ariclesLastes,
-                                articlesMostView: articlesMostView  // callback hell
+                                articlesMostView: articlesMostView  // !!! callback hell
                             });
                         })
                     })
@@ -44,15 +44,32 @@ module.exports = {
         //     res.render('home', { categories: data })
         // });
     },
-    categories: (req, res, next) => {
-        
+    childCategories: (req, res, next) => {
+
         //console.log(req.params.category);
-        var category = req.params.category;
-        var categories = undefined;
-        modelCategory.loadAll(function(data){
+        //console.log(req.params.childCategory);
+        //var category = req.params.category;
+        var childCategory = req.params.childCategory;
+        modelCategory.loadAll(function (data) {
             categories = data;
-           // console.log(categories);           
-            res.render('category', {categories: categories, category: category});
+            modelCategory.catChildNav(function (dataCatNav) {
+                navCategory = dataCatNav;
+                res.render('category', { categories: categories, navCategory: navCategory });
+                //console.log(navCategory);
+            }, childCategory)
+            // console.log(categories);           
+        });
+    },
+    categories: (req, res, next) => {
+        var category = req.params.category;
+        modelCategory.loadAll(function (data) {
+            categories = data;
+            modelCategory.catNav(function (dataCatNav) {
+                navCategory = dataCatNav;
+                res.render('category', { categories: categories, navCategory: navCategory });
+                console.log(navCategory);
+            }, category)
+            // console.log(categories);           
         });
     }
 }

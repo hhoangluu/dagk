@@ -7,11 +7,11 @@ const homepagecontroller = require('../controllers/homepagecontroller');
 router.route('')
     .get(homepagecontroller.index);
 
-router.route('/:a')
+router.route('/:category')
     .get(homepagecontroller.categories);
 
-router.route('/:a/:a')
-    .get(homepagecontroller.categories);
+router.route('/:category/:childCategory')
+    .get(homepagecontroller.childCategories);
 
 
 

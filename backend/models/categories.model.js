@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 const homepagecontroller = require('../controllers/homepagecontroller')
 var categoriesChema = new mongoose.Schema({
     category: String,
+    code: String,
     child: [
         {
            name: String,
@@ -50,7 +51,33 @@ module.exports = {
             res(data);
         })
 
+    },
+    catChildNav: function(res, child) {
+        //console.log(child);
+        categoriesModel.aggregate([{      
+            "$unwind": "$child" 
+        },{
+            $match: {
+            "child.code" : child 
+            }
+        }], function (err, data) {
+            console.log(data);
+            res(data[0]);
+        })
+
+    },
+    catNav: function(res, cat){
+        categoriesModel.aggregate([{
+            $match: {
+                "code": cat
+            }
+        }], function( err, data) {
+            if (err) throw err;
+            res(data[0]);
+            console.log(data);
+        })
     }
+
 
 };
 // , {
