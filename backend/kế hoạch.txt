@@ -1,0 +1,39 @@
+﻿set cứng container		ok
+dòng kẻ giữa các bài đăng		ok
+3 bài mỗi category
+load category				--Lưu đã xong
+
+load chuyên mục xem nhiều nhất			--Lưu đã xong
+load bài viết xem nhiều nhất, mới nhất	--Lưu đã xong
+
+đăng nhập, đăng kí
+đăng bài, tìm kiếm
+
+tạo collection users
+thêm thuộc tính nhận xét, thuộc tính, người đăng duyệt cho post.
+
+làm giao diện chung:  xem thông tin cá nhân		ok
+	đổi mật khẩu								ok
+	đăng xuất									ok
+
+admin:
+	load danh sách bài viết ( chưa duyệt, đã bị từ chối, đã duyệt) -admin --Lưu đang làm 
+	load danh sách các user
+	chức năng thêm danh mục
+	điều chỉnh hồ sơ và cấp quyền cho các user
+editor:
+	làm giao diện:
+		duyệt/từ chối: danh sách bài viết đang chờ, xác định ngày xuất bản. 	ok
+			       chỉ được duyệt một số bài thuộc chuyên mục quản lý.
+	load danh sách các bài viết đang chờ.
+writter:
+	thực hiện chứ năng đăng bài
+	load danh sách các bài đã được duyệt
+	load danh sách các bài đang chờ
+	load danh sách các bài bị từ chối.+	  
+
+subscriber: thêm nút download các bài đăng
+	    xem được các bài đăng vip
+	    mua và gia hạn tài khoản vip
+
+
