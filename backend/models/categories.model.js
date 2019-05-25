@@ -34,9 +34,37 @@ module.exports = {
             res(data);
             // console.log(categories);
         });       
+    },
+    mostView: function (res) {
+
+        categoriesModel.aggregate([{
+            "$unwind": "$child"
+        }, {
+            "$sort": {
+                "child.view": -1
+            }
+        }, {
+            $limit: 10
+        }], function (err, data) {
+            console.log(data);
+            res(data);
+        })
+
     }
 };
-
+// , {
+//     "$group": {
+//         "child": {
+//             "$push": "$child"
+//         },
+//         "_id": 1
+//     }
+// }, {
+//     "$project": {
+//         "_id": 0,
+//         "child": 1
+//     }
+// }
 // exports.update = exports.create = function (key, title, body) {
 //     notes[key] = { title: title, body: body };
 // }

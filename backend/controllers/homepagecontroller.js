@@ -11,6 +11,7 @@ module.exports = {
        
         var articals = undefined;
         var categories = undefined;
+        var topCategories = undefined;
         modelArtical.loadAll(function(dataArtical){
             articals = dataArtical;
            // console.log(articals);
@@ -18,7 +19,11 @@ module.exports = {
             modelCategory.loadAll(function(dataCategory){
                 categories = dataCategory;
                 //console.log(categories);
-                res.render('home', { categories: categories, articals: articals });
+                modelCategory.mostView(function(dataTopCategories) {
+                    topCategories = dataTopCategories;
+                    res.render('home', { categories: categories, articals: articals, topCategories: topCategories });
+                })
+               
             });
         });
         // show index

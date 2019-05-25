@@ -3,7 +3,7 @@ dòng kẻ giữa các bài đăng
 3 bài mỗi category
 load category
 
-load chuyên mục xem nhiều nhất	 -- Lưu đang làm
+load chuyên mục xem nhiều nhất	 -- Lưu đã xong
 load bài viết xem nhiều nhất, mới nhất
 
 đăng nhập, đăng kí
