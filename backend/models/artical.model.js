@@ -5,7 +5,6 @@ var categoriesChema = new mongoose.Schema({
     title: String,
     imgSource: String,
     describe: String,
-    datePost: String,
     categoryBase: String,
     category: String,
     view: Intl,
