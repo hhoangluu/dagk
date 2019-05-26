@@ -550,7 +550,11 @@
   width: 32%;
   } 
   
-  .listPost {
+  .content > .listPost-category {
+    width: 49%;
+    } 
+
+  .listPost , .listPost-category  {
   width: 100%;
   background-color:white;
   padding: 2%;
@@ -565,7 +569,7 @@
   
   
   
-  /*=========content=========*/
+  /*=========CONTENT=========*/
   .highlights {
     position: relative;
     width: 100%;
@@ -594,10 +598,7 @@
     flex-direction: flex-start;
   }
   
-  /*======================*/
-  
-  
-  /*=========NEWS=========*/
+  /*=========NEWS IN CONTENT=========*/
   
   /* style title post*/
   .title {

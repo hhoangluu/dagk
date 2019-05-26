@@ -1,5 +1,5 @@
 var modelCategory = require('../models/categories.model')
-var modelArtical = require('../models/artical.model')
+var modelArticle = require('../models/articles.model')
 
 
 modelCategory.connect();
@@ -10,21 +10,21 @@ module.exports = {
     index: (req, res, next) => {
        
        
-        modelArtical.loadAll(function(dataArtical){
-            articals = dataArtical;
-           // console.log(articals);
+        modelArticle.loadAll(function(dataArticle){
+            articles = dataArticle;
+           // console.log(articles);
             modelCategory.loadAll(function(dataCategory){
                 categories = dataCategory;
                 //console.log(categories);
                 modelCategory.mostView(function(dataTopCategories) {
                     topCategories = dataTopCategories;
-                    modelArtical.latest(function(dataArticlesLastes) {
+                    modelArticle.latest(function(dataArticlesLastes) {
                         ariclesLastes = dataArticlesLastes;
-                        modelArtical.mostView(function(dataArticlesMostView) {
+                        modelArticle.mostView(function(dataArticlesMostView) {
                             articlesMostView = dataArticlesMostView;
                             res.render('home', {
                                 categories: categories,
-                                articals: articals,
+                                articles: articles,
                                 topCategories: topCategories,
                                 ariclesLastes: ariclesLastes,
                                 articlesMostView: articlesMostView  // !!! callback hell
@@ -45,18 +45,24 @@ module.exports = {
         // });
     },
     childCategories: (req, res, next) => {
-
-        //console.log(req.params.category);
-        //console.log(req.params.childCategory);
-        //var category = req.params.category;
         var childCategory = req.params.childCategory;
         modelCategory.loadAll(function (data) {
             categories = data;
             modelCategory.catChildNav(function (dataCatNav) {
                 navCategory = dataCatNav;
-                res.render('category', { categories: categories, navCategory: navCategory });
-                //console.log(navCategory);
-            }, childCategory)
+                modelArticle.articleByChild(function(dataArticlesByCat){
+                    articlesByCat= dataArticlesByCat;
+                    modelCategory.mostView(function(dataTopCategories) {
+                        topCategories = dataTopCategories;
+                        res.render('category', { 
+                            categories: categories,
+                            topCategories: topCategories,
+                            articlesByCat: articlesByCat, 
+                            navCategory: navCategory 
+                        });
+                    });
+                },navCategory.child.name)
+            }, childCategory);
             // console.log(categories);           
         });
     },
@@ -66,8 +72,18 @@ module.exports = {
             categories = data;
             modelCategory.catNav(function (dataCatNav) {
                 navCategory = dataCatNav;
-                res.render('category', { categories: categories, navCategory: navCategory });
-                console.log(navCategory);
+                modelArticle.articleByCat(function(dataArticlesByCat){
+                    articlesByCat= dataArticlesByCat;
+                    modelCategory.mostView(function(dataTopCategories) {
+                        topCategories = dataTopCategories;
+                        res.render('category', { 
+                            categories: categories,
+                            topCategories: topCategories,
+                            articlesByCat: articlesByCat, 
+                            navCategory: navCategory 
+                        });
+                    });
+                },navCategory.category)
             }, category)
             // console.log(categories);           
         });

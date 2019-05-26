@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const homepagecontroller = require('../controllers/homepagecontroller')
-var categoriesChema = new mongoose.Schema({
+var articleChema = new mongoose.Schema({
     item: String,
     title: String,
     imgSource: String,
@@ -12,7 +12,7 @@ var categoriesChema = new mongoose.Schema({
     highlight: Boolean,  
     date: Date  
 });
-var categoriesModel = mongoose.model('bongdas', categoriesChema);
+var articleModel = mongoose.model('bongdas', articleChema);
 
 
  
@@ -29,16 +29,16 @@ module.exports = {
     },
     loadAll: function(res)  {
          
-        categoriesModel.find({}, function (err, data) {
+        articleModel.find({}, function (err, data) {
             
             if (err) throw err;
             //console.log(data);
             res(data);
-            // console.log(categories);
+            // console.log(article);
         });       
     },
     latest: function(res) {
-        categoriesModel.find({}).sort({date: -1}).limit(10).exec( function(err, data){
+        articleModel.find({}).sort({date: -1}).limit(10).exec( function(err, data){
             if (err) throw err;
            // console.log(data);
             res(data);
@@ -48,12 +48,40 @@ module.exports = {
     },
     mostView: function (res) {
 
-        categoriesModel.find({}).sort({view: -1}).limit(10).exec( function(err, data){
+        articleModel.find({}).sort({view: -1}).limit(10).exec( function(err, data){
             if (err) throw err;
            // console.log(data);
             res(data);
         }) 
 
+    },
+
+    articleByCat: function (res, cat) {
+        articleModel.aggregate([{
+            $match: {
+                "categoryBase": cat
+            }
+        }], function( err, data) {
+            if (err) throw err;
+            res(data);
+            //console.log(data);
+        })
+
+    },
+    articleByChild: function (res, child) {
+        articleModel.aggregate([{
+            $match: {
+                "category": child
+            }
+        }], function( err, data) {
+            if (err) throw err;
+            res(data);
+            console.log(data);
+        })
+
     }
+
+
+
 
 };

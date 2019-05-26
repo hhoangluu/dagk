@@ -74,7 +74,7 @@ module.exports = {
         }], function( err, data) {
             if (err) throw err;
             res(data[0]);
-            console.log(data);
+            //console.log(data);
         })
     }
 
