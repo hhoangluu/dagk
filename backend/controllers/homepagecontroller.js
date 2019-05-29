@@ -87,5 +87,31 @@ module.exports = {
             }, category)
             // console.log(categories);           
         });
-    }
+    },
+
+    loadPost: (req, res, next) => {
+        var childCategory = req.params.childCategory;
+        modelCategory.loadAll(function (data) {
+            categories = data;
+            modelCategory.catChildNav(function (dataCatNav) {
+                navCategory = dataCatNav;
+                var codePost = req.params.post;
+                modelArticle.articlePost(function(dataPost){
+                    post= dataPost;
+                    modelCategory.mostView(function(dataTopCategories) {
+                        topCategories = dataTopCategories;
+                        res.render('posts', { 
+                            categories: categories,
+                            topCategories: topCategories,
+                            post: post, 
+                            navCategory: navCategory 
+                        });
+                    });
+                    //console.log('day la post :' + post);    
+                    //console.log('day la codePost :' + codePost);   
+                },codePost)
+            }, childCategory);
+                   
+        });
+    },
 }

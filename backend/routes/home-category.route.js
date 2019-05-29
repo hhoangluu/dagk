@@ -13,7 +13,8 @@ router.route('/:category')
 router.route('/:category/:childCategory')
     .get(homepagecontroller.childCategories);
 
-
+router.route('/:category/:childCategory/:post')
+    .get(homepagecontroller.loadPost);
 
 
 module.exports = router;

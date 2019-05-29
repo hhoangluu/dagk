@@ -3,6 +3,7 @@ const homepagecontroller = require('../controllers/homepagecontroller')
 var articleChema = new mongoose.Schema({
     item: String,
     title: String,
+    code: String,
     imgSource: String,
     describe: String,
     categoryBase: String,
@@ -76,7 +77,20 @@ module.exports = {
         }], function( err, data) {
             if (err) throw err;
             res(data);
-            console.log(data);
+            //console.log(data);
+        })
+
+    },
+
+    articlePost: function (res, codePost) {
+        articleModel.aggregate([{
+            $match: {
+                "code": codePost
+            }
+        }], function( err, data) {
+            if (err) throw err;
+            res(data[0]);
+            //console.log(data);
         })
 
     }

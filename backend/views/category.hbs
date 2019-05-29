@@ -81,7 +81,7 @@
                     </li>
                     {{#if this.navCategory.child}}
                     <li id="" class="breadcrumb-item type"><a
-                            href="{{this.navCategory.child.code}}">{{this.navCategory.child.name}}</a>
+                            href="/{{this.navCategory.code}}/{{this.navCategory.child.code}}">{{this.navCategory.child.name}}</a>
                     </li>
                     {{/if}}
                 </ol>
@@ -103,12 +103,12 @@
                 {{#if this.selective}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="./post.html" title="{{title}}">{{title}} </a>
+                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar-category" id="">
-                            <a title="{{title}}" href="./post.html">
+                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
                                 <img src="{{imgSource}}"
                                     alt="{{title}}"
                                     class="width-120 initial loaded" data-was-processed="true"></a>
@@ -121,7 +121,7 @@
                                 <a title="/">{{formatDate date}}</a>
                             </div>
                             <div class="more" id="">
-                                <a title="{{category}}" href="./post.html">{{category}}</a>
+                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
                             </div>
                         </div>
                     </div>
@@ -139,12 +139,12 @@
                 {{#each this.articlesByCat}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="./post.html" title="{{title}}">{{title}} </a>
+                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar-category" id="">
-                            <a title="{{title}}" href="./post.html">
+                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
                                 <img src="{{imgSource}}"
                                     alt="{{title}}"
                                     class="width-120 initial loaded" data-was-processed="true"></a>
@@ -157,7 +157,7 @@
                                 <a title="/">{{formatDate date}}</a>
                             </div>
                             <div class="more" id="">
-                                <a title="{{category}}" href="./post.html">{{category}}</a>
+                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                 <ul class="nav flex-column">
                     {{#each this.topCategories}}
                     <li class="nav-item">
-                        <a href="{{xoadau category}}/{{child.code}}">
+                        <a href="/{{xoadau category}}/{{child.code}}">
                             {{child.name}}
         
                             <span class="ts-green-bg">{{child.view}}</span>

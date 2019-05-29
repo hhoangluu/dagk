@@ -61,7 +61,7 @@ module.exports = {
             "child.code" : child 
             }
         }], function (err, data) {
-            console.log(data);
+            //console.log(data);
             res(data[0]);
         })
 
