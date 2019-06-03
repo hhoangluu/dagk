@@ -16,5 +16,4 @@ router.route('/:category/:childCategory')
 router.route('/:category/:childCategory/:post')
     .get(homepagecontroller.loadPost);
 
-
 module.exports = router;

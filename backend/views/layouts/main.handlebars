@@ -11,6 +11,7 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
@@ -19,12 +20,51 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link id="myCss" rel="stylesheet">
     <link rel="stylesheet" href="/css/stylehighlight.css">
     <script src="/js/Category.js"></script>
     <link rel="icon" href="data:,">
+    
+    <script>
+        var x = location.href;
+        console.log(x);
+        var array = x.split('/');
+         console.log(array);
+        if (array[3] == 'admin' || array[3] == 'editor' || array[3] == 'writer')
+        {
+            console.log('array3 = ' + array[3]);
+            var cssId = 'myCss';  // you could encode the css path itself to generate id..
+            if (document.getElementById(cssId)) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement("link");
+                link.id = cssId;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '/css/stylewriter.css';
+                link.media = 'all';
+                head.appendChild(link);
+            }
+        }
+        else 
+        {
+            console.log('array3 = ' + array[3]);
+            var cssId = 'myCss';  // you could encode the css path itself to generate id..
+            if (document.getElementById(cssId)) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement("link");
+                link.id = cssId;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '/css/styles.css';
+                link.media = 'all';
+                head.appendChild(link);
+            }
+        }
 
+        
+    </script>
 
+    
     <title>Báo Điện Tử TH16-News</title>
 
 </head>

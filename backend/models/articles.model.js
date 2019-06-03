@@ -10,50 +10,54 @@ var articleChema = new mongoose.Schema({
     category: String,
     view: Intl,
     selective: Boolean,
-    highlight: Boolean,  
-    date: Date  
+    highlight: Boolean,
+    date: Date,
+    status: String,
+    content: String,
+    comment: String,
+    commentpublic: String,
 });
 var articleModel = mongoose.model('bongdas', articleChema);
 
 
- 
+
 
 module.exports = {
     connect: () => {
         mongoose.connect("mongodb+srv://admin:123@th16news-v3igk.mongodb.net/th16news?retryWrites=true",
-        {
-            useNewUrlParser: true,
-        }, function (err) {
-            if (err) throw err;
-            console.log('Connect to database Sucessful!');
-        });
+            {
+                useNewUrlParser: true,
+            }, function (err) {
+                if (err) throw err;
+                console.log('Connect to database Sucessful!');
+            });
     },
-    loadAll: function(res)  {
-         
+    loadAll: function (res) {
+
         articleModel.find({}, function (err, data) {
-            
+
             if (err) throw err;
             //console.log(data);
             res(data);
             // console.log(article);
-        });       
+        });
     },
-    latest: function(res) {
-        articleModel.find({}).sort({date: -1}).limit(10).exec( function(err, data){
+    latest: function (res) {
+        articleModel.find({}).sort({ date: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
-           // console.log(data);
+            // console.log(data);
             res(data);
-        }) 
+        })
 
-        
+
     },
     mostView: function (res) {
 
-        articleModel.find({}).sort({view: -1}).limit(10).exec( function(err, data){
+        articleModel.find({}).sort({ view: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
-           // console.log(data);
+            // console.log(data);
             res(data);
-        }) 
+        })
 
     },
 
@@ -62,7 +66,7 @@ module.exports = {
             $match: {
                 "categoryBase": cat
             }
-        }], function( err, data) {
+        }], function (err, data) {
             if (err) throw err;
             res(data);
             //console.log(data);
@@ -74,7 +78,7 @@ module.exports = {
             $match: {
                 "category": child
             }
-        }], function( err, data) {
+        }], function (err, data) {
             if (err) throw err;
             res(data);
             //console.log(data);
@@ -87,7 +91,7 @@ module.exports = {
             $match: {
                 "code": codePost
             }
-        }], function( err, data) {
+        }], function (err, data) {
             if (err) throw err;
             res(data[0]);
             //console.log(data);

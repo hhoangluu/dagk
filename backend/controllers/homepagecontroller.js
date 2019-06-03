@@ -8,19 +8,19 @@ modelCategory.connect();
 
 module.exports = {
     index: (req, res, next) => {
-       
-       
-        modelArticle.loadAll(function(dataArticle){
+
+
+        modelArticle.loadAll(function (dataArticle) {
             articles = dataArticle;
-           // console.log(articles);
-            modelCategory.loadAll(function(dataCategory){
+            // console.log(articles);
+            modelCategory.loadAll(function (dataCategory) {
                 categories = dataCategory;
                 //console.log(categories);
-                modelCategory.mostView(function(dataTopCategories) {
+                modelCategory.mostView(function (dataTopCategories) {
                     topCategories = dataTopCategories;
-                    modelArticle.latest(function(dataArticlesLastes) {
+                    modelArticle.latest(function (dataArticlesLastes) {
                         ariclesLastes = dataArticlesLastes;
-                        modelArticle.mostView(function(dataArticlesMostView) {
+                        modelArticle.mostView(function (dataArticlesMostView) {
                             articlesMostView = dataArticlesMostView;
                             res.render('home', {
                                 categories: categories,
@@ -32,12 +32,12 @@ module.exports = {
                         })
                     })
                 })
-               
+
             });
         });
         // show index
         //console.log(categories);
-        
+
         // categories.find({}, function (err, data) {
         //     console.log(data);
         //     if (err) throw err;
@@ -45,48 +45,65 @@ module.exports = {
         // });
     },
     childCategories: (req, res, next) => {
+        var category = req.params.category;
         var childCategory = req.params.childCategory;
-        modelCategory.loadAll(function (data) {
-            categories = data;
-            modelCategory.catChildNav(function (dataCatNav) {
-                navCategory = dataCatNav;
-                modelArticle.articleByChild(function(dataArticlesByCat){
-                    articlesByCat= dataArticlesByCat;
-                    modelCategory.mostView(function(dataTopCategories) {
-                        topCategories = dataTopCategories;
-                        res.render('category', { 
-                            categories: categories,
-                            topCategories: topCategories,
-                            articlesByCat: articlesByCat, 
-                            navCategory: navCategory 
+        if(category == 'admin' || category == 'editor' || category == 'writer')
+        {
+            res.render(childCategory);
+        }
+        else
+        {
+            modelCategory.loadAll(function (data) {
+                categories = data;
+                modelCategory.catChildNav(function (dataCatNav) {
+                    navCategory = dataCatNav;
+                    modelArticle.articleByChild(function (dataArticlesByCat) {
+                        articlesByCat = dataArticlesByCat;
+                        modelCategory.mostView(function (dataTopCategories) {
+                            topCategories = dataTopCategories;
+                            res.render('category', {
+                                categories: categories,
+                                topCategories: topCategories,
+                                articlesByCat: articlesByCat,
+                                navCategory: navCategory
+                            });
                         });
-                    });
-                },navCategory.child.name)
-            }, childCategory);
-            // console.log(categories);           
-        });
+                    }, navCategory.child.name)
+                }, childCategory);
+                // console.log(categories);           
+            });
+        }
+        
     },
     categories: (req, res, next) => {
         var category = req.params.category;
-        modelCategory.loadAll(function (data) {
-            categories = data;
-            modelCategory.catNav(function (dataCatNav) {
-                navCategory = dataCatNav;
-                modelArticle.articleByCat(function(dataArticlesByCat){
-                    articlesByCat= dataArticlesByCat;
-                    modelCategory.mostView(function(dataTopCategories) {
-                        topCategories = dataTopCategories;
-                        res.render('category', { 
-                            categories: categories,
-                            topCategories: topCategories,
-                            articlesByCat: articlesByCat, 
-                            navCategory: navCategory 
+        if(category == 'admin' || category == 'editor' || category == 'writer')
+        {
+            res.render(category);
+        }
+        else
+        {
+            modelCategory.loadAll(function (data) {
+                categories = data;
+                modelCategory.catNav(function (dataCatNav) {
+                    navCategory = dataCatNav;
+                    modelArticle.articleByCat(function (dataArticlesByCat) {
+                        articlesByCat = dataArticlesByCat;
+                        modelCategory.mostView(function (dataTopCategories) {
+                            topCategories = dataTopCategories;
+                            res.render('category', {
+                                categories: categories,
+                                topCategories: topCategories,
+                                articlesByCat: articlesByCat,
+                                navCategory: navCategory
+                            });
                         });
-                    });
-                },navCategory.category)
-            }, category)
-            // console.log(categories);           
-        });
+                    }, navCategory.category)
+                }, category)
+                // console.log(categories);           
+            });
+        }
+        
     },
 
     loadPost: (req, res, next) => {
@@ -96,22 +113,26 @@ module.exports = {
             modelCategory.catChildNav(function (dataCatNav) {
                 navCategory = dataCatNav;
                 var codePost = req.params.post;
-                modelArticle.articlePost(function(dataPost){
-                    post= dataPost;
-                    modelCategory.mostView(function(dataTopCategories) {
+                modelArticle.articlePost(function (dataPost) {
+                    post = dataPost;
+                    modelCategory.mostView(function (dataTopCategories) {
                         topCategories = dataTopCategories;
-                        res.render('posts', { 
+                        res.render('posts', {
                             categories: categories,
                             topCategories: topCategories,
-                            post: post, 
-                            navCategory: navCategory 
+                            post: post,
+                            navCategory: navCategory
                         });
                     });
                     //console.log('day la post :' + post);    
                     //console.log('day la codePost :' + codePost);   
-                },codePost)
+                }, codePost)
             }, childCategory);
-                   
+
         });
+    },
+
+
+
     },
 }
