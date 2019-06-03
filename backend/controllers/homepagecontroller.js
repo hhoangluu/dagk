@@ -1,7 +1,7 @@
-var modelCategory = require('../models/categories.model')
-var modelArticle = require('../models/articles.model')
-
-
+var modelCategory = require('../models/categories.model');
+var modelArticle = require('../models/articles.model');
+var modelUser = require('../models/user.model');
+var bcrypt = require('bcrypt');
 modelCategory.connect();
 
 
@@ -92,10 +92,10 @@ module.exports = {
                         modelCategory.mostView(function (dataTopCategories) {
                             topCategories = dataTopCategories;
                             res.render('category', {
-                                categories: categories,
-                                topCategories: topCategories,
-                                articlesByCat: articlesByCat,
-                                navCategory: navCategory
+                                categories: categories, // danh sách các danh mục   
+                                topCategories: topCategories,   // các danh mục được xem nhiều nhất
+                                articlesByCat: articlesByCat,   // bài viết theo danh mục
+                                navCategory:  navCategory  // Thanh menu điều hướng theo danh mục
                             });
                         });
                     }, navCategory.category)
@@ -131,8 +131,20 @@ module.exports = {
 
         });
     },
+    register: (req, res, next) => {
+        var saltRounds = 10;
+        var hash = bcrypt.hashSync(req.body.password, saltRounds);
+        console.log('hash',hash);
+        var entity = {
+            username: req.body.username,
+            password: hash,
+            name: req.body.name,
+            email: req.body.email,
+            permisson: 0
+        }
+        console.log(entity);
+        modelUser.add(entity);
+      
 
-
-
-    },
+    }
 }

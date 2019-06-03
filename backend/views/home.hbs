@@ -1,15 +1,76 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function() { 
+        $('#frmRegister').validate({
+            rules: {
+                username: {
+                    required: true,
+                  
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirm: {
+                    required: true,
+                    equalTo: $('[name="password"]')
+                },
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            message: {
+                username: {
+                    required: 'Your username is required.',
+                    remote: 'Your username has been taken, please take another.'
+                },
+                password: {
+                    required: 'Your password is required.',
+                    minlength: 'Your password must have at least 6 characters.'
+                },
+                confirm: {
+                    required: 'Your password is required.',
+                    equalTo: 'Your password does not match.'
+                },
+                name: {
+                    required: 'Valid full name is required.',
+                },
+                email: {
+                    required: 'Please enter a valid email address.',
+                    email: 'Please enter a valid email address.'
+                }
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-danger',
+            validClass: 'is-valid',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        })
+    })
+</script>
+{{/section }}
+
 <div class="Menu">
     <div class="navbarw3">
 
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a>
+            <button class="dropbtn category" href=""><a href="/{{ item.code}}">{{ category}}</a>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
+                <a href="/{{item.code}}/{{ childitem.code}}" class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
 
@@ -23,14 +84,14 @@
             </div>
             <div class="account">
                 <span class="psw">
-                    <a href="#">
+                    <a >
                         <i onclick="document.getElementById('id01').style.display='block'"><img
                                 src="/images/account1.png" alt="photo"></i>
                     </a>
                 </span>
                 <div id="id01" class="modal-account">
 
-                    <form class="modal-content" action="/action_page.php">
+                    <form class="modal-content" action="">
                         <div class="closecontainer">
                             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                 title="Close Modal">&times;</span>
@@ -80,34 +141,36 @@
                                 </a></span>
                             <span class="psw">Chưa có tài khoản? <a
                                     onclick="document.getElementById('id02').style.display='block'; document.getElementById('id01').style.display='none';"
-                                    href="#" style="color: #3B5998">Đăng
+                                     style="color: #3B5998">Đăng
                                     kí</a></span>
                         </div>
                     </form>
                 </div>
-
-
                 <div id="id02" class="modal-account">
 
-                    <form class="modal-content" action="/action_page.php">
+                    <form class="modal-content" id="frmRegister" method="post" >
                         <div class="closecontainer">
                             <span onclick="document.getElementById('id02').style.display='none';
                                 " class="close" title="Close Modal">&times;</span>
                         </div>
 
                         <div class="container-account">
-                            <img src="/images/Account.png" alt="Avatar" class="avatar">
-                            <input type="text" placeholder="Tài khoản" name="uname" required>
-                            <input type="password" placeholder="Mật khẩu" name="psw" required>
-                            <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
-                            <input type="text" placeholder="Tên hiển thị" name="uname" required>
-                            <input type="text" placeholder="Email" name="uname" required>
+                            <h4 class="card-header">Register</h4>
+                            <img src="/images/Account.png" class="avatar">
+                            <input type="text" placeholder="Tài khoản" class="form-control" id="txtUsername" name="username" >
+                            <input type="password" placeholder="Mật khẩu" class="form-control" id="txtPassword" name="password" >
+                            <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" id="txtConfirm" name="confirm" >
+                            <input type="text" placeholder="Tên hiển thị" class="form-control" id="txtName" name="name" >
+                            <input type="email" placeholder="Email" class="form-control" id="txtEmail" name="email" >
 
                             <label>
-                                <input type="checkbox" checked="checked" name="remember">Đồng ý với<a href="#"> điều
+                                <input type="checkbox" checked="ckecked" name="remember" required>Đồng ý với<a href=""> điều
                                     khoản</a>
                             </label>
-                            <button type="submit">Đăng ký</button>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                Register
+                            </button>
                         </div>
 
                     </form>
@@ -144,17 +207,17 @@
             <div data-u="slides"
                 style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden; ">
 
-                {{#each this.articles}}
+                {{#each this.articles as |article|}}
                 {{#if this.highlight}}
                 <div>
                     <div class="carousel-item active">
                         <img data-u="image" src="{{imgSource}}" alt="1">
                         <h3 class="post-title">
-                            <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">{{describe}}</a>
+                            <a href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">{{describe}}</a>
                         </h3>
                         <a href="#">
                             <i class="fa fa-clock-o"></i>
-                            {{date}}
+                            {{formatDate article.date}}
                         </a>
                     </div>
                     <div data-u="thumb">
@@ -277,16 +340,16 @@
                     <div class="label1">Bài viết chọn lọc</div>
                     <div class="lined"></div>
                 </div>
-                {{#each this.articles}}
+                {{#each this.articles as | article|}}
                 {{#if this.selective}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                        <a href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar" id="">
-                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                            <a title="{{title}}" href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}">
                                 <img src="{{imgSource}}"
                                     alt="{{title}}"
                                     class="width-120 initial loaded" data-was-processed="true"></a>
@@ -299,7 +362,7 @@
                                 <a title="/">{{formatDate date}}</a>
                             </div>
                             <div class="more" id="">
-                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                <a title="{{category}}" href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{category}}</a>
                             </div>
                         </div>
                     </div>
@@ -313,17 +376,17 @@
                 <div class="labelItem">
                     <div class="label1">Bài viết mới nhất</div>
                     <div class="lined"></div>
-                    {{#each this.ariclesLastes}}
+                    {{#each this.ariclesLastes as | article|}}
                     <article class="post" id="">
                         <header class="title" id="">
-                            <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                            <a href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}" title="{{title}}">{{title}} </a>
                         </header>
 
                         <div class="post-body">
                             <span class="avatar" id="">
-                                <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
-                                    <img src="{{imgSource}}"                                        
-                                        alt="{{title}}" 
+                                <a title="{{title}}" href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">
+                                    <img src="{{article.imgSource}}"                                        
+                                        alt="{{article.title}}" 
                                         class="width-120 initial loaded" data-was-processed="true"></a>
                             </span>
                             <div class="post-content">
@@ -334,7 +397,7 @@
                                     <a title="/">{{formatDate date}}</a>
                                 </div>
                                 <div class="more" id="">
-                                    <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                    <a title="{{article.category}}" href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{article.category}}</a>
                                 </div>
                             </div>
                         </div>

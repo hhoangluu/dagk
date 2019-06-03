@@ -1,0 +1,548 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function() { 
+        $('#frmRegister').validate({
+            rules: {
+                username: {
+                    required: true,
+                    remote:{
+                        // tìm trong csdl có trùng tên ko
+                    }
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirm: {
+                    required: true,
+                    equalTo: $('[name="password"]')
+                },
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            message: {
+                username: {
+                    required: 'Your username is required.',
+                    remote: 'Your username has been taken, please take another.'
+                },
+                password: {
+                    required: 'Your password is required.',
+                    minlength: 'Your password must have at least 6 characters.'
+                },
+                confirm: {
+                    required: 'Your password is required.',
+                    equalTo: 'Your password does not match.'
+                },
+                name: {
+                    required: 'Valid full name is required.',
+                },
+                email: {
+                    required: 'Please enter a valid email address.',
+                    email: 'Please enter a valid email address.'
+                }
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-danger',
+            validClass: 'is-valid',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        })
+    })
+</script>
+{{/section }}
+
+<div class="Menu">
+    <div class="navbarw3">
+
+        <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
+        {{#each this.categories as | item|}}
+        <div class="dropdownw3">
+            <button class="dropbtn category" href=""><a href="/{{ item.code}}">{{ category}}</a>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdownw3-contentw3">
+                {{#each child  as |childitem| }}
+                <a href="/{{item.code}}/{{ childitem.code}}" class="category">{{childitem.name}}</a>
+                {{/each}}
+            </div>
+
+        </div>
+        {{/each}}
+
+
+        <div class="search-and-account">
+            <div class="searchBar">
+                <input class="search" type="search" placeholder="Search">
+            </div>
+            <div class="account">
+                <span class="psw">
+                    <a >
+                        <i onclick="document.getElementById('id01').style.display='block'"><img
+                                src="/images/account1.png" alt="photo"></i>
+                    </a>
+                </span>
+                <div id="id01" class="modal-account">
+
+                    <form class="modal-content" action="">
+                        <div class="closecontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                title="Close Modal">&times;</span>
+                        </div>
+
+                        <div class="container-account">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
+                            <input type="text" placeholder="Tài khoản" name="uname" required>
+                            <input type="password" placeholder="Mật khẩu" name="psw" required>
+                            <button type="submit">Đăng nhập</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
+                            </label>
+                        </div>
+
+                        <div class="container-account">
+                            <div class="login-other">
+                                <label></label>Đăng nhập với</label>
+                                <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                                    <div class="login-other-logo">
+                                        <a style="background: #3B5998;" href="#" class="btn" data-toggle="tooltip"
+                                            data-placement="top" title="Facebook">
+                                            <i class="fa fa-facebook "></i>
+                                        </a>
+                                    </div>
+                                    <div class="login-other-logo">
+                                        <a style="background: #00ACED;" href="#" class="btn" data-toggle="tooltip"
+                                            data-placement="top" title="Twitter">
+                                            <i class="fa fa-twitter "></i>
+                                        </a>
+                                    </div>
+                                    <div class="login-other-logo">
+                                        <a style="background: #C32F10;" href="#" class="btn" data-toggle="tooltip"
+                                            data-placement="top" title="Google Plus">
+                                            <i class="fa fa-google-plus "></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="container-account" style="background-color:#f1f1f1">
+                            <span class="psw">Quên <a
+                                    onclick="document.getElementById('id03').style.display='block'; document.getElementById('id01').style.display='none';"
+                                    href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
+                                </a></span>
+                            <span class="psw">Chưa có tài khoản? <a
+                                    onclick="document.getElementById('id02').style.display='block'; document.getElementById('id01').style.display='none';"
+                                     style="color: #3B5998">Đăng
+                                    kí</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div id="id02" class="modal-account">
+
+                    <form class="modal-content" id="frmRegister" method="POST" >
+                        <div class="closecontainer">
+                            <span onclick="document.getElementById('id02').style.display='none';
+                                " class="close" title="Close Modal">&times;</span>
+                        </div>
+
+                        <div class="container-account">
+                            <h4 class="card-header">Register</h4>
+                            <img src="/images/Account.png" class="avatar">
+                            <input type="text" placeholder="Tài khoản" class="form-control" id="txtUsername" name="username" >
+                            <input type="password" placeholder="Mật khẩu" class="form-control" id="txtPassword" name="password" >
+                            <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" id="txtConfirm" name="confirm" >
+                            <input type="text" placeholder="Tên hiển thị" class="form-control" id="txtName" name="name" >
+                            <input type="email" placeholder="Email" class="form-control" id="txtEmail" name="email" >
+
+                            <label>
+                                <input type="checkbox" checked="ckecked" name="remember" required>Đồng ý với<a href=""> điều
+                                    khoản</a>
+                            </label>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                Register
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div id="id03" class="modal-account">
+
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="closecontainer">
+                            <span onclick="document.getElementById('id03').style.display='none';
+                                " class="close" title="Close Modal">&times;</span>
+                        </div>
+
+                        <div class="container-account">
+                            <img src="/images/Account.png" alt="Avatar" class="avatar">
+                            <input type="text" placeholder="Email" name="uname" required>
+                            <button type="submit">Gửi</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="highlight-news">
+        <script src="/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+        <script src=".//js/jshighlight.js"></script>
+        <div id="jssor_1" style="width: 800%;">
+            <div data-u="slides"
+                style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden; ">
+
+                {{#each this.articles}}
+                {{#if this.highlight}}
+                <div>
+                    <div class="carousel-item active">
+                        <img data-u="image" src="{{imgSource}}" alt="1">
+                        <h3 class="post-title">
+                            <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">{{describe}}</a>
+                        </h3>
+                        <a href="#">
+                            <i class="fa fa-clock-o"></i>
+                            {{date}}
+                        </a>
+                    </div>
+                    <div data-u="thumb">
+                        <img data-u="thumb" class="i" src="{{imgSource}}" />
+                        <span class="ti">{{category}}</span><br />
+                        <span class="d">{{title}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+
+            </div>
+            <!-- Thumbnail Navigator -->
+            <div data-u="thumbnavigator" class="jssort121"
+                style="position:absolute;left:5px;top:0px;width:280px;height:320px;overflow:hidden;cursor:default;background:white;  padding: 10px;"
+                data-autocenter="2" data-scale-left="0.75">
+                <div data-u="slides">
+                    <div data-u="prototype" class="p" style="width:290px;height:68px;">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bullet Navigator -->
+            <div data-u="navigator" class="jssorb111" style="position:absolute;bottom:12px;left: 470%;"
+                data-scale="0.5">
+                <div data-u="prototype" class="i" style="width:24px;height:24px;font-size:12px;line-height:24px;">
+                    <svg viewbox="0 0 16000 16000"
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;">
+                        <circle class="b" cx="8000" cy="8000" r="3000"></circle>
+                    </svg>
+                    <div data-u="numbertemplate" class="n"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">jssor_1_slider_init();</script>
+        <!-- #endregion Jssor Slider End -->
+    </div>
+    <div class="highlight-ratio">
+        <a href="#" style="font-size: 15px;font-weight: 150; background: #e3b014; color: white; padding: 4px 10px; ">Giá
+            vàng</a>
+        <div class="ratio">
+
+            <div class="price">
+                <a href="#" class="type">SJC</a>
+                <a href="#" class="buy">Mua:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,180.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,370.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">SHB</a>
+                <a href="#" class="buy">Mua:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,520.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,640.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">DOJI</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,200.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,320.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">SCB</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,650.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,780.00</a></a>
+            </div>
+        </div>
+
+        <a href="#" style="font-size: 15px;font-weight: 150; background: #08b089; color: white; padding: 4px 10px">Tỉ
+            giá</a>
+        <div class="ratio">
+            <div class="price">
+                <a href="#" class="type">USD</a>
+                <a href="#" class="buy">Mua:<a href="#"
+                        style=" width: 90px; color: rgb(85, 84, 84); color: rgb(85, 84, 84);">23,200.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">23,200.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">EUR</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">25,793.61</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">26,710.05</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">GBP</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">30,222.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">30,838.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">JPY</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">201.82</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">210.67</a></a>
+            </div>
+        </div>
+
+        <a href="#"
+            style="font-size: 15px;font-weight: 150; background: rgb(58, 110, 207); color:white; padding: 4px 10px">Vietlott</a>
+        <div class="ratio">
+            <div class="lottery">
+                <a href="#" class="prize">Power 6/55</a>
+                <a href="#" class="date">04/05</a>
+                <a href="#" class="number">01 02 53 17 26 53 | 50</a>
+            </div>
+            <div class="lottery">
+                <a href="#" class="prize">Power 6/45</a>
+                <a href="#" class="date">03/05</a>
+                <a href="#" class="number">01 06 14 31 35 44 </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div class="column-left">
+        <div class="content">
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết chọn lọc</div>
+                    <div class="lined"></div>
+                </div>
+                {{#each this.articles}}
+                {{#if this.selective}}
+                <article class="post" id="">
+                    <header class="title" id="">
+                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                    </header>
+
+                    <div class="post-body">
+                        <span class="avatar" id="">
+                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                                <img src="{{imgSource}}"
+                                    alt="{{title}}"
+                                    class="width-120 initial loaded" data-was-processed="true"></a>
+                        </span>
+                        <div class="post-content">
+                            <span class="describe" id="">
+                                <a>{{describe}}</a>
+                            </span>
+                            <div class="datePost" id="">
+                                <a title="/">{{formatDate date}}</a>
+                            </div>
+                            <div class="more" id="">
+                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+                <hr style="margin-top: 5px; margin-bottom: 10px;">
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết mới nhất</div>
+                    <div class="lined"></div>
+                    {{#each this.ariclesLastes}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                                    <img src="{{imgSource}}"                                        
+                                        alt="{{title}}" 
+                                        class="width-120 initial loaded" data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{formatDate date}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
+                </div>
+
+
+            </div>
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết được xem nhiều nhất</div>
+                    <div class="lined"></div>
+                    {{#each this.articlesMostView}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                                    <img src="{{imgSource}}"
+                                        alt="{{title}}" 
+                                        class="width-120 initial loaded" data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{formatDate date}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="column-right">
+        <div class="widgets ts-grid-box  widgets-populer-post">
+
+            <div class="sidebar sidebar-sticky">
+                <h3 class="widget-title">Chuyên mục được xem nhiều nhất trong ngày</h3>
+                <div class="lined"></div>
+                <ul class="nav flex-column">
+                    {{#each this.topCategories}}
+                    <li class="nav-item">
+                        <a href="/{{xoadau category}}/{{child.code}}">
+                            {{child.name}}
+
+                            <span class="ts-green-bg">{{child.view}}</span>
+
+                        </a>
+                    </li>
+                    {{/each}}
+
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="widgets ts-grid-box  widgets-populer-post">
+            <h3 class="widget-title">Follow us</h3>
+            <div class="lined"></div> <br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #3B5998;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Facebook">
+                        <i class="fa fa-facebook fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #00ACED;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Twitter">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #C32F10;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Google Plus">
+                        <i class="fa fa-google-plus fa-2x"></i>
+                    </a>
+                </div>
+            </div><br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #666666;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="GitHub">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #FF8800;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="SoundCloud">
+                        <i class="fa fa-soundcloud fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #878787;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Steam">
+                        <i class="fa fa-steam fa-2x"></i>
+                    </a>
+                </div>
+            </div><br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #CC2127;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Pinterest">
+                        <i class="fa fa-pinterest fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #1AB7EA;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Vimeo">
+                        <i class="fa fa-vimeo-square fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #C3000D;" href="#" class="btn btn-block" data-toggle="tooltip"
+                        data-placement="top" title="Lastfm">
+                        <i class="fa fa-lastfm fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/10d82106d63/ho-chi-minh-city/"
+            data-label_1="HO CHI MINH CITY" data-label_2="WEATHER" data-theme="original">HO CHI MINH CITY
+            WEATHER</a>
+        <script>
+            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+        </script>
+    </div>
+
+</div>

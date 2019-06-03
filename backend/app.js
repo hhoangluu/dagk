@@ -1,10 +1,13 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
+var hbs_sections = require('express-handlebars-sections');
+var morgan = require('morgan')
 
 //var dbcotroller = require('./controllers/dbcontroller');
 //var homepagecontroller = require('./controllers/homepagecontroller');
 
 var app = express();
+
 
 app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
@@ -39,7 +42,8 @@ app.engine('hbs', exphbs({
             //console.log(date);
             return date;
             
-        }
+        },
+        section: hbs_sections()
         
 
     }
@@ -48,6 +52,9 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 app.set("views", "./views")
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
