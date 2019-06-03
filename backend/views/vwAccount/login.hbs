@@ -1,0 +1,54 @@
+<form class="modal-content" action="">
+    <div class="closecontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container-account">
+        <img src="/images/Account.png" alt="Avatar" class="avatar">
+        <input type="text" placeholder="Tài khoản" name="uname" required>
+        <input type="password" placeholder="Mật khẩu" name="psw" required>
+        <button type="submit">Đăng nhập</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
+        </label>
+    </div>
+
+    <div class="container-account">
+        <div class="login-other">
+            <label></label>Đăng nhập với</label>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="login-other-logo">
+                    <a style="background: #3B5998;" href="#" class="btn" data-toggle="tooltip" data-placement="top"
+                        title="Facebook">
+                        <i class="fa fa-facebook "></i>
+                    </a>
+                </div>
+                <div class="login-other-logo">
+                    <a style="background: #00ACED;" href="#" class="btn" data-toggle="tooltip" data-placement="top"
+                        title="Twitter">
+                        <i class="fa fa-twitter "></i>
+                    </a>
+                </div>
+                <div class="login-other-logo">
+                    <a style="background: #C32F10;" href="#" class="btn" data-toggle="tooltip" data-placement="top"
+                        title="Google Plus">
+                        <i class="fa fa-google-plus "></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-account" style="background-color:#f1f1f1">
+        <span class="psw">Quên <a
+                onclick="document.getElementById('id03').style.display='block'; document.getElementById('id01').style.display='none';"
+                href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
+            </a></span>
+        <span class="psw">Chưa có tài khoản? <a
+                onclick="document.getElementById('id02').style.display='block'; document.getElementById('id01').style.display='none';"
+                style="color: #3B5998">Đăng
+                kí</a></span>
+    </div>
+</form>

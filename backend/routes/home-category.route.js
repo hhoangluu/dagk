@@ -6,10 +6,10 @@ const homepagecontroller = require('../controllers/homepagecontroller');
 
 router.route('')
     .get(homepagecontroller.index)
-    .post(homepagecontroller.register);
-router.route('/register')
-.get(homepagecontroller.index)
-.post(homepagecontroller.register);
+    
+// router.route('/register')
+// .get(homepagecontroller.index)
+// .post(homepagecontroller.register);
 
 router.route('/:category')
     .get(homepagecontroller.categories);
