@@ -16,5 +16,12 @@ module.exports = {
             res(0);
         })
         
+    },
+    singleByUserName: function(done, username) {
+        userModel.findOne({"username": username}).exec( function(err, user) {
+            console.log('model', user);
+            if (err) return done(err);
+            done(null, user);
+        })
     }
 }

@@ -1,13 +1,16 @@
-<form class="modal-content" action="">
-    <div class="closecontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-    </div>
-
+ {{#if err_message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{err_message}}
+        </div>
+        {{/if}}
+<form class="modal-content" method="POST">
     <div class="container-account">
         <img src="/images/Account.png" alt="Avatar" class="avatar">
-        <input type="text" placeholder="Tài khoản" name="uname" required>
-        <input type="password" placeholder="Mật khẩu" name="psw" required>
+        <input type="text" placeholder="Tài khoản" name="username" required>
+        <input type="password" placeholder="Mật khẩu" name="password" required>
         <button type="submit">Đăng nhập</button>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản

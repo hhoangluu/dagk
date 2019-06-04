@@ -56,6 +56,7 @@ module.exports = {
             modelCategory.loadAll(function (data) {
                 categories = data;
                 modelCategory.catChildNav(function (dataCatNav) {
+                    
                     navCategory = dataCatNav;
                     modelArticle.articleByChild(function (dataArticlesByCat) {
                         articlesByCat = dataArticlesByCat;
@@ -84,10 +85,13 @@ module.exports = {
         else
         {
             modelCategory.loadAll(function (data) {
+               
                 categories = data;
                 modelCategory.catNav(function (dataCatNav) {
+                   
                     navCategory = dataCatNav;
                     modelArticle.articleByCat(function (dataArticlesByCat) {
+
                         articlesByCat = dataArticlesByCat;
                         modelCategory.mostView(function (dataTopCategories) {
                             topCategories = dataTopCategories;

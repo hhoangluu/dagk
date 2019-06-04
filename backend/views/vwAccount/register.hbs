@@ -6,9 +6,10 @@
             rules: {
                 username: {
                     required: true,
-                    //   remote:{
+                       remote:{
+                           url: '/account/is-available'
                     // tìm trong csdl có trùng tên ko
-                    //  }
+                      }
                 },
                 password: {
                     required: true,
@@ -29,7 +30,7 @@
             message: {
                 username: {
                     required: 'Your username is required.',
-                    // remote: 'Your username has been taken, please take another.'
+                    remote: 'Your username has been taken, please take another.'
                 },
                 password: {
                     required: 'Your password is required.',
@@ -62,10 +63,7 @@
 {{/section }}
 
 <form class="modal-content" id="frmRegister" method="POST">
-    <div class="closecontainer">
-        <span onclick="document.getElementById('id02').style.display='none';
-                                " class="close" title="Close Modal">&times;</span>
-    </div>
+    
 
     <div class="container-account">
         <h4 class="card-header">Register</h4>

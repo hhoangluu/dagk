@@ -65,12 +65,12 @@
         <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn category" href=""><a href="/{{ item.code}}">{{ category}}</a>
+            <button class="dropbtn category" href=""><a href="{{ item.code}}">{{ category}}</a>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/{{item.code}}/{{ childitem.code}}" class="category">{{childitem.name}}</a>
+                <a href="{{item.code}}/{{ childitem.code}}" class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
 
@@ -213,7 +213,7 @@
                     <div class="carousel-item active">
                         <img data-u="image" src="{{imgSource}}" alt="1">
                         <h3 class="post-title">
-                            <a href="/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">{{describe}}</a>
+                            <a href="{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">{{describe}}</a>
                         </h3>
                         <a href="#">
                             <i class="fa fa-clock-o"></i>

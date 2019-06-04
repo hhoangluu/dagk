@@ -30,9 +30,9 @@ module.exports = {
          
         categoriesModel.find({}, function (err, data) {
             
-            if (err) throw err;
+            if (err) return res(null,err);
             //console.log(data);
-            res(data);
+            res(data, null);
             // console.log(categories);
         });       
     },
@@ -72,7 +72,7 @@ module.exports = {
                 "code": cat
             }
         }], function( err, data) {
-            if (err) throw err;
+            if (err) return  console.log( err);
             res(data[0]);
             //console.log(data);
         })

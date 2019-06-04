@@ -57,6 +57,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+require('./middlewares/session.mdw')(app);
+require('./middlewares/passport.mdw')(app);
 
 app.use( '/home',require('./routes/home-category.route'));
 app.use('/account', require('./routes/account.route'));
