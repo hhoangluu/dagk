@@ -10,11 +10,12 @@
 
 </div>
 <div class="container">
+
     <div class="column-left " style="background: #F8F9FA;">
 
         <div class="sidebar sidebar-sticky">
             <li class="nav-item">
-                <a class="nav-link " href="/">
+                <a class="nav-link " href="/home">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-home">
@@ -38,7 +39,7 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/admin/admin-listpost">
+                    <a class="nav-link" href="/admin/admin-listpost">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -90,7 +91,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-addaccount">
+                    <a class="nav-link active" href="/admin/admin-addaccount">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-layers">
@@ -131,7 +132,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="/home">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -149,55 +150,19 @@
     </div>
     <div class="column-right">
         <div class="column-center">
-            <h3 style="margin: 20px;">Danh sách bài viết chưa duyệt</h3>
-            <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
-                placeholder="Search" aria-label="Search">
+            <h3 style="margin: 20px;">Thêm nhân viên</h3>
             <br>
-            <table style="width:100%; font-size: 13px">
-                <tr>
-                    <th style="width: 4%">STT</th>
-                    <th style="width: 30%">Bài viết</th>
-                    <th style="width: 12%">Chuyên mục</th>
-                    <th style="width: 12%">Ngày đăng</th>
-                    <th style="width: 15%">Người đăng</th>
-                    <th style="width: 15%">Nhận xét</th>
-                    <th style="width: 12%">Thao tác</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
-                    </td>
-                    <td>
-                        <button type="button" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
-                        <button type="button" onclick="alert('Từ chối bài viết!')">Từ chối</button>
-                    </td>
+            <div class="container-account">
+                <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                <input type="text" placeholder="Tài khoản" name="uname" required>
+                <input type="password" placeholder="Mật khẩu" name="psw" required>
+                <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
+                <input type="text" placeholder="Tên hiển thị" name="uname" required>
+                <input type="text" placeholder="Chức vụ" name="uname" required>
+                <input type="text" placeholder="Email" name="uname" required>
 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+                <button type="submit">Thêm tài khoản</button>
+            </div>
         </div>
 
     </div>

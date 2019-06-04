@@ -15,7 +15,16 @@ router.route('')
     .post(homepagecontroller.register);
 
 router.route('/:category')
-    .get(homepagecontroller.categories);
+    .get(homepagecontroller.categories)
+    .post(homepagecontroller.register);
+
+router.route('/:category/:childCategory')
+    .get(homepagecontroller.childCategories)
+    .post(homepagecontroller.register);
+    
+router.route('/:category/:childCategory/:post')
+    .get(homepagecontroller.loadPost)
+    .post(homepagecontroller.register);
 
 // router.get('/:category', (req, res, next) => {
 //     var category = req.param.category;
@@ -25,13 +34,8 @@ router.route('/:category')
 //         router.get(homepagecontroller.categories)
 //     }).catch(next);
 // })
-router.route('/:category/:childCategory')
-    .get(homepagecontroller.childCategories);
 
-router.route('/:category/:childCategory/:post')
-    .get(homepagecontroller.loadPost);
 
-    
 // router.get('/', (err ,req, res, next) => {
 
 //     router.route('/:category')

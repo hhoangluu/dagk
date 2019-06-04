@@ -1,15 +1,15 @@
 <div class="Menu">
     <div class="navbarw3">
 
-        <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
+        <div class="home" href="/home"><a href="/home" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a>
+            <button class="dropbtn category" href=""><a href="/home/{{xoadau item.category}}">{{ category}}</a>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
+                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
 
@@ -65,8 +65,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="/" class="fa fa-home home-post">
-                            <a href="/">Trang chủ
+                        <a href="/home" class="fa fa-home home-post">
+                            <a href="/home">Trang chủ
                             </a>
                         </a>
                     </li>
@@ -77,11 +77,11 @@
                         console.log(array);
                     </script> --}}
                     <li id="" class="breadcrumb-item type"><a
-                            href="/{{this.navCategory.code}}">{{this.navCategory.category}}</a>
+                            href="/home/{{this.navCategory.code}}">{{this.navCategory.category}}</a>
                     </li>
                     {{#if this.navCategory.child}}
                     <li id="" class="breadcrumb-item type"><a
-                            href="/{{this.navCategory.code}}/{{this.navCategory.child.code}}">{{this.navCategory.child.name}}</a>
+                            href="/home/{{this.navCategory.code}}/{{this.navCategory.child.code}}">{{this.navCategory.child.name}}</a>
                     </li>
                     {{/if}}
                 </ol>
@@ -103,12 +103,12 @@
                 {{#if this.selective}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                        <a href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar-category" id="">
-                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                            <a title="{{title}}" href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
                                 <img src="{{imgSource}}"
                                     alt="{{title}}"
                                     class="width-120 initial loaded" data-was-processed="true"></a>
@@ -121,7 +121,7 @@
                                 <a title="/">{{formatDate date}}</a>
                             </div>
                             <div class="more" id="">
-                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                <a title="{{category}}" href="/home/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
                             </div>
                         </div>
                     </div>
@@ -139,12 +139,12 @@
                 {{#each this.articlesByCat}}
                 <article class="post" id="">
                     <header class="title" id="">
-                        <a href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
+                        <a href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}" title="{{title}}">{{title}} </a>
                     </header>
 
                     <div class="post-body">
                         <span class="avatar-category" id="">
-                            <a title="{{title}}" href="/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                            <a title="{{title}}" href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
                                 <img src="{{imgSource}}"
                                     alt="{{title}}"
                                     class="width-120 initial loaded" data-was-processed="true"></a>
@@ -157,7 +157,7 @@
                                 <a title="/">{{formatDate date}}</a>
                             </div>
                             <div class="more" id="">
-                                <a title="{{category}}" href="/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                <a title="{{category}}" href="/home/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                 <ul class="nav flex-column">
                     {{#each this.topCategories}}
                     <li class="nav-item">
-                        <a href="/{{xoadau category}}/{{child.code}}">
+                        <a href="/home/{{xoadau category}}/{{child.code}}">
                             {{child.name}}
         
                             <span class="ts-green-bg">{{child.view}}</span>

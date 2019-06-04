@@ -15,7 +15,7 @@
 
         <div class="sidebar sidebar-sticky">
             <li class="nav-item">
-                <a class="nav-link " href="/">
+                <a class="nav-link " href="/home">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-home">
@@ -79,7 +79,7 @@
             <ul class="nav flex-column">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="/admin/admin-listuser">
+                    <a class="nav-link" href="/admin/admin-listuser">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-bar-chart-2">
@@ -118,7 +118,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-info">
+                    <a class="nav-link active" href="/admin/admin-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -132,7 +132,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="/home">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -150,47 +150,48 @@
     </div>
     <div class="column-right">
         <div class="column-center">
-            <h3 style="margin: 20px;">Danh sách nhân viên</h3>
-            <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
-                placeholder="Search" aria-label="Search">
-            <br>
-            <table style="width:100%">
-                <tr>
-                    <th style="width: 5%">STT</th>
-                    <th style="width: 15%">Mã số tài khoản</th>
-                    <th style="width: 25%">Tên người dùng</th>
-                    <th style="width: 15%">Số điện thoại</th>
-                    <th style="width: 15%">Ngày sinh</th>
-                    <th style="width: 25%">Email</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> </td>
-                    <td>
-                    </td>
+            <h3 style="margin: 20px;">Thông tin cá nhân</h3>
+            <div class="info-user">
+                <div class="info-left">
+                    <div class="boxinfo-line">
+                        <label for="">Họ tên</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button>Cập nhật</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Bút danh</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button>Cập nhật</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Email</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button>Cập nhật</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Chức vụ</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button>Cập nhật</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Ngày sinh</label>
+                        <input type="date" name="bday">
+                        <button>Cập nhật</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Mật khẩu</label>
+                        <input readonly type="password" value="1111111111">
+                        <button>Cập nhật</button>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <label for="">Ảnh đại diện</label>
+                    <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
+                    <button>Cập nhật</button>
+                </div>
+            </div>
 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
 
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
         </div>
 
     </div>

@@ -10,11 +10,12 @@
 
 </div>
 <div class="container">
+
     <div class="column-left " style="background: #F8F9FA;">
 
         <div class="sidebar sidebar-sticky">
             <li class="nav-item">
-                <a class="nav-link " href="/">
+                <a class="nav-link " href="/home">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-home">
@@ -38,7 +39,7 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/editor/editor-listpost">
+                    <a class="nav-link" href="/admin/admin-listpost">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -49,7 +50,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/editor/editor-listpost-error">
+                    <a class="nav-link" href="/admin/admin-listpost-error">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -62,7 +63,46 @@
                 </li>
             </ul>
 
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Nhân viên</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
 
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin/admin-listuser">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bar-chart-2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        Danh sách nhân viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-addaccount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-layers">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        Thêm nhân viên
+                    </a>
+                </li>
+            </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Tài khoản</span>
@@ -78,7 +118,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/editor/editor-info">
+                    <a class="nav-link" href="/admin/admin-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -92,7 +132,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="/home">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -110,36 +150,26 @@
     </div>
     <div class="column-right">
         <div class="column-center">
-            <h3 style="margin: 20px;">Danh sách bài viết chưa duyệt</h3>
+            <h3 style="margin: 20px;">Danh sách nhân viên</h3>
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
-            <table style="width:100%; font-size: 13px">
+            <table style="width:100%">
                 <tr>
-                    <th style="width: 4%">STT</th>
-                    <th style="width: 15%">Bài viết</th>
-                    <th style="width: 14%">Tag</th>
-                    <th style="width: 10%">Chuyên mục</th>
-                    <th style="width: 9%">Ngày đăng</th>
-                    <th style="width: 9%">Ngày XB</th>
-                    <th style="width: 10%">Người đăng</th>
-                    <th style="width: 15%">Nhận xét</th>
-                    <th style="width: 13%">Thao tác</th>
+                    <th style="width: 5%">STT</th>
+                    <th style="width: 15%">Mã số tài khoản</th>
+                    <th style="width: 25%">Tên người dùng</th>
+                    <th style="width: 15%">Số điện thoại</th>
+                    <th style="width: 15%">Ngày sinh</th>
+                    <th style="width: 25%">Email</th>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td> <input type="date" name="bday"></td>
-                    <td></td>
+                    <td> </td>
                     <td>
-                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
-                    </td>
-                    <td>
-                        <button type="button" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
-                        <button type="button" onclick="alert('Từ chối bài viết!')">Từ chối</button>
                     </td>
 
                 </tr>
@@ -150,16 +180,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
 
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

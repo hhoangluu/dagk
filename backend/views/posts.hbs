@@ -3,15 +3,15 @@
 <div class="Menu">
     <div class="navbarw3">
 
-        <div class="home" href="/"><a href="/" class="fa fa-home home-post">Trang chủ</a></div>
+        <div class="home" href="/home"><a href="/home" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
-            <button class="dropbtn category" href=""><a href="/{{xoadau item.category}}">{{ category}}</a>
+            <button class="dropbtn category" href=""><a href="/home/{{xoadau item.category}}">{{ category}}</a>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
+                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
 
@@ -67,19 +67,19 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="/" class="fa fa-home home-post">
-                            <a href="/">Trang chủ
+                        <a href="/home" class="fa fa-home home-post">
+                            <a href="/home">Trang chủ
                             </a>
                         </a>
                     </li>
                     <li id="" class="breadcrumb-item type"><a
-                            href="/{{xoadau this.post.categoryBase}}">{{this.post.categoryBase}}</a>
+                            href="/home/{{xoadau this.post.categoryBase}}">{{this.post.categoryBase}}</a>
                     </li>
                     <li id="" class="breadcrumb-item type"><a
-                            href="/{{xoadau this.post.categoryBase}}/{{xoadau this.post.category}}">{{this.post.category}}</a>
+                            href="/home/{{xoadau this.post.categoryBase}}/{{xoadau this.post.category}}">{{this.post.category}}</a>
                     </li>
                     <li id="" class="breadcrumb-item type">
-                        <a>/{{this.post.title}}</a>
+                        <a>{{this.post.title}}</a>
                     </li>
                 </ol>
 
@@ -190,7 +190,7 @@
                 <ul class="nav flex-column">
                     {{#each this.topCategories}}
                     <li class="nav-item">
-                        <a href="/{{xoadau category}}/{{child.code}}">
+                        <a href="/home/{{xoadau category}}/{{child.code}}">
                             {{child.name}}
 
                             <span class="ts-green-bg">{{child.view}}</span>
