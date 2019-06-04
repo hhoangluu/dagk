@@ -59,7 +59,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
 
 
-app.use( require('./routes/home-category.route'));
+app.use( '/home',require('./routes/home-category.route'));
+app.use('/account', require('./routes/account.route'));
+//app.use('/admin/categories', require('./routes/admin/category.route'));
 
 
 

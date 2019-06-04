@@ -1,7 +1,7 @@
 var modelCategory = require('../models/categories.model');
 var modelArticle = require('../models/articles.model');
-var modelUser = require('../models/user.model');
-var bcrypt = require('bcrypt');
+
+
 modelCategory.connect();
 
 

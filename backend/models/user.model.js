@@ -10,10 +10,10 @@ var userChema = new mongoose.Schema({
 var userModel = mongoose.model('users', userChema);
 
 module.exports = {
-    add: function(entity )  {
-        userModel.create(entity, function (err) {
+    add: function(res, entity )  {
+         userModel.create(entity, function (err) {
             if (err) return err;
-           
+            res(0);
         })
         
     }
