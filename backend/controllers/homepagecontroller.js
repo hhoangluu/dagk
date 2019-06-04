@@ -46,6 +46,7 @@ module.exports = {
     },
     childCategories: (req, res, next) => {
         var category = req.params.category;
+        
         var childCategory = req.params.childCategory;
         if(category == 'admin' || category == 'editor' || category == 'writer')
         {
@@ -55,25 +56,41 @@ module.exports = {
         {
             modelCategory.loadAll(function (data) {
                 categories = data;
-                modelCategory.catChildNav(function (dataCatNav) {
-                    
-                    navCategory = dataCatNav;
-                    modelArticle.articleByChild(function (dataArticlesByCat) {
-                        articlesByCat = dataArticlesByCat;
-                        modelCategory.mostView(function (dataTopCategories) {
-                            topCategories = dataTopCategories;
-                            res.render('category', {
-                                categories: categories,
-                                topCategories: topCategories,
-                                articlesByCat: articlesByCat,
-                                navCategory: navCategory
+                modelCategory.catNav(function (dataCatNav) {
+                    if (!dataCatNav) {
+                        console.log('category : ' + category);
+                        console.log('cate/child: ' + category + '/' + childCategory);
+                        return res.render(childCategory);
+                    }
+                    modelCategory.catChildNav(function (dataChild) {
+                        if (!dataChild) {
+                            console.log('childcategory :')
+                            console.log('cate/child: ' + category + '/' + childCategory);
+                            return res.render(childCategory);
+                        }
+                        navCategory = dataChild;
+                        modelArticle.articleByChild(function (dataArticlesByCat) {
+                            articlesByCat = dataArticlesByCat;
+                            modelCategory.mostView(function (dataTopCategories) {
+                                topCategories = dataTopCategories;
+                                res.render('category', {
+                                    categories: categories,
+                                    topCategories: topCategories,
+                                    articlesByCat: articlesByCat,
+                                    navCategory: navCategory
+                                });
                             });
-                        });
-                    }, navCategory.child.name)
-                }, childCategory);
-                // console.log(categories);           
+                        }, navCategory.child.name)
+                    }, childCategory);
+                    // console.log(categories);
+                }, category);
+                    
             });
         }
+        // if(err)
+        // {
+        //     return next(err);
+        // }
         
     },
     categories: (req, res, next) => {
@@ -82,13 +99,17 @@ module.exports = {
         {
             res.render(category);
         }
-        else
+        else 
         {
             modelCategory.loadAll(function (data) {
                
                 categories = data;
                 modelCategory.catNav(function (dataCatNav) {
-                   
+                    if (!dataCatNav){
+                        console.log('category : '+ category);
+
+                        return next();
+                    } 
                     navCategory = dataCatNav;
                     modelArticle.articleByCat(function (dataArticlesByCat) {
 
@@ -107,7 +128,10 @@ module.exports = {
                 // console.log(categories);           
             });
         }
-        
+        // if(err)
+        // {
+        //     return next(err);
+        // }
     },
 
     loadPost: (req, res, next) => {
@@ -115,9 +139,11 @@ module.exports = {
         modelCategory.loadAll(function (data) {
             categories = data;
             modelCategory.catChildNav(function (dataCatNav) {
+                if (!dataCatNav) return next();
                 navCategory = dataCatNav;
                 var codePost = req.params.post;
                 modelArticle.articlePost(function (dataPost) {
+                    if (!dataPost) return next();
                     post = dataPost;
                     modelCategory.mostView(function (dataTopCategories) {
                         topCategories = dataTopCategories;
@@ -134,6 +160,65 @@ module.exports = {
             }, childCategory);
 
         });
-    }
-   
+    },
+    register: (req, res, next) => {
+        var saltRounds = 10;
+        var hash = bcrypt.hashSync(req.body.password, saltRounds);
+        console.log('hash',hash);
+        var entity = {
+            username: req.body.username,
+            password: hash,
+            name: req.body.name,
+            email: req.body.email,
+            permisson: 0
+        }
+        console.log(entity);
+        modelUser.add(entity);
+      
+
+    },
+
+
+
+
+    categoriestest: (req, res, next) => {
+        var category = req.params.category;
+        if (category == 'admin' || category == 'editor' || category == 'writer') {
+            res.render(category);
+        }
+        else {
+            var categories;
+            var topCategories;
+            var articlesByCat;
+            var navCategory;
+            modelCategory.loadAll(function (data) {
+                categories = data;
+                modelCategory.catNav(function (dataCatNav) {
+                    navCategory = dataCatNav;
+                    modelArticle.articleByCat(function (dataArticlesByCat) {
+                        articlesByCat = dataArticlesByCat;
+                        modelCategory.mostView(function (dataTopCategories) {
+                            topCategories = dataTopCategories;
+                            res.render('category', {
+                                categories: categories, // danh sách các danh mục   
+                                topCategories: topCategories,   // các danh mục được xem nhiều nhất
+                                articlesByCat: articlesByCat,   // bài viết theo danh mục
+                                navCategory: navCategory  // Thanh menu điều hướng theo danh mục
+                            });
+                        });
+                    }, navCategory.category)
+                }, category)
+                // console.log(categories);           
+            });
+            // catModel.then(
+            //     res.render('category', {
+            //         categories: categories, // danh sách các danh mục   
+            //         topCategories: topCategories,   // các danh mục được xem nhiều nhất
+            //         articlesByCat: articlesByCat,   // bài viết theo danh mục
+            //         navCategory: navCategory  // Thanh menu điều hướng theo danh mục
+            //     })
+            // ).catch(next);
+        }
+
+    },
 }

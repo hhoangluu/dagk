@@ -2,6 +2,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var hbs_sections = require('express-handlebars-sections');
 var morgan = require('morgan')
+var createError = require('http-errors');
 
 //var dbcotroller = require('./controllers/dbcontroller');
 //var homepagecontroller = require('./controllers/homepagecontroller');
@@ -52,10 +53,10 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 app.set("views", "./views")
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 require('./middlewares/session.mdw')(app);
 require('./middlewares/passport.mdw')(app);
@@ -66,6 +67,39 @@ app.use('/account', require('./routes/account.route'));
 
 
 
+app.get('/', (req, res) => {
+    res.render('home');
+})
+
+  
+// app.use((req, res, next) => {
+//     res.render('404', { layout: false });
+// })
+
+app.use(( req, res, next) => {
+   // next(createError(err.status));
+   next(createError(404));
+})
+
+
+app.use((err, req, res, next) => {
+    var status = err.status || 500;
+    var errorView = 'error';
+    if (status === 404)
+        errorView = '404';
+
+    var msg = err.message;
+    var error = err;
+    console.log('app.js duoi: ' + status);
+    res.status(status).render(errorView, {
+        layout: false,
+        msg,
+        error
+    })
+    
+})
+  
+
 app.listen(3000, () => {
-    console.log('Web server is running at localhost 3000')
+    console.log('Web server is running at http://localhost:3000')
 })

@@ -62,6 +62,8 @@ module.exports = {
             }
         }], function (err, data) {
             //console.log(data);
+
+            if (err) throw err;
             res(data[0]);
         })
 
