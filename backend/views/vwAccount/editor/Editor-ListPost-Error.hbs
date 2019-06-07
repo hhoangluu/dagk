@@ -113,7 +113,7 @@
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
-            <table style="width:100%; font-size: 13px">
+            <table style="width:100%; font-size: 13px; background: #f8f9fa">
                 <tr>
                     <th style="width: 4%">STT</th>
                     <th style="width: 37%">Bài viết</th>
@@ -122,32 +122,16 @@
                     <th style="width: 15%">Người đăng</th>
                     <th style="width: 20%">Nhận xét</th>
                 </tr>
+                {{#each this.dataPost}}
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.author}}</td>
+                    <td>{{this.comment}}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {{/each}}
             </table>
         </div>
 

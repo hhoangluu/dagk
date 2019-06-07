@@ -154,12 +154,12 @@
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
-            <table style="width:100%">
+            <table style="width:100%; background: #f8f9fa">
                 <tr>
                     <th style="width: 5%">STT</th>
                     <th style="width: 15%">Mã số tài khoản</th>
-                    <th style="width: 25%">Tên người dùng</th>
-                    <th style="width: 15%">Số điện thoại</th>
+                    <th style="width: 20%">Tên người dùng</th>
+                    <th style="width: 16%">Số điện thoại</th>
                     <th style="width: 15%">Ngày sinh</th>
                     <th style="width: 25%">Email</th>
                 </tr>
@@ -171,6 +171,11 @@
                     <td>{{this.phone}}</td>
                     <td>{{this.dateBorn}}</td>
                     <td>{{this.email}}</td>
+                    <td>
+                        <button onclick="document.getElementById('id01').style.display='block'">
+                            <img style="width: 20px" src="/images/iconSearch.png" alt="photo"></img>
+                        </button>
+                    </td>
                 </tr>
                 {{/each}}
             </table>

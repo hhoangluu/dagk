@@ -64,6 +64,8 @@ require('./middlewares/passport.mdw')(app);
 app.use( '/home',require('./routes/home-category.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/admin', require('./routes/admin.route'));
+app.use('/editor', require('./routes/editor.route'));
+ app.use('/writer', require('./routes/writer.route'));
 
 //app.use('/admin/categories', require('./routes/admin/category.route'));
 

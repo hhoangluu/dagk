@@ -112,39 +112,30 @@
     <div class="column-right">
         <div class="column-1">
             <h3 style="margin: 20px;">New Post</h3>
-            <div id="summernote1"></div>
-            <div id="summernote2"></div>
-            <div class="summernote"></div>
+            <div id="summernote1">123123</div>
+            <div id="summernote2">123123</div>
+            <div class="summernote">123123</div>
         </div>
         <div class="column-2">
-            <div class="form-properties">Categories
-
+            <div class="form-properties">Chuyên mục
+                <h6 class="">
+                {{#each this.dataCategory}}
                 <ul>
+                    {{this.category}}
+                    
+                    {{#each this.child}}
                     <div href="#">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Thể thao
+                            <input class="form-check-input" type="checkbox" value="" id="{{this.name}}">
+                            <label class="form-check-label" for="{{this.name}}">
+                            {{this.name}}
                             </label>
                         </div>
                     </div>
-                    <div href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                Thời trang
-                            </label>
-                        </div>
-                    </div>
-                    <div href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                            <label class="form-check-label" for="defaultCheck3">
-                                Kinh doanh
-                            </label>
-                        </div>
-                    </div>
+                    {{/each}}
                 </ul>
+                {{/each}}
+                </h6>
             </div>
             <div class="form-properties">Wallpaper
                 <form class="form-horizontal" enctype="multipart/form-data">

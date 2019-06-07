@@ -114,7 +114,7 @@
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
-            <table style="width:100%">
+            <table style="width:100%; background: #f8f9fa">
                 <tr>
                     <th style="width: 5%">STT</th>
                     <th style="width: 35%">Bài viết</th>
@@ -123,35 +123,19 @@
                     <th style="width: 20%">Ghi chú</th>
                     <th style="width: 10%">Thao tác</th>
                 </tr>
+                {{#each this.dataPost}}
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> </td>
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.comment}}</td>
                     <td>
                         <button type="button" onclick="alert('Chưa sửa được!')">Sửa</button>
                         <button type="button" onclick="alert('Đã xóa!')">Xóa</button>
                     </td>
-
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {{/each}}
             </table>
         </div>
 

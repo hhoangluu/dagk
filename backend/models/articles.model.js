@@ -113,5 +113,16 @@ module.exports = {
         })
     },
 
+    articleByAuthor: function (res) {
+        articleModel.aggregate([{
+            $match: {
+                //"author": author
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            console.log(data);
+        })
+    },
 
 };
