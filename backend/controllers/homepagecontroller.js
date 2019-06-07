@@ -180,47 +180,4 @@ module.exports = {
 
     },
 
-
-
-
-    categoriestest: (req, res, next) => {
-        var category = req.params.category;
-        if (category == 'admin' || category == 'editor' || category == 'writer') {
-            res.render(category);
-        }
-        else {
-            var categories;
-            var topCategories;
-            var articlesByCat;
-            var navCategory;
-            modelCategory.loadAll(function (data) {
-                categories = data;
-                modelCategory.catNav(function (dataCatNav) {
-                    navCategory = dataCatNav;
-                    modelArticle.articleByCat(function (dataArticlesByCat) {
-                        articlesByCat = dataArticlesByCat;
-                        modelCategory.mostView(function (dataTopCategories) {
-                            topCategories = dataTopCategories;
-                            res.render('category', {
-                                categories: categories, // danh sách các danh mục   
-                                topCategories: topCategories,   // các danh mục được xem nhiều nhất
-                                articlesByCat: articlesByCat,   // bài viết theo danh mục
-                                navCategory: navCategory  // Thanh menu điều hướng theo danh mục
-                            });
-                        });
-                    }, navCategory.category)
-                }, category)
-                // console.log(categories);           
-            });
-            // catModel.then(
-            //     res.render('category', {
-            //         categories: categories, // danh sách các danh mục   
-            //         topCategories: topCategories,   // các danh mục được xem nhiều nhất
-            //         articlesByCat: articlesByCat,   // bài viết theo danh mục
-            //         navCategory: navCategory  // Thanh menu điều hướng theo danh mục
-            //     })
-            // ).catch(next);
-        }
-
-    },
 }

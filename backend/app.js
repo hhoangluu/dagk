@@ -63,6 +63,8 @@ require('./middlewares/passport.mdw')(app);
 
 app.use( '/home',require('./routes/home-category.route'));
 app.use('/account', require('./routes/account.route'));
+app.use('/admin', require('./routes/admin.route'));
+
 //app.use('/admin/categories', require('./routes/admin/category.route'));
 
 
@@ -90,7 +92,7 @@ app.use((err, req, res, next) => {
 
     var msg = err.message;
     var error = err;
-    console.log('app.js duoi: ' + status);
+    //console.log('app.js duoi: ' + status);
     res.status(status).render(errorView, {
         layout: false,
         msg,

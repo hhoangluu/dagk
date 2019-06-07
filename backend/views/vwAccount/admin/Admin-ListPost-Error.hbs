@@ -163,32 +163,16 @@
                     <th style="width: 15%">Người đăng</th>
                     <th style="width: 20%">Nhận xét</th>
                 </tr>
+                {{#each this.dataPost}}
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.author}}</td>
+                    <td>{{this.comment}}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {{/each}}
             </table>
         </div>
 

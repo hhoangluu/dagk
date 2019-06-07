@@ -163,33 +163,16 @@
                     <th style="width: 15%">Ngày sinh</th>
                     <th style="width: 25%">Email</th>
                 </tr>
+                {{#each this.dataUser}}
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> </td>
-                    <td>
-                    </td>
-
+                    <td>{{this.id}}</td>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.dateBorn}}</td>
+                    <td>{{this.email}}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {{/each}}
             </table>
         </div>
 

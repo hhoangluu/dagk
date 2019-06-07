@@ -6,6 +6,7 @@ var articleChema = new mongoose.Schema({
     code: String,
     imgSource: String,
     describe: String,
+    author: String,
     categoryBase: String,
     category: String,
     view: Intl,
@@ -97,9 +98,20 @@ module.exports = {
             //console.log(data);
         })
 
-    }
+    },
 
-
+    
+    articleStatus: function (res, status) {
+        articleModel.aggregate([{
+            $match: {
+                "status": status
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            console.log(data);
+        })
+    },
 
 
 };

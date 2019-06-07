@@ -155,7 +155,7 @@
             <br>
             <table style="width:100%; font-size: 13px">
                 <tr>
-                    <th style="width: 4%">STT</th>
+                    <th style="width: 4%">Bài</th>
                     <th style="width: 30%">Bài viết</th>
                     <th style="width: 12%">Chuyên mục</th>
                     <th style="width: 12%">Ngày đăng</th>
@@ -163,12 +163,13 @@
                     <th style="width: 15%">Nhận xét</th>
                     <th style="width: 12%">Thao tác</th>
                 </tr>
+                {{#each this.dataPost}}
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.author}}</td>
                     <td>
                         <input type="text" placeholder="Viết nhận xét" name="uname" required>
                     </td>
@@ -178,25 +179,7 @@
                     </td>
 
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {{/each}}
             </table>
         </div>
 

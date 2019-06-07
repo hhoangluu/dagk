@@ -25,12 +25,25 @@
     <script src="/js/Category.js"></script>
     <link rel="icon" href="data:,">
     
-    <script>
+    
+
+    
+    <title>Báo Điện Tử TH16-News</title>
+
+</head>
+<body>
+ <header>
+    <img style="width: 100%;" src="/images/1.jpg" alt="photo">
+
+</header>
+    {{{body}}}
+</body>
+<script>
         var x = location.href;
         console.log(x);
         var array = x.split('/');
          console.log(array);
-        if (array[3] == 'admin' || array[3] == 'editor' || array[3] == 'writer')
+        if (array[3] == 'admin' || array[3] == 'editor' || array[3] == 'writer' || array[3] == 'account')
         {
             console.log('array3 = ' + array[3]);
             var cssId = 'myCss';  // you could encode the css path itself to generate id..
@@ -63,51 +76,5 @@
 
         
     </script>
-
-    
-    <title>Báo Điện Tử TH16-News</title>
-
-</head>
-<body>
- <header>
-    <img style="width: 100%;" src="/images/1.jpg" alt="photo">
-
-</header>
-    {{{body}}}
-
- <footer class="ts-footer">
-    <div class="p-3 mb-2 bg-primary text-white">
-        <div class="col">
-            <img src="./resources/images/logoduoi.png">
-            <div class="text-light">Giấy phép Báo điện tử số: 2302/GP-BTTTT, cấp ngày 29/11/2012</div>
-        </div>
-
-        <div class="col text-light">
-            Tổng biên tập: Nguyễn Hoàng Lưu.
-            <br>
-            Thư ký tòa soạn: Hồng Văn; Phó thư ký tòa soạn: Yến Dung.
-            <br>
-            Tòa soạn: Số 35 Nam Kỳ Khởi Nghĩa, Quận 1, Thành phố Hồ Chí Minh.
-            <br>
-            Điện thoại: (8428) 3829 5936; Fax: (8428) 3829 4294; Email: online@kinhtesaigon.vn
-            <br>
-            Thời báo Kinh tế Sài Gòn giữ bản quyền nội dung của trang web www.thesaigontimes.vn. Không được sử
-            dụng
-            lại nội
-            dung trên Thời báo Kinh tế Sài Gòn Online dưới mọi hình thức, trừ khi được Thời báo Kinh tế Sài Gòn
-            đồng
-            ý bằng
-            văn bản.
-            <br>
-            Trang ngoài sẽ được mở ra ở cửa sổ mới. Thời báo Kinh tế Sài Gòn Online không chịu trách nhiệm nội
-            dung
-            trang
-            ngoài.
-            <br>
-            Bản quyền thuộc về SaigonTimesGroup.
-        </div>
-    </div>
-</footer>
-</body>
 {{{_sections.js}}}
 </html>
