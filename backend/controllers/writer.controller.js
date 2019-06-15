@@ -24,11 +24,26 @@ module.exports = {
                 res.render('vwAccount/writer/writer-addpost', {dataCategory: data});
             });
         }
-        else if( item == 'writer-history')
+        else if( item == 'writer-listpost-approved')
         {
-            modelArticle.articleByAuthor(function(data){
-                res.render('vwAccount/writer/writer-history', {dataPost: data});
-            })
+            modelArticle.articleStatus(function(data){
+                console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-approved', {dataCategory: data});
+            }, 'approved');
+        }
+        else if( item == 'writer-listpost-waiting')
+        {
+            modelArticle.loadAll(function(data){
+                console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-waiting', {dataCategory: data});
+            }), 'waiting';
+        }
+        else if( item == 'writer-listpost-refuse')
+        {
+            modelArticle.articleStatus(function(data){
+                console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-refuse', {dataCategory: data});
+            }, 'refuse');
         }
         else
         {

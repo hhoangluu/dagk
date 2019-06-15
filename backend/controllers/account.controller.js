@@ -4,9 +4,11 @@ var passport = require('passport');
 
 module.exports = {
     register: (req, res, next) => {
+        console.log('account chay cai nay');
         var saltRounds = 10;
+        console.log('account req:   ', req);
         var hash = bcrypt.hashSync(req.body.password, saltRounds);
-        console.log('hash', hash);
+        console.log('account hash:   ', hash);
         var entity = {
             username: req.body.username,
             password: hash,
@@ -14,11 +16,14 @@ module.exports = {
             email: req.body.email,
             permisson: 0
         }
-        console.log(entity);
+        console.log('account het chay 1');
+        console.log('account entity:   ' + entity);
+
         modelUser.add(function (data) {
-           
+            console.log('them nhan vien thanh cong');
             res.redirect('/account/login');
         }, entity);
+        console.log('account het chay');
     },
     login: (req, res, next) => {
         passport.authenticate('local', function(err, user, info) {
@@ -43,8 +48,10 @@ module.exports = {
     
     isAvailable: (req, res, next) => {
         var user = req.query.username;
+        console.log(user);
         modelUser.singleByUserName(function(err ,data){
-            console.log(data);
+            console.log('account data la:');
+            //console.log(data);
             if (data != null) {
                 return res.json(false);
             }

@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-history">
+                    <a class="nav-link" href="/writer/writer-listpost-approved">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -59,7 +59,31 @@
                             <circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                        Lịch sử
+                        Đã được duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/writer/writer-listpost-waiting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-shopping-cart">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Đang chờ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/writer/writer-listpost-refuse">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-shopping-cart">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Bị từ chối
                     </a>
                 </li>
             </ul>
@@ -114,6 +138,16 @@
             <div class="info-user">
                 <div class="info-left">
                     <div class="boxinfo-line">
+                        <label for="">ID</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button disabled style="border: none; background: #e0eaeb"  ></button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">Tài khoản</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button disabled style="border: none; background: #e0eaeb"  ></button>
+                    </div>
+                    <div class="boxinfo-line">
                         <label for="">Họ tên</label>
                         <input readonly type="text" value="Sờ Lờ Đại Ka">
                         <button>Chỉnh sửa</button>
@@ -125,6 +159,11 @@
                     </div>
                     <div class="boxinfo-line">
                         <label for="">Email</label>
+                        <input readonly type="text" value="Sờ Lờ Đại Ka">
+                        <button>Chỉnh sửa</button>
+                    </div>
+                    <div class="boxinfo-line">
+                        <label for="">SĐT</label>
                         <input readonly type="text" value="Sờ Lờ Đại Ka">
                         <button>Chỉnh sửa</button>
                     </div>
@@ -151,7 +190,7 @@
                 </div>
             </div>
             <div class="info-user">
-                <button>Lưu thông tin</button>
+                <button type="submit">Lưu thông tin</button>
             </div>
 
         </div>

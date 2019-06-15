@@ -10,7 +10,6 @@
 
 </div>
 <div class="container">
-
     <div class="column-left " style="background: #F8F9FA;">
 
         <div class="sidebar sidebar-sticky">
@@ -39,7 +38,18 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="/editor/editor-listpost">
+                    <a class="nav-link" href="/admin/admin-listpost-approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Đã duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin/admin-listpost-waiting">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -50,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/editor/editor-listpost-error">
+                    <a class="nav-link" href="/admin/admin-listpost-refuse">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -59,6 +69,47 @@
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
                         Đã từ chối
+                    </a>
+                </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Nhân viên</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listuser">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bar-chart-2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        Danh sách nhân viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-addaccount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-layers">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        Thêm nhân viên
                     </a>
                 </li>
             </ul>
@@ -77,7 +128,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/editor/editor-info">
+                    <a class="nav-link" href="/admin/admin-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -109,27 +160,39 @@
     </div>
     <div class="column-right">
         <div class="column-center">
-            <h3 style="margin: 20px;">Danh sách bài viết bị từ chối</h3>
+            <h3 style="margin: 20px;">Danh sách bài viết chưa duyệt</h3>
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
             <table style="width:100%; font-size: 13px; background: #f8f9fa">
                 <tr>
                     <th style="width: 4%">STT</th>
-                    <th style="width: 37%">Bài viết</th>
-                    <th style="width: 12%">Chuyên mục</th>
-                    <th style="width: 12%">Ngày đăng</th>
-                    <th style="width: 15%">Người đăng</th>
-                    <th style="width: 20%">Nhận xét</th>
+                    <th style="width: 15%">Bài viết</th>
+                    <th style="width: 14%">Tag</th>
+                    <th style="width: 10%">Chuyên mục</th>
+                    <th style="width: 9%">Ngày đăng</th>
+                    <th style="width: 9%">Ngày XB</th>
+                    <th style="width: 10%">Người đăng</th>
+                    <th style="width: 15%">Nhận xét</th>
+                    <th style="width: 13%">Thao tác</th>
                 </tr>
                 {{#each this.dataPost}}
                 <tr>
                     <td>{{this.item}}</td>
                     <td>{{this.title}}</td>
+                    <td>{{this.tag}}</td>
                     <td>{{this.category}}</td>
                     <td>{{formatDate this.date}}</td>
+                    <td> <input type="date" name="bday"></td>
                     <td>{{this.author}}</td>
-                    <td>{{this.comment}}</td>
+                    <td>
+                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
+                    </td>
+                    <td>
+                        <button type="button" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
+                        <button type="button" onclick="alert('Từ chối bài viết!')">Từ chối</button>
+                    </td>
+
                 </tr>
                 {{/each}}
             </table>

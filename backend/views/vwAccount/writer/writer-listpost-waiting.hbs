@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-listpost-waiting">
+                    <a class="nav-link active" href="/writer/writer-listpost-waiting">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -131,5 +131,37 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="column-right">
+        <div class="column-center">
+            <h3 style="margin: 20px;">Bài viết chưa được duyệt</h3>
+            <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
+                placeholder="Search" aria-label="Search">
+            <br>
+            <table style="width:100%; background: #f8f9fa">
+                <tr>
+                    <th style="width: 5%">STT</th>
+                    <th style="width: 35%">Bài viết</th>
+                    <th style="width: 15%">Chuyên mục</th>
+                    <th style="width: 15%">Trạng thái</th>
+                    <th style="width: 20%">Ghi chú</th>
+                    <th style="width: 10%">Thao tác</th>
+                </tr>
+                {{#each this.dataPost}}
+                <tr>
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.comment}}</td>
+                    <td>
+                        <button type="button" onclick="alert('Chưa sửa được!')">Sửa</button>
+                        <button type="button" onclick="alert('Đã xóa!')">Xóa</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+
     </div>
 </div>

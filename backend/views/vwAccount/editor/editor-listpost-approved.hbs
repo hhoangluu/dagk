@@ -10,7 +10,6 @@
 
 </div>
 <div class="container">
-
     <div class="column-left " style="background: #F8F9FA;">
 
         <div class="sidebar sidebar-sticky">
@@ -38,20 +37,30 @@
                 </a>
             </h6>
             <ul class="nav flex-column">
-
                 <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-addpost">
+                    <a class="nav-link active" href="/editor/editor-listpost-approved">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
                             <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                             <polyline points="13 2 13 9 20 9"></polyline>
                         </svg>
-                        Thêm bài viết
+                        Đã duyệt
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-listpost-approved">
+                    <a class="nav-link" href="/editor/editor-listpost-waiting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Chưa duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editor/editor-listpost-refuse">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -59,34 +68,12 @@
                             <circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                        Đã được duyệt
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-listpost-waiting">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-shopping-cart">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        Đang chờ
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-listpost-refuse">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-shopping-cart">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        Bị từ chối
+                        Đã từ chối
                     </a>
                 </li>
             </ul>
+
+
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Tài khoản</span>
@@ -102,7 +89,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/writer/writer-info">
+                    <a class="nav-link" href="/editor/editor-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -116,7 +103,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/home">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -131,5 +118,45 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="column-right">
+        <div class="column-center">
+            <h3 style="margin: 20px;">Danh sách bài viết đã duyệt</h3>
+            <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
+                placeholder="Search" aria-label="Search">
+            <br>
+            <table style="width:100%; font-size: 13px; background: #f8f9fa">
+                <tr>
+                    <th style="width: 4%">STT</th>
+                    <th style="width: 15%">Bài viết</th>
+                    <th style="width: 14%">Tag</th>
+                    <th style="width: 10%">Chuyên mục</th>
+                    <th style="width: 9%">Ngày đăng</th>
+                    <th style="width: 9%">Ngày XB</th>
+                    <th style="width: 10%">Người đăng</th>
+                    <th style="width: 15%">Nhận xét</th>
+                    <th style="width: 13%">Thao tác</th>
+                </tr>
+                {{#each this.dataPost}}
+                <tr>
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.tag}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.author}}</td>
+                    <td>{{this.comment}}</td>
+                    <td>
+                        <button type="button" onclick="alert('Từ chối bài viết!')">Xóa</button>
+                    </td>
+
+                </tr>
+                {{/each}}
+                
+                
+            </table>
+        </div>
+
     </div>
 </div>

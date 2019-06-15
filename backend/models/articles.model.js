@@ -13,6 +13,7 @@ var articleChema = new mongoose.Schema({
     selective: Boolean,
     highlight: Boolean,
     date: Date,
+    datePublish: Date,
     status: String,
     content: String,
     comment: String,

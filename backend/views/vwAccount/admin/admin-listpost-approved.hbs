@@ -38,7 +38,18 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/admin/admin-listpost">
+                    <a class="nav-link active" href="/admin/admin-listpost-approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Đã duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-waiting">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -49,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-listpost-error">
+                    <a class="nav-link" href="/admin/admin-listpost-refuse">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -149,33 +160,34 @@
     </div>
     <div class="column-right">
         <div class="column-center">
-            <h3 style="margin: 20px;">Danh sách bài viết chưa duyệt</h3>
+            <h3 style="margin: 20px;">Danh sách bài viết đã duyệt</h3>
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
                 placeholder="Search" aria-label="Search">
             <br>
             <table style="width:100%; font-size: 13px; background: #f8f9fa">
                 <tr>
-                    <th style="width: 4%">Bài</th>
-                    <th style="width: 30%">Bài viết</th>
-                    <th style="width: 12%">Chuyên mục</th>
-                    <th style="width: 12%">Ngày đăng</th>
-                    <th style="width: 15%">Người đăng</th>
+                    <th style="width: 4%">STT</th>
+                    <th style="width: 15%">Bài viết</th>
+                    <th style="width: 14%">Tag</th>
+                    <th style="width: 10%">Chuyên mục</th>
+                    <th style="width: 9%">Ngày đăng</th>
+                    <th style="width: 9%">Ngày XB</th>
+                    <th style="width: 10%">Người đăng</th>
                     <th style="width: 15%">Nhận xét</th>
-                    <th style="width: 12%">Thao tác</th>
+                    <th style="width: 13%">Thao tác</th>
                 </tr>
                 {{#each this.dataPost}}
                 <tr>
                     <td>{{this.item}}</td>
                     <td>{{this.title}}</td>
+                    <td>{{this.tag}}</td>
                     <td>{{this.category}}</td>
                     <td>{{formatDate this.date}}</td>
+                    <td>{{formatDate this.date}}</td>
                     <td>{{this.author}}</td>
+                    <td>{{this.comment}}</td>
                     <td>
-                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
-                    </td>
-                    <td>
-                        <button type="button" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
-                        <button type="button" onclick="alert('Từ chối bài viết!')">Từ chối</button>
+                        <button type="button" onclick="alert('Từ chối bài viết!')">Xóa</button>
                     </td>
 
                 </tr>

@@ -1,3 +1,67 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        $('#frmRegister').validate({
+            rules: {
+                username: {
+                    required: true,
+                       remote:{
+                           url: '/admin/is-available'
+                    // tìm trong csdl có trùng tên ko
+                      }
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirm: {
+                    required: true,
+                    equalTo: $('[name="password"]')
+                },
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            message: {
+                username: {
+                    required: 'Your username is required.',
+                    remote: 'Your username has been taken, please take another.'
+                },
+                password: {
+                    required: 'Your password is required.',
+                    minlength: 'Your password must have at least 6 characters.'
+                },
+                confirm: {
+                    required: 'Your password is required.',
+                    equalTo: 'Your password does not match.'
+                },
+                name: {
+                    required: 'Valid full name is required.',
+                },
+                email: {
+                    required: 'Please enter a valid email address.',
+                    email: 'Please enter a valid email address.'
+                }
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-danger',
+            validClass: 'is-valid',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        })
+    })
+</script>
+{{/section }}
+
 <div class="header" style="margin-bottom: 50px;">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">TH16News</a>
@@ -39,7 +103,18 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-listpost">
+                    <a class="nav-link" href="/admin/admin-listpost-approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Đã duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-waiting">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -50,7 +125,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-listpost-error">
+                    <a class="nav-link" href="/admin/admin-listpost-refuse">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -152,17 +227,22 @@
         <div class="column-center">
             <h3 style="margin: 20px;">Thêm nhân viên</h3>
             <br>
-            <div class="container-account">
-                <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                <input type="text" placeholder="Tài khoản" name="uname" required>
-                <input type="password" placeholder="Mật khẩu" name="psw" required>
-                <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
-                <input type="text" placeholder="Tên hiển thị" name="uname" required>
-                <input type="text" placeholder="Chức vụ" name="uname" required>
-                <input type="text" placeholder="Email" name="uname" required>
-
-                <button type="submit">Thêm tài khoản</button>
-            </div>
+            <form class="modal-content" id="frmRegister" method="POST">
+                <div class="container-account">
+                    <img src="/images/Account.png" alt="Avatar" class="avatar">
+                    <input type="text" placeholder="Tài khoản" class="form-control" id="txtUsername" name="username">
+                    <input type="password" placeholder="Mật khẩu" class="form-control" id="txtPassword" name="password">
+                    <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" id="txtConfirm" name="confirm">
+                    <input type="text" placeholder="Tên hiển thị" class="form-control" id="txtName" name="name">
+                    
+                    <input type="text" placeholder="Email" class="form-control" id="txtEmail" name="email">
+                    <button type="submit" class="btn btn-lg btn-success btn-block">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Thêm tài khoản
+                    </button>
+                </div>
+            </form>
+            
         </div>
 
     </div>

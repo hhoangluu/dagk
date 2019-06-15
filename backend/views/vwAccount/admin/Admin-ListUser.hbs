@@ -39,7 +39,18 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-listpost">
+                    <a class="nav-link" href="/admin/admin-listpost-approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Đã duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-waiting">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file">
@@ -50,7 +61,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin-listpost-error">
+                    <a class="nav-link" href="/admin/admin-listpost-refuse">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-shopping-cart">
@@ -148,7 +159,7 @@
             </ul>
         </div>
     </div>
-    <div class="column-right">
+    <div class="column-right" style=" z-index: 100">
         <div class="column-center">
             <h3 style="margin: 20px;">Danh sách nhân viên</h3>
             <input style="font-weight: bold; border: solid 2px" class="form-control form-control-dark w-100" type="text"
@@ -158,25 +169,93 @@
                 <tr>
                     <th style="width: 5%">STT</th>
                     <th style="width: 15%">Mã số tài khoản</th>
-                    <th style="width: 20%">Tên người dùng</th>
+                    <th style="width: 20%">Họ tên</th>
                     <th style="width: 16%">Số điện thoại</th>
                     <th style="width: 15%">Ngày sinh</th>
                     <th style="width: 25%">Email</th>
                 </tr>
                 {{#each this.dataUser}}
-                <tr>
-                    <td>{{this.id}}</td>
-                    <td>{{this.id}}</td>
+                <tr id="{{this.email}}">
+                    <td>{{this._id}}</td>
+                    <td>{{this._id}}</td>
                     <td>{{this.name}}</td>
                     <td>{{this.phone}}</td>
                     <td>{{this.dateBorn}}</td>
                     <td>{{this.email}}</td>
                     <td>
-                        <button onclick="document.getElementById('id01').style.display='block'">
+                        <button onclick="document.getElementById('{{this._id}}').style.display='block'" >
                             <img style="width: 20px" src="/images/iconSearch.png" alt="photo"></img>
                         </button>
+                        <div id="{{this._id}}" class="modal-account" style="display: none">
+                    
+                            <form class="modal-content" id="frmRegister" method="post">
+                                <div class="closecontainer">
+                                    <span
+                                        onclick="document.getElementById('{{this._id}}').style.display='none';
+                                                                                                                                            "
+                                        class="close" title="Close Modal">&times;</span>
+                                </div>
+                    
+                                <h3 style="margin: 20px;">Thông tin chi tiết</h3>
+                                <div class="info-user">
+                                    <div class="info-left">
+                                        <div class="boxinfo-line">
+                                            <label for="">ID</label>
+                                            <input readonly type="text" value="{{id}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Username</label>
+                                            <input readonly type="text" value="{{username}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Họ tên</label>
+                                            <input readonly type="text" value="{{name}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Bút danh</label>
+                                            <input readonly type="text" value="{{bookname}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Mật khẩu</label>
+                                            <input readonly type="password" value="1111111111">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-left">
+                                        <div class="boxinfo-line">
+                                            <label for="">Email</label>
+                                            <input readonly type="text" value="{{email}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Ngày sinh</label>
+                                            <input type="date" name="bday" value="{{dateBorn}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Chức vụ</label>
+                                            <input readonly type="text" value="{{permisson}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                        <div class="boxinfo-line">
+                                            <label for="">Chuyên mục</label>
+                                            <input readonly type="text" value="{{category}}">
+                                            <button>Chỉnh sửa</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-user">
+                                    <button>Lưu thông tin</button>
+                                </div>
+                    
+                            </form>
+                        </div>
                     </td>
-                </tr>
+                    </tr>
                 {{/each}}
             </table>
         </div>
