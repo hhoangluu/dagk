@@ -15,7 +15,18 @@ module.exports = {
         var item = req.params.item;
         if( item == 'writer-info')
         {
-            res.render('vwAccount/writer/writer-info');
+            res.render('vwAccount/writer/writer-info',
+                {
+                    id: req.user._id,
+                    username: req.user.username,
+                    bookname: req.user.bookname,
+                    name: req.user.name,
+                    email: req.user.email,
+                    phone: req.user.phone,
+                    permisson: req.user.permisson,
+                    dateBorn: req.user.dateBorn,
+                    avatar: req.user.avatar,
+                });
         }
         else if( item == 'writer-addpost')
         {

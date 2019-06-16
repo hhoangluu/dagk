@@ -137,56 +137,72 @@
             <h3 style="margin: 20px;">Thông tin cá nhân</h3>
             <div class="info-user">
                 <div class="info-left">
+                    <script>
+                        function myFunction(a, b) {
+                            if (document.getElementById(a).disabled == true) {
+                                document.getElementById(a).disabled = false;
+                            }
+                            else {
+                                document.getElementById(a).disabled = true;
+                            }
+                            if (document.getElementById(b).value == "Chỉnh sửa") {
+                                document.getElementById(b).value = "OK"
+                            }
+                            else {
+                                document.getElementById(b).tex = "Chỉnh sửa"
+                            }
+                        }
+                    </script>
                     <div class="boxinfo-line">
                         <label for="">ID</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button disabled style="border: none; background: #e0eaeb"  ></button>
+                        <input disabled type="text" value="{{id}}">
+                        <input type="button" disabled style="border: none; background: #e0eaeb"></input>
                     </div>
                     <div class="boxinfo-line">
                         <label for="">Tài khoản</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button disabled style="border: none; background: #e0eaeb"  ></button>
+                        <input disabled type="text" value="{{username}}">
+                        <input type="button" disabled style="border: none; background: #e0eaeb"></input>
                     </div>
-                    <div class="boxinfo-line">
+                    <div class="boxinfo-line" >
                         <label for="">Họ tên</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button>Chỉnh sửa</button>
+                        <input id="1"  disabled="true" type="text"  value="{{name}}">
+                        <input id="btn1" onclick="myFunction(1, btn1)" type="button" value="Chỉnh sửa"></input>
                     </div>
-                    <div class="boxinfo-line">
+                    <div class="boxinfo-line" >
                         <label for="">Bút danh</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button>Chỉnh sửa</button>
+                        <input id="2"  disabled="true" type="text"  value="{{bookname}}">
+                        <input onclick="myFunction(2)" type="button" value="Chỉnh sửa"></input>
                     </div>
-                    <div class="boxinfo-line">
+                    <div class="boxinfo-line" >
                         <label for="">Email</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button>Chỉnh sửa</button>
+                        <input id="3"  disabled="true" type="text"  value="{{email}}">
+                        <input onclick="myFunction(3)" type="button" value="Chỉnh sửa"></input>
                     </div>
-                    <div class="boxinfo-line">
+                    <div class="boxinfo-line" >
                         <label for="">SĐT</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button>Chỉnh sửa</button>
+                        <input id="4"  disabled="true" type="text"  value="{{phone}}">
+                        <input onclick="myFunction(4)" type="button" value="Chỉnh sửa"></input>
                     </div>
-                    <div class="boxinfo-line">
+                    <div class="boxinfo-line" >
                         <label for="">Chức vụ</label>
-                        <input readonly type="text" value="Sờ Lờ Đại Ka">
-                        <button>Chỉnh sửa</button>
+                        <input id="5"  disabled="true" type="text"  value="{{permisson}}">
+                        <input onclick="myFunction(5)" type="button" value="Chỉnh sửa"></input>
                     </div>
                     <div class="boxinfo-line">
                         <label for="">Ngày sinh</label>
-                        <input type="date" name="bday">
-                        <button>Chỉnh sửa</button>
+                        <input id="6"  disabled="true" type="date" value="20-02-1998">
+                        <input onclick="myFunction(6)" type="button" value="Chỉnh sửa"></input>
                     </div>
                     <div class="boxinfo-line">
                         <label for="">Mật khẩu</label>
-                        <input readonly type="password" value="1111111111">
-                        <button>Chỉnh sửa</button>
+                        <input disabled type="password" value="1111111111">
+                        <input type="button" value="Chỉnh sửa"></input>
                     </div>
                 </div>
                 <div class="info-right">
                     <label for="">Ảnh đại diện</label>
                     <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                    <button>Chỉnh sửa</button>
+                    <input type="button" value="Chỉnh sửa" ></input>
                 </div>
             </div>
             <div class="info-user">
