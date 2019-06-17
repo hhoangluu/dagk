@@ -14,6 +14,8 @@ app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
     helpers: {
         xoadau: str => {
+            
+            console.log("Loi o day " +str);
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
             str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
@@ -61,6 +63,7 @@ app.use(express.static("./public"));
 require('./middlewares/session.mdw')(app);
 require('./middlewares/passport.mdw')(app);
 
+app.use('',require('./routes/none.route'));
 app.use( '/home',require('./routes/home-category.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/admin', require('./routes/admin.route'));
@@ -71,9 +74,9 @@ app.use('/editor', require('./routes/editor.route'));
 
 
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
+// app.get('/', (req, res) => {
+//     res.render('home');
+// })
 
   
 // app.use((req, res, next) => {

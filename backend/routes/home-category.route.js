@@ -16,15 +16,15 @@ router.route('')
 
 router.route('/:category')
     .get(homepagecontroller.categories)
-    .post(homepagecontroller.register);
+  //  .post(homepagecontroller.register);
 
 router.route('/:category/:childCategory')
     .get(homepagecontroller.childCategories)
-    .post(homepagecontroller.register);
+  //  .post(homepagecontroller.register);
     
 router.route('/:category/:childCategory/:post')
     .get(homepagecontroller.loadPost)
-    .post(homepagecontroller.register);
+   // .post(homepagecontroller.register);
 
 // router.get('/:category', (req, res, next) => {
 //     var category = req.param.category;

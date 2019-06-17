@@ -14,7 +14,7 @@ module.exports = {
             password: hash,
             name: req.body.name,
             email: req.body.email,
-            permisson: 0
+            permisson: 0,
         }
         console.log('account het chay 1');
         console.log('account entity:   ' + entity);

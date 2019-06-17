@@ -145,32 +145,46 @@
             </ul>
         </div>
     </div>
+    <form method="post">
     <div class="column-right">
         <div class="column-1">
             <h3 style="margin: 20px;">New Post</h3>
-            <div id="summernote1">123123</div>
-            <div id="summernote2">123123</div>
-            <div class="summernote">123123</div>
+            <h4>Tiêu đề</h4>
+        <textarea rows="4" cols="50"id="postTitle" name="postTitle">
+        At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+        </textarea>
+          <h4>Mô tả</h4>
+           <textarea rows="4" cols="50" id="postDes"name="postDes">
+        At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+        </textarea>
+          <h4>Nội dung</h4>
+            <textarea class="summernote" name="content"></textarea>
         </div>
         <div class="column-2">
-            <div class="form-properties">Chuyên mục
+            <div class="form-properties" name="">Chuyên mục
                 <h6 class="">
-                {{#each this.dataCategory}}
+                {{#each this.dataCategory as |cat|}}
                 <ul>
+                    <input  class="catb form-check-input" type="checkbox" value="{{cat.category}}" id="{{cat.category}}" name="categoryBase">
+
                     {{this.category}}
                     
                     {{#each this.child}}
                     <div href="#">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="{{this.name}}">
-                            <label class="form-check-label" for="{{this.name}}">
+                            <input  class="cat form-check-input" type="checkbox" value="{{this.name}}" id="{{this.name}}" name="category">
+                           
+                            <label class="form-check-label" for="{{this.name}}" >
                             {{this.name}}
                             </label>
                         </div>
+                        
                     </div>
                     {{/each}}
                 </ul>
                 {{/each}}
+             
+            
                 </h6>
             </div>
             <div class="form-properties">Wallpaper
@@ -197,6 +211,7 @@
 
         </div>
     </div>
+    </form>
 </div>
 
 <script>

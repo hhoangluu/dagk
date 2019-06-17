@@ -7,6 +7,9 @@ const writercontroller = require('../controllers/writer.controller');
 router.route('')
     .get(writercontroller.index);
 
+router.route("/writer-addpost")
+    .post(writercontroller.addpost);
+
 router.route('/:item')
     .get(writercontroller.loadItem);
 

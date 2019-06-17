@@ -88,6 +88,11 @@ module.exports = {
     childCategories: (req, res, next) => {
         var category = req.params.category;
         var childCategory = req.params.childCategory;
+        var page = req.query.page || 1;
+        if (page < 1) page = 1;
+        var limit = 1;
+        var offset = (page - 1) * limit;
+       
         modelCategory.loadAll(function (data) {
             categories = data;
             modelCategory.catNav(function (dataCatNav) {
@@ -103,18 +108,34 @@ module.exports = {
                         return res.render('errorname');
                     }
                     navCategory = dataChild;
-                    modelArticle.articleByChild(function (dataArticlesByCat) {
-                        articlesByCat = dataArticlesByCat;
-                        modelCategory.mostView(function (dataTopCategories) {
-                            topCategories = dataTopCategories;
-                            res.render('category', {
-                                categories: categories,
-                                topCategories: topCategories,
-                                articlesByCat: articlesByCat,
-                                navCategory: navCategory
+                    modelArticle.articleCountByChild(function(count) {
+                        npages = Math.floor(count / limit);
+                        console.log(npages);
+                        console.log(count);
+                        var pages=[];
+                        for(i = 1;i<= npages;i++){
+                            var obj = {
+                                value: i,
+                                active: i === +page
+                            }
+                            pages.push(obj);
+                        }
+                        modelArticle.articleByChildLimit(function (dataArticlesByCat) {
+                            articlesByCat = dataArticlesByCat;
+
+                            modelCategory.mostView(function (dataTopCategories) {
+                                topCategories = dataTopCategories;
+                                res.render('category', {
+                                    categories: categories,
+                                    topCategories: topCategories,
+                                    articlesByCat: articlesByCat,
+                                    navCategory: navCategory,
+                                    pages: pages
+                                });
                             });
-                        });
-                    }, navCategory.child.name)
+                        }, navCategory.child.name, limit, offset);
+                    }, navCategory.child.name);
+
                 }, childCategory);
                 // console.log(categories);
             }, category);
@@ -147,15 +168,15 @@ module.exports = {
                 modelArticle.articlePost(function (dataPost) {
                     if (!dataPost) return next();
                     post = dataPost;
-                    modelCategory.mostView(function (dataTopCategories) {
-                        topCategories = dataTopCategories;
+                    modelArticle.articleByChildLimit(function (dataSameCat) {
+                        dataSameCat = dataSameCat;
                         res.render('posts', {
                             categories: categories,
-                            topCategories: topCategories,
+                            dataSameCat: dataSameCat,
                             post: post,
                             navCategory: navCategory
                         });
-                    });
+                    },navCategory.child.name, 5, 1);
                     //console.log('day la post :' + post);    
                     //console.log('day la codePost :' + codePost);   
                 }, codePost)

@@ -38,27 +38,28 @@ module.exports = {
     },
     mostView: function (res) {
 
+        categoriesModel.aggregate([
+            {
+                "$unwind": "$child"
+            }, {
+                "$sort": {
+                    "child.view": -1
+                }
+            }, {
+                $limit: 10
+            }], function (err, data) {
+                //console.log(data);
+                res(data);
+            })
+
+    },
+    catChildNav: function (res, child) {
+        //console.log(child);
         categoriesModel.aggregate([{
             "$unwind": "$child"
         }, {
-            "$sort": {
-                "child.view": -1
-            }
-        }, {
-            $limit: 10
-        }], function (err, data) {
-            //console.log(data);
-            res(data);
-        })
-
-    },
-    catChildNav: function(res, child) {
-        //console.log(child);
-        categoriesModel.aggregate([{      
-            "$unwind": "$child" 
-        },{
             $match: {
-            "child.code" : child 
+                "child.code": child
             }
         }], function (err, data) {
             //console.log(data);

@@ -185,18 +185,37 @@
         <div class="widgets ts-grid-box  widgets-populer-post">
 
             <div class="sidebar sidebar-sticky">
-                <h3 class="widget-title">Chuyên mục được xem nhiều nhất trong ngày</h3>
+                <h3 class="widget-title">Cùng chuyên mục</h3>
                 <div class="lined"></div>
                 <ul class="nav flex-column">
-                    {{#each this.topCategories}}
-                    <li class="nav-item">
-                        <a href="/home/{{xoadau category}}/{{child.code}}">
-                            {{child.name}}
+                    {{#each this.dataSameCat as |article|}}
+                    <article class="post" id="">
+                    <header class="title" id="">
+                        <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}" title="{{title}}">{{title}} </a>
+                    </header>
 
-                            <span class="ts-green-bg">{{child.view}}</span>
+                    <div class="post-body">
+                        <span class="avatar" id="">
+                            <a title="{{title}}" href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}">
+                                <img src="{{imgSource}}"
+                                    alt="{{title}}"
+                                    class="width-120 initial loaded" data-was-processed="true"></a>
+                        </span>
+                        <div class="post-content">
+                            <span class="describe" id="">
+                                <a>{{describe}}</a>
+                            </span>
+                            <div class="datePost" id="">
+                                <a title="/">{{formatDate date}}</a>
+                            </div>
+                            <div class="more" id="">
+                                <a title="{{category}}" href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{category}}</a>
+                            </div>
+                        </div>
+                    </div>
 
-                        </a>
-                    </li>
+                </article>
+                <hr style="margin-top: 5px; margin-bottom: 10px;">
                     {{/each}}
 
                 </ul>

@@ -87,6 +87,28 @@ module.exports = {
         })
 
     },
+    articleByChildLimit: function (res, child, limit, offset) {
+        articleModel.find(
+            { "category": child } 
+            ).skip(offset).limit(limit).exec(function (err, data) {
+                //console.log(data);
+                if (err) throw err;
+                res(data);
+            })
+
+    },
+
+    articleCountByChild: function (res, child) {
+        articleModel.find(
+            { 
+                "category": child
+            }
+        ).count().exec(function (err, data) {
+            //console.log(data);
+            if (err) throw err;
+            res(data);
+        });
+    },
 
     articlePost: function (res, codePost) {
         articleModel.aggregate([{
@@ -125,5 +147,14 @@ module.exports = {
             console.log(data);
         })
     },
+
+    addArticle: function(res, article){
+        articleModel.create(article,function(err){
+            if (err) return err;
+            res(0);
+        })
+     
+    }
+   
 
 };
