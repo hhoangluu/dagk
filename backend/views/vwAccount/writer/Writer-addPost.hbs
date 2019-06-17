@@ -1,12 +1,12 @@
 {{#section 'addpost'}}
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 {{/section}}
 
@@ -146,71 +146,73 @@
         </div>
     </div>
     <form method="post">
-    <div class="column-right">
-        <div class="column-1">
-            <h3 style="margin: 20px;">New Post</h3>
-            <h4>Tiêu đề</h4>
-        <textarea rows="4" cols="50"id="postTitle" name="postTitle">
+        <div class="column-right">
+            <div class="column-1">
+                <h3 style="margin: 20px;">New Post</h3>
+                <h4>Tiêu đề</h4>
+                <textarea rows="4" cols="50" id="postTitle" name="postTitle">
         At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
         </textarea>
-          <h4>Mô tả</h4>
-           <textarea rows="4" cols="50" id="postDes"name="postDes">
+                <h4>Mô tả</h4>
+                <textarea rows="4" cols="50" id="postDes" name="postDes">
         At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
         </textarea>
-          <h4>Nội dung</h4>
-            <textarea class="summernote" name="content"></textarea>
-        </div>
-        <div class="column-2">
-            <div class="form-properties" name="">Chuyên mục
-                <h6 class="">
-                {{#each this.dataCategory as |cat|}}
-                <ul>
-                    <input  class="catb form-check-input" type="checkbox" value="{{cat.category}}" id="{{cat.category}}" name="categoryBase">
-
-                    {{this.category}}
-                    
-                    {{#each this.child}}
-                    <div href="#">
-                        <div class="form-check">
-                            <input  class="cat form-check-input" type="checkbox" value="{{this.name}}" id="{{this.name}}" name="category">
-                           
-                            <label class="form-check-label" for="{{this.name}}" >
-                            {{this.name}}
-                            </label>
-                        </div>
-                        
-                    </div>
-                    {{/each}}
-                </ul>
-                {{/each}}
-             
-            
-                </h6>
+                <h4>Nội dung</h4>
+                <textarea class="summernote" name="content"></textarea>
             </div>
-            <div class="form-properties">Wallpaper
-                <form class="form-horizontal" enctype="multipart/form-data">
+            <div class="column-2">
+                <div class="form-properties" name="">Chuyên mục
+                    <h6 class="">
+                        {{#each this.dataCategory as |cat|}}
+                        <ul>
+                            <input class="catb form-check-input" type="checkbox" value="{{cat.category}}"
+                                id="{{cat.category}}" name="categoryBase">
 
+                            {{this.category}}
 
-                    <div class="form-group">
-                        <span><label class="">Upload Pic:</label>
-                            <div class="col-xs-3">
-                                <input type="file" name="pic" />
+                            {{#each this.child}}
+                            <div href="#">
+                                <div class="form-check">
+                                    <input class="cat form-check-input" type="checkbox" value="{{this.name}}"
+                                        id="{{this.name}}" name="category">
+
+                                    <label class="form-check-label" for="{{this.name}}">
+                                        {{this.name}}
+                                    </label>
+                                </div>
+
                             </div>
-                        </span>
-                    </div>
+                            {{/each}}
+                        </ul>
+                        {{/each}}
 
-                </form>
-            </div>
-            <div class="form-properties">Tag <br>
-                <input type="text" class="form-control" name="profilepicname" />
+
+                    </h6>
+                </div>
+                <div class="form-properties">Wallpaper
+                    <form class="form-horizontal" enctype="multipart/form-data">
+
+
+                        <div class="form-group">
+                            <span><label class="">Upload Pic:</label>
+                                <div class="col-xs-3">
+                                    <input type="file" name="pic" />
+                                </div>
+                            </span>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="form-properties">Tag <br>
+                    <input type="text" class="form-control" name="profilepicname" />
+
+                </div>
+                <div>
+                    <button type="submit" class="">Post</button>
+                </div>
 
             </div>
-            <div>
-                <button type="submit" class="">Post</button>
-            </div>
-
         </div>
-    </div>
     </form>
 </div>
 
