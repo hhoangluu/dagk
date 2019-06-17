@@ -346,3 +346,190 @@ button[type="submit"]:hover {
       padding: 25px;
     }
     
+
+/* Subcriber */
+.box-package-vip, .box-package-payment {
+  width: 100%;
+  float: left;
+  padding: 56px 0 0 0;
+}
+
+.title-vip-page-common {
+  width: 100%;
+  float: left;
+  color: #000000;
+  font-size: 24px;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin: 46px 0 24px 0;
+}
+
+.group-choice-radio-package.tmargin {
+  margin: 0 50px 32px 0;
+}
+
+.group-choice-radio-package {
+  width: 460px;
+  height: 90px;
+  background: #ccd0d5;
+  background: -moz-linear-gradient(left, #ccd0d5 0%, #e9ecee 100%);
+  background: -webkit-linear-gradient(left, #ccd0d5 0%,#e9ecee 100%);
+  background: linear-gradient(to right, #ccd0d5 0%,#e9ecee 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd0d5', endColorstr='#e9ecee',GradientType=1 );
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+  margin: 0 0 32px 0;
+}
+
+.group-choice-radio-package input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+ button, select, option {
+  -webkit-appearance: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+
+.group-choice-radio-package input:checked ~ .group-choice-radio-package-bg {
+  background: #f2af12;
+  background: -moz-linear-gradient(left, #f2af12 0%, #ffd200 100%);
+  background: -webkit-linear-gradient(left, #f2af12 0%,#ffd200 100%);
+  background: linear-gradient(to right, #f2af12 0%,#ffd200 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2af12', endColorstr='#ffd200',GradientType=1 );
+  box-shadow: 0 8px 16px rgba(255,196,14,0.4);
+  -webkit-box-shadow: 0 8px 16px rgba(255,196,14,0.4);
+  -moz-box-shadow: 0 8px 16px rgba(255,196,14,0.4);
+  -ms-box-shadow: 0 8px 16px rgba(255,196,14,0.4);
+  -o-box-shadow: 0 8px 16px rgba(255,196,14,0.4);
+}
+
+
+.group-choice-radio-package .group-choice-radio-package-bg {
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+  -ms-box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+  -o-box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+}
+
+.group-choice-radio-package .group-choice-radio-package-bg:after {
+  content: '';
+  width: 180px;
+  height: 90px;
+  display: block;
+  background: url(../images/bg-deco.png) top center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+
+.group-choice-radio-package .circle-big-out {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    z-index: 3;
+}
+
+.group-choice-radio-package .vip-package-name {
+  width: auto;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.4;
+  position: absolute;
+  top: 15px;
+  left: 32px;
+  z-index: 3;
+}
+
+.group-choice-radio-package .vip-package-price {
+  width: auto;
+  font-size: 24px;
+  color: #000000;
+  line-height: 1.4;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  top: 42px;
+  left: 32px;
+  z-index: 3;
+}
+
+.group-choice-radio-package .line {
+  width: 0%;
+  left: 200px;
+  opacity: 0;
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+}
+.group-choice-radio-package input:checked ~ .ic-checked {
+  transform-origin: center center;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  opacity: 1;
+}
+.group-choice-radio-package .ic-checked {
+  display: block;
+  width: 20px;
+  height: 30px;
+  background: url(../images/ic_checked.png) center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 37px;
+  top: 31px;
+  transform-origin: center center;
+  transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  opacity: 0;
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  z-index: 4;
+}
+ /*//////---- Subcriber------- */
