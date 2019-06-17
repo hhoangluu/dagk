@@ -14,8 +14,7 @@ app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
     helpers: {
         xoadau: str => {
-            
-            console.log("Loi o day " +str);
+            console.log("Loi o day " + str);
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
             str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
@@ -30,24 +29,24 @@ app.engine('hbs', exphbs({
             str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
             str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
             str = str.replace(/Đ/g, "D");
-            str =  str.replace(/ /g, "-");
+            str = str.replace(/ /g, "-");
             // Gộp nhiều dấu space thành 1 space
             str = str.replace(/\s+/g, ' ');
             // loại bỏ toàn bộ dấu space (nếu có) ở 2 đầu của xâu   
             str.trim();
-            
-            
+
+
             return str;
         },
         formatDate: date => {
-            
+
             date = date.toLocaleDateString();
             //console.log(date);
             return date;
-            
+
         },
         section: hbs_sections()
-        
+
 
     }
 
@@ -63,29 +62,29 @@ app.use(express.static("./public"));
 require('./middlewares/session.mdw')(app);
 require('./middlewares/passport.mdw')(app);
 
-app.use('',require('./routes/none.route'));
-app.use( '/home',require('./routes/home-category.route'));
+app.use('', require('./routes/none.route'));
+app.use('/home', require('./routes/home-category.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/admin', require('./routes/admin.route'));
 app.use('/editor', require('./routes/editor.route'));
- app.use('/writer', require('./routes/writer.route'));
-
+app.use('/writer', require('./routes/writer.route'));
+app.use('/subcriber', require('./routes/subcriber.route'));
 //app.use('/admin/categories', require('./routes/admin/category.route'));
 
 
 
-// app.get('/', (req, res) => {
-//     res.render('home');
-// })
+app.get('/', (req, res) => {
+    res.render('home');
+})
 
-  
+
 // app.use((req, res, next) => {
 //     res.render('404', { layout: false });
 // })
 
-app.use(( req, res, next) => {
-   // next(createError(err.status));
-   next(createError(404));
+app.use((req, res, next) => {
+    // next(createError(err.status));
+    next(createError(404));
 })
 
 
@@ -103,9 +102,9 @@ app.use((err, req, res, next) => {
         msg,
         error
     })
-    
+
 })
-  
+
 
 app.listen(3000, () => {
     console.log('Web server is running at http://localhost:3000/home')
