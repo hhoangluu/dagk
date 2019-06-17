@@ -902,8 +902,82 @@
   /*=====================*/
   
   
-  /*=====CategoryPost====*/
+  /*=====PremiumPost====*/
   
   
+  .account {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    background: none;
+    padding: 0;
+    align-items: center;
+    height: 25px;
+  } 
+  
+  .modal-PremiumPost {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 15px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content-PremiumPost {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .closecontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  .container-PremiumPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px;
+  }
+  
+  
+
+  .container-PremiumPost > label {
+    width: auto;
+    font-size: 16px;
+  }
+  
+
+  
+  .container-PremiumPost > button {
+    background: rgb(25, 73, 206);
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .container-PremiumPost > span.psw {
+    width: 60%;
+    font-size: 15px;
+  }
   
   /*=====================*/

@@ -11,7 +11,8 @@
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
+                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}"
+                    class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
 
@@ -60,6 +61,34 @@
     </div>
 
 </div>
+
+<div class="account">
+    <span class="psw">
+        <a href="#">
+            <i onclick="document.getElementById('id10').style.display='block'"><img src="/images/account1.png"
+                    alt="photo"></i>
+        </a>
+    </span>
+    <div id="id10" class="modal-PremiumPost">
+
+        <form class="modal-content-PremiumPost animate" action="/action_page.php">
+            <div class="closecontainer">
+                <span onclick="document.getElementById('id10').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container-PremiumPost">
+                <hr><hr><hr><hr><hr>
+                <label for="">Bài viết chỉ dành cho thành viên VIP</label>
+                <hr><hr>
+                <button type="button"  ><a href="/account/login">Đăng nhập và trở thành thành viên VIP</a></button>
+                <hr><hr><hr><hr><hr>
+            </div>
+
+        </form>
+    </div>
+</div>
+
 
 <div class="container">
     <div class="highlights-post">
@@ -190,32 +219,34 @@
                 <ul class="nav flex-column">
                     {{#each this.dataSameCat as |article|}}
                     <article class="post" id="">
-                    <header class="title" id="">
-                        <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}" title="{{title}}">{{title}} </a>
-                    </header>
+                        <header class="title" id="">
+                            <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}"
+                                title="{{title}}">{{title}} </a>
+                        </header>
 
-                    <div class="post-body">
-                        <span class="avatar" id="">
-                            <a title="{{title}}" href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}">
-                                <img src="{{imgSource}}"
-                                    alt="{{title}}"
-                                    class="width-120 initial loaded" data-was-processed="true"></a>
-                        </span>
-                        <div class="post-content">
-                            <span class="describe" id="">
-                                <a>{{describe}}</a>
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}"
+                                    href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}">
+                                    <img src="{{imgSource}}" alt="{{title}}" class="width-120 initial loaded"
+                                        data-was-processed="true"></a>
                             </span>
-                            <div class="datePost" id="">
-                                <a title="/">{{formatDate date}}</a>
-                            </div>
-                            <div class="more" id="">
-                                <a title="{{category}}" href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{category}}</a>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{formatDate date}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="{{category}}"
+                                        href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{category}}</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </article>
-                <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
                     {{/each}}
 
                 </ul>
@@ -299,7 +330,7 @@
 </div>
 
 
- <footer class="ts-footer">
+<footer class="ts-footer">
     <div class="p-3 mb-2 bg-primary text-white">
         <div class="col">
             <img src="./resources/images/logoduoi.png">
