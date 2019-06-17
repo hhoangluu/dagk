@@ -149,14 +149,20 @@
                 </tr>
                 {{#each this.dataPost}}
                 <tr>
+                    
                     <td>{{this.item}}</td>
                     <td>{{this.title}}</td>
                     <td>{{this.category}}</td>
                     <td>{{this.status}}</td>
                     <td>{{this.comment}}</td>
                     <td>
-                        <button type="button" onclick="alert('Chưa sửa được!')">Sửa</button>
-                        <button type="button" onclick="alert('Đã xóa!')">Xóa</button>
+                        <form method="post" action="edit">
+                        <button type="submit" value="{{this._id}}" name="id">Sửa</button>
+                        </form>
+                        <form action="delete" method="post">
+
+                        <button type="submit" value="{{this._id}}" name="id">Xóa</button>
+                        </form>
                     </td>
                 </tr>
                 {{/each}}

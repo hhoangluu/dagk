@@ -9,6 +9,8 @@ router.route('')
 
 router.route("/writer-addpost")
     .post(writercontroller.addpost);
+    router.route('/delete')
+    .post(writercontroller.removePost);
 
 router.route('/:item')
     .get(writercontroller.loadItem);

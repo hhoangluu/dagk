@@ -56,29 +56,29 @@ module.exports = {
         {
             modelCategory.loadAll(function(data){
                 console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-addpost', {dataCategory: data});
+                res.render('vwAccount/writer/writer-addpost', {dataPost: data});
             });
         }
         else if( item == 'writer-listpost-approved')
         {
-            modelArticle.articleStatus(function(data){
-                console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-approved', {dataCategory: data});
-            }, 'approved');
+            modelArticle.articleStatusByUser(function(data){
+             //   console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-approved', {dataPost: data});
+            }, 'approved', req.user.username);
         }
         else if( item == 'writer-listpost-waiting')
         {
-            modelArticle.loadAll(function(data){
-                console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-waiting', {dataCategory: data});
-            }), 'waiting';
+            modelArticle.articleStatusByUser(function(data){
+               // console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-waiting', {dataPost: data});
+            }, 'waiting', req.user.username);
         }
         else if( item == 'writer-listpost-refuse')
         {
-            modelArticle.articleStatus(function(data){
-                console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-refuse', {dataCategory: data});
-            }, 'refuse');
+            modelArticle.articleStatusByUser(function(data){
+               // console.log('category: ' + data);
+                res.render('vwAccount/writer/writer-listpost-refuse', {dataPost: data});
+            }, 'refuse', req.user.username);
         }
         else
         {
@@ -98,8 +98,8 @@ module.exports = {
             view: "1",
             selective: false,
             highlight: false,
-            date: Date.now,
-            datePublish: Date.now,
+            date: Date.now(),
+            datePublish: Date.now(),
             status: "waiting",
             content: req.body.content,
             comment: "",
@@ -107,10 +107,22 @@ module.exports = {
         }
         console.log("day la entity trc khi post ", entity);
         modelArticle.addArticle(function(data){
-            console.log("Succesful");
+          //  console.log("Succesful");
             res.redirect('/writer');
         },entity)
 
+    },
+
+    removePost: (req, res, next) => {
+        modelArticle.removeArticleById(function(data){
+
+        }, req.body.id)
+    },
+
+    updatePost: (req, res, next) => {
+        modelArticle.updateArticleById(function(data){
+
+        }, req.body.article)
     }
     
 }

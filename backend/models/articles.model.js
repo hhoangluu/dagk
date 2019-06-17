@@ -127,7 +127,32 @@ module.exports = {
     articleStatus: function (res, status) {
         articleModel.aggregate([{
             $match: {
-                "status": status
+                "status": status,
+                               
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            console.log(data);
+        })
+    },
+    articleStatusByUser: function (res, status, username) {
+        articleModel.aggregate([{
+            $match: {
+                "status": status,
+                "auther": username                 
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+        //    console.log(data);
+        })
+    },
+    articleStatusByCat: function(res, status, category){
+        articleModel.aggregate([{
+            $match: {
+                "status": status,
+                "categoryBase": category                 
             }
         }], function (err, data) {
             if (err) throw err;
@@ -144,17 +169,44 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            console.log(data);
+           // console.log(data);
         })
     },
 
     addArticle: function(res, article){
         articleModel.create(article,function(err){
+            
             if (err) return err;
             res(0);
         })
      
+    },
+
+    removeArticleById: function(res, id){
+        articleModel.deleteOne({ _id: id }, function (err) {
+        if(err) throw err;
+            console.log("Đã xóa thằng ", code);
+            res(0);
+        });
+    },
+
+    updateArticleById: function(res, article){
+        articleModel.findOne({ _id: article.id }, function (err, doc){
+            doc=article;
+            doc.save();
+            res(0);
+          });
+    },
+
+    updateArticleStatusById: function(res, status, id) {
+        articleModel.findOne({ _id: id }, function (err, doc){
+            console.log(doc);
+            doc.status = status;
+            doc.save();
+            res(0);
+          });
     }
-   
+    
+
 
 };

@@ -163,7 +163,7 @@
         <div class="column-2">
             <div class="form-properties" name="">Chuyên mục
                 <h6 class="">
-                {{#each this.dataCategory as |cat|}}
+                {{#each this.dataPost as |cat|}}
                 <ul>
                     <input  class="catb form-check-input" type="checkbox" value="{{cat.category}}" id="{{cat.category}}" name="categoryBase">
 
@@ -183,9 +183,10 @@
                     {{/each}}
                 </ul>
                 {{/each}}
-             
+           
             
                 </h6>
+               
             </div>
             <div class="form-properties">Wallpaper
                 <form class="form-horizontal" enctype="multipart/form-data">
