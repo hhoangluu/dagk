@@ -30,26 +30,38 @@ module.exports = {
         }
         else if( item == 'editor-listpost-approved')
         {
-            modelArticle.articleStatus(function(data){
+            modelArticle.articleStatusByCat(function(data){
                 res.render('vwAccount/editor/editor-listpost-approved', {dataPost: data});
-            }, 'approved')
+            }, 'approved', req.user.editor)
         }
         else if( item == 'editor-listpost-waiting')
         {
-            modelArticle.articleStatus(function(data){
+            modelArticle.articleStatusByCat(function(data){
                 res.render('vwAccount/editor/editor-listpost-waiting', {dataPost: data});
-            }, 'waiting')
+            }, 'waiting',req.user.editor)
         }
         else if( item == 'editor-listpost-refuse')
         {
-            modelArticle.articleStatus(function(data){
+            modelArticle.articleStatusByCat(function(data){
                 res.render('vwAccount/editor/editor-listpost-refuse', {dataPost: data});
-            }, 'refuse')
+            }, 'refuse',req.user.editor)
         }
         else
         {
             res.render('vwAccount/admin/error');
         }
+    },
+
+    refuseArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/editor/editor-listpost-waiting');
+        }, 'refuse', req.body.id)
+    },
+
+    acceptArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/editor/editor-listpost-waiting');
+        }, 'approved', req.body.id)
     },
     
     
