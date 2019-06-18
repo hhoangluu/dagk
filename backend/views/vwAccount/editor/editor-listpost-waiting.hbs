@@ -139,28 +139,30 @@
                 </tr>
                 {{#each this.dataPost}}
                 <tr>
-                    
-                      
-                        <td>{{this.item}}</td>
-                        <td>{{this.title}}</td>
-                        <td>{{this.tag}}</td>
-                        <td>{{this.category}}</td>
-                        <td>{{formatDate this.date}}</td>
-                        <td> <input type="date" id="cday"></td>
-                        <td>{{this.author}}</td>
-                        <td>
-                            <input type="text" placeholder="Viết nhận xét" name="uname" required>
-                        </td>
-                        <td>
-                            <form action="accept" method="post">
-                                 <input type="hidden" name="bday" id ="bday" >
-                            <button type="submit" value="{{this._id}}" name="id" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
-                            </form>
-                            <form action="refuse" method="post">
-                            <button type="submit" value="{{this._id}}" name="id" onclick="alert('Từ chối bài viết!')">Từ chối</button>
-                            </form>
-                        </td>
-                    
+
+
+                    <td>{{this.item}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.tag}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{formatDate this.date}}</td>
+                    <td> <input type="date" id="cday"></td>
+                    <td>{{this.author}}</td>
+                    <td>
+                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
+                    </td>
+                    <td>
+                        <form action="accept" method="post">
+                            <input type="hidden" name="bday" id="bday">
+                            <button type="submit" value="{{this._id}}" name="id"
+                                onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
+                        </form>
+                        <form action="refuse" method="post">
+                            <button type="submit" value="{{this._id}}" name="id" onclick="alert('Từ chối bài viết!')">Từ
+                                chối</button>
+                        </form>
+                    </td>
+
                 </tr>
                 <script>
                    $('#cday').change(function() {
@@ -169,8 +171,8 @@
 });
                 </script>
                 {{/each}}
-                
-                
+
+
             </table>
         </div>
 
