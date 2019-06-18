@@ -62,6 +62,22 @@ module.exports = {
         })
 
     },
+    loadAllPublic: function(res){
+        var a = new Date();
+
+        articleModel.aggregate([{
+            $match: {
+                "status": "approved",
+                 "datePublish":{
+                    $lt: a
+                 }         
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            console.log(data);
+        })
+    },
 
     articleByCat: function (res, cat) {
         articleModel.aggregate([{
@@ -198,10 +214,11 @@ module.exports = {
           });
     },
 
-    updateArticleStatusById: function(res, status, id) {
+    updateArticleStatusById: function(res, status, id, datePublish) {
         articleModel.findOne({ _id: id }, function (err, doc){
-            console.log(doc);
+            doc.datePublish = datePublish;
             doc.status = status;
+            console.log(doc);
             doc.save();
             res(0);
           });

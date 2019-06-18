@@ -10,7 +10,7 @@ module.exports = {
     index: (req, res, next) => {
 
 
-        modelArticle.loadAll(function (dataArticle) {
+        modelArticle.loadAllPublic(function (dataArticle) {
             articles = dataArticle;
             // console.log(articles);
             modelCategory.loadAll(function (dataCategory) {

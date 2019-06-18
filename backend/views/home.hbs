@@ -342,6 +342,7 @@
                 </div>
                 {{#each this.articles as | article|}}
                 {{#if this.selective}}
+              
                 <article class="post" id="">
                     <header class="title" id="">
                         <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}" title="{{title}}">{{title}} </a>
@@ -369,6 +370,7 @@
 
                 </article>
                 <hr style="margin-top: 5px; margin-bottom: 10px;">
+                
                 {{/if}}
                 {{/each}}
             </div>

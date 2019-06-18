@@ -54,7 +54,7 @@ module.exports = {
     acceptArticle: (req, res, next) => {
         modelArticle.updateArticleStatusById(function(data){
             res.redirect('/editor/editor-listpost-waiting');
-        }, 'approved', req.body.id)
+        }, 'approved', req.body.id, req.body.bday)
     },
     
     updateProfile: (req, res, next) => {
