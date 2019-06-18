@@ -4,14 +4,15 @@ var router = express.Router();
 const admincontroller = require('../controllers/admin.controller');
 
 
+
+router.route('/admin-listuser')
+    .post(admincontroller.updateProfileListUser);
+
 router.route('/admin-info')
     .post(admincontroller.updateProfile);
 
 router.route('/admin-addaccount')
     .post(admincontroller.register);
-
-router.route('/admin-listuser')
-    .post(admincontroller.changeInfoUser)
 
 router.route('/is-available')
     .get(admincontroller.isAvailable)
