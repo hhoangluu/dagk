@@ -14,7 +14,7 @@ app.engine('hbs', exphbs({
     defaultLayoutL: 'main.hbs',
     helpers: {
         xoadau: str => {
-            console.log("Loi o day " + str);
+            //console.log("Loi o day " + str);
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
             str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
@@ -44,6 +44,9 @@ app.engine('hbs', exphbs({
             //console.log(date);
             return date;
 
+        },
+        gretter(v1,v2) {
+            return(v1 > v2)
         },
         section: hbs_sections()
 
