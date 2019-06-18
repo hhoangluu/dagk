@@ -17,23 +17,10 @@ module.exports = {
             res.render('vwAccount/admin/admin-addaccount');
         }
         else if (item == 'admin-info') {
-            // console.log('account data la:');
-            // console.log("username: " + req.user.username);
-            // console.log("pass: " + req.user.password);
-            // console.log("email: " + req.user.email);
-            // console.log("_id: " + req.user._id);
-            res.render('vwAccount/admin/admin-info',
-                {
-                    id: req.user._id,
-                    username: req.user.username,
-                    bookname: req.user.bookname,
-                    name: req.user.name,
-                    email: req.user.email,
-                    phone: req.user.phone,
-                    permisson: req.user.permisson,
-                    dateBorn: req.user.dateBorn,
-                    avatar: req.user.avatar,
-                });
+            modelUser.InfoByUserName(function (data) {
+                console.log("username: " + data.username);
+                res.render('vwAccount/admin/admin-info', { dataUser: data });
+            }, req.user._id);
 
         }
         else if( item == 'admin-listpost-approved')
@@ -78,7 +65,7 @@ module.exports = {
             password: hash,
             name: req.body.name,
             email: req.body.email,
-            permisson: 0
+            permisson: "subcriber",
         }
         console.log('admin het chay 1');
         console.log('admin entity:   ' + entity);
@@ -126,4 +113,94 @@ module.exports = {
         console.log('admin het chay');
     },
     
+    updateProfile: (req, res, next) => {
+        console.log("chay cai nay");
+        modelUser.InfoByUserName(function (data) {
+            var password;
+            var name;
+            var bookname;
+            var email;
+            var phone;
+            var permission;
+            var category;
+            var dateBorn;
+            if (req.body.password == undefined) {
+                console.log("pass truoc:" + password);
+                password = data.password;
+                console.log("pass sau:" + password);
+            }
+            else {
+                console.log("pass truoc khi hash:" + req.body.password);
+                password = bcrypt.hashSync(req.body.password, 10);
+                console.log("pass sau khi hash:" + password);
+            }
+            if (req.body.name == undefined) {
+                name = data.name;
+                console.log("name ", data.name);
+            }
+            else {
+                name = req.body.name;
+            }
+
+            if (req.body.bookname == undefined) {
+                bookname = data.bookname;
+                console.log("bookname ", data.bookname);
+            }
+            else {
+                bookname = req.body.bookname;
+            }
+
+            if (req.body.email == undefined) {
+                email = data.email;
+            }
+            else {
+                email = req.body.email;
+            }
+
+            if (req.body.phone == undefined) {
+                phone = data.phone;
+            }
+            else {
+                phone = req.body.phone;
+            }
+
+            if (req.body.permission == undefined) {
+                permission = data.permission;
+            }
+            else {
+                permission = req.body.permission;
+            }
+
+            if (req.body.category == undefined) {
+                category = data.category;
+            }
+            else {
+                category = req.body.category;
+            }
+
+            if (req.body.dateBorn == undefined) {
+                dateBorn = data.dateBorn;
+            }
+            else {
+                dateBorn = req.body.dateBorn;
+            }
+            var entity = {
+                //_id: req.user._id,
+                //username: req.user.username,
+                name: name,
+                bookname: bookname,
+                email: email,
+                phone: phone,
+                permission: permission,
+                category: category,
+                dateBorn: dateBorn,
+                password: password,
+            }
+            console.log("day la entity trc khi update ", entity);
+            modelUser.updateProfile(function (data) {
+                //  console.log("Succesful");
+                res.redirect('/admin/admin-info');
+            }, entity, req.user._id);
+        }, req.user._id);
+    },
 }

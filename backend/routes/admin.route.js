@@ -4,6 +4,9 @@ var router = express.Router();
 const admincontroller = require('../controllers/admin.controller');
 
 
+router.route('/admin-info')
+    .post(admincontroller.updateProfile);
+
 router.route('/admin-addaccount')
     .post(admincontroller.register);
 
