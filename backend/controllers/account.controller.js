@@ -22,8 +22,9 @@ module.exports = {
             password: hash,
             name: req.body.name,
             email: req.body.email,
-            permisson: "prenium",
+           
             datePrenium: nextWeek,
+            permission: "subcriber",
         }
         console.log('account het chay 1');
         console.log('account entity:   ' + entity);

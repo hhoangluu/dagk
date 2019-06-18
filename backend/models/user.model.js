@@ -7,9 +7,9 @@ var userChema = new mongoose.Schema({
     name: String,
     bookname: String, 
     phone: Intl,
-    dateBorn: Date,
+    dateBorn: String,
     email: String,
-    permisson: String,
+    permission: String,
     category: String,
     avatar: String,
     datePrenium: Date,
@@ -48,16 +48,38 @@ module.exports = {
             done(null, user);
         })
     },
-    InfoByUserName: function (res, username) {
-        userModel.aggregate([{
-            $match: {
-                "_id": username
-            }
-        }], function (err, data) {
+    InfoByUserName: function (res, id) {
+        userModel.findOne({_id: id}, function(err, doc){
             if (err) throw err;
-            res(data);
-            //console.log(data);
+             console.log(doc);
+            res(doc);
         })
 
+    },
+
+    updateProfile:function(res, entity, uname){
+        console.log("uname: " + uname);
+        console.log("entity: " + entity);
+        console.log("name:" + entity.name + "bookname:" + entity.bookname + "email: " + entity.email + "phone: " + entity.phone + "permission: " + entity.permission + "category: " + entity.category);
+        // var user = collection('users');
+        // user.updateOne({username: uname}, {$set:{name: entity.name, bookname: entity.bookname, email: entity.email, phone: entity.phone,permission: entity.permission, category: entity.category, dateBorn: entity.dateBorn, password: entity.password}}
+        // );chua dang nhap dn roi
+        userModel.findOne({_id: uname}, function(err, doc){
+            //  doc.username = entity.username,
+            doc.password= entity.password,
+            doc.name= entity.name,
+            doc.bookname= entity.bookname, 
+            doc.phone= entity.phone,
+            doc.dateBorn=entity.dateBorn,
+            doc.email= entity.email,
+            doc.permission= entity.permission,
+            doc.category= entity.category,
+            // doc.avatar= entity.avatar, 
+            console.log(doc);
+            doc.save();
+            res(0);
+        })
+
+        
     },
 }

@@ -4,6 +4,9 @@ var router = express.Router();
 const editorcontroller = require('../controllers/editor.controller');
 
 
+router.route('/editor-info')
+    .post(editorcontroller.updateProfile);
+
 router.route('')
     .get(editorcontroller.index);
 

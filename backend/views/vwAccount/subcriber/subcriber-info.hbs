@@ -99,80 +99,79 @@
     <div class="column-right">
         <div class="column-center">
             <h3 style="margin: 20px;">Thông tin cá nhân</h3>
-            <div class="info-user">
-                <div class="info-left">
-                    <script>
-                        function myFunction(a, b) {
-                            if (document.getElementById(a).disabled == true) {
-                                document.getElementById(a).disabled = false;
+            <form method="post">
+                <div class="info-user">
+                    <div class="info-left">
+                        <script>
+                            function myFunction(a, b) {
+                                if (document.getElementById(a).disabled == true) {
+                                    document.getElementById(a).disabled = false;
+                                }
+                                else {
+                                    document.getElementById(a).disabled = true;
+                                }
+                                if (document.getElementById(b).value == "Chỉnh sửa") {
+                                    document.getElementById(b).value = "OK"
+                                }
+                                else {
+                                    document.getElementById(b).tex = "Chỉnh sửa"
+                                }
                             }
-                            else {
-                                document.getElementById(a).disabled = true;
-                            }
-                            if (document.getElementById(b).value == "Chỉnh sửa") {
-                                document.getElementById(b).value = "OK"
-                            }
-                            else {
-                                document.getElementById(b).tex = "Chỉnh sửa"
-                            }
-                        }
-                    </script>
-                    <div class="boxinfo-line">
-                        <label for="">ID</label>
-                        <input disabled type="text" value="{{id}}">
-                        <input type="button" disabled style="border: none; background: #e0eaeb"></input>
-                    </div>
-                    <div class="boxinfo-line">
-                        <label for="">Tài khoản</label>
-                        <input disabled type="text" value="{{username}}">
-                        <input type="button" disabled style="border: none; background: #e0eaeb"></input>
-                    </div>
-                    <div class="boxinfo-line" >
-                        <label for="">Họ tên</label>
-                        <input id="1"  disabled="true" type="text"  value="{{name}}">
-                        <input id="btn1" onclick="myFunction(1, btn1)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line" >
-                        <label for="">Bút danh</label>
-                        <input id="2"  disabled="true" type="text"  value="{{bookname}}">
-                        <input onclick="myFunction(2)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line" >
-                        <label for="">Email</label>
-                        <input id="3"  disabled="true" type="text"  value="{{email}}">
-                        <input onclick="myFunction(3)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line" >
-                        <label for="">SĐT</label>
-                        <input id="4"  disabled="true" type="text"  value="{{phone}}">
-                        <input onclick="myFunction(4)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line" >
-                        <label for="">Chức vụ</label>
-                        <input id="5"  disabled="true" type="text"  value="{{permisson}}">
-                        <input onclick="myFunction(5)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line">
-                        <label for="">Ngày sinh</label>
-                        <input id="6"  disabled="true" type="date" value="20-02-1998">
-                        <input onclick="myFunction(6)" type="button" value="Chỉnh sửa"></input>
-                    </div>
-                    <div class="boxinfo-line">
-                        <label for="">Mật khẩu</label>
-                        <input id="7"  disabled="true" type="password" value="1111111111">
-                        <input onclick="myFunction(7)" type="button"  value="Chỉnh sửa"></input>
-                    </div>
-                </div>
-                <div class="info-right">
-                    <label for="">Ảnh đại diện</label>
-                    <img src="Resources/images/Account.png" alt="Avatar" class="avatar">
-                    <input type="button" value="Chỉnh sửa" ></input>
-                </div>
-            </div>
-            <div class="info-user">
-                <button type="submit">Lưu thông tin</button>
-            </div>
+                        </script>
+                        <div class="boxinfo-line">
+                            <label for="">ID</label>
+                            <input readonly type="text" value="{{dataUser._id}}" name="id">
+                            <input type="button" value="chỉ xem"> 
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Tài khoản</label>
+                            <input readonly type="text" value="{{dataUser.username}}" name="username">
+                            <input type="button" value="chỉ xem"> 
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Họ tên</label>
+                            <input id="1" disabled="true" type="text" value="{{dataUser.name}}" name="name">
+                            <input id="btn1" onclick="myFunction(1, btn1)" type="button" value="Chỉnh sửa">
+                        </div>
 
+                        <div class="boxinfo-line">
+                            <label for="">Ngày sinh</label>
+                            <input id="6" disabled="true" type="text" value="{{dataUser.dateBorn}}" name="dateBorn"> 
+                            <input onclick="myFunction(6)" type="button" value="Chỉnh sửa"> 
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Mật khẩu</label>
+                            <input id="7" disabled="true" type="password" value="{{dataUser.password}}" name="password"> 
+                            <input onclick="myFunction(7)" type="button" value="Chỉnh sửa"> 
+                        </div>
+                    </div>
+                    <div class="info-right">
+                        <div class="boxinfo-line">
+                            <label for="">Bút danh</label>
+                            <input id="2" disabled="true" type="text" value="{{dataUser.bookname}}" name="bookname">
+                            <input onclick="myFunction(2)" type="button" value="Chỉnh sửa">
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Email</label>
+                            <input id="3" disabled="true" type="text" value="{{dataUser.email}}" name="email">
+                            <input onclick="myFunction(3)" type="button" value="Chỉnh sửa"> 
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">SĐT</label>
+                            <input id="4" disabled="true" type="text" value="{{dataUser.phone}}" name="phone">
+                            <input onclick="myFunction(4)" type="button" value="Chỉnh sửa"> 
+                        </div>
+                        <div class="boxinfo-line">
+                            <label for="">Chức vụ</label>
+                            <input id="5" readonly type="text" value="{{dataUser.permission}}" name="permission">
+                            <input type="button" value="chỉ xem"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="info-user">
+                    <button type="submit">Cập nhật thông tin</button>
+                </div>
+            </form>
         </div>
 
     </div>
