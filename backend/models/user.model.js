@@ -3,15 +3,16 @@ const homepagecontroller = require('../controllers/homepagecontroller')
 var userChema = new mongoose.Schema({
     username: String,
     password: String,
-    _id: String,
+   
     name: String,
     bookname: String, 
     phone: Intl,
     dateBorn: Date,
     email: String,
-    permisson: Intl,
+    permisson: String,
     category: String,
     avatar: String,
+    datePrenium: Date,
 });
 var userModel = mongoose.model('users', userChema);
 

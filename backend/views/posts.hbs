@@ -63,23 +63,17 @@
 </div>
 
 <div class="account">
-    <span class="psw">
-        <a href="#">
-            <i onclick="document.getElementById('id10').style.display='block'"><img src="/images/account1.png"
-                    alt="photo"></i>
-        </a>
-    </span>
-    <div id="id10" class="modal-PremiumPost">
+    {{#if this.entity.prenium}}
+   {{#if this.user}}
+   {{else}}
+    <div id="id10" class="modal-PremiumPost" style="display: block">
 
         <form class="modal-content-PremiumPost animate" action="/action_page.php">
-            <div class="closecontainer">
-                <span onclick="document.getElementById('id10').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-            </div>
+          
 
             <div class="container-PremiumPost">
                 <hr><hr><hr><hr><hr>
-                <label for="">Bài viết chỉ dành cho thành viên VIP</label>
+                <h3><label for="">Bài viết chỉ dành cho thành viên VIP</label><h3></h3>
                 <hr><hr>
                 <button type="button"  ><a href="/account/login">Đăng nhập và trở thành thành viên VIP</a></button>
                 <hr><hr><hr><hr><hr>
@@ -87,6 +81,8 @@
 
         </form>
     </div>
+    {{/if}}
+    {{/if}}
 </div>
 
 
@@ -127,28 +123,28 @@
                         <span>
                         </span>
                     </div>
-                    <h2 class="post-title lg">“Đời là ba chữ T”</h2>
+                    <h2 class="post-title lg"> {{this.post.title}}</h2>
                     <ul class="post-meta-info">
                         <li>
                             <a href="">
                                 <i class="fa fa-clock-o"></i>
-                                24/04/2019 16:25:29
+                                {{{this.post.datePublish}}}
                             </a>
+                            
                         </li>
                     </ul>
+                    Tag:  <a href="/home/tag?tag={{this.post.tag}}">#{{this.post.tag}}</a>
                 </div>
 
                 <div class="post-content-area">
-                    Không khó lắm để tìm trên mạng những giai thoại về Ba Vân, nghệ sĩ hài đã nổi danh trước năm
-                    1975, với câu nói cửa miệng: “Đời là ba chữ T. Có tiền thì sẽ có tình. Có tiền, có tình thì mặc
-                    sức mà tê tê”. Ba Vân được truyền tụng là thường nói câu này.
+                   {{{this.post.describe}}}
                 </div>
                 <div class="post-content-area">
                     <div class="entry-content">
-                        <p class="ql-align-center"><strong>
-                                <img src="https://cdn.thesaigontimes.vn/Uploads/Articles/285928/4b809_e3.jpg">
+                       <p class="ql-align-center"><strong>
+                                <img type="image/png" src="https://cdn.thesaigontimes.vn/Uploads/Articles/285928/4b809_e3.jpg">
                             </strong></p>
-                        <p class="ql-align-justify"><em>﻿Đến một ngưỡng nào đó, đồng tiền không còn tỷ lệ thuận với
+                     {{!--     <p class="ql-align-justify"><em>﻿Đến một ngưỡng nào đó, đồng tiền không còn tỷ lệ thuận với
                                 tình cảm và hạnh phúc nó mang đến cho người giữ nó. Ảnh minh họa Thành Hoa</em></p>
                         <p class="ql-align-justify">Dù cuộc đời gắn liền với tiền bạc là điều hiển nhiên, mối quan
                             hệ tay ba giữa tiền - tình - “tê tê” (sung sướng/hạnh phúc), chưa bao giờ là một chủ đề
@@ -202,11 +198,12 @@
                             ông có chịu sửa câu nói nổi tiếng của mình hay không.</p>
                         <p class="ql-align-right">
                             <sup><em>(*)&nbsp;</em></sup><em>https://qz.com/1211957/how-much-money-do-people-need-to-be-happy/</em>
-                        </p>
+                        </p> --}}
+                    {{{this.post.content}}}
                     </div>
                 </div>
             </div>
-            <div class="fb-comments" data-href="https://www.facebook.com/kkiet.vo/posts/1122009471284943"
+            <div class="fb-comments" data-href="https://www.facebook.com/{{this.post.code}}"
                 data-width="700" data-numposts="5"></div>
         </div>
     </div>

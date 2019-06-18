@@ -3,7 +3,7 @@ var exphbs = require('express-handlebars');
 var hbs_sections = require('express-handlebars-sections');
 var morgan = require('morgan')
 var createError = require('http-errors');
-
+var multer = require('multer')
 //var dbcotroller = require('./controllers/dbcontroller');
 //var homepagecontroller = require('./controllers/homepagecontroller');
 
@@ -15,6 +15,8 @@ app.engine('hbs', exphbs({
     helpers: {
         xoadau: str => {
             //console.log("Loi o day " + str);
+            if (str == undefined) return str;
+            str.trim();
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
             str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
@@ -33,7 +35,7 @@ app.engine('hbs', exphbs({
             // Gộp nhiều dấu space thành 1 space
             str = str.replace(/\s+/g, ' ');
             // loại bỏ toàn bộ dấu space (nếu có) ở 2 đầu của xâu   
-            str.trim();
+            
 
 
             return str;
@@ -55,6 +57,20 @@ app.engine('hbs', exphbs({
 
 }));
 
+var storage = multer.diskStorage({
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    },
+    destination: function (req, file, cb) {
+      cb(null, `./public/images/`);
+    },
+  })
+  var upload = multer({storage: storage})
+  app.post('/upload', upload.single('fuMain'), function(req,res){
+      
+     res.redirect('/writer/writer-addpost');
+  })
+
 app.set('view engine', 'hbs');
 app.set("views", "./views")
 app.use(morgan('dev'));
@@ -64,6 +80,7 @@ app.use(express.static("./public"));
 
 require('./middlewares/session.mdw')(app);
 require('./middlewares/passport.mdw')(app);
+//require('./middlewares/upload')(app);
 
 app.use('', require('./routes/none.route'));
 app.use('/home', require('./routes/home-category.route'));

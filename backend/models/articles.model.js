@@ -18,6 +18,7 @@ var articleChema = new mongoose.Schema({
     content: String,
     comment: String,
     commentpublic: String,
+    tag: String,
 });
 var articleModel = mongoose.model('bongdas', articleChema);
 
@@ -45,7 +46,12 @@ module.exports = {
         });
     },
     latest: function (res) {
-        articleModel.find({}).sort({ date: -1 }).limit(10).exec(function (err, data) {
+        articleModel.find({
+                status: "approved",
+                 datePublish:{
+                    $lt: new Date()
+                 }   
+        }).sort({ date: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
             // console.log(data);
             res(data);
@@ -55,7 +61,12 @@ module.exports = {
     },
     mostView: function (res) {
 
-        articleModel.find({}).sort({ view: -1 }).limit(10).exec(function (err, data) {
+        articleModel.find({
+            status: "approved",
+            datePublish:{
+               $lt: new Date()
+            }   
+        }).sort({ view: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
             // console.log(data);
             res(data);
@@ -91,6 +102,22 @@ module.exports = {
         })
 
     },
+    articleByCatPublish: function (res, cat) {
+        articleModel.aggregate([{
+            $match: {
+                "categoryBase": cat,
+                "status": "approved",
+                "datePublish":{
+                    $lt: new Date()
+                 }  
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            //console.log(data);
+        })
+
+    },
     articleByChild: function (res, child) {
         articleModel.aggregate([{
             $match: {
@@ -103,10 +130,30 @@ module.exports = {
         })
 
     },
+    articleByChildPublish: function (res, child) {
+        articleModel.aggregate([{
+            $match: {
+                "category": child,
+                "status": "approved",
+                "datePublish":{
+                    $lt: new Date()
+                 } 
+            }
+        }], function (err, data) {
+            if (err) throw err;
+            res(data);
+            //console.log(data);
+        })
+
+    },
     articleByChildLimit: function (res, child, limit, offset) {
         articleModel.find(
-            { "category": child } 
-            ).skip(offset).limit(limit).exec(function (err, data) {
+            { "category": child,
+            "status": "approved",
+            "datePublish":{
+                $lt: new Date()
+            } 
+        }).skip(offset).limit(limit).exec(function (err, data) {
                 //console.log(data);
                 if (err) throw err;
                 res(data);
@@ -117,9 +164,41 @@ module.exports = {
     articleCountByChild: function (res, child) {
         articleModel.find(
             { 
-                "category": child
+                "category": child,
+                "status": "approved",
+            "datePublish":{
+                $lt: new Date()
             }
-        ).count().exec(function (err, data) {
+        }).count().exec(function (err, data) {
+            //console.log(data);
+            if (err) throw err;
+            res(data);
+        });
+    },
+    articleByCatLimit: function (res, cat, limit, offset) {
+        articleModel.find(
+            { "categoryBase": cat,
+            "status": "approved",
+            "datePublish":{
+                $lt: new Date()
+            } 
+        }).skip(offset).limit(limit).exec(function (err, data) {
+                console.log(data);
+                if (err) throw err;
+                res(data);
+            })
+
+    },
+
+    articleCountByCat: function (res, cat) {
+        articleModel.find(
+            { 
+                "categoryBase": cat,
+                "status": "approved",
+            "datePublish":{
+                $lt: new Date()
+            }
+        }).count().exec(function (err, data) {
             //console.log(data);
             if (err) throw err;
             res(data);
@@ -188,6 +267,15 @@ module.exports = {
            // console.log(data);
         })
     },
+    articleByTag: function(res, tag){
+        articleModel.find({
+            tag: tag
+        },function(err, data){
+            if (err) throw err;
+            console.log(data);
+            res(data);
+        })
+    },
 
     addArticle: function(res, article){
         articleModel.create(article,function(err){
@@ -222,8 +310,15 @@ module.exports = {
             doc.save();
             res(0);
           });
-    }
-    
+    },
+    singleById: function (res, id) {
+        articleModel.findOne({ _id: id }).exec(function (err, data) {
+            res(data);
+        });
+    },
+
+   
+
 
 
 };

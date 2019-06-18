@@ -5,6 +5,8 @@ var modelUser = require('../models/user.model');
 //modelCategory.connect();
 
 function xoadau(str)  {
+    console.log("dang xoa dau cai nay",str);
+    str.trim();
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
     str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
@@ -23,7 +25,7 @@ function xoadau(str)  {
     // Gộp nhiều dấu space thành 1 space
     str = str.replace(/\s+/g, ' ');
     // loại bỏ toàn bộ dấu space (nếu có) ở 2 đầu của xâu   
-    str.trim();
+  
     
     
     return str;
@@ -104,6 +106,7 @@ module.exports = {
             content: req.body.content,
             comment: "",
             commentpublic: "",
+            imgSource: req.body.fuMain
         }
         console.log("day la entity trc khi post ", entity);
         modelArticle.addArticle(function(data){

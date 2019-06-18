@@ -2,6 +2,11 @@ var modelUser = require('../models/user.model');
 var bcrypt = require('bcrypt');
 var passport = require('passport');
 
+
+function addDays(dateObj, numDays) {
+   dateObj.setDate(dateObj.getDate() + numDays);
+   return dateObj;
+}
 module.exports = {
     register: (req, res, next) => {
         console.log('account chay cai nay');
@@ -9,12 +14,16 @@ module.exports = {
         console.log('account req:   ', req);
         var hash = bcrypt.hashSync(req.body.password, saltRounds);
         console.log('account hash:   ', hash);
+        var now = new Date(); // Hàm lấy thời gian hôm nay
+        var nextWeek = addDays(now, 7); // Cộng 7 ngày vào ngày hiện tại
+
         var entity = {
             username: req.body.username,
             password: hash,
             name: req.body.name,
             email: req.body.email,
-            permisson: 0,
+            permisson: "prenium",
+            datePrenium: nextWeek,
         }
         console.log('account het chay 1');
         console.log('account entity:   ' + entity);
