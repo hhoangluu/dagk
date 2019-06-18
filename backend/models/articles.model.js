@@ -19,9 +19,10 @@ var articleChema = new mongoose.Schema({
     comment: String,
     commentpublic: String,
     tag: String,
+    prenium: Boolean
 });
+articleChema.index( { title: "text", describe: "text", content: "text" } );
 var articleModel = mongoose.model('bongdas', articleChema);
-
 
 
 
@@ -317,8 +318,41 @@ module.exports = {
         });
     },
 
-   
+    articleSearchPrenium: function (res, text) {
+        console.log(text);
+       
+        articleModel.find(
+            { $text: { $search: text }},
+         
+         ).sort({prenium: -1}).find({
+            "status": "approved",
+            "datePublish":{
+                $lt: new Date()
+            }
 
+         }).exec( function (err, doc) {
+                if (err) throw err;
+                console.log(doc);
+                res(doc);
+            });
+    },
 
+    articleSearch: function (res, text) {
+        console.log(text);
+       
+        articleModel.find(
+            { $text: { $search: text }},
+         
+         ).find({
+            "status": "approved",
+            "datePublish":{
+                $lt: new Date()
+            }
 
-};
+         }).exec( function (err, doc) {
+                if (err) throw err;
+                console.log(doc);
+                res(doc);
+            });
+    },
+}

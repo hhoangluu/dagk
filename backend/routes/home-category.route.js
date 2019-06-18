@@ -12,10 +12,12 @@ var categoryModel = require('../models/categories.model');
 
 router.route('')
     .get(homepagecontroller.index)
-    .post(homepagecontroller.register);
+    .post();
+  //  .post(homepagecontroller.register);
     router.route('/tag')
     .get(homepagecontroller.articleByTag);
-
+router.route('/search')
+.get(homepagecontroller.search);
 router.route('/:category')
     .get(homepagecontroller.categories)
   //  .post(homepagecontroller.register);

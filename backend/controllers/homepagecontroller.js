@@ -193,12 +193,17 @@ module.exports = {
                     post = dataPost;
                     modelArticle.articleByChildLimit(function (dataSameCat) {
                         dataSameCat = dataSameCat;
+                        var d2=new Date();
+                        var d1 = new Date();
                             if (req.user){
     
-                                var d2 =Date.parse(new Date());
-                                var d1 = Date.parse(req.user.datePrenium );
+                                 d2 =Date.parse(new Date());
+                                 d1 = Date.parse(req.user.datePrenium );
                             }
-                            d1 = 0;
+                            else {
+                                d1 = 0;
+                            }
+
                             if (d1 > d2)
                             {
                                 res.render('posts', {
@@ -207,6 +212,7 @@ module.exports = {
                                     post: post,
                                     navCategory: navCategory,
                                     user: req.user,
+                                    hide: false
                                 });
     
                             }
@@ -216,6 +222,7 @@ module.exports = {
                                     dataSameCat: dataSameCat,
                                     post: post,
                                     navCategory: navCategory,
+                                    hide: true
                                    
                                 });
                             }
@@ -274,7 +281,56 @@ module.exports = {
           
             // console.log(categories);           
         });
+    },
+
+    search: (req, res, next) => {
+        var text = req.query.search;
+
+        modelCategory.loadAll(function (data) {
+            categories = data;
+            modelCategory.mostView(function (dataTopCategories) {
+                var d2=new Date();
+                var d1 = new Date();
+                    if (req.user){
+
+                         d2 =Date.parse(new Date());
+                         d1 = Date.parse(req.user.datePrenium );
+                    }
+                    else {
+                        d1 = 0;
+                    }
+
+                    if (d1 > d2)
+                    {
+                        modelArticle.articleSearchPrenium(function (dataSearch) {
+                            topCategories = dataTopCategories;
+        
+                            res.render('category', {
+                                categories: categories,
+        
+                                topCategories: topCategories,
+                                articlesByCat: dataSearch,
+                            });
+                        }, text)
+
+                    }
+                    else{
+                        modelArticle.articleSearch(function (dataSearch) {
+                            topCategories = dataTopCategories;
+        
+                            res.render('category', {
+                                categories: categories,
+        
+                                topCategories: topCategories,
+                                articlesByCat: dataSearch,
+                            });
+                        }, text)
+                    }
+                
+            });
+        })
     }
+
 
     
 
