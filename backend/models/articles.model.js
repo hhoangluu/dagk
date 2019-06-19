@@ -291,7 +291,7 @@ module.exports = {
     removeArticleById: function(res, id){
         articleModel.deleteOne({ _id: id }, function (err) {
         if(err) throw err;
-            console.log("Đã xóa thằng ", code);
+            console.log("Đã xóa thằng ", id);
             res(0);
         });
     },
@@ -306,7 +306,8 @@ module.exports = {
 
     updateArticleStatusById: function(res, status, id, datePublish) {
         articleModel.findOne({ _id: id }, function (err, doc){
-            doc.datePublish = datePublish;
+            var temp = new Date();
+            doc.datePublish = datePublish || temp;
             doc.status = status;
             console.log(doc);
             doc.save();

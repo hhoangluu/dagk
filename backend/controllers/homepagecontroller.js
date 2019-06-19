@@ -9,8 +9,6 @@ modelCategory.connect();
 
 module.exports = {
     index: (req, res, next) => {
-
-
         modelArticle.loadAllPublic(function (dataArticle) {
             articles = dataArticle;
             // console.log(articles);
@@ -26,7 +24,7 @@ module.exports = {
 
                             console.log("req.user = " + req.user);
                             var check;
-                            if (typeof req.user === 'undefined') {
+                            if (!req.user) {
                                 check = true;
                                 console.log("chưa dang nhap check = " + check);
                                 res.render('home', {
@@ -55,7 +53,9 @@ module.exports = {
                                 //         check: check,
                                 //     });
                                 // }, req.user._id);
-
+                                // modelUser.InfoByUserName(function(data){
+                                //     res.end(123);
+                                // }, 1);
                                 //cái này là vào được nhưng khi thay đổi permission thì vẫn sẽ lấy permission cũ
                                 res.render('home', {
                                     categories: categories,
@@ -229,9 +229,9 @@ module.exports = {
                         var d2=new Date();
                         var d1 = new Date();
                             if (req.user){
-    
-                                 d2 =Date.parse(new Date());
-                                 d1 = Date.parse(req.user.datePrenium );
+                                
+                                d2 =Date.parse(new Date());
+                                d1 = Date.parse(req.user.datePrenium );
                             }
                             else {
                                 d1 = 0;

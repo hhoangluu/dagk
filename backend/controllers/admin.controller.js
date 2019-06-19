@@ -294,4 +294,16 @@ module.exports = {
             }, entity, req.body.id);
         }, req.body.id); 
     },
+
+    refuseArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/admin/admin-listpost-refuse');
+        }, 'refuse', req.body.id, new Date())
+    },
+
+    acceptArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/admin/admin-listpost-approved');
+        }, 'approved', req.body._id, req.body.bday)
+    },
 }

@@ -47,13 +47,13 @@ module.exports = {
 
     refuseArticle: (req, res, next) => {
         modelArticle.updateArticleStatusById(function(data){
-            res.redirect('/editor/editor-listpost-waiting');
+            res.redirect('/editor/editor-listpost-refuse');
         }, 'refuse', req.body._id, new Date())
     },
 
     acceptArticle: (req, res, next) => {
         modelArticle.updateArticleStatusById(function(data){
-            res.redirect('/editor/editor-listpost-waiting');
+            res.redirect('/editor/editor-listpost-approved');
         }, 'approved', req.body._id, req.body.bday)
     },
     
