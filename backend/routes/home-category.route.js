@@ -11,22 +11,24 @@ var categoryModel = require('../models/categories.model');
 // .post(homepagecontroller.register);
 
 router.route('')
-    .get(homepagecontroller.index)
-    .post(homepagecontroller.register);
-    router.route('/tag')
-    .get(homepagecontroller.articleByTag);
+  .get(homepagecontroller.index)
+  .post(homepagecontroller.register);
+
+
+router.route('/tag')
+  .get(homepagecontroller.articleByTag);
 
 router.route('/:category')
-    .get(homepagecontroller.categories)
-  //  .post(homepagecontroller.register);
+  .get(homepagecontroller.categories)
+//  .post(homepagecontroller.register);
 
 router.route('/:category/:childCategory')
-    .get(homepagecontroller.childCategories)
-  //  .post(homepagecontroller.register);
-    
+  .get(homepagecontroller.childCategories)
+//  .post(homepagecontroller.register);
+
 router.route('/:category/:childCategory/:post')
-    .get(homepagecontroller.loadPost)
-   // .post(homepagecontroller.register);
+  .get(homepagecontroller.loadPost)
+// .post(homepagecontroller.register);
 
 // router.get('/:category', (req, res, next) => {
 //     var category = req.param.category;

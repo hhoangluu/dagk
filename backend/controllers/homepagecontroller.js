@@ -1,5 +1,6 @@
 var modelCategory = require('../models/categories.model');
 var modelArticle = require('../models/articles.model');
+var modelUser = require('../models/user.model');
 
 
 modelCategory.connect();
@@ -22,8 +23,12 @@ module.exports = {
                         ariclesLastes = dataArticlesLastes;
                         modelArticle.mostView(function (dataArticlesMostView) {
                             articlesMostView = dataArticlesMostView;
-                           
-                                console.log(req.user)
+
+                            console.log("req.user = " + req.user);
+                            var check;
+                            if (typeof req.user === 'undefined') {
+                                check = true;
+                                console.log("chưa dang nhap check = " + check);
                                 res.render('home', {
                                     categories: categories,
                                     articles: articles,
@@ -31,9 +36,37 @@ module.exports = {
                                     ariclesLastes: ariclesLastes,
                                     articlesMostView: articlesMostView,  // !!! callback hell
                                     user: req.user,
+                                    check: check,
                                 });
-                           
-                            
+                            }
+                            else {
+                                check = false;
+                                console.log("đã dang nhap check = " + check);
+                                console.log("req.user._id = " + req.user._id);
+                                // modelUser.InfoByUserName(function (dataUser) {
+                                //     console.log("username: " + dataUser.username);
+                                //     res.render('home', {
+                                //         categories: categories,
+                                //         articles: articles,
+                                //         topCategories: topCategories,
+                                //         ariclesLastes: ariclesLastes,
+                                //         articlesMostView: articlesMostView,  // !!! callback hell show lỗi xem lại
+                                //         user: dataUser,
+                                //         check: check,
+                                //     });
+                                // }, req.user._id);
+
+                                //cái này là vào được nhưng khi thay đổi permission thì vẫn sẽ lấy permission cũ
+                                res.render('home', {
+                                    categories: categories,
+                                    articles: articles,
+                                    topCategories: topCategories,
+                                    ariclesLastes: ariclesLastes,
+                                    articlesMostView: articlesMostView,  // !!! callback hell
+                                    user: req.user,
+                                    check: check,
+                                });
+                            }
                         })
                     })
                 })

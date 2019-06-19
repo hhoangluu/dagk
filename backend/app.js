@@ -50,6 +50,12 @@ app.engine('hbs', exphbs({
         gretter(v1,v2) {
             return(v1 > v2)
         },
+
+        equal(s1,s2)
+        {
+            return(s1===s2)
+        },
+
         section: hbs_sections()
 
 

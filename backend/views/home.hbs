@@ -1,64 +1,3 @@
-{{#section 'js'}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-<script>
-    $(function() { 
-        $('#frmRegister').validate({
-            rules: {
-                username: {
-                    required: true,
-                  
-                },
-                password: {
-                    required: true,
-                    minlength: 6
-                },
-                confirm: {
-                    required: true,
-                    equalTo: $('[name="password"]')
-                },
-                name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true
-                }
-            },
-            message: {
-                username: {
-                    required: 'Your username is required.',
-                    remote: 'Your username has been taken, please take another.'
-                },
-                password: {
-                    required: 'Your password is required.',
-                    minlength: 'Your password must have at least 6 characters.'
-                },
-                confirm: {
-                    required: 'Your password is required.',
-                    equalTo: 'Your password does not match.'
-                },
-                name: {
-                    required: 'Valid full name is required.',
-                },
-                email: {
-                    required: 'Please enter a valid email address.',
-                    email: 'Please enter a valid email address.'
-                }
-            },
-            errorElement: 'small',
-            errorClass: 'help-block text-danger',
-            validClass: 'is-valid',
-            highlight: function (e) {
-                $(e).removeClass('is-valid').addClass('is-invalid');
-            },
-            unhighlight: function (e) {
-                $(e).removeClass('is-invalid').addClass('is-valid');
-            }
-        })
-    })
-</script>
-{{/section }}
-
 <div class="Menu">
     <div class="navbarw3">
 
@@ -76,125 +15,28 @@
 
         </div>
         {{/each}}
-
-
+        <div class="dropdownw3">
+            <button class="dropbtn category"><a href="/home"><img style="height: 20px; width: 20px;" src="/images/account1.png"
+                        alt="photo"></a>
+            </button>
+            {{#if this.check}}
+            <div class="dropdownw3-contentw3">
+                <a href="/account/login" class="category">Đăng nhập</a>
+                <a href="/account/register" class="category">Đăng kí</a>
+            </div>
+           {{^}}
+            <div class="dropdownw3-contentw3">
+                <a href="/{{this.user.permission}}" class="category">Vào trang cá nhân</a>
+                <a href="/account/signout" class="category">Đăng xuất</a>
+            </div>
+            {{/if}}
+        </div>
         <div class="search-and-account">
             <div class="searchBar">
                 <input class="search" type="search" placeholder="Search">
             </div>
-            <div class="account">
-                <span class="psw">
-                    <a >
-                        <i onclick="document.getElementById('id01').style.display='block'"><img
-                                src="/images/account1.png" alt="photo"></i>
-                    </a>
-                </span>
-                <div id="id01" class="modal-account">
-
-                    <form class="modal-content" action="">
-                        <div class="closecontainer">
-                            <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                                title="Close Modal">&times;</span>
-                        </div>
-
-                        <div class="container-account">
-                            <img src="/images/Account.png" alt="Avatar" class="avatar">
-                            <input type="text" placeholder="Tài khoản" name="uname" required>
-                            <input type="password" placeholder="Mật khẩu" name="psw" required>
-                            <button type="submit">Đăng nhập</button>
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
-                            </label>
-                        </div>
-
-                        <div class="container-account">
-                            <div class="login-other">
-                                <label></label>Đăng nhập với</label>
-                                <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
-                                    <div class="login-other-logo">
-                                        <a style="background: #3B5998;" href="#" class="btn" data-toggle="tooltip"
-                                            data-placement="top" title="Facebook">
-                                            <i class="fa fa-facebook "></i>
-                                        </a>
-                                    </div>
-                                    <div class="login-other-logo">
-                                        <a style="background: #00ACED;" href="#" class="btn" data-toggle="tooltip"
-                                            data-placement="top" title="Twitter">
-                                            <i class="fa fa-twitter "></i>
-                                        </a>
-                                    </div>
-                                    <div class="login-other-logo">
-                                        <a style="background: #C32F10;" href="#" class="btn" data-toggle="tooltip"
-                                            data-placement="top" title="Google Plus">
-                                            <i class="fa fa-google-plus "></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-account" style="background-color:#f1f1f1">
-                            <span class="psw">Quên <a
-                                    onclick="document.getElementById('id03').style.display='block'; document.getElementById('id01').style.display='none';"
-                                    href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
-                                </a></span>
-                            <span class="psw">Chưa có tài khoản? <a
-                                    onclick="document.getElementById('id02').style.display='block'; document.getElementById('id01').style.display='none';"
-                                     style="color: #3B5998">Đăng
-                                    kí</a></span>
-                        </div>
-                    </form>
-                </div>
-                <div id="id02" class="modal-account">
-
-                    <form class="modal-content" id="frmRegister" method="post" >
-                        <div class="closecontainer">
-                            <span onclick="document.getElementById('id02').style.display='none';
-                                " class="close" title="Close Modal">&times;</span>
-                        </div>
-
-                        <div class="container-account">
-                            <h4 class="card-header">Register</h4>
-                            <img src="/images/Account.png" class="avatar">
-                            <input type="text" placeholder="Tài khoản" class="form-control" id="txtUsername" name="username" >
-                            <input type="password" placeholder="Mật khẩu" class="form-control" id="txtPassword" name="password" >
-                            <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" id="txtConfirm" name="confirm" >
-                            <input type="text" placeholder="Tên hiển thị" class="form-control" id="txtName" name="name" >
-                            <input type="email" placeholder="Email" class="form-control" id="txtEmail" name="email" >
-
-                            <label>
-                                <input type="checkbox" checked="ckecked" name="remember" required>Đồng ý với<a href=""> điều
-                                    khoản</a>
-                            </label>
-                            <button type="submit" class="btn btn-lg btn-success btn-block">
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                                Register
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-
-                <div id="id03" class="modal-account">
-
-                    <form class="modal-content" action="/action_page.php">
-                        <div class="closecontainer">
-                            <span onclick="document.getElementById('id03').style.display='none';
-                                " class="close" title="Close Modal">&times;</span>
-                        </div>
-
-                        <div class="container-account">
-                            <img src="/images/Account.png" alt="Avatar" class="avatar">
-                            <input type="text" placeholder="Email" name="uname" required>
-                            <button type="submit">Gửi</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
         </div>
+        
     </div>
 
 </div>

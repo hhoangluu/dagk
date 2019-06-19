@@ -1,3 +1,30 @@
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        $("form").submit(function () {
+            // Getting the form ID
+            var formID = $(this).attr('id');
+            var formDetails = $('#' + formID);
+            //  console.log(formDetails.val().datepublish);
+
+            $.ajax({
+                type: "POST",
+                url: '/admin/admin-listuser',
+                data: formDetails.serialize(),
+                success: function (data) {
+                    // Inserting html into the result div
+                    $('#results').html(data);
+                },
+                error: function (jqXHR, text, error) {
+                    // Displaying if there are any errors
+                    $('#result').html(error);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+
 <div class="header" style="margin-bottom: 50px;">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">TH16News</a>
@@ -181,19 +208,19 @@
                     <td>{{this.dateBorn}}</td>
                     <td>{{this.email}}</td>
                     <td>
-                        <button onclick="document.getElementById('{{this._id}}').style.display='block'" >
+                        <button onclick="document.getElementById('{{this._id}}').style.display='block'">
                             <img style="width: 20px" src="/images/iconSearch.png" alt="photo"></img>
                         </button>
                         <div id="{{this._id}}" class="modal-account" style="display: none">
-                    
-                            <form class="modal-content" id="frmRegister" method="post">
+
+                            <form class="modal-content" id="'{{this._id}}'" method="post">
                                 <div class="closecontainer">
                                     <span
                                         onclick="document.getElementById('{{this._id}}').style.display='none';
                                                                                                                                             "
                                         class="close" title="Close Modal">&times;</span>
                                 </div>
-                    
+
                                 <h3 style="margin: 20px;">Thông tin chi tiết</h3>
                                 <div class="info-user">
                                     <div class="info-left">
@@ -221,56 +248,72 @@
                                             <input type="button" value="chỉ xem"> </div>
                                         <div class="boxinfo-line">
                                             <label for="">Họ tên</label>
-                                            <input id="{{this._id}}1" disabled="true" type="text" value="{{this.name}}" name="name">
-                                            <input onclick="myFunction('{{this._id}}1')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}1" disabled="true" type="text" value="{{this.name}}"
+                                                name="name">
+                                            <input onclick="myFunction('{{this._id}}1')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">Bút danh</label>
-                                            <input id="{{this._id}}2" disabled="true" type="text" value="{{this.bookname}}" name="bookname">
-                                            <input onclick="myFunction('{{this._id}}2')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}2" disabled="true" type="text"
+                                                value="{{this.bookname}}" name="bookname">
+                                            <input onclick="myFunction('{{this._id}}2')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">Mật khẩu</label>
-                                            <input id="{{this._id}}7" disabled="true" type="password" value="{{this.password}}" name="password">
-                                            <input onclick="myFunction('{{this._id}}7')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}7" disabled="true" type="password"
+                                                value="{{this.password}}" name="password">
+                                            <input onclick="myFunction('{{this._id}}7')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                     </div>
                                     <div class="info-left">
                                         <div class="boxinfo-line">
                                             <label for="">Email</label>
-                                            <input id="{{this._id}}3" disabled="true" type="text" value="{{this.email}}" name="email">
-                                            <input onclick="myFunction('{{this._id}}3')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}3" disabled="true" type="text" value="{{this.email}}"
+                                                name="email">
+                                            <input onclick="myFunction('{{this._id}}3')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">Ngày sinh</label>
-                                            <input id="{{this._id}}6" disabled="true" type="text" value="{{this.dateBorn}}" name="dateBorn">
-                                            <input onclick="myFunction('{{this._id}}6')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}6" disabled="true" type="text"
+                                                value="{{this.dateBorn}}" name="dateBorn">
+                                            <input onclick="myFunction('{{this._id}}6')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">SĐT</label>
-                                            <input id="{{this._id}}4" disabled="true" type="text" value="{{this.phone}}" name="phone">
-                                            <input onclick="myFunction('{{this._id}}4')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}4" disabled="true" type="text" value="{{this.phone}}"
+                                                name="phone">
+                                            <input onclick="myFunction('{{this._id}}4')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">Chức vụ</label>
-                                            <input id="{{this._id}}5" disabled="true" type="text" value="{{this.permission}}" name="permission">
-                                            <input onclick="myFunction('{{this._id}}5')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}5" disabled="true" type="text"
+                                                value="{{this.permission}}" name="permission">
+                                            <input onclick="myFunction('{{this._id}}5')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                         <div class="boxinfo-line">
                                             <label for="">Chuyên mục</label>
-                                            <input id="{{this._id}}10" disabled="true" type="text" value="{{this.category}}" name="category">
-                                            <input onclick="myFunction('{{this._id}}10')" type="button" value="Chỉnh sửa">
+                                            <input id="{{this._id}}10" disabled="true" type="text"
+                                                value="{{this.category}}" name="category">
+                                            <input onclick="myFunction('{{this._id}}10')" type="button"
+                                                value="Chỉnh sửa">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="info-user">
                                     <button type="submit">Cập nhật thông tin</button>
                                 </div>
-                    
+
                             </form>
                         </div>
                     </td>
-                    </tr>
+                </tr>
                 {{/each}}
             </table>
         </div>

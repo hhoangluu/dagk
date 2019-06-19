@@ -291,7 +291,7 @@ module.exports = {
             modelUser.updateProfile(function (data) {
                 //  console.log("Succesful");
                 res.redirect('/admin/admin-listuser');
-            }, entity, req.user._id);
-        }, req.user._id);
+            }, entity, req.body.id);
+        }, req.body.id); 
     },
 }
