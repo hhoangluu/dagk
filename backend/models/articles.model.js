@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 const homepagecontroller = require('../controllers/homepagecontroller')
 var articleChema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     item: String,
     title: String,
     code: String,
