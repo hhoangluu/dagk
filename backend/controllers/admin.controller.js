@@ -342,6 +342,13 @@ module.exports = {
         }, 'refuse', req.body.id, new Date())
     },
 
+    deleteUser: (req, res, next) => {
+        console.log("aaaaaaaaaa id = " + req.body.id111);
+        modelUser.deleteUserbyId(function(data){
+            res.redirect('/admin/admin-listuser');
+        },req.body.id111);
+    },
+
     acceptArticle: (req, res, next) => {
         modelArticle.updateArticleStatusById(function(data){
             res.redirect('/admin/admin-listpost-approved');

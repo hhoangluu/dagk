@@ -9,10 +9,13 @@ router.route('/admin-listuser')
     .post(admincontroller.updateProfileListUser);
 router.route('/refuse')
     .post(admincontroller.refuseArticle);
-    router.route('/accept')
+router.route('/accept')
     .post(admincontroller.acceptArticle);
 
-    router.route('/remove')
+router.route('/deleteUser')
+    .post(admincontroller.deleteUser);
+
+router.route('/remove')
     .post();
 
 

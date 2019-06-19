@@ -10,9 +10,9 @@ router.route('/editor-info')
 router.route('')
     .get(editorcontroller.index);
 
-    router.route('/accept')
+router.route('/accept')
     .post(editorcontroller.acceptArticle);
-    router.route('/refuse')
+router.route('/refuse')
     .post(editorcontroller.refuseArticle);
 router.route('/:item')
     .get(editorcontroller.loadItem);
