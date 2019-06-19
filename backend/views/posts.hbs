@@ -63,9 +63,8 @@
 </div>
 
 <div class="account">
-    {{#if this.entity.prenium}}
-   {{#if this.user}}
-   {{else}}
+    {{#if this.hide}}
+   {
     <div id="id10" class="modal-PremiumPost" style="display: block">
 
         <form class="modal-content-PremiumPost animate" action="/action_page.php">
@@ -81,7 +80,7 @@
 
         </form>
     </div>
-    {{/if}}
+    
     {{/if}}
 </div>
 
