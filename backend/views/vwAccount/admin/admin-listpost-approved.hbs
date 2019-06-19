@@ -187,7 +187,9 @@
                     <td>{{this.author}}</td>
                     <td>{{this.comment}}</td>
                     <td>
-                        <button type="button" onclick="alert('Từ chối bài viết!')">Xóa</button>
+                        <form action="refuse" method="POST">
+                        <button type="submit" name="id" value="{{this._id}}" onclick="alert('Từ chối bài viết!')">Từ chối</button>
+                        </form>
                     </td>
 
                 </tr>

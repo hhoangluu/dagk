@@ -182,6 +182,11 @@
                     <td>{{formatDate this.date}}</td>
                     <td>{{this.author}}</td>
                     <td>{{this.comment}}</td>
+                    <td>
+                        <form action="refuse" method="POST">
+                            <button class="btn btn-primary" type="submit" name="id" value="{{this._id}}" onclick="alert('Xóa bài viết!')">Xóa</button>
+                        </form>
+                    </td>
                 </tr>
                 {{/each}}
             </table>

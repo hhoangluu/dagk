@@ -3,7 +3,7 @@ const homepagecontroller = require('../controllers/homepagecontroller')
 var userChema = new mongoose.Schema({
     username: String,
     password: String,
-    _id: mongoose.Schema.Types.ObjectId,
+//    _id: mongoose.Schema.Types.ObjectId,
     name: String,
     bookname: String, 
     phone: Intl,
@@ -49,6 +49,7 @@ module.exports = {
         })
     },
     InfoByUserName: function (res, id) {
+        console.log("id khi tim ", id);
         userModel.findOne({_id: id}, function(err, doc){
             if (err) throw err;
              console.log(doc);

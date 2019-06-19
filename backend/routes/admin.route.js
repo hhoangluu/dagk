@@ -7,6 +7,14 @@ const admincontroller = require('../controllers/admin.controller');
 
 router.route('/admin-listuser')
     .post(admincontroller.updateProfileListUser);
+router.route('/refuse')
+    .post(admincontroller.refuseArticle);
+    router.route('/accept')
+    .post(admincontroller.acceptArticle);
+
+    router.route('/remove')
+    .post();
+
 
 router.route('/admin-info')
     .post(admincontroller.updateProfile);

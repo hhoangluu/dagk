@@ -2,7 +2,33 @@ var modelCategory = require('../models/categories.model');
 var modelArticle = require('../models/articles.model');
 var modelUser = require('../models/user.model');
 var bcrypt = require('bcrypt');
-
+function xoadau(str)  {
+    //console.log("dang xoa dau cai nay",str);
+    if(!str) return; 
+    str.trim();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    str = str.replace(/ /g, "-");
+    // Gộp nhiều dấu space thành 1 space
+    str = str.replace(/\s+/g, ' ');
+    // loại bỏ toàn bộ dấu space (nếu có) ở 2 đầu của xâu   
+  
+    
+    
+    return str;
+}
 
 
 module.exports = {
@@ -309,4 +335,44 @@ module.exports = {
             }, entity, req.body.id);
         }, req.body.id);
     },
+
+    refuseArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/admin/admin-listpost-refuse');
+        }, 'refuse', req.body.id, new Date())
+    },
+
+    acceptArticle: (req, res, next) => {
+        modelArticle.updateArticleStatusById(function(data){
+            res.redirect('/admin/admin-listpost-approved');
+        }, 'approved', req.body._id, req.body.bday)
+    },
+
+    /// Quản lý danh mục
+
+    addCategory: (req, res, next)=> { // thêm danh mục
+        var newCat =req.body.cat // string
+           
+        modelCategory.addCat(function(data){
+            res.redirect('/admin');
+        }, newCat);
+    },
+    addChildWithCodeBase: (req,res,next)=>{
+        var catCode = xoadau(req.body.cat)  // tên danh mục mạ
+        var newChild = req.body.child // tên danh mục con
+       
+        modelCategory.addChildWithCode(function(data){
+            // do something
+        }, catCode, newChild)
+    },
+
+    updateCategory: (req, res, next)=>{
+        var catCode = req.body.catcode  // tên danh mục mạ
+        var nameNewCat = req.body.name // tên danh mục con
+        modelCategory.updateCatWithCode(function(data){
+            // do some thing
+        },catCode, nameNewCat)
+    }
+
+
 }

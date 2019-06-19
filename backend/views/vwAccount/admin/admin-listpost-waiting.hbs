@@ -178,23 +178,90 @@
                 </tr>
                 {{#each this.dataPost}}
                 <tr>
-                    <td>{{this.item}}</td>
-                    <td>{{this.title}}</td>
-                    <td>{{this.tag}}</td>
-                    <td>{{this.category}}</td>
-                    <td>{{formatDate this.date}}</td>
-                    <td> <input type="date" name="bday"></td>
-                    <td>{{this.author}}</td>
-                    <td>
-                        <input type="text" placeholder="Viết nhận xét" name="uname" required>
+                
+                
+                        <td>{{this.item}}</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.tag}}</td>
+                        <td>{{this.category}}</td>
+                        <td>{{formatDate this.date}}</td>
+                        <td> <input type="date" id="{{this._id}}" class="cday" name="datepublish"></td>
+                        <td>{{this.author}}</td>
+                        <td>
+                            <input type="text" placeholder="Viết nhận xét" name="uname" required>
+                        </td>
+                        <td>
+                            <form action="accept" method="post" id="{{this._id}}1" >
+                                <input type="hidden" name="bday" class="bday" for="{{this._id}}">
+                               <input type="hidden" name="_id" value="{{this._id}}">
+                                <button type="submit" name="id" value="{{this._id}}" name="type" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
+                        
+                                <div id="results"></div>
+                            </form>
+                        <form action="refuse" method="post" id="{{this._id}}2">
+                              <input type="hidden" name="_id" value="{{this._id}}">
+                            <button type="submit" value="refuse" name="type" onclick="alert('Từ chối bài viết!')">Từ
+                        </form>
+                        </td>
+                        <td>
                     </td>
-                    <td>
-                        <button type="button" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
-                        <button type="button" onclick="alert('Từ chối bài viết!')">Từ chối</button>
-                    </td>
-
                 </tr>
+                <script>
+                    $(".cday").change(function () {
+                        $(".bday").val($(this).val());
+
+                    });
+                </script>
                 {{/each}}
+                                
+                                <script type="text/javascript" language="javascript">
+                                    $(document).ready(function () {
+                                        $("form").submit(function () {
+                                            // Getting the form ID
+                                            var formID = $(this).attr('id');
+                                            var formDetails = $('#' + formID);
+                                          //  console.log(formDetails.val().datepublish);
+                                            var action = $(this).attr('action');
+                                          //  alert(action);
+                                            if (action === "accpet")
+                                            {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: '/admin/accept',
+                                                data: formDetails.serialize(),
+                                                success: function (data) {
+                                                    // Inserting html into the result div
+                                                    $('#results').html(data);
+                                                },
+                                                error: function (jqXHR, text, error) {
+                                                    // Displaying if there are any errors
+                                                    $('#result').html(error);
+                                                }
+                                            });
+                                            return false;
+
+                                            }
+                                            else if (action === "refuse")
+                                            {
+                                                $.ajax({
+                                                type: "POST",
+                                                url: '/admin/refuse',
+                                                data: formDetails.serialize(),
+                                                success: function (data) {
+                                                    // Inserting html into the result div
+                                                    $('#results').html(data);
+                                                },
+                                                error: function (jqXHR, text, error) {
+                                                    // Displaying if there are any errors
+                                                    $('#result').html(error);
+                                                }
+                                            });
+                                            return false;
+                                            }
+                                        });
+                                    });
+                                </script>
+                               
             </table>
         </div>
 

@@ -9,8 +9,6 @@ modelCategory.connect();
 
 module.exports = {
     index: (req, res, next) => {
-
-
         modelArticle.loadAllPublic(function (dataArticle) {
             articles = dataArticle;
             // console.log(articles);
@@ -55,7 +53,9 @@ module.exports = {
                                 //         check: check,
                                 //     });
                                 // }, req.user._id);
-
+                                // modelUser.InfoByUserName(function(data){
+                                //     res.end(123);
+                                // }, 1);
                                 //cái này là vào được nhưng khi thay đổi permission thì vẫn sẽ lấy permission cũ
                                 res.render('home', {
                                     categories: categories,
