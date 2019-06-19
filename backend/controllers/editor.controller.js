@@ -9,54 +9,71 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
     index: (req, res, next) => {
-        res.render('vwAccount/editor/editor');
+        if (typeof req.user === 'undefined') {
+            res.redirect('/account/login');
+        }
+        else {
+            var per = req.user.permission;
+            if (per != 'editor') {
+                res.redirect('/' + per);
+            }
+            else {
+                res.render('vwAccount/editor/editor');
+            }
+        }
     },
 
     loadItem: (req, res, next) => {
-        var item = req.params.item;
-        if( item == 'editor-info')
-        {
-            modelUser.InfoByUserName(function (data) {
-                console.log("username: " + data.username);
-                res.render('vwAccount/editor/editor-info', { dataUser: data });
-            }, req.user._id);
+        if (typeof req.user === 'undefined') {
+            res.redirect('/account/login');
         }
-        else if( item == 'editor-listpost-approved')
-        {
-            modelArticle.articleStatusByCat(function(data){
-                res.render('vwAccount/editor/editor-listpost-approved', {dataPost: data});
-            }, 'approved', req.user.editor)
-        }
-        else if( item == 'editor-listpost-waiting')
-        {
-            modelArticle.articleStatusByCat(function(data){
-                res.render('vwAccount/editor/editor-listpost-waiting', {dataPost: data});
-            }, 'waiting',req.user.editor)
-        }
-        else if( item == 'editor-listpost-refuse')
-        {
-            modelArticle.articleStatusByCat(function(data){
-                res.render('vwAccount/editor/editor-listpost-refuse', {dataPost: data});
-            }, 'refuse',req.user.editor)
-        }
-        else
-        {
-            res.render('vwAccount/admin/error');
+        else{
+            var per = req.user.permission;
+            if (per != 'editor') {
+                res.redirect('/' + per);
+            }
+            else {
+                var item = req.params.item;
+                if (item == 'editor-info') {
+                    modelUser.InfoByUserName(function (data) {
+                        console.log("username: " + data.username);
+                        res.render('vwAccount/editor/editor-info', { dataUser: data });
+                    }, req.user._id);
+                }
+                else if (item == 'editor-listpost-approved') {
+                    modelArticle.articleStatusByCat(function (data) {
+                        res.render('vwAccount/editor/editor-listpost-approved', { dataPost: data });
+                    }, 'approved', req.user.editor)
+                }
+                else if (item == 'editor-listpost-waiting') {
+                    modelArticle.articleStatusByCat(function (data) {
+                        res.render('vwAccount/editor/editor-listpost-waiting', { dataPost: data });
+                    }, 'waiting', req.user.editor)
+                }
+                else if (item == 'editor-listpost-refuse') {
+                    modelArticle.articleStatusByCat(function (data) {
+                        res.render('vwAccount/editor/editor-listpost-refuse', { dataPost: data });
+                    }, 'refuse', req.user.editor)
+                }
+                else {
+                    res.render('vwAccount/admin/error');
+                }
+            }
         }
     },
 
     refuseArticle: (req, res, next) => {
-        modelArticle.updateArticleStatusById(function(data){
+        modelArticle.updateArticleStatusById(function (data) {
             res.redirect('/editor/editor-listpost-waiting');
         }, 'refuse', req.body._id, new Date())
     },
 
     acceptArticle: (req, res, next) => {
-        modelArticle.updateArticleStatusById(function(data){
+        modelArticle.updateArticleStatusById(function (data) {
             res.redirect('/editor/editor-listpost-waiting');
         }, 'approved', req.body._id, req.body.bday)
     },
-    
+
     updateProfile: (req, res, next) => {
         console.log("chay cai nay");
         modelUser.InfoByUserName(function (data) {

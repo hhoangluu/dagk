@@ -27,7 +27,7 @@ module.exports = {
                             console.log("req.user = " + req.user);
                             var check;
                             if (typeof req.user === 'undefined') {
-                                check = true;
+                                check = false;
                                 console.log("chưa dang nhap check = " + check);
                                 res.render('home', {
                                     categories: categories,
@@ -40,7 +40,7 @@ module.exports = {
                                 });
                             }
                             else {
-                                check = false;
+                                check = true;
                                 console.log("đã dang nhap check = " + check);
                                 console.log("req.user._id = " + req.user._id);
                                 // modelUser.InfoByUserName(function (dataUser) {
@@ -83,7 +83,7 @@ module.exports = {
         // });
     },
 
-    
+
     categories: (req, res, next) => {
         var category = req.params.category;
         var page = req.query.page || 1;
@@ -114,13 +114,32 @@ module.exports = {
                         articlesByCat = dataArticlesByCat;
                         modelCategory.mostView(function (dataTopCategories) {
                             topCategories = dataTopCategories;
-                            res.render('category', {
-                                categories: categories, // danh sách các danh mục   
-                                topCategories: topCategories,   // các danh mục được xem nhiều nhất
-                                articlesByCat: articlesByCat,   // bài viết theo danh mục
-                                navCategory: navCategory,   // Thanh menu điều hướng theo danh mục
-                                pages: pages  
-                            });
+
+                            var check;
+                            if (typeof req.user === 'undefined') {
+                                check = false;
+                                res.render('category', {
+                                    categories: categories, // danh sách các danh mục   
+                                    topCategories: topCategories,   // các danh mục được xem nhiều nhất
+                                    articlesByCat: articlesByCat,   // bài viết theo danh mục
+                                    navCategory: navCategory,   // Thanh menu điều hướng theo danh mục
+                                    pages: pages,
+                                    user: req.user,
+                                    check: check,
+                                });
+                            }
+                            else {
+                                check = true;
+                                res.render('category', {
+                                    categories: categories, // danh sách các danh mục   
+                                    topCategories: topCategories,   // các danh mục được xem nhiều nhất
+                                    articlesByCat: articlesByCat,   // bài viết theo danh mục
+                                    navCategory: navCategory,   // Thanh menu điều hướng theo danh mục
+                                    pages: pages,
+                                    user: req.user,
+                                    check: check,
+                                });
+                            }
                         });
                     }, navCategory.category, limit, offset)
                 }, navCategory.category)
@@ -148,7 +167,7 @@ module.exports = {
         if (page < 1) page = 1;
         var limit = 1;
         var offset = (page - 1) * limit;
-       
+
         modelCategory.loadAll(function (data) {
             categories = data;
             modelCategory.catNav(function (dataCatNav) {
@@ -164,12 +183,12 @@ module.exports = {
                         return res.render('errorname');
                     }
                     navCategory = dataChild;
-                    modelArticle.articleCountByChild(function(count) {
+                    modelArticle.articleCountByChild(function (count) {
                         npages = Math.floor(count / limit);
                         console.log(npages);
                         console.log(count);
-                        var pages=[];
-                        for(i = 1;i<= npages;i++){
+                        var pages = [];
+                        for (i = 1; i <= npages; i++) {
                             var obj = {
                                 value: i,
                                 active: i === +page
@@ -181,13 +200,32 @@ module.exports = {
 
                             modelCategory.mostView(function (dataTopCategories) {
                                 topCategories = dataTopCategories;
-                                res.render('category', {
-                                    categories: categories,
-                                    topCategories: topCategories,
-                                    articlesByCat: articlesByCat,
-                                    navCategory: navCategory,
-                                    pages: pages
-                                });
+
+                                var check;
+                                if (typeof req.user === 'undefined') {
+                                    check = false;
+                                    res.render('category', {
+                                        categories: categories,
+                                        topCategories: topCategories,
+                                        articlesByCat: articlesByCat,
+                                        navCategory: navCategory,
+                                        pages: pages,
+                                        user: req.user,
+                                        check: check,
+                                    });
+                                }
+                                else {
+                                    check = true;
+                                    res.render('category', {
+                                        categories: categories,
+                                        topCategories: topCategories,
+                                        articlesByCat: articlesByCat,
+                                        navCategory: navCategory,
+                                        pages: pages,
+                                        user: req.user,
+                                        check: check,
+                                    });
+                                }
                             });
                         }, navCategory.child.name, limit, offset);
                     }, navCategory.child.name);
@@ -210,7 +248,7 @@ module.exports = {
         // // {
         // //     return next(err);
         // // }
-        
+
     },
 
     loadPost: (req, res, next) => {
@@ -226,42 +264,77 @@ module.exports = {
                     post = dataPost;
                     modelArticle.articleByChildLimit(function (dataSameCat) {
                         dataSameCat = dataSameCat;
-                        var d2=new Date();
+                        var d2 = new Date();
                         var d1 = new Date();
-                            if (req.user){
-    
-                                 d2 =Date.parse(new Date());
-                                 d1 = Date.parse(req.user.datePrenium );
-                            }
-                            else {
-                                d1 = 0;
-                            }
+                        if (dataPost.prenium != true) d2=-1;
+                        if (req.user) {
 
-                            if (d1 > d2)
-                            {
+                            d2 = Date.parse(new Date());
+                            d1 = Date.parse(req.user.datePrenium);
+                        }
+                        else {
+                            d1 = 0;
+                        }
+
+                        if (d1 > d2) {
+                            var check;
+                            if (typeof req.user === 'undefined') {
+                                check = false;
                                 res.render('posts', {
                                     categories: categories,
                                     dataSameCat: dataSameCat,
                                     post: post,
                                     navCategory: navCategory,
                                     user: req.user,
-                                    hide: false
+                                    hide: false,
+                                    check: check,
                                 });
-    
                             }
-                            else{
+                            else {
+                                check = true;
                                 res.render('posts', {
                                     categories: categories,
                                     dataSameCat: dataSameCat,
                                     post: post,
                                     navCategory: navCategory,
-                                    hide: true
-                                   
+                                    user: req.user,
+                                    hide: false,
+                                    check: check,
                                 });
                             }
 
-                        
-                    },navCategory.child.name, 5, 1);
+
+                        }
+                        else {
+                            var check;
+                            if (typeof req.user === 'undefined') {
+                                check = false;
+                                res.render('posts', {
+                                    categories: categories,
+                                    dataSameCat: dataSameCat,
+                                    post: post,
+                                    navCategory: navCategory,
+                                    hide: true,
+                                    user: req.user,
+                                    check: check,
+                                });
+                            }
+                            else {
+                                check = true;
+                                res.render('posts', {
+                                    categories: categories,
+                                    dataSameCat: dataSameCat,
+                                    post: post,
+                                    navCategory: navCategory,
+                                    hide: true,
+                                    user: req.user,
+                                    check: check,
+                                });
+                            }
+                        }
+
+
+                    }, navCategory.child.name, 5, 1);
                     //console.log('day la post :' + post);    
                     //console.log('day la codePost :' + codePost);   
                 }, codePost)
@@ -272,7 +345,7 @@ module.exports = {
     register: (req, res, next) => {
         var saltRounds = 10;
         var hash = bcrypt.hashSync(req.body.password, saltRounds);
-        console.log('hash',hash);
+        console.log('hash', hash);
         var entity = {
             username: req.body.username,
             password: hash,
@@ -282,7 +355,7 @@ module.exports = {
         }
         console.log(entity);
         modelUser.add(entity);
-      
+
 
     },
     articleByTag: (req, res, next) => {
@@ -292,16 +365,16 @@ module.exports = {
         if (page < 1) page = 1;
         var limit = 1;
         var offset = (page - 1) * limit;
-        var tag = req.query.tag 
+        var tag = req.query.tag
         console.log(tag);
-       
+
         modelCategory.loadAll(function (data) {
             categories = data;
-            modelArticle.articleByTag(function(dataTag){
-                
+            modelArticle.articleByTag(function (dataTag) {
+
                 modelCategory.mostView(function (dataTopCategories) {
                     topCategories = dataTopCategories;
-                  
+
                     res.render('category', {
                         categories: categories,
                         tag: dataTag,
@@ -310,8 +383,8 @@ module.exports = {
                     });
                 });
             }, tag)
-               
-          
+
+
             // console.log(categories);           
         });
     },
@@ -322,49 +395,48 @@ module.exports = {
         modelCategory.loadAll(function (data) {
             categories = data;
             modelCategory.mostView(function (dataTopCategories) {
-                var d2=new Date();
+                var d2 = new Date();
                 var d1 = new Date();
-                    if (req.user){
+                if (req.user) {
 
-                         d2 =Date.parse(new Date());
-                         d1 = Date.parse(req.user.datePrenium );
-                    }
-                    else {
-                        d1 = 0;
-                    }
+                    d2 = Date.parse(new Date());
+                    d1 = Date.parse(req.user.datePrenium);
+                }
+                else {
+                    d1 = 0;
+                }
 
-                    if (d1 > d2)
-                    {
-                        modelArticle.articleSearchPrenium(function (dataSearch) {
-                            topCategories = dataTopCategories;
-        
-                            res.render('category', {
-                                categories: categories,
-        
-                                topCategories: topCategories,
-                                articlesByCat: dataSearch,
-                            });
-                        }, text)
+                if (d1 > d2) {
+                    modelArticle.articleSearchPrenium(function (dataSearch) {
+                        topCategories = dataTopCategories;
 
-                    }
-                    else{
-                        modelArticle.articleSearch(function (dataSearch) {
-                            topCategories = dataTopCategories;
-        
-                            res.render('category', {
-                                categories: categories,
-        
-                                topCategories: topCategories,
-                                articlesByCat: dataSearch,
-                            });
-                        }, text)
-                    }
-                
+                        res.render('category', {
+                            categories: categories,
+
+                            topCategories: topCategories,
+                            articlesByCat: dataSearch,
+                        });
+                    }, text)
+
+                }
+                else {
+                    modelArticle.articleSearch(function (dataSearch) {
+                        topCategories = dataTopCategories;
+
+                        res.render('category', {
+                            categories: categories,
+
+                            topCategories: topCategories,
+                            articlesByCat: dataSearch,
+                        });
+                    }, text)
+                }
+
             });
         })
     }
 
 
-    
+
 
 }

@@ -170,7 +170,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">
+                    <a class="nav-link" href="/account/signout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-file-text">
@@ -208,7 +208,7 @@
                     <td>{{this.dateBorn}}</td>
                     <td>{{this.email}}</td>
                     <td>
-                        <button onclick="document.getElementById('{{this._id}}').style.display='block'">
+                        <button title="xem chi tiết" onclick="document.getElementById('{{this._id}}').style.display='block'">
                             <img style="width: 20px" src="/images/iconSearch.png" alt="photo"></img>
                         </button>
                         <div id="{{this._id}}" class="modal-account" style="display: none">
@@ -218,7 +218,7 @@
                                     <span
                                         onclick="document.getElementById('{{this._id}}').style.display='none';
                                                                                                                                             "
-                                        class="close" title="Close Modal">&times;</span>
+                                        class="close" title="Đóng">&times;</span>
                                 </div>
 
                                 <h3 style="margin: 20px;">Thông tin chi tiết</h3>
@@ -312,6 +312,11 @@
 
                             </form>
                         </div>
+                    </td>
+                    <td> 
+                        <button title="Xóa thành viên" value="{{this._id}}" name="delete">
+                            <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
+                        </button>
                     </td>
                 </tr>
                 {{/each}}

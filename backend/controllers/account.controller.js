@@ -4,8 +4,8 @@ var passport = require('passport');
 
 
 function addDays(dateObj, numDays) {
-   dateObj.setDate(dateObj.getDate() + numDays);
-   return dateObj;
+    dateObj.setDate(dateObj.getDate() + numDays);
+    return dateObj;
 }
 module.exports = {
     register: (req, res, next) => {
@@ -22,7 +22,7 @@ module.exports = {
             password: hash,
             name: req.body.name,
             email: req.body.email,
-           
+
             datePrenium: nextWeek,
             permission: "subcriber",
         }
@@ -36,30 +36,35 @@ module.exports = {
         console.log('account het chay');
     },
     login: (req, res, next) => {
-        passport.authenticate('local', function(err, user, info) {
-            if (err) {
-                 return next(err); 
-                }
-            if (!user) {
-                console.log("Khong thanh cong");
-                return res.render('vwAccount/login', {
-                   // layout: false,
-                    err_message: info.message
-                  })
-            }
-            req.logIn(user, function(err) {
+        if (req.user) {
+            res.redirect('/home');
+        }
+        else {
+            passport.authenticate('local', function (err, user, info) {
                 if (err) {
-                    return next(err); 
+                    return next(err);
                 }
-                return res.redirect('/home');
-            });
-          })(req, res, next);
+                if (!user) {
+                    console.log("Khong thanh cong");
+                    return res.render('vwAccount/login', {
+                        // layout: false,
+                        err_message: info.message
+                    })
+                }
+                req.logIn(user, function (err) {
+                    if (err) {
+                        return next(err);
+                    }
+                    return res.redirect('/home');
+                });
+            })(req, res, next);
+        }
     },
-    
+
     isAvailable: (req, res, next) => {
         var user = req.query.username;
         console.log(user);
-        modelUser.singleByUserName(function(err ,data){
+        modelUser.singleByUserName(function (err, data) {
             console.log('account data la:');
             //console.log(data);
             if (data != null) {

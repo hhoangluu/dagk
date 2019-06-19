@@ -35,43 +35,65 @@ function xoadau(str)  {
 
 module.exports = {
     index: (req, res, next) => {
-        res.render('vwAccount/writer/writer');
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
+        }
+        else{
+            var per = req.user.permission;
+            if (per != 'writer') {
+                res.redirect('/' + per);
+            }
+            else {
+                res.render('vwAccount/writer/writer');
+            }            
+        }
     },
 
     loadItem: (req, res, next) => {
-        var item = req.params.item;
-        if (item == 'writer-info') {
-            modelUser.InfoByUserName(function (data) {
-                console.log("username: " + data.username);
-                res.render('vwAccount/writer/writer-info', { dataUser: data });
-            }, req.user._id);
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
         }
-        else if (item == 'writer-addpost') {
-            modelCategory.loadAll(function (data) {
-                console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-addpost', { dataPost: data });
-            });
-        }
-        else if (item == 'writer-listpost-approved') {
-            modelArticle.articleStatusByUser(function (data) {
-                //   console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-approved', { dataPost: data });
-            }, 'approved', req.user.username);
-        }
-        else if (item == 'writer-listpost-waiting') {
-            modelArticle.articleStatusByUser(function (data) {
-                // console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-waiting', { dataPost: data });
-            }, 'waiting', req.user.username);
-        }
-        else if (item == 'writer-listpost-refuse') {
-            modelArticle.articleStatusByUser(function (data) {
-                // console.log('category: ' + data);
-                res.render('vwAccount/writer/writer-listpost-refuse', { dataPost: data });
-            }, 'refuse', req.user.username);
-        }
-        else {
-            res.render('vwAccount/admin/error');
+        else{
+            var per = req.user.permission;
+            if (per != 'writer') {
+                res.redirect('/' + per);
+            }
+            else{
+                var item = req.params.item;
+                if (item == 'writer-info') {
+                    modelUser.InfoByUserName(function (data) {
+                        console.log("username: " + data.username);
+                        res.render('vwAccount/writer/writer-info', { dataUser: data });
+                    }, req.user._id);
+                }
+                else if (item == 'writer-addpost') {
+                    modelCategory.loadAll(function (data) {
+                        console.log('category: ' + data);
+                        res.render('vwAccount/writer/writer-addpost', { dataPost: data });
+                    });
+                }
+                else if (item == 'writer-listpost-approved') {
+                    modelArticle.articleStatusByUser(function (data) {
+                        //   console.log('category: ' + data);
+                        res.render('vwAccount/writer/writer-listpost-approved', { dataPost: data });
+                    }, 'approved', req.user.username);
+                }
+                else if (item == 'writer-listpost-waiting') {
+                    modelArticle.articleStatusByUser(function (data) {
+                        // console.log('category: ' + data);
+                        res.render('vwAccount/writer/writer-listpost-waiting', { dataPost: data });
+                    }, 'waiting', req.user.username);
+                }
+                else if (item == 'writer-listpost-refuse') {
+                    modelArticle.articleStatusByUser(function (data) {
+                        // console.log('category: ' + data);
+                        res.render('vwAccount/writer/writer-listpost-refuse', { dataPost: data });
+                    }, 'refuse', req.user.username);
+                }
+                else {
+                    res.render('vwAccount/admin/error');
+                }
+            }
         }
     },
     addpost: (req, res, next) => {
