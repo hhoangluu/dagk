@@ -88,7 +88,7 @@ module.exports = {
         var category = req.params.category;
         var page = req.query.page || 1;
         if (page < 1) page = 1;
-        var limit = 1;
+        var limit = 5;
         var offset = (page - 1) * limit;
         modelCategory.loadAll(function (data) {
             categories = data;
@@ -165,7 +165,7 @@ module.exports = {
         var childCategory = req.params.childCategory;
         var page = req.query.page || 1;
         if (page < 1) page = 1;
-        var limit = 1;
+        var limit = 5;
         var offset = (page - 1) * limit;
 
         modelCategory.loadAll(function (data) {
@@ -363,7 +363,7 @@ module.exports = {
         var childCategory = req.params.childCategory;
         var page = req.query.page || 1;
         if (page < 1) page = 1;
-        var limit = 1;
+        var limit = 5;
         var offset = (page - 1) * limit;
         var tag = req.query.tag
         console.log(tag);
