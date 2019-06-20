@@ -129,7 +129,7 @@ module.exports = {
 
 
     addChildWithCodeBase: function(res, catCode, childName){
-        categoriesModel.find({
+        categoriesModel.findOne({
             code: catCode
         }, function(err, doc){
             if (err) throw err;
@@ -139,18 +139,17 @@ module.exports = {
                 view: 0,
             };
 
-            doc.update({$push: {child: entity}});
-            console.log("childName = : " + entity.name);
-            console.log("code = : " + entity.code);
-            console.log("doc = : " + doc);
-
-            res(0);
+          //  console.log("childName = : " + entity.name);
+          //  console.log("code = : " + entity.code);
+          // // console.log("doc = : " + doc);
+            doc.child.push(entity);
             doc.save();
+            res(0);
         })
     },
 
     updateCatWithCode: function (res, catCode, nameNewCat) {
-        categoriesModel.find({
+        categoriesModel.findOne({
             code: catCode
         }, function (err, doc) {
             if (err) throw err;
@@ -170,7 +169,7 @@ module.exports = {
                 "child.code": childCode
             }
         }], function (err, data) {
-            //console.log(data);
+            console.log(data);
             data[0].name = nameNewChild;
             data[0].code = xoadau(nameNewChild);
             data[0].save();
@@ -188,20 +187,19 @@ module.exports = {
         })
     },
 
-    removeChildWithCode: function(res, childCode){
-        categoriesModel.aggregate([{
-            "$unwind": "$child"
-        }, {
-            $match: {
-                "child.code": childCode
+    removeChildWithCode: function (res, childCode) {
+        categoriesModel.update(
+            {},
+            {
+                $pull: {
+                    child: {
+                        code: childCode
+                    }
+                }
+            },function(err, data){
+                res(0);
             }
-        }], function (err, data) {  
-            data = null;
-            data.save();
-            //console.log(data);
-            if (err) throw err;
-            res(data[0]);
-        }) 
+        )
     }
 
 

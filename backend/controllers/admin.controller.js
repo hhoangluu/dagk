@@ -418,9 +418,11 @@ module.exports = {
     },
 
     updateChildWithCodeBase: (req,res,next)=>{
-        var childCode = req.body.childCode  // tên danh mục mạ
+        var childCode = xoadau(req.body.childCode);  // tên danh mục mạ
         var nameNewChild = req.body.name // tên danh mục con
 
+        console.log("child code", childCode );
+        console.log("nameNewChild", nameNewChild );
         modelCategory.updateChildWithCode(function(data){
             res.redirect('/admin/admin-category');
         },childCode, nameNewChild)
@@ -428,6 +430,7 @@ module.exports = {
 
 
     deleteCategory: (req, res, next)=>{
+        console.log("form ",req.body);
         var catCode = req.body.catcode;  // tên danh mục mạ
         modelCategory.removeCatWithCode(function(data){
             res.redirect('/admin/admin-category');
@@ -435,6 +438,7 @@ module.exports = {
     },
 
     deleteChildWithCodeBase: (req,res,next)=>{
+        console.log("form ",req.body);
         var childCode = req.body.childCode  // tên danh mục mạ
         modelCategory.removeChildWithCode(function(data){
             res.redirect('/admin/admin-category');
