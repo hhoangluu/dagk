@@ -112,13 +112,13 @@ module.exports = {
     addCat: function(res, Namecat){
        
         var entity = {
-            name: Namecat,
+            category: Namecat,
             code: xoadau(Namecat),
             view: 0,
-            child: [{               
-            }]
+            child: [],             
             
         };
+        
         categoriesModel.create(entity,function(err){      
                   
             if (err) return err;
@@ -136,21 +136,27 @@ module.exports = {
             var entity = {
                 name: childName,
                 code: xoadau(childName),
-                view: 0
+                view: 0,
             };
-            doc.push(entity);
+
+            doc.update({$push: {child: entity}});
+            console.log("childName = : " + entity.name);
+            console.log("code = : " + entity.code);
+            console.log("doc = : " + doc);
+
             res(0);
+            doc.save();
         })
     },
 
-    updateCatWithCode: function(res, catCode, nameNewCat){
+    updateCatWithCode: function (res, catCode, nameNewCat) {
         categoriesModel.find({
             code: catCode
-        },function(err, doc){
+        }, function (err, doc) {
             if (err) throw err;
-            
-                doc.name =  nameNewCat,
-                doc.code= xoadau( nameNewCat);   
+
+            doc.name = nameNewCat;
+            doc.code = xoadau(nameNewCat);
             doc.save();
             res(0);
         })

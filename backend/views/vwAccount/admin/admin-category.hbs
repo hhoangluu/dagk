@@ -200,226 +200,262 @@
             </ul>
         </div>
     </div>
-
-    <form class="addpost" method="post">
-        <div class="column-1">
-            <script>
-                function myFunction(a, b) {
-                    if (document.getElementById(a).disabled == true) {
-                        document.getElementById(a).disabled = false;
-                    }
-                    else {
-                        document.getElementById(a).disabled = true;
-                    }
-                    if (document.getElementById(b).value == "Chỉnh sửa") {
-                        document.getElementById(b).value = "OK"
-                    }
-                    else {
-                        document.getElementById(b).tex = "Chỉnh sửa"
-                    }
+    <div class="column-1">
+        <script>
+            function myFunction(a, b) {
+                if (document.getElementById(a).disabled == true) {
+                    document.getElementById(a).disabled = false;
                 }
-            </script>
-             Thêm danh mục
+                else {
+                    document.getElementById(a).disabled = true;
+                }
+                if (document.getElementById(b).value == "Chỉnh sửa") {
+                    document.getElementById(b).value = "OK"
+                }
+                else {
+                    document.getElementById(b).tex = "Chỉnh sửa"
+                }
+            }
+        </script>
+        Thêm danh mục
+        <form action="addCategoryBase" method="post" id="11111">
             <div class="info-right">
                 <div class="boxinfo-line">
                     <label for="">Danh mục</label>
-                    <input id="1111" disabled="true" type="text" value="{{dataUser.email}}" name="email">
+                    <input id="1111" disabled="true" type="text" name="category">
                     <input onclick="myFunction(1111)" type="button" value="Điền">
                 </div>
             </div>
-
             <div class="info-user">
                 <button type="submit">Thêm</button>
             </div>
-            Thêm danh mục con
+        </form>
+        Thêm danh mục con
+        <form action="addCategoryChild" method="post" id="22222">
             <div class="info-right">
                 <div class="boxinfo-line">
                     <label for="">Danh mục</label>
-                    <input id="2222" disabled="true" type="text" value="{{dataUser.bookname}}" name="bookname">
+                    <input id="2222" disabled="true" type="text" name="category">
                     <input onclick="myFunction(2222)" type="button" value="Điền">
                 </div>
                 <div class="boxinfo-line">
                     <label for="">Danh mục con</label>
-                    <input id="3333" disabled="true" type="text" value="{{dataUser.email}}" name="email">
+                    <input id="3333" disabled="true" type="text" name="categoryChild">
                     <input onclick="myFunction(3333)" type="button" value="Điền">
                 </div>
             </div>
-
             <div class="info-user">
                 <button type="submit">Thêm</button>
             </div>
-
-        </div>
-        <div class="column-2" style="width: 300px;">
-            <div class="form-properties" name="">Chuyên mục
-                <h6 class="">
-                    {{#each this.dataPost as |cat|}}
-                    <ul>
-                        <form action="deleteCategoryBase" method="post" id="{{this.name}}11" style="display: inline">
-                            <input type="hidden" name="id111" value="{{this._id}}">
-                            <button style="background: none; width: 35px; display: inline;" type="submit" title="Xóa"
-                                value="{{this._id}}" name="id" onclick="alert('Nhân viên {{this.name}} đã bị xóa!')">
-                                <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
-                            </button>
-                        </form>
-                        <form action="editCategoryBase" method="post" id="{{this.name}}11" style="display: inline">
-                            <input type="hidden" name="id111" value="{{this._id}}">
-                            <button style="background: none; width: 35px; display: inline;" type="submit" title="Sửa"
-                                value="{{this._id}}" name="id" onclick="alert('Nhân viên {{this.name}} đã bị xóa!')">
-                                <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
-                            </button>
-                        </form>
-
-                        {{this.category}}
-
-                        {{#each this.child}}
-                        <div href="#">
-                            <div class="form-check">
-
-                                <form action="deleteCategoryChild" method="post" id="{{this.name}}11"
-                                    style="display: inline">
-                                    <input type="hidden" name="id111" value="{{this._id}}">
-                                    <button style="background: none; width: 35px; display: inline;" type="submit"
-                                        title="Xóa" value="{{this._id}}" name="id"
-                                        onclick="alert('Nhân viên {{this.name}} đã bị xóa!')">
-                                        <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
-                                    </button>
-                                </form>
-                                <form action="editCategoryChild" method="post" id="{{this.name}}11"
-                                    style="display: inline">
-                                    <input type="hidden" name="id111" value="{{this._id}}">
-                                    <button style="background: none; width: 35px; display: inline;" type="submit"
-                                        title="Sửa" value="{{this._id}}" name="id"
-                                        onclick="alert('Nhân viên {{this.name}} đã bị xóa!')">
-                                        <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
-                                    </button>
-                                </form>
+        </form>
 
 
-                                <label class="form-check-label" for="{{this.name}}">
-                                    {{this.name}}
-                                </label>
+    </div>
+    <div class="column-2" style="width: 300px;">
+        <div class="form-properties" name="">Chuyên mục
+            <h6 class="">
+                {{#each this.dataPost as |cat|}}
+                <ul>
+                    <form action="deleteCategoryBase" method="post" id="{{this.category}}11" style="display: inline">
+                        <input type="hidden" name="catcode" value="{{xoadau this.category}}">
+                        <button style="background: none; width: 35px; display: inline;" type="submit" title="Xóa"
+                            name="id" onclick="alert('Danh mục {{this.category}} đã bị xóa!')">
+                            <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
+                        </button>
+                    </form>
+                    <form action="editCategoryBase" method="post" id="{{this.category}}22" style="display: inline">
+                        <button style="background: none; width: 35px; display: inline;" type="button" title="Sửa"
+                            onclick="document.getElementById('{{this._id}}').style.display='block'" name="id">
+                            <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
+                        </button>
+                        <div id="{{this._id}}" class="modal-account" style="display: none">
+                            <hr><hr><hr>
+                            <div class="closecontainer">
+                                <span onclick="document.getElementById('{{this._id}}').style.display='none';"
+                                    class="close" title="Đóng">&times;</span>
                             </div>
 
+                            <div class="info-user">
+                                <div class="info-left">
+                                    <div class="boxinfo-line">
+                                        <label for="" Tên thư mục</label> <input id="{{this._id}}7" disabled="true"
+                                            type="text" value="{{this.password}}" name="name">
+                                            <input onclick="myFunction('{{this._id}}7')" type="button"
+                                                value="Chỉnh sửa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-user">
+                                <button type="submit">Cập nhật thông tin</button>
+                            </div>
                         </div>
-                        {{/each}}
-                    </ul>
+                    </form>
+
+                    {{this.category}}
+
+                    {{#each this.child}}
+                    <div href="#">
+                        <div class="form-check">
+
+                            <form action="deleteCategoryChild" method="post" id="{{this.name}}11"
+                                style="display: inline">
+                                <input type="hidden" name="childCode" value="{{xoadau this.name}}">
+                                <button style="background: none; width: 35px; display: inline;" type="submit"
+                                    title="Xóa" value="{{this._id}}" name="id"
+                                    onclick="alert('Danh mục {{this.name}} đã bị xóa!')">
+                                    <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
+                                </button>
+                            </form>
+                            <form action="editCategoryChild" method="post" id="{{this.name}}222"
+                                style="display: inline">
+                                <button style="background: none; width: 35px; display: inline;" type="button"
+                                    title="Sửa" onclick="document.getElementById('{{this.name}}').style.display='block'"
+                                    name="id">
+                                    <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
+                                </button>
+                                <div id="{{this.name}}" class="modal-account" style="display: none">
+                                    <hr><hr><hr>
+                                    <div class="closecontainer">
+                                        <span onclick="document.getElementById('{{this.name}}').style.display='none';"
+                                            class="close" title="Đóng">&times;</span>
+                                    </div>
+                                    <div class="info-user">
+                                        <div class="info-left">
+                                            <div class="boxinfo-line">
+                                                <label for="" Tên thư mục</label> <input id="{{this._id}}7"
+                                                    disabled="true" type="text" value="{{this.password}}" name="name">
+                                                    <input onclick="myFunction('{{this._id}}7')" type="button"
+                                                        value="Chỉnh sửa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-user">
+                                        <button type="submit">Cập nhật thông tin</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <label class="form-check-label" for="{{this.name}}">
+                                {{this.name}}
+                            </label>
+                        </div>
+
+                    </div>
                     {{/each}}
-
-                    <script type="text/javascript" language="javascript">
-                        $(document).ready(function () {
-                            $("form").submit(function () {
-                                // Getting the form ID
-                                var formID = $(this).attr('id');
-                                var formDetails = $('#' + formID);
-                                //  console.log(formDetails.val().datepublish);
-                                var action = $(this).attr('action');
-                                //  alert(action);
-                                if (action === "addCategoryBase") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/addCategoryBase',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                                else if (action === "addCategoryChild") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/addCategoryChild',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                                else if (action === "deleteCategoryBase") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/deleteCategoryBase',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                                else if (action === "editCategoryBase") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/editCategoryBase',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                                else if (action === "deleteCategoryChild") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/deleteCategoryChild',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                                else if (action === "editCategoryChild") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: '/admin/editCategoryChild',
-                                        data: formDetails.serialize(),
-                                        success: function (data) {
-                                            // Inserting html into the result div
-                                            $('#results').html(data);
-                                        },
-                                        error: function (jqXHR, text, error) {
-                                            // Displaying if there are any errors
-                                            $('#result').html(error);
-                                        }
-                                    });
-                                    return false;
-                                }
-                            });
+                </ul>
+                {{/each}}
+                <script type="text/javascript" language="javascript">
+                    $(document).ready(function () {
+                        $("form").submit(function () {
+                            // Getting the form ID
+                            var formID = $(this).attr('id');
+                            var formDetails = $('#' + formID);
+                            //  console.log(formDetails.val().datepublish);
+                            var action = $(this).attr('action');
+                            //  alert(action);
+                            if (action === "addCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/addCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "addCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/addCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "deleteCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/deleteCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "editCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/editCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "deleteCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/deleteCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "editCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/editCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
                         });
-                    </script>
-                </h6>
+                    });
+                </script>
+            </h6>
 
-            </div>
         </div>
+    </div>
 
-    </form>
 </div>
 
 

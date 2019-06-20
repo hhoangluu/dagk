@@ -394,26 +394,26 @@ module.exports = {
     /// Quản lý danh mục
 
     addCategory: (req, res, next)=> { // thêm danh mục
-        var newCat =req.body.cat // string
+        var newCat =req.body.category; // string
            
         modelCategory.addCat(function(data){
-            res.redirect('/admin');
+            res.redirect('/admin/admin-category');
         }, newCat);
     },
     addChildWithCodeBase: (req,res,next)=>{
-        var catCode = xoadau(req.body.cat)  // tên danh mục mạ
-        var newChild = req.body.child // tên danh mục con
+        var catCode = xoadau(req.body.category)  // tên danh mục mạ
+        var newChild = req.body.categoryChild // tên danh mục con
        
-        modelCategory.addChildWithCode(function(data){
-            // do something
+        modelCategory.addChildWithCodeBase(function(data){
+            res.redirect('/admin/admin-category');
         }, catCode, newChild)
     },
 
     updateCategory: (req, res, next)=>{
-        var catCode = req.body.catcode  // tên danh mục mạ
-        var nameNewCat = req.body.name // tên danh mục con
+        var nameNewCat = req.body.name;
+        var catCode = xoadau(nameNewCat);
         modelCategory.updateCatWithCode(function(data){
-            // do some thing
+            res.redirect('/admin/admin-category');
         },catCode, nameNewCat)
     },
 
@@ -422,22 +422,22 @@ module.exports = {
         var nameNewChild = req.body.name // tên danh mục con
 
         modelCategory.updateChildWithCode(function(data){
-            // do some thing
+            res.redirect('/admin/admin-category');
         },childCode, nameNewChild)
     },
 
 
     deleteCategory: (req, res, next)=>{
-        var catCode = req.body.catcode  // tên danh mục mạ
+        var catCode = req.body.catcode;  // tên danh mục mạ
         modelCategory.removeCatWithCode(function(data){
-            // do some thing
+            res.redirect('/admin/admin-category');
         },catCode)
     },
 
     deleteChildWithCodeBase: (req,res,next)=>{
         var childCode = req.body.childCode  // tên danh mục mạ
         modelCategory.removeChildWithCode(function(data){
-            // do some thing
+            res.redirect('/admin/admin-category');
         },childCode)
     },
 
