@@ -88,6 +88,12 @@ module.exports = {
                         res.render('vwAccount/admin/admin-listuser', { dataUser: data });
                     })
                 }
+                else if(item == 'admin-category'){
+                    modelCategory.loadAll(function (data) {
+                        console.log('category: ' + data);
+                        res.render('vwAccount/admin/admin-category', { dataPost: data });
+                    });
+                }
                 else {
                     res.render('vwAccount/admin/error');
                 }
@@ -165,6 +171,7 @@ module.exports = {
             var permission;
             var category;
             var dateBorn;
+            var datePrenium;
             if (req.body.password == undefined) {
                 console.log("pass truoc:" + password);
                 password = data.password;
@@ -225,6 +232,12 @@ module.exports = {
             else {
                 dateBorn = req.body.dateBorn;
             }
+            if (req.body.datePrenium == undefined) {
+                datePrenium = data.datePrenium;
+            }
+            else {
+                datePrenium = req.body.datePrenium;
+            }
             var entity = {
                 //_id: req.user._id,
                 //username: req.user.username,
@@ -236,6 +249,7 @@ module.exports = {
                 category: category,
                 dateBorn: dateBorn,
                 password: password,
+                datePrenium: datePrenium,
             }
             console.log("day la entity trc khi update ", entity);
             modelUser.updateProfile(function (data) {
@@ -256,6 +270,7 @@ module.exports = {
             var permission;
             var category;
             var dateBorn;
+            var datePrenium;
             if (req.body.password == undefined) {
                 console.log("pass truoc:" + password);
                 password = data.password;
@@ -316,6 +331,12 @@ module.exports = {
             else {
                 dateBorn = req.body.dateBorn;
             }
+            if (req.body.datePrenium == undefined) {
+                datePrenium = data.datePrenium;
+            }
+            else {
+                datePrenium = req.body.datePrenium;
+            }
             var entity = {
                 //_id: req.user._id,
                 //username: req.user.username,
@@ -327,6 +348,7 @@ module.exports = {
                 category: category,
                 dateBorn: dateBorn,
                 password: password,
+                datePrenium: datePrenium,
             }
             console.log("day la entity trc khi update ", entity);
             modelUser.updateProfile(function (data) {
@@ -379,7 +401,30 @@ module.exports = {
         modelCategory.updateCatWithCode(function(data){
             // do some thing
         },catCode, nameNewCat)
-    }
+    },
 
+    updateChildWithCodeBase: (req,res,next)=>{
+        var childCode = req.body.childCode  // tên danh mục mạ
+        var nameNewChild = req.body.name // tên danh mục con
+
+        modelCategory.updateChildWithCode(function(data){
+            // do some thing
+        },childCode, nameNewChild)
+    },
+
+
+    deleteCategory: (req, res, next)=>{
+        var catCode = req.body.catcode  // tên danh mục mạ
+        modelCategory.removeCatWithCode(function(data){
+            // do some thing
+        },catCode)
+    },
+
+    deleteChildWithCodeBase: (req,res,next)=>{
+        var childCode = req.body.childCode  // tên danh mục mạ
+        modelCategory.removeChildWithCode(function(data){
+            // do some thing
+        },childCode)
+    },
 
 }

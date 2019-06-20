@@ -4,6 +4,20 @@ var router = express.Router();
 const admincontroller = require('../controllers/admin.controller');
 
 
+router.route('/addCategoryBase')
+    .post(admincontroller.addCategory);
+router.route('/addCategoryChild')
+    .post(admincontroller.addChildWithCodeBase);
+router.route('/deleteCategoryBase')
+    .post(admincontroller.deleteCategory);
+router.route('/deleteCategoryChild')
+    .post(admincontroller.deleteChildWithCodeBase);
+router.route('/editCategoryBase')
+    .post(admincontroller.updateCategory);
+router.route('/editCategoryChild')
+    .post(admincontroller.updateChildWithCodeBase);
+
+
 
 router.route('/admin-listuser')
     .post(admincontroller.updateProfileListUser);

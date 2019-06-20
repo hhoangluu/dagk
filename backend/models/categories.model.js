@@ -156,7 +156,7 @@ module.exports = {
         })
     },
 
-    updateChilWithCode: function(res, childCode, nameNewChild){
+    updateChildWithCode: function(res, childCode, nameNewChild){
         categoriesModel.aggregate([{
             "$unwind": "$child"
         }, {
