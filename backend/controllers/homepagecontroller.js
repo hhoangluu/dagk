@@ -228,6 +228,7 @@ module.exports = {
                         dataSameCat = dataSameCat;
                         var d2=new Date();
                         var d1 = new Date();
+                        if (dataPost.prenium != true) d2=-1;
                             if (req.user){
                                 
                                 d2 =Date.parse(new Date());
