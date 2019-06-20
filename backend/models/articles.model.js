@@ -25,7 +25,7 @@ var articleChema = new mongoose.Schema({
 articleChema.index( { title: "text", describe: "text", content: "text" } );
 var articleModel = mongoose.model('bongdas', articleChema);
 function xoadau(str)  {
-    //console.log("dang xoa dau cai nay",str);
+    ////console.log("dang xoa dau cai nay",str);
     if(!str) return; 
     str.trim();
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -61,7 +61,7 @@ module.exports = {
                 useNewUrlParser: true,
             }, function (err) {
                 if (err) throw err;
-                console.log('Connect to database Sucessful!');
+                //console.log('Connect to database Sucessful!');
             });
     },
     loadAll: function (res) {
@@ -69,9 +69,9 @@ module.exports = {
         articleModel.find({}, function (err, data) {
 
             if (err) throw err;
-            //console.log(data);
+            ////console.log(data);
             res(data);
-            // console.log(article);
+            // //console.log(article);
         });
     },
     latest: function (res) {
@@ -82,7 +82,7 @@ module.exports = {
                  }   
         }).sort({ date: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
-            // console.log(data);
+            // //console.log(data);
             res(data);
         })
 
@@ -97,7 +97,7 @@ module.exports = {
             }   
         }).sort({ view: -1 }).limit(10).exec(function (err, data) {
             if (err) throw err;
-            // console.log(data);
+            // //console.log(data);
             res(data);
         })
 
@@ -115,7 +115,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            //console.log(data);
+            ////console.log(data);
         })
     },
 
@@ -127,7 +127,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            //console.log(data);
+            ////console.log(data);
         })
 
     },
@@ -143,7 +143,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            //console.log(data);
+            ////console.log(data);
         })
 
     },
@@ -155,7 +155,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            //console.log(data);
+            ////console.log(data);
         })
 
     },
@@ -171,7 +171,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            //console.log(data);
+            ////console.log(data);
         })
 
     },
@@ -183,7 +183,7 @@ module.exports = {
                 $lt: new Date()
             } 
         }).skip(offset).limit(limit).exec(function (err, data) {
-                //console.log(data);
+                ////console.log(data);
                 if (err) throw err;
                 res(data);
             })
@@ -199,7 +199,7 @@ module.exports = {
                 $lt: new Date()
             }
         }).count().exec(function (err, data) {
-            //console.log(data);
+            ////console.log(data);
             if (err) throw err;
             res(data);
         });
@@ -212,7 +212,7 @@ module.exports = {
                 $lt: new Date()
             } 
         }).skip(offset).limit(limit).exec(function (err, data) {
-                console.log(data);
+                //console.log(data);
                 if (err) throw err;
                 res(data);
             })
@@ -228,7 +228,7 @@ module.exports = {
                 $lt: new Date()
             }
         }).count().exec(function (err, data) {
-            //console.log(data);
+            ////console.log(data);
             if (err) throw err;
             res(data);
         });
@@ -242,7 +242,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data[0]);
-            //console.log(data);
+            ////console.log(data);
         })
 
     },
@@ -257,11 +257,11 @@ module.exports = {
         }]).sort({date: -1}).exec( function (err, data) {
             if (err) throw err;
             res(data);
-            console.log(data);
+            //console.log(data);
         })
     },
     articleStatusByUser: function (res, status, username) {
-        console.log(status, " " + username);
+        //console.log(status, " " + username);
         articleModel.aggregate([{
             $match: {
                 "status": status,
@@ -270,7 +270,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            console.log('Data sau khi dang bai',data);
+            //console.log('Data sau khi dang bai',data);
         })
     },
     articleStatusByCat: function(res, status, category){
@@ -282,7 +282,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-            console.log(data);
+            //console.log(data);
         })
     },
 
@@ -294,7 +294,7 @@ module.exports = {
         }], function (err, data) {
             if (err) throw err;
             res(data);
-           // console.log(data);
+           // //console.log(data);
         })
     },
     articleByTag: function(res, tag){
@@ -302,7 +302,7 @@ module.exports = {
             tag: tag
         },function(err, data){
             if (err) throw err;
-            console.log(data);
+            //console.log(data);
             res(data);
         })
     },
@@ -319,7 +319,7 @@ module.exports = {
     removeArticleById: function(res, id){
         articleModel.deleteOne({ _id: id }, function (err) {
         if(err) throw err;
-            console.log("Đã xóa thằng ", id);
+            //console.log("Đã xóa thằng ", id);
             res(0);
         });
     },
@@ -337,7 +337,7 @@ module.exports = {
             var temp = new Date();
             doc.datePublish = datePublish || temp;
             doc.status = status;
-            console.log(doc);
+            //console.log(doc);
             doc.save();
             res(0);
           });
@@ -349,7 +349,7 @@ module.exports = {
     },
 
     articleSearchPrenium: function (res, text) {
-        console.log(text);
+        //console.log(text);
        
         articleModel.find(
             { $text: { $search: text }},
@@ -362,13 +362,13 @@ module.exports = {
 
          }).exec( function (err, doc) {
                 if (err) throw err;
-                console.log(doc);
+                //console.log(doc);
                 res(doc);
             });
     },
 
     articleSearch: function (res, text) {
-        console.log(text);
+        //console.log(text);
        
         articleModel.find(
             { $text: { $search: text }},
@@ -381,7 +381,7 @@ module.exports = {
 
          }).exec( function (err, doc) {
                 if (err) throw err;
-                console.log(doc);
+                //console.log(doc);
                 res(doc);
             });
     },
