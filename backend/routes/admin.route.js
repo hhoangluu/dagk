@@ -16,7 +16,7 @@ router.route('/deleteUser')
     .post(admincontroller.deleteUser);
 
 router.route('/remove')
-    .post();
+    .post(admincontroller.deleteArticle);
 
 
 router.route('/admin-info')

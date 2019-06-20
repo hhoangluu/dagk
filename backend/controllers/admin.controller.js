@@ -350,9 +350,23 @@ module.exports = {
     },
 
     acceptArticle: (req, res, next) => {
+        var dayPublish;
+        if (req.body.bday){
+            dayPublish = req.body.bday;
+        }
+        else {
+            datePublish = new Date();
+        }
         modelArticle.updateArticleStatusById(function(data){
             res.redirect('/admin/admin-listpost-approved');
-        }, 'approved', req.body._id, req.body.bday)
+        }, 'approved', req.body._id, dayPublish)
+    },
+    deleteArticle: (req,res, next) => {
+        console.log("xóa thằng ", req.body.id)
+        modelArticle.removeArticleById( function (data) {      
+                  
+            res.redirect('/admin/admin-listpost-refuse');
+        }, req.body.id);
     },
 
     /// Quản lý danh mục

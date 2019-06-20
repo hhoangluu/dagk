@@ -254,7 +254,7 @@ module.exports = {
                 "status": status,
                                
             }
-        }], function (err, data) {
+        }]).sort({date: -1}).exec( function (err, data) {
             if (err) throw err;
             res(data);
             console.log(data);
