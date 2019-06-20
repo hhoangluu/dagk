@@ -221,13 +221,13 @@
                         <td>
                             <form action="accept" method="post" id="{{this._id}}1" >
                                 <input type="hidden" name="bday" class="bday" for="{{this._id}}">
-                               <input type="hidden" name="_id" value="{{this._id}}">
+                               <input type="hidden" name="id" value="{{this._id}}">
                                 <button type="submit" name="id" value="{{this._id}}" name="type" onclick="alert('Bài viết đã được duyệt!')">Duyệt</button>
                         
                                 <div id="results"></div>
                             </form>
                         <form action="refuse" method="post" id="{{this._id}}2">
-                              <input type="hidden" name="_id" value="{{this._id}}">
+                              <input type="hidden" name="id" value="{{this._id}}">
                             <button type="submit" value="refuse" name="type" onclick="alert('Từ chối bài viết!')">Từ
                         </form>
                         </td>
