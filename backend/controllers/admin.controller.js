@@ -359,7 +359,7 @@ module.exports = {
         }
         modelArticle.updateArticleStatusById(function(data){
             res.redirect('/admin/admin-listpost-approved');
-        }, 'approved', req.body._id, dayPublish)
+        }, 'approved', req.body.id, dayPublish)
     },
     deleteArticle: (req,res, next) => {
         console.log("xóa thằng ", req.body.id)

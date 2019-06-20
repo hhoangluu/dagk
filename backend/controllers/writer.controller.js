@@ -7,6 +7,7 @@ var modelUser = require('../models/user.model');
 
 function xoadau(str)  {
     //console.log("dang xoa dau cai nay",str);
+    if (!str) return;
     str.trim();
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -115,7 +116,8 @@ module.exports = {
             content: req.body.content,
             comment: "",
             commentpublic: "",
-            imgSource: req.body.fuMain
+            imgSource: req.body.fuMain,
+            tag: req.body.tag,
         }
         console.log("day la entity trc khi post ", entity);
         modelArticle.addArticle(function (data) {

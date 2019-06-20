@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 const homepagecontroller = require('../controllers/homepagecontroller')
 var articleChema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    id: mongoose.Schema.Types.ObjectId,
     item: String,
     title: String,
     code: String,
@@ -261,15 +261,16 @@ module.exports = {
         })
     },
     articleStatusByUser: function (res, status, username) {
+        console.log(status, " " + username);
         articleModel.aggregate([{
             $match: {
                 "status": status,
-                "auther": username                 
+                "author": username,                
             }
         }], function (err, data) {
             if (err) throw err;
             res(data);
-        //    console.log(data);
+            console.log('Data sau khi dang bai',data);
         })
     },
     articleStatusByCat: function(res, status, category){
