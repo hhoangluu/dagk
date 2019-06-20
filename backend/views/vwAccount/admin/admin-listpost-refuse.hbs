@@ -3,8 +3,8 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">TH16News</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
-            </li>
+ <a class="nav-link" href="/account/signout">Sign out</a>
+             </li>
         </ul>
     </nav>
 
@@ -211,7 +211,7 @@
                     <td>{{this.author}}</td>
                     <td>{{this.comment}}</td>
                     <td>
-                        <form action="refuse" method="POST">
+                        <form action="remove" method="POST" id={{this._id}}>
                             <button class="btn btn-primary" type="submit" name="id" value="{{this._id}}" onclick="alert('Xóa bài viết!')">Xóa</button>
                         </form>
                     </td>

@@ -43,17 +43,17 @@ module.exports = {
                 else if (item == 'editor-listpost-approved') {
                     modelArticle.articleStatusByCat(function (data) {
                         res.render('vwAccount/editor/editor-listpost-approved', { dataPost: data });
-                    }, 'approved', req.user.editor)
+                    }, 'approved', req.user.category)
                 }
                 else if (item == 'editor-listpost-waiting') {
                     modelArticle.articleStatusByCat(function (data) {
                         res.render('vwAccount/editor/editor-listpost-waiting', { dataPost: data });
-                    }, 'waiting', req.user.editor)
+                    }, 'waiting', req.user.category)
                 }
                 else if (item == 'editor-listpost-refuse') {
                     modelArticle.articleStatusByCat(function (data) {
                         res.render('vwAccount/editor/editor-listpost-refuse', { dataPost: data });
-                    }, 'refuse', req.user.editor)
+                    }, 'refuse', req.user.category)
                 }
                 else {
                     res.render('vwAccount/admin/error');
