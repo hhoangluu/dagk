@@ -21,20 +21,20 @@
             </button>
             {{#if this.check}}
             <div class="dropdownw3-contentw3">
-                <a href="/account/login" class="category">Đăng nhập</a>
-                <a href="/account/register" class="category">Đăng kí</a>
-            </div>
-           {{^}}
-            <div class="dropdownw3-contentw3">
                 <a href="/{{this.user.permission}}" class="category">Vào trang cá nhân</a>
                 <a href="/account/signout" class="category">Đăng xuất</a>
+            </div>
+            {{^}}   
+            <div class="dropdownw3-contentw3">
+                <a href="/account/login" class="category">Đăng nhập</a>
+                <a href="/account/register" class="category">Đăng kí</a>
             </div>
             {{/if}}
         </div>
         <div class="search-and-account">
             <div class="searchBar">
                 <form action="home/search">
-                <input name="search" class="search" type="search" placeholder="Search"  type="submit">
+                    <input name="search" class="search" type="search" placeholder="Search" type="submit">
                 </form>
             </div>
         </div>

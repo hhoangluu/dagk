@@ -48,6 +48,16 @@ module.exports = {
             done(null, user);
         })
     },
+
+    deleteUserbyId: function (res, id) {
+        console.log("id chuẩn bị xóa: " + id);
+        userModel.deleteOne({ _id: id }, function (err) {
+            if (err) throw err;
+            console.log("Đã xóa thằng ", id);
+            res(0);
+        });
+    },
+
     InfoByUserName: function (res, id) {
         console.log("id khi tim ", id);
         userModel.findOne({_id: id}, function(err, doc){

@@ -33,51 +33,66 @@ function xoadau(str)  {
 
 module.exports = {
     index: (req, res, next) => {
-        res.render('vwAccount/admin/admin');
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
+        }
+        else{
+            var per = req.user.permission;
+            if (per != 'admin') {
+                res.redirect('/' + per);
+            }
+            else {
+                res.render('vwAccount/admin/admin');
+            }            
+        }
     },
 
     loadItem: (req, res, next) => {
-        var item = req.params.item;
-        if( item == 'admin-addaccount')
-        {
-            res.render('vwAccount/admin/admin-addaccount');
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
         }
-        else if (item == 'admin-info') {
-            modelUser.InfoByUserName(function (data) {
-                console.log("username: " + data.username);
-                res.render('vwAccount/admin/admin-info', { dataUser: data });
-            }, req.user._id);
-
+        else{
+            var per = req.user.permission;
+            if (per != 'admin') {
+                res.redirect('/' + per);
+            }
+            else {
+                var item = req.params.item;
+                if (item == 'admin-addaccount') {
+                    res.render('vwAccount/admin/admin-addaccount');
+                }
+                else if (item == 'admin-info') {
+                    modelUser.InfoByUserName(function (data) {
+                        console.log("username: " + data.username);
+                        res.render('vwAccount/admin/admin-info', { dataUser: data });
+                    }, req.user._id);
+    
+                }
+                else if (item == 'admin-listpost-approved') {
+                    modelArticle.articleStatus(function (data) {
+                        res.render('vwAccount/admin/admin-listpost-approved', { dataPost: data });
+                    }, 'approved')
+                }
+                else if (item == 'admin-listpost-waiting') {
+                    modelArticle.articleStatus(function (data) {
+                        res.render('vwAccount/admin/admin-listpost-waiting', { dataPost: data });
+                    }, 'waiting')
+                }
+                else if (item == 'admin-listpost-refuse') {
+                    modelArticle.articleStatus(function (data) {
+                        res.render('vwAccount/admin/admin-listpost-refuse', { dataPost: data });
+                    }, 'refuse')
+                }
+                else if (item == 'admin-listuser') {
+                    modelUser.loadAll(function (data) {
+                        res.render('vwAccount/admin/admin-listuser', { dataUser: data });
+                    })
+                }
+                else {
+                    res.render('vwAccount/admin/error');
+                }
+            }
         }
-        else if( item == 'admin-listpost-approved')
-        {
-            modelArticle.articleStatus(function(data){
-                res.render('vwAccount/admin/admin-listpost-approved', {dataPost: data});
-            }, 'approved')
-        }
-        else if( item == 'admin-listpost-waiting')
-        {
-            modelArticle.articleStatus(function(data){
-                res.render('vwAccount/admin/admin-listpost-waiting', {dataPost: data});
-            }, 'waiting')
-        }
-        else if( item == 'admin-listpost-refuse')
-        {
-            modelArticle.articleStatus(function(data){
-                res.render('vwAccount/admin/admin-listpost-refuse', {dataPost: data});
-            }, 'refuse')
-        }
-        else if( item == 'admin-listuser')
-        {
-            modelUser.loadAll(function(data){
-                res.render('vwAccount/admin/admin-listuser', { dataUser: data });
-            })
-        }
-        else
-        {
-            res.render('vwAccount/admin/error');
-        }
-        
     },
 
     register: (req, res, next) => {
@@ -97,16 +112,16 @@ module.exports = {
         console.log('admin entity:   ' + entity);
 
         modelUser.add(function (data) {
-           console.log('them nhan vien thanh cong');
+            console.log('them nhan vien thanh cong');
             res.redirect('/admin');
         }, entity);
         console.log('admin het chay');
     },
-    
+
     isAvailable: (req, res, next) => {
         var user = req.query.username;
         console.log(user);
-        modelUser.singleByUserName(function(err ,data){
+        modelUser.singleByUserName(function (err, data) {
             console.log('account data la:');
             //console.log(data);
             if (data != null) {
@@ -115,7 +130,7 @@ module.exports = {
             return res.json(true);
         }, user)
     },
-    
+
     changeInfoUser: (req, res, next) => {
         console.log('admin chay cai nay');
         var saltRounds = 10;
@@ -133,12 +148,12 @@ module.exports = {
         console.log('admin entity:   ' + entity);
 
         modelUser.change(function (data) {
-           console.log('thay doi thanh cong');
+            console.log('thay doi thanh cong');
             res.redirect('/admin');
         }, entity);
         console.log('admin het chay');
     },
-    
+
     updateProfile: (req, res, next) => {
         console.log("chay cai nay");
         modelUser.InfoByUserName(function (data) {
@@ -318,13 +333,20 @@ module.exports = {
                 //  console.log("Succesful");
                 res.redirect('/admin/admin-listuser');
             }, entity, req.body.id);
-        }, req.body.id); 
+        }, req.body.id);
     },
 
     refuseArticle: (req, res, next) => {
         modelArticle.updateArticleStatusById(function(data){
             res.redirect('/admin/admin-listpost-refuse');
         }, 'refuse', req.body.id, new Date())
+    },
+
+    deleteUser: (req, res, next) => {
+        console.log("aaaaaaaaaa id = " + req.body.id111);
+        modelUser.deleteUserbyId(function(data){
+            res.redirect('/admin/admin-listuser');
+        },req.body.id111);
     },
 
     acceptArticle: (req, res, next) => {

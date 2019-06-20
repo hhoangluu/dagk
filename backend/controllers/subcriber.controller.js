@@ -9,25 +9,47 @@ var modelUser = require('../models/user.model');
 
 module.exports = {
     index: (req, res, next) => {
-        res.render('vwAccount/subcriber/subcriber');
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
+        }
+        else{
+            var per = req.user.permission;
+            if (per != 'subcriber') {
+                res.redirect('/' + per);
+            }
+            else {
+                res.render('vwAccount/subcriber/subcriber');
+            }            
+        }
     },
 
     loadItem: (req, res, next) => {
-        var item = req.params.item;
-        if( item == 'subcriber-info')
-        {
-            modelUser.InfoByUserName(function (data) {
-                console.log("username: " + data.username);
-                res.render('vwAccount/subcriber/subcriber-info', { dataUser: data });
-            }, req.user._id);
+        if(typeof req.user === 'undefined'){
+            res.redirect('/account/login');
         }
-        else if( item == 'subcriber-vip')
-        {
-            res.render('vwAccount/subcriber/subcriber-vip');
-        }
-        else
-        {
-            res.render('vwAccount/admin/error');
+        else{
+            var per = req.user.permission;
+            if (per != 'subcriber') {
+                res.redirect('/' + per);
+            }
+            else{
+                var item = req.params.item;
+                if( item == 'subcriber-info')
+                {
+                    modelUser.InfoByUserName(function (data) {
+                        console.log("username: " + data.username);
+                        res.render('vwAccount/subcriber/subcriber-info', { dataUser: data });
+                    }, req.user._id);
+                }
+                else if( item == 'subcriber-vip')
+                {
+                    res.render('vwAccount/subcriber/subcriber-vip');
+                }
+                else
+                {
+                    res.render('vwAccount/admin/error');
+                }
+            }
         }
     },
 

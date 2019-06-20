@@ -2,7 +2,7 @@
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
 <div class="Menu">
     <div class="navbarw3">
-
+    
         <div class="home" href="/home"><a href="/home" class="fa fa-home home-post">Trang chủ</a></div>
         {{#each this.categories as | item|}}
         <div class="dropdownw3">
@@ -11,52 +11,34 @@
             </button>
             <div class="dropdownw3-contentw3">
                 {{#each child  as |childitem| }}
-                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}"
-                    class="category">{{childitem.name}}</a>
+                <a href="/home/{{xoadau item.category}}/{{xoadau childitem.name}}" class="category">{{childitem.name}}</a>
                 {{/each}}
             </div>
-
+    
         </div>
         {{/each}}
+        <div class="dropdownw3">
+            <button class="dropbtn category"><a href="/home"><img style="height: 20px; width: 20px;"
+                        src="/images/account1.png" alt="photo"></a>
+            </button>
+            {{#if this.check}}
+            <div class="dropdownw3-contentw3">
+                <a href="/{{this.user.permission}}" class="category">Vào trang cá nhân</a>
+                <a href="/account/signout" class="category">Đăng xuất</a>
+            </div>
+            {{^}}
+            <div class="dropdownw3-contentw3">
+                <a href="/account/login" class="category">Đăng nhập</a>
+                <a href="/account/register" class="category">Đăng kí</a>
+            </div>
+            {{/if}}
+        </div>
         <div class="search-and-account">
             <div class="searchBar">
-                <input class="search" type="search" placeholder="Search">
+                <form action="home/search">
+                    <input name="search" class="search" type="search" placeholder="Search" type="submit">
+                </form>
             </div>
-            <div class="account">
-                <span class="psw">
-                    <a href="#">
-                        <i onclick="document.getElementById('id01').style.display='block'"><img
-                                src="/images/account1.png" alt="photo"></i>
-                    </a>
-                </span>
-                <div id="id01" class="modal-account">
-
-                    <form class="modal-content animate" action="/action_page.php">
-                        <div class="closecontainer">
-                            <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                                title="Close Modal">&times;</span>
-                        </div>
-
-                        <div class="container-account">
-                            <img src="/images/Account.png" alt="Avatar" class="avatar">
-                            <input type="text" placeholder="Tài khoản" name="uname" required>
-                            <input type="password" placeholder="Mật khẩu" name="psw" required>
-                            <button type="submit">Đăng nhập</button>
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Nhớ tài khoản
-                            </label>
-                        </div>
-
-                        <div class="container-account" style="background-color:#f1f1f1">
-                            <span class="psw">Quên <a href="#"> <i style="color: #3B5998">Tài khoản / Mật khẩu?</i>
-                                </a></span>
-                            <span class="psw">Chưa có tài khoản? <a href="#" style="color: #3B5998">Đăng
-                                    kí</a></span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
         </div>
     </div>
 

@@ -49,6 +49,17 @@ div.container {
     
 }
 
+form.addpost {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 2%;
+  
+}
+
 .column-center {
   display: flex;
   flex-direction: column;
