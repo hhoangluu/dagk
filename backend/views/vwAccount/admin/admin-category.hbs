@@ -278,10 +278,12 @@
                             <div class="info-user">
                                 <div class="info-left">
                                     <div class="boxinfo-line">
-                                        <label for="" Tên thư mục</label> <input id="{{this._id}}7" disabled="true"
-                                            type="text" value="{{this.password}}" name="name">
-                                            <input onclick="myFunction('{{this._id}}7')" type="button"
-                                                value="Chỉnh sửa">
+                                        <label for="" Tên thư mục></label>
+                                         <input type="hidden" name="catCode" value="{{xoadau this.category}}">
+                                        <input id="{{this._id}}7" disabled="true" type="text" value="{{this.password}}" name="name">
+                                        </input>
+                                        <input onclick="myFunction('{{this._id}}7')" type="button" value="Chỉnh sửa">
+                                        </input>
                                     </div>
                                 </div>
                             </div>
@@ -322,11 +324,10 @@
                                     <div class="info-user">
                                         <div class="info-left">
                                             <div class="boxinfo-line">
-                                                <label for="" Tên thư mục</label> <input id="{{this._id}}7"
-                                                    disabled="true" type="text" value="{{this.password}}" name="name">
-                                                    <input onclick="myFunction('{{this._id}}7')" type="button"
-                                                        value="Chỉnh sửa">
-                                            </div>
+                                                <label for="" Tên thư mục></label>
+                                                <input id="{{this.name}}777" disabled="true" type="text" name="name"></input>
+                                                <input type="hidden" name="childCode" value="{{xoadau this.name}}">
+                                                <input onclick="myFunction('{{this.name}}777')" type="button" value="Chỉnh sửa"> </div>
                                         </div>
                                     </div>
                                     <div class="info-user">

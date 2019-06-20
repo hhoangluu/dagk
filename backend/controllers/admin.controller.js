@@ -411,7 +411,7 @@ module.exports = {
 
     updateCategory: (req, res, next)=>{
         var nameNewCat = req.body.name;
-        var catCode = xoadau(nameNewCat);
+        var catCode = req.body.catCode;
         modelCategory.updateCatWithCode(function(data){
             res.redirect('/admin/admin-category');
         },catCode, nameNewCat)

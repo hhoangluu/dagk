@@ -150,6 +150,8 @@ module.exports = {
     },
 
     updateCatWithCode: function (res, catCode, nameNewCat) {
+        console.log("catCode = : " + catCode);
+        console.log("nameNewCat = : " + nameNewCat);
         categoriesModel.find({
             code: catCode
         }, function (err, doc) {
@@ -163,6 +165,8 @@ module.exports = {
     },
 
     updateChildWithCode: function(res, childCode, nameNewChild){
+        console.log("childCode = : " + childCode);
+        console.log("nameNewChild = : " + nameNewChild);
         categoriesModel.aggregate([{
             "$unwind": "$child"
         }, {
