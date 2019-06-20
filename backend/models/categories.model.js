@@ -149,35 +149,37 @@ module.exports = {
     },
 
     updateCatWithCode: function (res, catCode, nameNewCat) {
+        console.log("name new cat: ",nameNewCat);
+        console.log("cat code : ",catCode);
         categoriesModel.findOne({
             code: catCode
         }, function (err, doc) {
             if (err) throw err;
 
-            doc.name = nameNewCat;
+            doc.category = nameNewCat;
             doc.code = xoadau(nameNewCat);
             doc.save();
             res(0);
         })
     },
 
-    updateChildWithCode: function(res, childCode, nameNewChild){
+    updateChildWithCode: function (res, childCode, nameNewChild) {
         console.log("childCode = : " + childCode);
         console.log("nameNewChild = : " + nameNewChild);
-        categoriesModel.aggregate([{
-            "$unwind": "$child"
-        }, {
-            $match: {
+        categoriesModel.updateOne(
+            {
                 "child.code": childCode
-            }
-        }], function (err, data) {
-            console.log(data);
-            data[0].name = nameNewChild;
-            data[0].code = xoadau(nameNewChild);
-            data[0].save();
-            if (err) throw err;
-            res(data[0]);
-        })
+            },
+            {
+                $set: {
+                    'child.$.name': nameNewChild,
+                    'child.$.code': xoadau(nameNewChild)
+                }
+
+            }, function (err, data) {
+                console.log("Data khi sua", data);
+                res(0);
+            })
     },
 
     removeCatWithCode: function(res, catCode){
