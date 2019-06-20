@@ -1,0 +1,502 @@
+{{#section 'addpost'}}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+{{/section}}
+
+<div class="header" style="margin-bottom: 50px;">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">TH16News</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+<div class="container">
+
+    <div class="column-left " style="background: #F8F9FA; width: 220px">
+
+        <div class="sidebar sidebar-sticky">
+            <li class="nav-item">
+                <a class="nav-link " href="/home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Trang chủ <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Bài viết</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-approved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Đã duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-waiting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                        Chưa duyệt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listpost-refuse">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-shopping-cart">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Đã từ chối
+                    </a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Danh mục</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin/admin-category">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bar-chart-2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        Danh sách danh mục
+                    </a>
+                </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Nhân viên</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-listuser">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bar-chart-2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        Danh sách nhân viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-addaccount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-layers">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        Thêm nhân viên
+                    </a>
+                </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Tài khoản</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/admin-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file-text">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Thông tin cá nhân
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/signout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file-text">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="column-1">
+        <script>
+            function myFunction(a, b) {
+                if (document.getElementById(a).disabled == true) {
+                    document.getElementById(a).disabled = false;
+                }
+                else {
+                    document.getElementById(a).disabled = true;
+                }
+                if (document.getElementById(b).value == "Chỉnh sửa") {
+                    document.getElementById(b).value = "OK"
+                }
+                else {
+                    document.getElementById(b).tex = "Chỉnh sửa"
+                }
+            }
+        </script>
+        Thêm danh mục
+        <form action="addCategoryBase" method="post" id="11111">
+            <div class="info-right">
+                <div class="boxinfo-line">
+                    <label for="">Danh mục</label>
+                    <input id="1111" disabled="true" type="text" name="category">
+                    <input onclick="myFunction(1111)" type="button" value="Điền">
+                </div>
+            </div>
+            <div class="info-user">
+                <button type="submit">Thêm</button>
+            </div>
+        </form>
+        Thêm danh mục con
+        <form action="addCategoryChild" method="post" id="22222">
+            <div class="info-right">
+                <div class="boxinfo-line">
+                    <label for="">Danh mục</label>
+                    <input id="2222" disabled="true" type="text" name="category">
+                    <input onclick="myFunction(2222)" type="button" value="Điền">
+                </div>
+                <div class="boxinfo-line">
+                    <label for="">Danh mục con</label>
+                    <input id="3333" disabled="true" type="text" name="categoryChild">
+                    <input onclick="myFunction(3333)" type="button" value="Điền">
+                </div>
+            </div>
+            <div class="info-user">
+                <button type="submit">Thêm</button>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="column-2" style="width: 300px;">
+        <div class="form-properties" name="">Chuyên mục
+            <h6 class="">
+                {{#each this.dataPost as |cat|}}
+                <ul>
+                    <form action="deleteCategoryBase" method="post" id="{{this.category}}11" style="display: inline">
+                        <input type="hidden" name="catcode" value="{{xoadau this.category}}">
+                        <button style="background: none; width: 35px; display: inline;" type="submit" title="Xóa"
+                            name="id" onclick="alert('Danh mục {{this.category}} đã bị xóa!')">
+                            <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
+                        </button>
+                    </form>
+                    <form action="editCategoryBase" method="post" id="{{this.category}}22" style="display: inline">
+                        <button style="background: none; width: 35px; display: inline;" type="button" title="Sửa"
+                            onclick="document.getElementById('{{this._id}}').style.display='block'" name="id">
+                            <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
+                        </button>
+                        <div id="{{this._id}}" class="modal-account" style="display: none">
+                            <hr><hr><hr>
+                            <div class="closecontainer">
+                                <span onclick="document.getElementById('{{this._id}}').style.display='none';"
+                                    class="close" title="Đóng">&times;</span>
+                            </div>
+
+                            <div class="info-user">
+                                <div class="info-left">
+                                    <div class="boxinfo-line">
+                                        <label for="" Tên thư mục</label> <input id="{{this._id}}7" disabled="true"
+                                            type="text" value="{{this.password}}" name="name">
+                                            <input onclick="myFunction('{{this._id}}7')" type="button"
+                                                value="Chỉnh sửa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-user">
+                                <button type="submit">Cập nhật thông tin</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    {{this.category}}
+
+                    {{#each this.child}}
+                    <div href="#">
+                        <div class="form-check">
+
+                            <form action="deleteCategoryChild" method="post" id="{{this.name}}11"
+                                style="display: inline">
+                                <input type="hidden" name="childCode" value="{{xoadau this.name}}">
+                                <button style="background: none; width: 35px; display: inline;" type="submit"
+                                    title="Xóa" value="{{this._id}}" name="id"
+                                    onclick="alert('Danh mục {{this.name}} đã bị xóa!')">
+                                    <img style="width: 20px" src="/images/iconDelete.png" alt="photo"></img>
+                                </button>
+                            </form>
+                            <form action="editCategoryChild" method="post" id="{{this.name}}222"
+                                style="display: inline">
+                                <button style="background: none; width: 35px; display: inline;" type="button"
+                                    title="Sửa" onclick="document.getElementById('{{this.name}}').style.display='block'"
+                                    name="id">
+                                    <img style="width: 20px" src="/images/iconEdit.png" alt="photo"></img>
+                                </button>
+                                <div id="{{this.name}}" class="modal-account" style="display: none">
+                                    <hr><hr><hr>
+                                    <div class="closecontainer">
+                                        <span onclick="document.getElementById('{{this.name}}').style.display='none';"
+                                            class="close" title="Đóng">&times;</span>
+                                    </div>
+                                    <div class="info-user">
+                                        <div class="info-left">
+                                            <div class="boxinfo-line">
+                                                <label for="" Tên thư mục</label> <input id="{{this._id}}7"
+                                                    disabled="true" type="text" value="{{this.password}}" name="name">
+                                                    <input onclick="myFunction('{{this._id}}7')" type="button"
+                                                        value="Chỉnh sửa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-user">
+                                        <button type="submit">Cập nhật thông tin</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <label class="form-check-label" for="{{this.name}}">
+                                {{this.name}}
+                            </label>
+                        </div>
+
+                    </div>
+                    {{/each}}
+                </ul>
+                {{/each}}
+                <script type="text/javascript" language="javascript">
+                    $(document).ready(function () {
+                        $("form").submit(function () {
+                            // Getting the form ID
+                            var formID = $(this).attr('id');
+                            var formDetails = $('#' + formID);
+                            //  console.log(formDetails.val().datepublish);
+                            var action = $(this).attr('action');
+                            //  alert(action);
+                            if (action === "addCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/addCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "addCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/addCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "deleteCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/deleteCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "editCategoryBase") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/editCategoryBase',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "deleteCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/deleteCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                            else if (action === "editCategoryChild") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '/admin/editCategoryChild',
+                                    data: formDetails.serialize(),
+                                    success: function (data) {
+                                        // Inserting html into the result div
+                                        $('#results').html(data);
+                                    },
+                                    error: function (jqXHR, text, error) {
+                                        // Displaying if there are any errors
+                                        $('#result').html(error);
+                                    }
+                                });
+                                return false;
+                            }
+                        });
+                    });
+                </script>
+            </h6>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    // viet tieu de
+
+    $('#summernote1').summernote({
+        placeholder: 'Tiêu đề',
+        tabsize: 1,
+        height: 80,
+        toolbar: [
+
+        ]
+    });
+    $('#summernote2').summernote({
+        placeholder: 'Mô tả',
+        tabsize: 1,
+        height: 80,
+        toolbar: [
+
+        ]
+    });
+    // viet noi dung
+    $(document).ready(function () {
+        $('.summernote').summernote({
+            placeholder: 'Nội dung',
+            height: 500,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['inser', ['picture', 'link']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['misc', ['codeview', 'undo', 'redo']]
+            ]
+        });
+    });
+
+
+</script>

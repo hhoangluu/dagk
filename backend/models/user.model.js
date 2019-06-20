@@ -85,7 +85,7 @@ module.exports = {
             doc.email= entity.email,
             doc.permission= entity.permission,
             doc.category= entity.category,
-            // doc.avatar= entity.avatar, 
+            doc.datePrenium= entity.datePrenium, 
             console.log(doc);
             doc.save();
             res(0);
